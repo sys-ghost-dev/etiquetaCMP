@@ -300,7 +300,7 @@ html[data-theme="dark"] .cktr-header{background:var(--cktr-card)!important}
 </style>
 
 <style id="cktr-qr-adaptativo-v21">
-/* QR adaptativo para resumos de saldo maiores: preserva integralmente os dados. */
+/* QR compacto de requisição: somente nome do planejador e acesso ao Power Apps. */
 .label.qr-dense .label-codes,.label.qr-dense.has-location .label-codes{
   height:var(--cktr-codes-h,50%)!important;
 }
@@ -313,7 +313,7 @@ html[data-theme="dark"] .cktr-header{background:var(--cktr-card)!important}
 </style>
 </head>
 <body>
-<header class="cktr-header"><div class="cktr-brand"><div class="cktr-wordmark" aria-label="CKTR Serviços"><strong>CKTR</strong><small>SERVIÇOS</small></div><div class="cktr-brand-name"><strong><span>CENTRAL DE ETIQUETAS</span></strong><small>Gestão de identificação e impressão · Desenvolvido por Antonio</small></div></div><div class="cktr-header-right"><span class="cktr-online"><i></i> VERSÃO 2.1v</span><div class="theme-control"><label for="tema">Tema</label><select id="tema" aria-label="Aparência do site"><option value="light">Claro</option><option value="dark">Escuro</option><option value="system">Sistema</option></select></div></div></header>
+<header class="cktr-header"><div class="cktr-brand"><div class="cktr-wordmark" aria-label="CKTR Serviços"><strong>CKTR</strong><small>SERVIÇOS</small></div><div class="cktr-brand-name"><strong><span>CENTRAL DE ETIQUETAS</span></strong><small>Gestão de identificação e impressão · Desenvolvido por Antonio</small></div></div><div class="cktr-header-right"><span class="cktr-online"><i></i> VERSÃO 2.4</span><div class="theme-control"><label for="tema">Tema</label><select id="tema" aria-label="Aparência do site"><option value="light">Claro</option><option value="dark">Escuro</option><option value="system">Sistema</option></select></div></div></header>
 <main class="cktr-layout"><aside class="cktr-sidebar"><div class="sidebar-title"><span class="sidebar-kicker">CENTRAL DE CONTROLE</span><h2>Configurações</h2><p>Prepare o lote, ajuste as dimensões e envie para impressão.</p></div>
   <div class="section-heading"><div><span class="section-kicker">01 / CONFIGURAÇÃO</span><h2>Preparar impressão</h2></div><span class="section-note">Importação e exportação de lote</span></div>
   <section class="panel" aria-label="Planilha e impressão">
@@ -327,7 +327,7 @@ html[data-theme="dark"] .cktr-header{background:var(--cktr-card)!important}
       <div class="print-settings"><label for="papel">Formato de impressão</label><select id="papel"><option value="90x90">Etiqueta 90 × 90 mm (padrão)</option><option value="70x70">Etiqueta 70 × 70 mm</option><option value="100x100">Etiqueta 100 × 100 mm</option><option value="a4p">A4 · Retrato (210 × 297 mm)</option><option value="a4l">A4 · Paisagem (297 × 210 mm)</option><option value="a3p">A3 · Retrato (297 × 420 mm)</option><option value="a3l">A3 · Paisagem (420 × 297 mm)</option><option value="custom">Personalizado</option></select><div class="dimensions" aria-label="Medidas da etiqueta"><label>Largura (mm)<input type="number" id="largura" value="90" min="30" max="420" step="0.1" inputmode="decimal"></label><label>Altura (mm)<input type="number" id="altura" value="90" min="30" max="420" step="0.1" inputmode="decimal"></label></div><div class="setting-help" id="paper-help">Para etiquetas térmicas, configure o mesmo tamanho no driver da impressora.</div></div></div><p class="hint">Impressão: escala 100%, margens zero, sem cabeçalhos e rodapés. A4/A3 exigem impressora compatível.</p>
     <div id="mensagem" class="message" role="status" aria-live="polite" hidden></div>
   </section>
-  </aside><section class="cktr-content"><div class="workspace-top"><div><span class="sidebar-kicker">PAINEL DE PRODUÇÃO</span><h1>Prévia de etiquetas</h1><p>Confira os materiais recebidos pelo Power Apps ou importados por CSV. Cada QR Code abre a ficha digital do item.</p></div><div class="workspace-stats"><div><span>ETIQUETAS</span><strong id="metric-total">00</strong></div><div><span>MATERIAIS</span><strong id="metric-items">00</strong></div><div><span>FORMATO</span><strong id="metric-size">90 × 90</strong></div></div></div>
+  </aside><section class="cktr-content"><div class="workspace-top"><div><span class="sidebar-kicker">PAINEL DE PRODUÇÃO</span><h1>Prévia de etiquetas</h1><p>Confira os materiais recebidos pelo Power Apps ou importados por CSV. Cada QR Code mostra o planejador responsável e o acesso ao Power Apps.</p></div><div class="workspace-stats"><div><span>ETIQUETAS</span><strong id="metric-total">00</strong></div><div><span>MATERIAIS</span><strong id="metric-items">00</strong></div><div><span>FORMATO</span><strong id="metric-size">90 × 90</strong></div></div></div>
   <div class="results-bar"><div><span class="section-kicker">02 / CONFERÊNCIA</span><h2>Prévia do lote</h2></div><span id="total" class="total-chip" aria-live="polite">0 etiquetas</span></div>
   <div id="vazio" class="empty"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h10l8 8-9 9-9-9z"/><circle cx="8" cy="9" r="1.35"/></svg><p>Importe um CSV ou envie materiais pelo Power Apps para ver as etiquetas. A tabela de saldos é enviada apenas pelo Power Apps.</p></div>
   <div id="previa" class="preview" hidden><div class="labels" id="etiquetas"></div></div>
@@ -1721,52 +1721,46 @@ function resumoLegado(linhas){
   }
   return normalizarResumo({SaldoTotal:total,QuantidadeRegistros:linhas.length,Requisicoes:req,Planejadores:plan,Classificacoes:classes});
 }
+// Compatível com exportação antiga, CSV e o novo lote compacto v4.
+function nomesPlanejadores(entrada){
+  const nomes=[];
+  const adicionar=v=>{
+    if(v===null||v===undefined)return;
+    if(Array.isArray(v)){
+      for(const x of v){
+        // Na versão antiga o planejador vinha como [Nome, Gerencia].
+        if(Array.isArray(x))adicionar(x[0]);else adicionar(x);
+      }
+    }else if(typeof v==='object')adicionar(v.Nome??v.nome??v.Value??v.Título??v.PLANEJADOR);
+    else for(const parte of String(v).split(/\s*\|\s*/))if(parte.trim())nomes.push(parte.trim());
+  };
+  adicionar(entrada);
+  return unico(nomes).join(' | ');
+}
 function normalize(o){
   const recebido=o.ResumoSaldo??o.RESUMO_SALDO??o.Resumo??o.ResumoSaldos;
   const linhas=o.Saldos??o.SALDOS??o.LinhasSaldo??o.SaldoItens;
+  const resumo=recebido?normalizarResumo(recebido):resumoLegado(linhas);
   return {
-    ID:textoCampo(o.ID??o.id),
-    CodigoSAP:textoCampo(o.CodigoSAP??o.CODIGO_SAP??o.sap),
-    TipoCodigo:textoCampo(o.TipoCodigo??o.TIPO_CODIGO??'SAP').toUpperCase()==='PN'?'PN':'SAP',
-    Descricao:textoCampo(o.Descricao??o.DESCRICAO??o.descricao),
-    Localizacao:textoCampo(o.Localizacao??o.LOCALIZACAO??o.localizacao),
-    ResumoSaldo:recebido?normalizarResumo(recebido):resumoLegado(linhas),
-    ID_AREA:textoCampo(o.ID_AREA??1),
-    QuantidadeEtiquetas:Math.min(100,Math.max(1,Number(o.QuantidadeEtiquetas??o.QUANTIDADE??1)||1))
+    ID:textoCampo(o.i??o.ID??o.id),
+    CodigoSAP:textoCampo(o.c??o.CodigoSAP??o.CODIGO_SAP??o.sap),
+    TipoCodigo:textoCampo(o.t??o.TipoCodigo??o.TIPO_CODIGO??'SAP').toUpperCase()==='PN'?'PN':'SAP',
+    Descricao:textoCampo(o.d??o.Descricao??o.DESCRICAO??o.descricao),
+    Localizacao:textoCampo(o.l??o.Localizacao??o.LOCALIZACAO??o.localizacao),
+    // O QR usa SOMENTE o nome do planejador; nenhum saldo ou código é serializado nele.
+    Planejadores:nomesPlanejadores(o.p??o.Planejadores??o.PLANEJADORES??o.Planejador??o.PLANEJADOR??resumo?.planejadores??[]),
+    ID_AREA:textoCampo(o.a??o.ID_AREA??1),
+    QuantidadeEtiquetas:Math.min(100,Math.max(1,Number(o.q??o.QuantidadeEtiquetas??o.QUANTIDADE??1)||1))
   };
 }
 
-// QR público: dados são uma fotografia do saldo na data da exportação,
-// não uma consulta em tempo real. Publicar apenas dados corporativos autorizados.
+// QR enxuto: contém somente o endereço público da página CKTR e o nome do planejador.
+// O link do Power Apps fica FIXO em material.html; não é repetido em cada QR.
 const MATERIAL_PAGE='https://sys-ghost-dev.github.io/etiquetaCMP/material.html';
-function base64Url(bytes){
-  let str='';
-  for(let i=0;i<bytes.length;i+=8192)str+=String.fromCharCode(...bytes.subarray(i,i+8192));
-  return btoa(str).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
-}
-async function codificarFicha(obj){
-  const json=JSON.stringify(obj);
-  const url=new URL(MATERIAL_PAGE);
-  if(typeof CompressionStream==='function'){
-    const fluxo=new Blob([json],{type:'application/json'}).stream().pipeThrough(new CompressionStream('deflate'));
-    url.searchParams.set('z',base64Url(new Uint8Array(await new Response(fluxo).arrayBuffer())));
-  }else{
-    url.searchParams.set('dados',json);
-  }
-  return url.href;
-}
 async function linkFicha(item){
-  const avisos=[];
-  const base={v:3,i:item.ID,c:item.CodigoSAP,t:item.TipoCodigo,d:item.Descricao,l:item.Localizacao};
-  if(item.ResumoSaldo){
-    const r=item.ResumoSaldo;
-    // Formato posicional reduz o QR sem eliminar valores.
-    base.r=[r.total,r.registros,r.requisicoes,r.planejadores,r.classificacoes];
-    base.a=new Date().toISOString();
-  }else avisos.push('O Power Apps ainda não enviou o resumo de saldo. Atualize o OnSelect do botão de exportação.');
-  const url=await codificarFicha(base);
-  if(url.length>550)avisos.push('QR com '+url.length+' caracteres: sem bloqueio artificial, mas a leitura pode falhar em etiquetas pequenas. Faça um teste na Zebra antes de imprimir em lote.');
-  return {url,avisos};
+  const url=new URL(MATERIAL_PAGE);
+  url.hash='p='+encodeURIComponent(item.Planejadores||'');
+  return {url:url.href,avisos:[]};
 }
 
 // O tamanho físico do QR é ajustado pelo número real de módulos, não apenas pela URL.
@@ -1824,7 +1818,7 @@ async function render(){
   labels.replaceChildren();
   $('imprimir').disabled=true;
   document.body.classList.remove('ready');
-  msg('Preparando QR Codes das fichas digitais...');
+  msg('Preparando QR Codes de requisição...');
   let count=0;
   const avisos=[];
   try{
@@ -1852,7 +1846,7 @@ async function render(){
     $('metric-items').textContent=String(items.length).padStart(2,'0');
     $('imprimir').disabled=!count;
     document.body.classList.toggle('ready',!!count);
-    const resumo=count+' etiqueta(s) prontas. QR abre a ficha digital pelo celular.';
+    const resumo=count+' etiqueta(s) prontas. QR mostra o planejador e o acesso ao Power Apps.';
     msg(avisos.length?resumo+' AVISOS: '+avisos.slice(0,3).join(' | ')+(avisos.length>3?' (e outros)':''):resumo,!!avisos.length);
   }catch(e){
     if(atual!==renderId)return;
@@ -1866,9 +1860,9 @@ async function render(){
 }
 
 function download(name,content,type){const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);}
-function csv(){const rows=[['ID','CODIGO_SAP','TIPO_CODIGO','DESCRICAO','ID_AREA','QUANTIDADE','LOCALIZACAO'],...items.map(i=>[i.ID,i.CodigoSAP,i.TipoCodigo,i.Descricao,i.ID_AREA,i.QuantidadeEtiquetas,i.Localizacao])];return '\uFEFF'+rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\r\n');}
+function csv(){const rows=[['ID','CODIGO_SAP','TIPO_CODIGO','DESCRICAO','ID_AREA','QUANTIDADE','LOCALIZACAO','PLANEJADORES'],...items.map(i=>[i.ID,i.CodigoSAP,i.TipoCodigo,i.Descricao,i.ID_AREA,i.QuantidadeEtiquetas,i.Localizacao,i.Planejadores])];return '\uFEFF'+rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\r\n');}
 function parseCsv(text){const out=[],rows=[];let row=[],cell='',quoted=false;for(let i=0;i<text.length;i++){const c=text[i];if(c==='"'){if(quoted&&text[i+1]==='"'){cell+='"';i++;}else quoted=!quoted;}else if(c===';'&&!quoted){row.push(cell);cell='';}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some(x=>x.trim()))rows.push(row);row=[];cell='';}else cell+=c;}row.push(cell);if(row.some(x=>x.trim()))rows.push(row);const headers=(rows.shift()||[]).map(x=>x.replace(/^\uFEFF/,'').trim().toUpperCase());for(const r of rows){const o={};headers.forEach((h,i)=>o[h]=r[i]||'');out.push(normalize(o));}return out;}
-$('exportar').textContent='Baixar planilha CSV';$('exportar').addEventListener('click',()=>download('Etiquetas-CKTR.csv',items.length?csv():'\uFEFFID;CODIGO_SAP;TIPO_CODIGO;DESCRICAO;ID_AREA;QUANTIDADE;LOCALIZACAO\r\n','text/csv;charset=utf-8'));
+$('exportar').textContent='Baixar planilha CSV';$('exportar').addEventListener('click',()=>download('Etiquetas-CKTR.csv',items.length?csv():'\uFEFFID;CODIGO_SAP;TIPO_CODIGO;DESCRICAO;ID_AREA;QUANTIDADE;LOCALIZACAO;PLANEJADORES\r\n','text/csv;charset=utf-8'));
 $('importar').textContent='Importar planilha CSV';input.setAttribute('accept','.csv,text/csv');$('importar').addEventListener('click',()=>input.click());input.addEventListener('change',async()=>{try{const file=input.files[0];if(!file)return;items=parseCsv(await file.text());if(!items.length)throw Error('Arquivo sem materiais.');await render();}catch(e){msg(e.message,true);}finally{input.value='';}});
 $('largura').value=90;$('altura').value=90;$('largura').min=30;$('altura').min=30;
 function sizing(){const w=Number($('largura').value),h=Number($('altura').value);if(!Number.isFinite(w)||!Number.isFinite(h)||w<30||w>420||h<30||h>420)return false;document.documentElement.style.setProperty('--label-w',w+'mm');document.documentElement.style.setProperty('--label-h',h+'mm');const scale=Math.max(.78,Math.min(3.1,Math.min(w/90,h/90)));document.documentElement.style.setProperty('--label-font-scale',scale.toFixed(3));document.documentElement.style.setProperty('--label-qr-size',Math.min(85,Math.max(20,Math.min(w,h)*.36)).toFixed(1)+'mm');ajustarQRs();$('page-size').textContent=`@page{size:${w}mm ${h}mm;margin:0}`;$('metric-size').textContent=`${w} × ${h}`;ajustarTodasDescricoes();return true;}
@@ -1942,7 +1936,19 @@ function imprimirSomenteEtiquetas(){
   msg(`Impressão preparada: ${cards.length} etiqueta(s) de ${w} × ${h} mm. ${qtdQRsDeRisco ? 'ATENÇÃO: '+qtdQRsDeRisco+' QR(s) com densidade acima da recomendação para esta etiqueta; a leitura pelo celular não é garantida. Faça um teste antes de imprimir em lote. ' : ''}Confira papel e orientação na janela da impressora.`,qtdQRsDeRisco>0);
 }
 $('imprimir').addEventListener('click',imprimirSomenteEtiquetas);
-try{const raw=new URLSearchParams(location.search).get('dados');if(raw){const data=JSON.parse(raw);if(!Array.isArray(data))throw Error('Dados inválidos.');items=data.map(normalize).filter(x=>x.ID);render().catch(e=>msg(e.message,true));}else msg('Importe um CSV ou abra este site pelo Power Apps.');}catch(e){msg('Não foi possível receber os dados do Power Apps: '+e.message,true);}sizing();
+try{
+  // O fragmento #dados= não é enviado ao servidor do GitHub, evitando o erro HTTP 414.
+  // Continua aceitando o formato antigo ?dados= e a importação CSV.
+  const raw=new URLSearchParams(location.hash.replace(/^#/,'')).get('dados')
+    ??new URLSearchParams(location.search).get('dados');
+  if(raw){
+    const payload=JSON.parse(raw);
+    const data=Array.isArray(payload)?payload:(payload?.itens??payload?.Itens);
+    if(!Array.isArray(data))throw Error('O lote não contém uma lista válida de materiais.');
+    items=data.map(normalize).filter(x=>x.ID);
+    render().catch(e=>msg(e.message,true));
+  }else msg('Importe um CSV ou abra este site pelo Power Apps.');
+}catch(e){msg('Não foi possível receber os dados do Power Apps: '+e.message,true);}sizing();
 })();
 </script>
 </body>
