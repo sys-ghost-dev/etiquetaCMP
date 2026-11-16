@@ -3,369 +3,282 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#075c52">
-
-<title>CKTR | Gestão e Auditoria</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#075d53">
+<title>CKTR | Gestão e Auditoria 3.0</title>
 
 <style>
-:root{
-    font-family:"Segoe UI",Arial,sans-serif;
-    color:#e8f8ee;
-    background:#091e1b;
+:root {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #ebf8f1;
+  background: #081c19;
+  font-size: 14px;
 }
-
-*{
-    box-sizing:border-box;
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; }
+button, input, select, textarea { font: inherit; }
+button {
+  background: #153d33;
+  border: 1px solid #376958;
+  color: #ecf8f1;
+  border-radius: 9px;
+  padding: 10px 13px;
+  cursor: pointer;
+  font-weight: 700;
 }
-
-body{
-    margin:0;
-    min-height:100vh;
+button:hover { border-color: #76d6a7; }
+button:disabled { opacity: .4; cursor: not-allowed; }
+.primary, .active {
+  background: #087b65;
+  border-color: #46cfa0;
 }
-
-button,textarea,input,select{
-    font:inherit;
+header {
+  background: linear-gradient(120deg, #075d53, #0b332d);
+  border-bottom: 1px solid #327263;
+  padding: 22px;
 }
-
-button{
-    border:1px solid #39725b;
-    background:#173d34;
-    color:#e8f8ee;
-    border-radius:9px;
-    padding:10px 13px;
-    font-size:12px;
-    font-weight:750;
-    cursor:pointer;
+.shell { max-width: 1480px; margin: auto; }
+.brand {
+  color: #8ee1c0;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 800;
 }
-
-button:hover{
-    border-color:#6addae;
+h1 { font-size: clamp(20px, 2.6vw, 29px); margin: 7px 0; }
+h2 { font-size: 17px; margin: 0 0 12px; }
+h3 { font-size: 14px; margin: 0 0 9px; }
+p { line-height: 1.6; }
+small, .muted { font-size: 12px; color: #a6c8b7; }
+main { padding: 20px; }
+.panel, .metric {
+  background: #102d26;
+  border: 1px solid #315b4d;
+  border-radius: 13px;
 }
-
-button:disabled{
-    opacity:.4;
-    cursor:not-allowed;
+.panel { padding: 18px; margin-bottom: 15px; }
+.metric { padding: 17px; min-width: 0; }
+.metric b {
+  display: block;
+  font-size: 27px;
+  margin-top: 10px;
+  overflow-wrap: anywhere;
 }
-
-button.active,button.primary{
-    background:#0d806a;
-    border-color:#36c79a;
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 11px;
+  margin: 14px 0;
 }
-
-header{
-    padding:22px;
-    background:linear-gradient(115deg,#075c52,#0a3c34);
-    border-bottom:1px solid #39776b;
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
 }
-
-.shell{
-    max-width:1380px;
-    margin:auto;
+.row, .toolbar, .head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
-
-.brand{
-    font-size:11px;
-    letter-spacing:2px;
-    font-weight:800;
-    color:#9ce5c7;
+.head { justify-content: space-between; margin-bottom: 12px; }
+.head h2 { margin: 0; }
+.toolbar { margin: 10px 0 15px; }
+input, select, textarea {
+  background: #163a31;
+  border: 1px solid #366451;
+  border-radius: 8px;
+  color: white;
+  padding: 10px;
 }
-
-h1{
-    font-size:clamp(20px,3vw,28px);
-    margin:8px 0;
+input[type="search"] { flex: 1; min-width: 180px; }
+textarea {
+  width: 100%;
+  min-height: 94px;
+  resize: vertical;
+  line-height: 1.55;
+  font-size: 12px;
 }
-
-h2{
-    font-size:16px;
-    margin:0 0 12px;
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0;
 }
-
-p{
-    line-height:1.55;
+.warnbox {
+  padding: 12px;
+  border: 1px solid #866e3c;
+  background: #3b3220;
+  border-radius: 10px;
+  color: #f4dcaa;
+  font-size: 12px;
+  line-height: 1.65;
+  margin-bottom: 16px;
 }
-
-.muted,small{
-    color:#a4c3b4;
-    font-size:12px;
+.okbox {
+  border-color: #367561;
+  background: #10392d;
+  color: #c6edcf;
 }
-
-main{
-    padding:20px;
+.view[hidden], #toast[hidden], #entry[hidden] {
+  display: none !important;
 }
-
-.panel,.metric{
-    background:#102f28;
-    border:1px solid #315d4e;
-    border-radius:13px;
+.tablewrap {
+  overflow-x: auto;
+  border: 1px solid #31574a;
+  border-radius: 10px;
 }
-
-.panel{
-    padding:18px;
-    margin-bottom:16px;
+table {
+  border-collapse: collapse;
+  min-width: 840px;
+  width: 100%;
 }
-
-.metric{
-    padding:17px;
-    min-width:0;
+th, td {
+  font-size: 12px;
+  text-align: left;
+  padding: 10px 11px;
+  vertical-align: top;
+  border-bottom: 1px solid #2b4c40;
+  overflow-wrap: anywhere;
 }
-
-.metric b{
-    display:block;
-    font-size:29px;
-    margin:9px 0;
-    overflow-wrap:anywhere;
+th {
+  background: #194237;
+  color: #b8e3cc;
+  font-size: 10px;
+  text-transform: uppercase;
 }
-
-.metric small{
-    display:block;
+tr:hover td { background: #174034; }
+tbody tr[data-index] { cursor: pointer; }
+.tag {
+  display: inline-block;
+  border-radius: 6px;
+  background: #255743;
+  color: #d4f1da;
+  font-size: 11px;
+  padding: 4px 7px;
+  white-space: nowrap;
 }
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(4,minmax(0,1fr));
-    gap:12px;
-    margin-bottom:16px;
+.tag.orange { background: #594524; color: #ffdea0; }
+.tag.red { background: #5d2e32; color: #ffb7b7; }
+.empty {
+  padding: 23px;
+  text-align: center;
+  color: #b2cebd;
+  font-size: 12px;
 }
-
-.two{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
+.pager {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
 }
-
-.row,.tools,.heading{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    flex-wrap:wrap;
+.record {
+  font-size: 23px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
 }
-
-.heading{
-    justify-content:space-between;
-    margin-bottom:14px;
+.break {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
-
-.heading h2{
-    margin:0;
+.bars { display: grid; gap: 9px; }
+.barline {
+  display: grid;
+  grid-template-columns: minmax(95px, 1fr) minmax(110px, 3fr) 60px;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
 }
-
-textarea,input,select{
-    border:1px solid #376456;
-    border-radius:9px;
-    background:#153b32;
-    color:white;
-    padding:10px;
+.bar {
+  height: 10px;
+  border-radius: 9px;
+  background: #214538;
+  overflow: hidden;
 }
-
-textarea{
-    width:100%;
-    min-height:100px;
-    resize:vertical;
-    font-size:12px;
-    line-height:1.5;
+.bar > span {
+  display: block;
+  height: 100%;
+  background: #57c79e;
+  border-radius: 9px;
 }
-
-input[type=search]{
-    flex:1;
-    min-width:190px;
+.issues { display: grid; gap: 9px; }
+.issue {
+  border: 1px solid #446453;
+  background: #183a30;
+  padding: 11px;
+  border-radius: 9px;
+  font-size: 12px;
 }
-
-.tools{
-    margin:12px 0;
+.issue strong { color: #f4d79a; }
+.issue p { margin: 5px 0 0; color: #c8ded1; }
+#toast {
+  position: fixed;
+  z-index: 100;
+  top: 16px;
+  right: 16px;
+  width: min(410px, calc(100% - 32px));
+  padding: 14px 42px 12px 16px;
+  background: #123e34;
+  border: 1px solid #72d8aa;
+  border-left: 5px solid #72d8aa;
+  border-radius: 11px;
+  box-shadow: 0 15px 40px #0009;
 }
-
-.hint{
-    font-size:12px;
-    color:#b9d3c4;
-    margin-top:9px;
-    line-height:1.6;
+#toast.error { border-color: #ff8290; }
+#toast.warning { border-color: #e9c572; }
+#closeToast {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  background: none;
+  border: 0;
+  font-size: 22px;
 }
-
-.note{
-    padding:12px 14px;
-    border-radius:10px;
-    background:#3b3523;
-    border:1px solid #78643a;
-    color:#f4dca7;
-    font-size:12px;
-    line-height:1.6;
-    margin:0 0 16px;
+#toast p {
+  font-size: 12px;
+  margin: 7px 0 0;
+  color: #d8ebe1;
 }
-
-nav{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-    margin:0 0 16px;
+#entry {
+  position: fixed;
+  z-index: 60;
+  inset: 0;
+  background: #000a;
+  display: grid;
+  place-items: center;
+  padding: 15px;
 }
-
-.view[hidden],#toast[hidden]{
-    display:none!important;
+#entry .panel {
+  width: min(850px, 100%);
+  max-height: 85vh;
+  overflow: auto;
+  box-shadow: 0 30px 75px #000b;
 }
-
-.tablewrap{
-    overflow:auto;
-    border:1px solid #315d4e;
-    border-radius:10px;
+.kv {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid #2d4d40;
+  font-size: 12px;
 }
-
-table{
-    width:100%;
-    border-collapse:collapse;
-    min-width:760px;
+.kv > strong { color: #9ddcbc; }
+footer {
+  text-align: center;
+  padding: 28px;
+  color: #88ad98;
+  font-size: 11px;
 }
-
-th,td{
-    padding:11px 12px;
-    border-bottom:1px solid #2b5144;
-    text-align:left;
-    vertical-align:top;
-    font-size:12px;
-    overflow-wrap:anywhere;
+@media(max-width:1050px) {
+  .metrics { grid-template-columns: repeat(3, 1fr); }
 }
-
-th{
-    background:#194237;
-    color:#a5dfc0;
-    font-size:10px;
-    text-transform:uppercase;
-}
-
-tr:hover td{
-    background:#1a4035;
-}
-
-.tag{
-    display:inline-block;
-    border-radius:6px;
-    padding:5px 8px;
-    background:#285c49;
-    color:#c2e5d2;
-    font-size:11px;
-}
-
-.warn{
-    background:#604923;
-    color:#ffdfa1;
-}
-
-.empty{
-    text-align:center;
-    padding:26px;
-    color:#a6c5b4;
-    font-size:12px;
-}
-
-.value{
-    font-size:23px;
-    font-weight:800;
-    margin:12px 0;
-    overflow-wrap:anywhere;
-}
-
-.paging{
-    display:flex;
-    gap:8px;
-    justify-content:flex-end;
-    align-items:center;
-    margin-top:14px;
-    flex-wrap:wrap;
-}
-
-.doubles{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-}
-
-.dup{
-    padding:13px;
-    border:1px solid #3b6452;
-    border-radius:10px;
-    background:#17392f;
-}
-
-.dup strong{
-    overflow-wrap:anywhere;
-}
-
-.dup p{
-    font-size:12px;
-    color:#abd0b8;
-    overflow-wrap:anywhere;
-}
-
-#toast{
-    position:fixed;
-    z-index:20;
-    right:16px;
-    top:16px;
-    width:min(385px,calc(100% - 32px));
-    padding:15px 42px 15px 16px;
-    background:#13463a;
-    border:1px solid #5ec99c;
-    border-left:5px solid #6be1a6;
-    border-radius:12px;
-    box-shadow:0 14px 40px #0009;
-}
-
-#toast.error{
-    border-color:#ff8585;
-}
-
-#toast.warn{
-    border-color:#f0c36b;
-}
-
-#toast strong{
-    font-size:13px;
-}
-
-#toast p{
-    font-size:12px;
-    color:#daf1e5;
-    margin:7px 0 0;
-}
-
-#closeToast{
-    position:absolute;
-    top:5px;
-    right:8px;
-    border:0;
-    background:none;
-    font-size:23px;
-}
-
-footer{
-    text-align:center;
-    padding:25px;
-    color:#80aa97;
-    font-size:11px;
-}
-
-@media(max-width:850px){
-    .grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .two,.doubles{
-        grid-template-columns:1fr;
-    }
-}
-
-@media(max-width:480px){
-    main{
-        padding:12px;
-    }
-
-    .panel{
-        padding:13px;
-    }
-
-    .metric b{
-        font-size:23px;
-    }
+@media(max-width:720px) {
+  main { padding: 12px; }
+  .metrics { grid-template-columns: repeat(2, 1fr); }
+  .grid2 { grid-template-columns: 1fr; }
+  .panel { padding: 13px; }
+  .kv { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -373,1372 +286,1762 @@ footer{
 <body>
 
 <header>
-    <div class="shell">
-        <div class="brand">CKTR SERVIÇOS / GMP</div>
-
-        <h1>Gestão e Auditoria de Almoxarifado</h1>
-
-        <small>
-            Integridade cadastral · Histórico · Códigos repetidos
-        </small>
-    </div>
+  <div class="shell">
+    <div class="brand">CKTR SERVIÇOS / GMP</div>
+    <h1>Gestão e Auditoria de Almoxarifado</h1>
+    <small>
+      Cadastro · Requisições · Entradas · Saídas ·
+      Conciliação · Integridade
+    </small>
+  </div>
 </header>
 
 <main class="shell">
 
-<section class="panel" aria-label="Transferência do Power Apps">
+<section class="panel">
+  <div class="head">
+    <h2>Receber auditoria do Power Apps</h2>
+    <span class="tag">CKTR-AUD-2</span>
+  </div>
 
-    <div class="heading">
-        <h2>Receber auditoria do Power Apps</h2>
-        <span class="tag">SEM IMPORTAÇÃO DE ARQUIVO</span>
-    </div>
+  <textarea id="pacote" spellcheck="false"
+    placeholder="Cole o pacote copiado pelo botão GERAR AUDITORIA (Ctrl+V)..."></textarea>
 
-    <textarea
-        id="pacote"
-        spellcheck="false"
-        placeholder="Cole aqui com Ctrl+V o pacote CKTR-AUD-1: copiado no Power Apps..."
-    ></textarea>
+  <div class="toolbar">
+    <button class="primary" id="processar">
+      PROCESSAR AUDITORIA
+    </button>
+    <button id="colar">COLAR DO CLIPBOARD</button>
+    <button id="limpar">LIMPAR SESSÃO</button>
+  </div>
 
-    <div class="tools">
-        <button class="primary" id="processar">
-            PROCESSAR AUDITORIA
-        </button>
-
-        <button id="colar">
-            COLAR DO CLIPBOARD
-        </button>
-
-        <button id="limpar">
-            LIMPAR DADOS
-        </button>
-    </div>
-
-    <div class="hint" id="estado">
-        Nenhum pacote processado. Ao colar um pacote válido
-        com Ctrl+V, a auditoria será iniciada automaticamente.
-    </div>
-
+  <small id="estado">
+    Aguardando pacote. O Ctrl+V inicia a análise automaticamente.
+  </small>
 </section>
 
-<div class="note">
-    Os dados são analisados nesta aba do navegador, sem envio
-    do pacote pelo código desta página.
-
-    <b>CKTR-AUD-1 é codificação de texto, não criptografia.</b>
-
-    Não cole pacotes em páginas não autorizadas. A análise
-    cobre apenas os cadastros incluídos no pacote; ela não
-    comprova a integridade da lista inteira do SharePoint.
+<div id="scope" class="warnbox">
+  Nenhum dado recebido. O processamento ocorre na memória
+  desta aba. Não cole pacotes em sites não autorizados.
 </div>
 
-<nav aria-label="Navegação">
-    <button data-view="resumo" class="active">
-        VISÃO GERAL
-    </button>
+<div class="toolbar">
+  <label>
+    ÁREA
+    <select id="globalArea">
+      <option value="">TODAS AS ÁREAS</option>
+    </select>
+  </label>
 
-    <button data-view="historico">
-        HISTÓRICO
-    </button>
+  <input id="busca" type="search"
+    placeholder="Pesquisar código, ID, documento, descrição ou nome">
 
-    <button data-view="duplicados">
-        DUPLICIDADES
-    </button>
+  <button id="exportar">EXPORTAR ABA CSV</button>
+</div>
 
-    <button data-view="pendencias">
-        PENDÊNCIAS
-    </button>
+<div class="metrics">
+  <div class="metric">
+    <small>CADASTROS</small>
+    <b id="kcad">—</b>
+  </div>
+
+  <div class="metric">
+    <small>REQUISIÇÕES</small>
+    <b id="kreq">—</b>
+  </div>
+
+  <div class="metric">
+    <small>ENTRADAS · QTD</small>
+    <b id="kentrada">—</b>
+  </div>
+
+  <div class="metric">
+    <small>SAÍDAS · QTD</small>
+    <b id="ksaida">—</b>
+  </div>
+
+  <div class="metric">
+    <small>ALERTAS DE INTEGRIDADE</small>
+    <b id="kalertas">—</b>
+  </div>
+</div>
+
+<nav>
+  <button data-view="geral" class="active">VISÃO GERAL</button>
+  <button data-view="cadastro">CADASTROS</button>
+  <button data-view="requisicoes">REQUISIÇÕES</button>
+  <button data-view="itens">ITENS REQUISITADOS</button>
+  <button data-view="entrada">ENTRADAS</button>
+  <button data-view="saida">SAÍDAS</button>
+  <button data-view="conciliacao">CONCILIAÇÃO</button>
+  <button data-view="alertas">AUDITORIA</button>
 </nav>
 
-<div class="grid">
+<!-- ========================================
+     VISÃO GERAL
+======================================== -->
 
-    <div class="metric">
-        <small>MATERIAIS ANALISADOS</small>
-        <b id="total">—</b>
-    </div>
+<section class="view" id="v-geral">
 
-    <div class="metric">
-        <small>GRUPOS SAP REPETIDOS</small>
-        <b id="sapDup">—</b>
-    </div>
-
-    <div class="metric">
-        <small>GRUPOS PN REPETIDOS</small>
-        <b id="pnDup">—</b>
-    </div>
-
-    <div class="metric">
-        <small>CADASTROS COM PENDÊNCIAS</small>
-        <b id="faltas">—</b>
-    </div>
-
-</div>
-
-<!-- VISÃO GERAL -->
-
-<section id="v-resumo" class="view">
-
-    <div class="two">
-
-        <article class="panel">
-
-            <div class="heading">
-                <h2>Último material cadastrado</h2>
-                <span class="tag">MAIOR ID DO PACOTE</span>
-            </div>
-
-            <div id="ultimo" class="empty">
-                Aguardando auditoria.
-            </div>
-
-        </article>
-
-        <article class="panel">
-            <h2>Diagnóstico da base</h2>
-
-            <div id="diagnostico" class="muted">
-                Nenhuma base carregada.
-            </div>
-        </article>
-
-    </div>
+  <div class="grid2">
 
     <article class="panel">
-
-        <div class="heading">
-            <h2>10 cadastros mais recentes</h2>
-
-            <button data-view="historico">
-                HISTÓRICO COMPLETO
-            </button>
-        </div>
-
-        <div class="tablewrap">
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>ÁREA</th>
-                        <th>SAP</th>
-                        <th>PN</th>
-                        <th>DESCRIÇÃO</th>
-                        <th>CRIADO</th>
-                    </tr>
-                </thead>
-
-                <tbody id="recentes"></tbody>
-            </table>
-        </div>
-
+      <h2>Último item cadastrado no pacote</h2>
+      <div id="ultimo" class="empty">Aguardando dados.</div>
     </article>
+
+    <article class="panel">
+      <h2>Volume de movimentações por mês</h2>
+      <div id="meses" class="bars">
+        <div class="empty">Aguardando dados.</div>
+      </div>
+    </article>
+
+  </div>
+
+  <article class="panel">
+    <h2>Resumo operacional</h2>
+    <div id="diagnostico" class="muted">
+      Aguardando auditoria.
+    </div>
+  </article>
+
 </section>
 
-<!-- HISTÓRICO -->
+<!-- ========================================
+     TABELAS DINÂMICAS
+======================================== -->
 
-<section id="v-historico" class="view" hidden>
+<section class="view" id="v-cadastro" hidden></section>
+<section class="view" id="v-requisicoes" hidden></section>
+<section class="view" id="v-itens" hidden></section>
+<section class="view" id="v-entrada" hidden></section>
+<section class="view" id="v-saida" hidden></section>
+<section class="view" id="v-conciliacao" hidden></section>
 
-    <article class="panel">
+<!-- ========================================
+     AUDITORIA
+======================================== -->
 
-        <div class="heading">
-            <h2>Histórico de cadastros</h2>
+<section class="view" id="v-alertas" hidden>
+  <article class="panel">
 
-            <button id="csvHistorico">
-                EXPORTAR CSV
-            </button>
-        </div>
+    <div class="head">
+      <h2>Ocorrências encontradas</h2>
+      <span class="tag orange" id="alertCount">0</span>
+    </div>
 
-        <div class="tools">
+    <div class="toolbar">
+      <select id="tipoAlerta">
+        <option value="">TODOS OS TIPOS</option>
+      </select>
+    </div>
 
-            <input
-                type="search"
-                id="buscaHist"
-                placeholder="Pesquisar ID, SAP, PN ou descrição"
-            >
+    <div id="issues" class="issues"></div>
 
-            <select id="areaHist">
-                <option value="">TODAS AS ÁREAS</option>
-            </select>
+    <div class="pager">
+      <span id="issuesInfo" class="muted"></span>
+      <button id="issuesPrev">ANTERIOR</button>
+      <button id="issuesNext">PRÓXIMA</button>
+    </div>
 
-            <select id="ordem">
-                <option value="desc">MAIS RECENTES</option>
-                <option value="asc">MAIS ANTIGOS</option>
-            </select>
-
-        </div>
-
-        <div class="tablewrap">
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>ÁREA</th>
-                        <th>SAP</th>
-                        <th>PN</th>
-                        <th>DESCRIÇÃO</th>
-                        <th>CRIADO</th>
-                    </tr>
-                </thead>
-
-                <tbody id="histBody"></tbody>
-            </table>
-        </div>
-
-        <div class="paging">
-            <span id="histInfo" class="muted"></span>
-            <button id="anterior">ANTERIOR</button>
-            <button id="proximo">PRÓXIMA</button>
-        </div>
-
-    </article>
-</section>
-
-<!-- DUPLICIDADES -->
-
-<section id="v-duplicados" class="view" hidden>
-
-    <article class="panel">
-
-        <div class="heading">
-            <h2>Auditoria de códigos repetidos</h2>
-
-            <button id="csvDup">
-                EXPORTAR CSV
-            </button>
-        </div>
-
-        <div class="tools">
-
-            <select id="tipoDup">
-                <option value="sap">CÓDIGO SAP</option>
-                <option value="pn">CÓDIGO PN</option>
-                <option value="descricao">DESCRIÇÃO</option>
-            </select>
-
-            <select id="areaDup">
-                <option value="">TODAS AS ÁREAS</option>
-            </select>
-
-            <input
-                type="search"
-                id="buscaDup"
-                placeholder="Pesquisar código ou descrição"
-            >
-
-        </div>
-
-        <div id="listaDup" class="doubles"></div>
-
-    </article>
-</section>
-
-<!-- PENDÊNCIAS -->
-
-<section id="v-pendencias" class="view" hidden>
-
-    <article class="panel">
-
-        <div class="heading">
-            <h2>Possíveis pendências cadastrais</h2>
-
-            <button id="csvPend">
-                EXPORTAR CSV
-            </button>
-        </div>
-
-        <div class="tools">
-
-            <select id="areaPend">
-                <option value="">TODAS AS ÁREAS</option>
-            </select>
-
-            <select id="tipoPend">
-                <option value="qualquer">TODAS</option>
-                <option value="sap">SEM SAP</option>
-                <option value="pn">SEM PN</option>
-                <option value="descricao">SEM DESCRIÇÃO</option>
-            </select>
-
-        </div>
-
-        <div class="hint">
-            Um PN vazio pode ser válido em alguns cadastros;
-            revise antes de classificar como erro.
-        </div>
-
-        <div class="tablewrap">
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>ÁREA</th>
-                        <th>SAP</th>
-                        <th>PN</th>
-                        <th>DESCRIÇÃO</th>
-                        <th>PENDÊNCIA</th>
-                    </tr>
-                </thead>
-
-                <tbody id="pendBody"></tbody>
-            </table>
-        </div>
-
-        <div class="paging">
-            <span id="pendInfo" class="muted"></span>
-            <button id="pendAnt">ANTERIOR</button>
-            <button id="pendProx">PRÓXIMA</button>
-        </div>
-
-    </article>
+  </article>
 </section>
 
 </main>
 
 <footer>
-    CKTR | CENTRAL DE GESTÃO E AUDITORIA
-    · Dados apenas na memória desta aba
+  CKTR · Gestão e Auditoria 3.0 ·
+  Nenhum dado é enviado pelo código desta página
 </footer>
 
-<!-- NOTIFICAÇÃO -->
+<!-- ========================================
+     NOTIFICAÇÃO
+======================================== -->
 
 <div id="toast" hidden role="status" aria-live="polite">
+  <button id="closeToast" aria-label="Fechar">×</button>
+  <strong id="toastTitle"></strong>
+  <p id="toastMsg"></p>
+</div>
 
-    <button id="closeToast" aria-label="Fechar">
-        ×
-    </button>
+<!-- ========================================
+     DETALHES DE REGISTROS
+======================================== -->
 
-    <strong id="toastTitle"></strong>
-    <p id="toastMsg"></p>
-
+<div id="entry" hidden>
+  <article class="panel">
+    <div class="head">
+      <h2 id="entryTitle">Detalhes</h2>
+      <button id="closeEntry">FECHAR ×</button>
+    </div>
+    <div id="entryBody"></div>
+  </article>
 </div>
 
 <script>
-'use strict';
+"use strict";
 
-// ============================================
-// CKTR | CONFIGURAÇÕES PRINCIPAIS
-// ============================================
+// ==========================================
+// UTILITÁRIOS
+// ==========================================
 
 const $ = id => document.getElementById(id);
 
-const state = {
-    rows: [],
-    page: 0,
-    pendPage: 0
-};
+const fmt = new Intl.NumberFormat("pt-BR");
 
-const nf = new Intl.NumberFormat('pt-BR');
-
-let toastTimer;
-
-const txt = v => String(v ?? '').trim();
-
-const esc = v => txt(v).replace(
-    /[&<>"']/g,
-    c => ({
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#39;'
-    }[c])
-);
-
-const key = v => txt(v)
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-    .replace(/[^a-z0-9]/g, '');
+const txt = v => String(v ?? "").trim();
 
 const norm = v => txt(v)
-    .toLocaleUpperCase('pt-BR')
-    .replace(/\s+/g, ' ');
+  .normalize("NFD")
+  .replace(/[\u0300-\u036f]/g, "")
+  .toUpperCase()
+  .replace(/\s+/g, " ");
 
-function get(o, nomes) {
+const esc = v => txt(v).replace(
+  /[&<>"']/g,
+  c => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  }[c])
+);
 
-    const m = new Map(
-        Object.entries(o).map(
-            ([k, v]) => [key(k), v]
-        )
+const n = v => Number(v) || 0;
+
+function unbox(v) {
+  if (v === null || v === undefined) return "";
+
+  if (typeof v === "object") {
+    return txt(
+      v.Value ??
+      v.value ??
+      v.DisplayName ??
+      v.Title ??
+      ""
     );
+  }
 
-    for (const k of nomes) {
-        if (m.has(key(k))) {
-            return m.get(key(k));
-        }
+  if (
+    typeof v === "string" &&
+    /^[\[{"]/.test(v)
+  ) {
+    try {
+      return unbox(JSON.parse(v));
+    } catch {}
+  }
+
+  return txt(v);
+}
+
+const pick = (r, ...keys) => {
+  for (const k of keys) {
+    if (Object.prototype.hasOwnProperty.call(r ?? {}, k)) {
+      return r[k];
     }
-
-    return '';
-}
-
-// ============================================
-// CKTR | NOTIFICAÇÕES AUTOMÁTICAS
-// ============================================
-
-function toast(titulo, mensagem, tipo = 'ok') {
-
-    clearTimeout(toastTimer);
-
-    $('toastTitle').textContent = titulo;
-    $('toastMsg').textContent = mensagem;
-
-    $('toast').className =
-        tipo === 'ok' ? '' : tipo;
-
-    $('toast').hidden = false;
-
-    toastTimer = setTimeout(() => {
-        $('toast').hidden = true;
-    }, 2400);
-}
-
-$('closeToast').onclick = () => {
-    clearTimeout(toastTimer);
-    $('toast').hidden = true;
+  }
+  return "";
 };
 
-// ============================================
-// CKTR | NORMALIZAÇÃO DOS DADOS
-// COMPATÍVEL COM POWER APPS
-// ============================================
+const dat = v => {
+  const s = txt(v);
+  if (!s) return "";
 
-function normalizeRow(r) {
+  const d = new Date(s);
 
-    const id = Number(get(r, ['i', 'ID']));
+  return Number.isNaN(d.valueOf())
+    ? s
+    : d.toLocaleDateString("pt-BR");
+};
 
-    return {
-        id: Number.isSafeInteger(id) && id > 0
-            ? id
-            : 0,
+// ==========================================
+// SISTEMA DE NOTIFICAÇÕES
+// ==========================================
 
-        area: txt(
-            get(r, ['a', 'ID_AREA', 'Area'])
-        ) || '—',
+let timer;
 
-        sap: txt(
-            get(r, [
-                's',
-                'Título',
-                'Title',
-                'SAP',
-                'CodigoSAP'
-            ])
-        ),
+function toast(titulo, mensagem, tipo = "ok") {
+  clearTimeout(timer);
 
-        pn: txt(
-            get(r, [
-                'p',
-                'Codigo_Fornecedor',
-                'PN'
-            ])
-        ),
+  $("toastTitle").textContent = titulo;
+  $("toastMsg").textContent = mensagem;
 
-        descricao: txt(
-            get(r, [
-                'd',
-                'Descricao_Item',
-                'Descricao'
-            ])
-        ),
+  $("toast").className = tipo === "ok" ? "" : tipo;
+  $("toast").hidden = false;
 
-        criado: txt(
-            get(r, [
-                'c',
-                'Criado',
-                'Created'
-            ])
-        )
-    };
+  timer = setTimeout(() => {
+    $("toast").hidden = true;
+  }, tipo === "error" ? 4500 : 2400);
 }
 
-// ============================================
-// CKTR | AUDITORIA DE DUPLICIDADES
-// ============================================
+$("closeToast").onclick = () => {
+  clearTimeout(timer);
+  $("toast").hidden = true;
+};
 
-function groups(rows, campo) {
+// ==========================================
+// BANCO TEMPORÁRIO EM MEMÓRIA
+// ==========================================
 
-    const m = new Map();
+const DB = {
+  cadastro: [],
+  requisicoes: [],
+  entradas: [],
+  saidas: [],
+  saldo: [],
+  enderecos: [],
+  planejadores: [],
+  reqItens: [],
+  alertas: [],
+  conciliacao: [],
+  completo: false,
+  limite: 0,
+  gerado: "",
+  versao: 0
+};
 
-    for (const r of rows) {
+const state = {
+  tab: "geral",
+  page: 0,
+  issuesPage: 0
+};
 
-        const codigo = norm(r[campo]);
+// ==========================================
+// CONVERTER JSON_TABLE DAS REQUISIÇÕES
+// ==========================================
 
-        if (!codigo) {
-            continue;
-        }
+function itemJson(v) {
+  if (!v) return [];
 
-        if (!m.has(codigo)) {
-            m.set(codigo, []);
-        }
+  try {
+    const p = typeof v === "string" ? JSON.parse(v) : v;
+    return Array.isArray(p) ? p : [];
+  } catch {
+    return null;
+  }
+}
 
-        m.get(codigo).push(r);
+// ==========================================
+// NORMALIZAR AS SETE BASES
+// ==========================================
+
+function normalize(raw) {
+
+  DB.cadastro = (raw.cadastro || []).map(r => ({
+    id: n(pick(r, "i", "ID")),
+    a: txt(pick(r, "a", "ID_AREA")),
+    sap: unbox(pick(r, "s", "Título", "Title")),
+    pn: unbox(pick(r, "p", "Codigo_Fornecedor")),
+    d: txt(pick(r, "d", "Descricao_Item")),
+    c: txt(pick(r, "c", "Created"))
+  }));
+
+  DB.requisicoes = (raw.requisicoes || []).map(r => ({
+    id: n(pick(r, "i", "ID")),
+    a: txt(pick(r, "a", "ID_AREA")),
+    doc: txt(pick(r, "doc", "NUM_DOC_REQ")),
+    mat: txt(pick(r, "mat", "MAT")),
+    req: txt(pick(r, "req", "REQ")),
+    sol: unbox(pick(r, "sol", "REQUISITANTE")),
+    om: txt(pick(r, "om", "OM_RETIRADA")),
+    c: txt(pick(r, "c", "Created")),
+    autor: unbox(pick(r, "autor", "Author")),
+    apr: unbox(pick(r, "apr", "STATUS_APROVAÇÃO")),
+    cmp: unbox(pick(r, "cmp", "STATUS_CMP")),
+    rec: unbox(pick(r, "rec", "RECEBEDOR")),
+    cpf: txt(pick(r, "cpf", "MATRICULA/CPF")),
+    tipo: unbox(pick(r, "tipo", "TIPO_SAIDA")),
+    local: unbox(pick(r, "local", "Local_Entrega")),
+    json: pick(r, "j", "JSON_TABLE")
+  }));
+
+  DB.entradas = (raw.entradas || []).map(r => ({
+    id: n(pick(r, "i", "ID")),
+    a: txt(pick(r, "a", "ID_AREA")),
+    om: txt(pick(r, "om", "OM")),
+    ped: txt(pick(r, "ped", "PEDIDO")),
+    nf: txt(pick(r, "nf", "NOTA_FISCAL")),
+    plan: unbox(pick(r, "plan", "PLANEJADOR")),
+    proj: txt(pick(r, "proj", "PROJETO")),
+    cc: txt(pick(r, "cc", "CENTRO_CUSTO")),
+    q: n(pick(r, "q", "Quantidade")),
+    doc: txt(pick(r, "doc", "NUM_DOC")),
+    cl: unbox(pick(r, "cl", "Classificacao")),
+    c: txt(pick(r, "c", "Created")),
+    apl: unbox(pick(r, "apl", "Aplicacao")),
+    valor: n(pick(r, "valor", "Valor_Total")),
+    autor: unbox(pick(r, "autor", "Author")),
+    item: n(pick(r, "item", "ID_ITEM")),
+    end: txt(pick(r, "end", "ID_ENDERECO")),
+    forn: txt(pick(r, "forn", "NOME_FORNECEDOR"))
+  }));
+
+  DB.saidas = (raw.saidas || []).map(r => ({
+    id: n(pick(r, "i", "ID")),
+    a: txt(pick(r, "a", "ID_AREA")),
+    ome: txt(pick(r, "ome", "OM_ENTRADA")),
+    proj: txt(pick(r, "proj", "PROJETO_ENTRADA")),
+    nf: txt(pick(r, "nf", "NOTA_FISCAL")),
+    cc: txt(pick(r, "cc", "CENTRO_CUSTO")),
+    q: n(pick(r, "q", "Quantidade")),
+    doc: txt(pick(r, "doc", "NUM_DOC_E")),
+    cl: unbox(pick(r, "cl", "Classificacao")),
+    c: txt(pick(r, "c", "Created")),
+    apl: unbox(pick(r, "apl", "Aplicacao")),
+    mat: txt(pick(r, "mat", "MAT_REQUISITANTE")),
+    requ: unbox(pick(r, "requ", "REQUISITANTEM")),
+    oms: txt(pick(r, "oms", "OM_SAIDA")),
+    item: n(pick(r, "item", "ID_ITEM")),
+    end: txt(pick(r, "end", "ID_END")),
+    plan: txt(pick(r, "plan", "ID_PLANEJ"))
+  }));
+
+  DB.saldo = (raw.saldo || []).map(r => ({
+    a: txt(pick(r, "a", "ID_AREA")),
+    item: n(pick(r, "item", "ID_ITEM")),
+    q: n(pick(r, "q", "SALDO_ITEM")),
+    end: txt(pick(r, "end", "ID_END"))
+  }));
+
+  DB.enderecos = (raw.enderecos || []).map(r => ({
+    id: n(pick(r, "i", "ID")),
+    a: txt(pick(r, "a", "ID_AREA")),
+    nome: txt(pick(r, "n", "Título"))
+  }));
+
+  DB.planejadores = (raw.planejadores || []).map(r => ({
+    id: n(pick(r, "i", "ID")),
+    a: txt(pick(r, "a", "ID_AREA")),
+    nome: txt(pick(r, "n", "Título"))
+  }));
+
+  DB.reqItens = [];
+
+  for (const r of DB.requisicoes) {
+
+    const arr = itemJson(r.json);
+
+    if (arr === null) {
+      DB.reqItens.push({
+        id: 0,
+        req: r.id,
+        a: r.a,
+        erro: true
+      });
+      continue;
     }
 
-    return [...m]
-        .filter(([, items]) =>
-            new Set(
-                items.map(r => r.area + '|' + r.id)
-            ).size > 1
-        )
-        .map(([codigo, itens]) => ({
-            codigo,
-            itens
-        }))
-        .sort((a, b) =>
-            b.itens.length - a.itens.length ||
-            a.codigo.localeCompare(b.codigo)
-        );
-}
-
-// ============================================
-// CKTR | PENDÊNCIAS E ORDENAÇÃO
-// ============================================
-
-const faltas = r =>
-    ['sap', 'pn', 'descricao']
-        .filter(c => !r[c]);
-
-const ordered = (rows, desc = true) =>
-    [...rows].sort(
-        (a, b) => desc
-            ? b.id - a.id
-            : a.id - b.id
-    );
-
-const areaRows = id =>
-    state.rows.filter(
-        r => !$(id).value || r.area === $(id).value
-    );
-
-// ============================================
-// CKTR | GERAÇÃO DE TABELAS
-// ============================================
-
-function line(r, extra) {
-
-    return `
-        <tr>
-            <td>${esc(r.id)}</td>
-            <td>
-                <span class="tag">${esc(r.area)}</span>
-            </td>
-            <td>${esc(r.sap || '—')}</td>
-            <td>${esc(r.pn || '—')}</td>
-            <td>${esc(r.descricao || '—')}</td>
-            <td>${esc(extra ?? r.criado ?? '—')}</td>
-        </tr>
-    `;
-}
-
-function show(id, rows, render = line) {
-
-    $(id).innerHTML = rows.length
-        ? rows.map(render).join('')
-        : `
-            <tr>
-                <td colspan="6" class="empty">
-                    Nenhum registro para exibir.
-                </td>
-            </tr>
-        `;
-}
-
-function page(
-    rows,
-    indice,
-    body,
-    info,
-    ant,
-    prox,
-    render = line
-) {
-
-    const total = Math.max(
-        1,
-        Math.ceil(rows.length / 25)
-    );
-
-    indice = Math.max(
-        0,
-        Math.min(total - 1, indice)
-    );
-
-    show(
-        body,
-        rows.slice(
-            indice * 25,
-            indice * 25 + 25
-        ),
-        render
-    );
-
-    $(info).textContent =
-        `${nf.format(rows.length)} registros · ` +
-        `Página ${indice + 1}/${total}`;
-
-    $(ant).disabled = indice === 0;
-    $(prox).disabled = indice >= total - 1;
-
-    return indice;
-}
-
-// ============================================
-// CKTR | HISTÓRICO
-// ============================================
-
-function historyRows() {
-
-    const busca = norm($('buscaHist').value);
-
-    return ordered(
-        areaRows('areaHist').filter(r =>
-            !busca ||
-            norm([
-                r.id,
-                r.sap,
-                r.pn,
-                r.descricao
-            ].join(' ')).includes(busca)
-        ),
-        $('ordem').value === 'desc'
-    );
-}
-
-function renderHistory() {
-
-    state.page = page(
-        historyRows(),
-        state.page,
-        'histBody',
-        'histInfo',
-        'anterior',
-        'proximo'
-    );
-}
-
-// ============================================
-// CKTR | PENDÊNCIAS
-// ============================================
-
-function pendingRows() {
-
-    const tipo = $('tipoPend').value;
-
-    return ordered(
-        areaRows('areaPend').filter(r =>
-            tipo === 'qualquer'
-                ? faltas(r).length > 0
-                : !r[tipo]
-        )
-    );
-}
-
-function renderPending() {
-
-    state.pendPage = page(
-        pendingRows(),
-        state.pendPage,
-        'pendBody',
-        'pendInfo',
-        'pendAnt',
-        'pendProx',
-        r => line(
-            r,
-            faltas(r)
-                .map(x => 'SEM ' + x.toUpperCase())
-                .join(' | ')
-        )
-    );
-}
-
-// ============================================
-// CKTR | DUPLICIDADES
-// ============================================
-
-function filteredDuplicates() {
-
-    const campo = $('tipoDup').value;
-    const busca = norm($('buscaDup').value);
-
-    return groups(
-        areaRows('areaDup'),
-        campo
-    ).filter(g =>
-        !busca ||
-        g.codigo.includes(busca) ||
-        g.itens.some(r =>
-            norm(r.descricao).includes(busca)
-        )
-    );
-}
-
-function renderDuplicates() {
-
-    const gs = filteredDuplicates();
-
-    $('listaDup').innerHTML = gs.length
-        ? gs.slice(0, 250).map(g => `
-            <div class="dup">
-                <strong>${esc(g.codigo)}</strong>
-
-                <span class="tag warn">
-                    ${g.itens.length} ocorrências
-                </span>
-
-                <p>
-                    ${esc(
-                        g.itens.map(r =>
-                            `ID ${r.id} (Área ${r.area})`
-                        ).join(' · ')
-                    )}
-                </p>
-            </div>
-        `).join('')
-        : `
-            <div class="empty">
-                Nenhuma duplicidade encontrada
-                neste conjunto de dados.
-            </div>
-        `;
-
-    if (gs.length > 250) {
-        $('listaDup').insertAdjacentHTML(
-            'beforeend',
-            `
-                <div class="hint">
-                    Exibindo 250 grupos.
-                    Exporte o CSV para consultar todos.
-                </div>
-            `
-        );
+    for (const x of arr) {
+      DB.reqItens.push({
+        id: n(pick(x, "id_item")),
+        req: r.id,
+        a: r.a,
+        id_item: n(pick(x, "id_item")),
+        q: n(pick(x, "Qntd")),
+        pn: unbox(pick(x, "PartNumber")),
+        registro: txt(pick(x, "Registro")),
+        om: txt(pick(x, "OM")),
+        end: txt(pick(x, "Endereco")),
+        codigo: txt(pick(x, "Codigo")),
+        nome: txt(pick(x, "Nome_Item"))
+      });
     }
+  }
 }
 
-// ============================================
-// CKTR | FILTROS DE ÁREA
-// ============================================
+// ==========================================
+// MOTOR DE AUDITORIA
+// ==========================================
 
-function refreshAreas() {
+const key = (a, id) => txt(a) + "|" + txt(id);
 
-    const areas = [
-        ...new Set(
-            state.rows.map(r => r.area)
-        )
-    ].sort((a, b) => Number(a) - Number(b));
+function audit() {
 
-    for (const id of [
-        'areaHist',
-        'areaDup',
-        'areaPend'
-    ]) {
+  DB.alertas = [];
 
-        const current = $(id).value;
+  const push = (tipo, msg, area = "", id = "") => {
+    DB.alertas.push({
+      tipo,
+      msg,
+      a: txt(area),
+      id: txt(id)
+    });
+  };
 
-        $(id).replaceChildren(
-            new Option('TODAS AS ÁREAS', ''),
-            ...areas.map(a =>
-                new Option('ÁREA ' + a, a)
-            )
-        );
+  const itemMap = new Map(
+    DB.cadastro.map(r => [key(r.a, r.id), r])
+  );
 
-        $(id).value = areas.includes(current)
-            ? current
-            : '';
-    }
-}
+  // SAP E PN REPETIDOS POR ÁREA
 
-// ============================================
-// CKTR | ATUALIZAR PAINEL
-// ============================================
+  for (const field of ["sap", "pn"]) {
 
-function render() {
+    const groups = new Map();
 
-    const r = state.rows;
-    const sap = groups(r, 'sap');
-    const pn = groups(r, 'pn');
+    for (const r of DB.cadastro) {
 
-    const pend = r.filter(
-        x => faltas(x).length
-    );
+      const val = norm(r[field]);
+      if (!val) continue;
 
-    const ultimo = ordered(r)[0];
+      const k = key(r.a, val);
 
-    $('total').textContent = r.length
-        ? nf.format(r.length)
-        : '—';
+      if (!groups.has(k)) {
+        groups.set(k, []);
+      }
 
-    $('sapDup').textContent = r.length
-        ? nf.format(sap.length)
-        : '—';
-
-    $('pnDup').textContent = r.length
-        ? nf.format(pn.length)
-        : '—';
-
-    $('faltas').textContent = r.length
-        ? nf.format(pend.length)
-        : '—';
-
-    $('ultimo').className = ultimo
-        ? ''
-        : 'empty';
-
-    $('ultimo').innerHTML = ultimo
-        ? `
-            <div class="muted">
-                ID ${esc(ultimo.id)}
-                · ÁREA ${esc(ultimo.area)}
-            </div>
-
-            <div class="value">
-                ${esc(
-                    ultimo.sap ||
-                    ultimo.pn ||
-                    'SEM CÓDIGO'
-                )}
-            </div>
-
-            <p>
-                ${esc(
-                    ultimo.descricao ||
-                    'Sem descrição'
-                )}
-            </p>
-
-            <div class="muted">
-                PN: ${esc(ultimo.pn || '—')}
-                · Criado: ${esc(
-                    ultimo.criado || 'Não informado'
-                )}
-            </div>
-        `
-        : 'Aguardando auditoria.';
-
-    $('diagnostico').innerHTML = r.length
-        ? `
-            <p>
-                ${nf.format(r.length)}
-                materiais analisados.
-            </p>
-
-            <p>
-                ${nf.format(sap.length)}
-                grupos SAP repetidos.
-            </p>
-
-            <p>
-                ${nf.format(pn.length)}
-                grupos PN repetidos.
-            </p>
-
-            <p>
-                ${nf.format(pend.length)}
-                cadastros com possíveis pendências.
-            </p>
-
-            <p>
-                <b>Escopo:</b>
-                apenas dados transferidos do Power Apps.
-            </p>
-        `
-        : 'Nenhuma base carregada.';
-
-    show(
-        'recentes',
-        ordered(r).slice(0, 10)
-    );
-
-    renderHistory();
-    renderDuplicates();
-    renderPending();
-}
-
-// ============================================
-// CKTR | DECODIFICAR PACOTE DO POWER APPS
-// ============================================
-
-function decodePacote(raw) {
-
-    const texto = txt(raw);
-
-    if (!texto.startsWith('CKTR-AUD-1:')) {
-        throw Error(
-            'Pacote inválido. Copie o texto iniciado por ' +
-            'CKTR-AUD-1: no Power Apps.'
-        );
+      groups.get(k).push(r);
     }
 
-    if (texto.length > 12000000) {
-        throw Error(
-            'Pacote acima de 12 milhões de caracteres. ' +
-            'Divida a transferência em lotes.'
+    for (const rs of groups.values()) {
+
+      if (new Set(rs.map(x => x.id)).size > 1) {
+        push(
+          "DUPLICADO " + field.toUpperCase(),
+          rs.length +
+            " cadastros com " +
+            field.toUpperCase() +
+            " " + rs[0][field] +
+            ": IDs " + rs.map(x => x.id).join(", "),
+          rs[0].a,
+          rs[0].id
         );
+      }
+    }
+  }
+
+  // PENDÊNCIAS DE CADASTRO
+
+  for (const r of DB.cadastro) {
+
+    if (!r.sap) {
+      push(
+        "CADASTRO SEM SAP",
+        "Material " + r.id + ": sem código SAP",
+        r.a,
+        r.id
+      );
     }
 
-    let data;
+    if (!r.d) {
+      push(
+        "CADASTRO SEM DESCRIÇÃO",
+        "Material " + r.id + ": descrição vazia",
+        r.a,
+        r.id
+      );
+    }
+  }
 
+  // VERIFICAR ENTRADAS
+
+  for (const r of DB.entradas) {
+
+    if (!r.item) {
+      push(
+        "ENTRADA SEM ITEM",
+        "Entrada " + r.id + " não informa ID_ITEM",
+        r.a,
+        r.id
+      );
+    } else if (!itemMap.has(key(r.a, r.item))) {
+      push(
+        "ITEM NÃO ENCONTRADO",
+        "Entrada " + r.id +
+          ": item " + r.item +
+          " ausente do pacote de cadastro",
+        r.a,
+        r.id
+      );
+    }
+
+    if (r.q <= 0) {
+      push(
+        "QUANTIDADE INVÁLIDA",
+        "Entrada " + r.id + ": quantidade " + r.q,
+        r.a,
+        r.id
+      );
+    }
+  }
+
+  // VERIFICAR SAÍDAS
+
+  for (const r of DB.saidas) {
+
+    if (!r.item) {
+      push(
+        "SAÍDA SEM ITEM",
+        "Saída " + r.id + " não informa ID_ITEM",
+        r.a,
+        r.id
+      );
+    } else if (!itemMap.has(key(r.a, r.item))) {
+      push(
+        "ITEM NÃO ENCONTRADO",
+        "Saída " + r.id +
+          ": item " + r.item +
+          " ausente do pacote de cadastro",
+        r.a,
+        r.id
+      );
+    }
+
+    if (r.q <= 0) {
+      push(
+        "QUANTIDADE INVÁLIDA",
+        "Saída " + r.id + ": quantidade " + r.q,
+        r.a,
+        r.id
+      );
+    }
+  }
+
+  // VERIFICAR ITENS DO JSON_TABLE
+
+  for (const r of DB.reqItens) {
+
+    if (r.erro) {
+      push(
+        "JSON INVÁLIDO",
+        "Requisição " + r.req +
+          ": JSON_TABLE não pôde ser interpretado",
+        r.a,
+        r.req
+      );
+      continue;
+    }
+
+    if (!r.id_item) {
+      push(
+        "REQUISIÇÃO SEM ITEM",
+        "Requisição " + r.req +
+          ": material sem id_item",
+        r.a,
+        r.req
+      );
+    }
+
+    if (r.q <= 0) {
+      push(
+        "QUANTIDADE INVÁLIDA",
+        "Requisição " + r.req + ": Qntd " + r.q,
+        r.a,
+        r.req
+      );
+    }
+  }
+
+  // CONCILIAÇÃO POR ÁREA + ID_ITEM
+
+  const byItem = new Map();
+
+  const ensure = (a, id) => {
+
+    const k = key(a, id);
+
+    if (!byItem.has(k)) {
+      byItem.set(k, {
+        a: txt(a),
+        id: n(id),
+        entrada: 0,
+        saida: 0,
+        saldo: null,
+        entradas: 0,
+        saidas: 0
+      });
+    }
+
+    return byItem.get(k);
+  };
+
+  for (const r of DB.entradas) {
+    if (r.item) {
+      const v = ensure(r.a, r.item);
+      v.entrada += r.q;
+      v.entradas++;
+    }
+  }
+
+  for (const r of DB.saidas) {
+    if (r.item) {
+      const v = ensure(r.a, r.item);
+      v.saida += r.q;
+      v.saidas++;
+    }
+  }
+
+  for (const r of DB.saldo) {
+    if (r.item) {
+      const v = ensure(r.a, r.item);
+      v.saldo = (v.saldo ?? 0) + r.q;
+    }
+  }
+
+  DB.conciliacao = [...byItem.values()]
+    .map(r => ({
+      ...r,
+      diferenca: r.entrada - r.saida,
+      divergencia: r.saldo === null
+        ? null
+        : r.entrada - r.saida - r.saldo,
+      item: itemMap.get(key(r.a, r.id))?.sap || "—"
+    }))
+    .sort((a, b) => b.id - a.id);
+
+  // SINALIZAR DIVERGÊNCIA SOMENTE COM
+  // DECLARAÇÃO DE BASE COMPLETA
+
+  if (DB.completo) {
+
+    for (const r of DB.conciliacao) {
+
+      if (
+        r.divergencia !== null &&
+        Math.abs(r.divergencia) > 0.0001
+      ) {
+        push(
+          "RECONCILIAÇÃO",
+          "Item " + r.id +
+            ": diferença entre movimentações e saldo = " +
+            r.divergencia,
+          r.a,
+          r.id
+        );
+      }
+    }
+  }
+}
+
+// ==========================================
+// RECEBER PACOTE CKTR-AUD-1 OU CKTR-AUD-2
+// ==========================================
+
+function parsePackage(value) {
+
+  const s = txt(value);
+  const i = s.indexOf(":");
+
+  if (
+    i < 0 ||
+    !/^CKTR-AUD-[12]$/.test(s.slice(0, i))
+  ) {
+    throw Error(
+      "Pacote inválido: precisa iniciar com " +
+      "CKTR-AUD-1: ou CKTR-AUD-2:"
+    );
+  }
+
+  if (s.length > 25000000) {
+    throw Error(
+      "Pacote grande demais para esta aba."
+    );
+  }
+
+  const body = s.slice(i + 1);
+
+  let p;
+
+  try {
+    p = JSON.parse(body);
+  } catch {
     try {
-
-        data = JSON.parse(
-            decodeURIComponent(
-                texto.slice('CKTR-AUD-1:'.length)
-            )
-        );
-
+      p = JSON.parse(decodeURIComponent(body));
     } catch {
-
-        throw Error(
-            'Não foi possível decodificar o pacote. ' +
-            'Copie o texto completo novamente.'
-        );
+      throw Error(
+        "JSON do pacote inválido ou incompleto."
+      );
     }
+  }
 
-    if (
-        !data ||
-        data.v !== 1 ||
-        !Array.isArray(data.itens)
-    ) {
-        throw Error(
-            'Estrutura incompatível. Era esperado ' +
-            'um pacote CKTR-AUD-1 versão 1.'
-        );
+  // COMPATIBILIDADE COM A VERSÃO ANTIGA
+
+  if (
+    Number(p.v) === 1 &&
+    Array.isArray(p.itens)
+  ) {
+    return {
+      v: 1,
+      completo: false,
+      bases: {
+        cadastro: p.itens
+      }
+    };
+  }
+
+  if (
+    Number(p.v) !== 2 ||
+    !p.bases ||
+    typeof p.bases !== "object"
+  ) {
+    throw Error(
+      "Estrutura incompatível com CKTR-AUD-2."
+    );
+  }
+
+  for (const [k, v] of Object.entries(p.bases)) {
+    if (v !== null && !Array.isArray(v)) {
+      throw Error(
+        "A base " + k + " não é uma lista."
+      );
     }
+  }
 
-    if (data.itens.length > 150000) {
-        throw Error(
-            'Limite local de 150 mil registros. ' +
-            'Divida a base em lotes.'
-        );
-    }
-
-    return data.itens;
+  return p;
 }
 
-// ============================================
-// CKTR | PROCESSAR AUDITORIA
-// ============================================
+// ==========================================
+// PROCESSAR AUDITORIA
+// ==========================================
 
 function processar() {
 
-    try {
+  try {
 
-        const raw = decodePacote(
-            $('pacote').value
-        );
+    const raw = parsePackage($("pacote").value);
 
-        if (!raw.length) {
-            throw Error(
-                'O pacote não contém materiais.'
-            );
-        }
+    DB.completo = raw.completo === true;
+    DB.limite = n(raw.limite);
+    DB.gerado = txt(raw.gerado);
+    DB.versao = raw.v;
 
-        const vistos = new Set();
-        const rows = [];
+    normalize(raw.bases);
+    audit();
 
-        let ignorados = 0;
-        let repetidos = 0;
+    $("pacote").value = "";
 
-        for (const item of raw) {
-
-            if (
-                !item ||
-                typeof item !== 'object' ||
-                Array.isArray(item)
-            ) {
-                ignorados++;
-                continue;
-            }
-
-            const r = normalizeRow(item);
-
-            if (!r.id) {
-                ignorados++;
-                continue;
-            }
-
-            const k = r.area + '|' + r.id;
-
-            if (vistos.has(k)) {
-                repetidos++;
-                continue;
-            }
-
-            vistos.add(k);
-            rows.push(r);
-        }
-
-        if (!rows.length) {
-            throw Error(
-                'Nenhum registro com ID válido no pacote.'
-            );
-        }
-
-        state.rows = rows;
-        state.page = 0;
-        state.pendPage = 0;
-
-        refreshAreas();
-        render();
-
-        // LIMPAR O CAMPO, MAS MANTER A AUDITORIA
-        $('pacote').value = '';
-
-        $('estado').textContent =
-            `${nf.format(rows.length)} materiais analisados nesta aba.` +
-            (
-                repetidos
-                    ? ` ${repetidos} repetição(ões) de ID removidas.`
-                    : ''
-            ) +
-            (
-                ignorados
-                    ? ` ${ignorados} registro(s) inválido(s) ignorados.`
-                    : ''
-            );
-
-        toast(
-            'CKTR | AUDITORIA PROCESSADA',
-            `${nf.format(rows.length)} materiais carregados.`
-        );
-
-    } catch (e) {
-
-        toast(
-            'CKTR | ERRO NO PACOTE',
-            e.message,
-            'error'
-        );
-    }
-}
-
-// ============================================
-// CKTR | BOTÃO PROCESSAR
-// ============================================
-
-$('processar').onclick = processar;
-
-// ============================================
-// CKTR | CTRL+V AUTOMÁTICO
-// ============================================
-
-$('pacote').addEventListener(
-    'paste',
-    () => {
-
-        setTimeout(() => {
-
-            if (
-                txt($('pacote').value)
-                    .startsWith('CKTR-AUD-1:')
-            ) {
-                processar();
-            }
-
-        }, 0);
-    }
-);
-
-// ============================================
-// CKTR | COLAR DO CLIPBOARD
-// ============================================
-
-$('colar').onclick = async () => {
-
-    try {
-
-        if (!navigator.clipboard?.readText) {
-            throw Error(
-                'O navegador não disponibilizou a leitura automática. ' +
-                'Use Ctrl+V no campo.'
-            );
-        }
-
-        $('pacote').value =
-            await navigator.clipboard.readText();
-
-        processar();
-
-    } catch (e) {
-
-        toast(
-            'CKTR | USE CTRL+V',
-            e.message ||
-                'Não foi possível ler a área de transferência.',
-            'warn'
-        );
-
-        $('pacote').focus();
-    }
-};
-
-// ============================================
-// CKTR | LIMPAR DADOS
-// ============================================
-
-$('limpar').onclick = () => {
-
-    state.rows = [];
     state.page = 0;
-    state.pendPage = 0;
+    state.issuesPage = 0;
+    state.tab = "geral";
 
-    $('pacote').value = '';
-
-    $('estado').textContent =
-        'Nenhum pacote processado.';
-
-    refreshAreas();
+    updateAreas();
     render();
 
+    $("estado").textContent =
+      "Pacote recebido: " +
+      fmt.format(DB.cadastro.length) + " cadastros, " +
+      fmt.format(DB.requisicoes.length) + " requisições, " +
+      fmt.format(DB.entradas.length) + " entradas e " +
+      fmt.format(DB.saidas.length) + " saídas.";
+
     toast(
-        'CKTR | DADOS LIMPOS',
-        'Os dados foram retirados da memória desta aba.'
+      "AUDITORIA PROCESSADA",
+      DB.versao === 2
+        ? "Pacote v2 carregado. Consulte as abas e alertas."
+        : "Pacote antigo carregado: apenas cadastro."
     );
+
+  } catch (e) {
+
+    toast(
+      "ERRO NO PACOTE",
+      e.message,
+      "error"
+    );
+  }
+}
+
+$("processar").onclick = processar;
+
+// ==========================================
+// CTRL+V AUTOMÁTICO
+// ==========================================
+
+$("pacote").addEventListener("paste", () => {
+
+  setTimeout(() => {
+
+    if (
+      /^CKTR-AUD-[12]:/.test(
+        txt($("pacote").value)
+      )
+    ) {
+      processar();
+    }
+
+  }, 0);
+});
+
+// ==========================================
+// COLAR PELO BOTÃO
+// ==========================================
+
+$("colar").onclick = async () => {
+
+  try {
+
+    if (!navigator.clipboard?.readText) {
+      throw Error(
+        "Use Ctrl+V no campo acima."
+      );
+    }
+
+    $("pacote").value =
+      await navigator.clipboard.readText();
+
+    processar();
+
+  } catch (e) {
+
+    toast(
+      "ÁREA DE TRANSFERÊNCIA",
+      e.message,
+      "warning"
+    );
+
+    $("pacote").focus();
+  }
 };
 
-// ============================================
-// CKTR | NAVEGAÇÃO ENTRE ABAS
-// ============================================
+// ==========================================
+// LIMPAR DADOS
+// ==========================================
+
+$("limpar").onclick = () => {
+
+  for (const k of [
+    "cadastro",
+    "requisicoes",
+    "entradas",
+    "saidas",
+    "saldo",
+    "enderecos",
+    "planejadores",
+    "reqItens",
+    "alertas",
+    "conciliacao"
+  ]) {
+    DB[k] = [];
+  }
+
+  DB.completo = false;
+  DB.versao = 0;
+  DB.gerado = "";
+
+  $("pacote").value = "";
+  $("estado").textContent =
+    "Sessão limpa. Nenhum pacote carregado.";
+
+  updateAreas();
+  render();
+
+  toast(
+    "SESSÃO LIMPA",
+    "Dados removidos da memória desta aba."
+  );
+};
+
+// ==========================================
+// DEFINIÇÃO DAS TABELAS
+// ==========================================
+
+const tables = {
+
+  cadastro: {
+    title: "Cadastros",
+    cols: [
+      ["id", "ID"],
+      ["a", "ÁREA"],
+      ["sap", "SAP"],
+      ["pn", "PN"],
+      ["d", "DESCRIÇÃO"],
+      ["c", "CRIADO"]
+    ]
+  },
+
+  itens: {
+    title: "Itens das Requisições (JSON_TABLE)",
+    cols: [
+      ["req", "ID REQUISIÇÃO"],
+      ["id_item", "ID ITEM"],
+      ["a", "ÁREA"],
+      ["q", "QUANTIDADE"],
+      ["pn", "PART NUMBER"],
+      ["registro", "REGISTRO"],
+      ["om", "OM"],
+      ["end", "ENDEREÇO"],
+      ["codigo", "CÓDIGO"],
+      ["nome", "NOME DO ITEM"]
+    ]
+  },
+
+  requisicoes: {
+    title: "Requisições",
+    cols: [
+      ["id", "ID"],
+      ["a", "ÁREA"],
+      ["doc", "NUM_DOC_REQ"],
+      ["sol", "REQUISITANTE"],
+      ["apr", "APROVAÇÃO"],
+      ["cmp", "STATUS CMP"],
+      ["tipo", "TIPO SAÍDA"],
+      ["local", "ENTREGA"],
+      ["c", "CRIADO"]
+    ]
+  },
+
+  entrada: {
+    title: "Entradas",
+    cols: [
+      ["id", "ID"],
+      ["a", "ÁREA"],
+      ["item", "ID ITEM"],
+      ["q", "QTD"],
+      ["doc", "DOCUMENTO"],
+      ["om", "OM"],
+      ["nf", "NF"],
+      ["cl", "CLASSIFICAÇÃO"],
+      ["apl", "APLICAÇÃO"],
+      ["valor", "VALOR"],
+      ["c", "CRIADO"]
+    ]
+  },
+
+  saida: {
+    title: "Saídas",
+    cols: [
+      ["id", "ID"],
+      ["a", "ÁREA"],
+      ["item", "ID ITEM"],
+      ["q", "QTD"],
+      ["doc", "DOCUMENTO"],
+      ["oms", "OM SAÍDA"],
+      ["requ", "REQUISITANTE"],
+      ["cl", "CLASSIFICAÇÃO"],
+      ["apl", "APLICAÇÃO"],
+      ["c", "CRIADO"]
+    ]
+  },
+
+  conciliacao: {
+    title: "Conciliação",
+    cols: [
+      ["id", "ID ITEM"],
+      ["a", "ÁREA"],
+      ["item", "SAP"],
+      ["entrada", "ENTRADAS"],
+      ["saida", "SAÍDAS"],
+      ["diferenca", "ENT - SAI"],
+      ["saldo", "SALDO IMPORTADO"],
+      ["divergencia", "DIFERENÇA"]
+    ]
+  }
+
+};
+
+// ==========================================
+// OBTER DADOS DA ABA
+// ==========================================
+
+function source(tab) {
+
+  switch (tab) {
+    case "cadastro": return DB.cadastro;
+    case "requisicoes": return DB.requisicoes;
+    case "itens": return DB.reqItens;
+    case "entrada": return DB.entradas;
+    case "saida": return DB.saidas;
+    case "conciliacao": return DB.conciliacao;
+    default: return [];
+  }
+}
+
+function matches(r) {
+
+  const a = $("globalArea").value;
+  const q = norm($("busca").value);
+
+  return (
+    (!a || r.a === a) &&
+    (
+      !q ||
+      Object.values(r).some(v =>
+        norm(v).includes(q)
+      )
+    )
+  );
+}
+
+function filtered(tab) {
+
+  return source(tab)
+    .filter(matches)
+    .sort((a, b) => n(b.id) - n(a.id));
+}
+
+// ==========================================
+// CÉLULAS E TABELAS
+// ==========================================
+
+function cell(v, k) {
+
+  if (
+    k === "valor" &&
+    typeof v === "number"
+  ) {
+    return esc(
+      v.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+      })
+    );
+  }
+
+  if (
+    (k === "saldo" || k === "divergencia") &&
+    v === null
+  ) {
+    return '<span class="muted">não informado</span>';
+  }
+
+  return esc(
+    v === undefined ||
+    v === null ||
+    v === ""
+      ? "—"
+      : v
+  );
+}
+
+function renderTable(tab) {
+
+  const t = tables[tab];
+  const r = filtered(tab);
+
+  const pages = Math.max(
+    1,
+    Math.ceil(r.length / 35)
+  );
+
+  state.page = Math.max(
+    0,
+    Math.min(state.page, pages - 1)
+  );
+
+  const start = state.page * 35;
+  const view = r.slice(start, start + 35);
+
+  const header = t.cols
+    .map(x => `<th>${esc(x[1])}</th>`)
+    .join("");
+
+  const rows = view.map((it, j) => `
+    <tr data-index="${start + j}">
+      ${t.cols.map(([k]) =>
+        `<td>${cell(it[k], k)}</td>`
+      ).join("")}
+    </tr>
+  `).join("");
+
+  const html = `
+    <article class="panel">
+
+      <div class="head">
+        <h2>
+          ${t.title}
+          <span class="tag">${fmt.format(r.length)}</span>
+        </h2>
+        <small>Clique em uma linha para ver todos os campos</small>
+      </div>
+
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr>${header}</tr>
+          </thead>
+
+          <tbody>
+            ${rows || `
+              <tr>
+                <td colspan="${t.cols.length}" class="empty">
+                  Nenhum registro no filtro atual.
+                </td>
+              </tr>
+            `}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pager">
+        <span class="muted">
+          Página ${state.page + 1}/${pages}
+        </span>
+
+        <button id="prev"
+          ${state.page === 0 ? "disabled" : ""}>
+          ANTERIOR
+        </button>
+
+        <button id="next"
+          ${state.page >= pages - 1 ? "disabled" : ""}>
+          PRÓXIMA
+        </button>
+      </div>
+
+    </article>
+  `;
+
+  const node = $("v-" + tab);
+  node.innerHTML = html;
+
+  node.querySelector("#prev").onclick = () => {
+    state.page--;
+    renderTable(tab);
+  };
+
+  node.querySelector("#next").onclick = () => {
+    state.page++;
+    renderTable(tab);
+  };
+
+  node.querySelectorAll("tr[data-index]")
+    .forEach(x => {
+      x.onclick = () =>
+        details(
+          tab,
+          r[Number(x.dataset.index)]
+        );
+    });
+}
+
+// ==========================================
+// JANELA DE DETALHES
+// ==========================================
+
+function details(tab, r) {
+
+  const data = { ...r };
+  let materialTable = "";
+
+  if (tab === "requisicoes") {
+
+    const itens = DB.reqItens.filter(x =>
+      x.req === r.id &&
+      x.a === r.a
+    );
+
+    delete data.json;
+
+    materialTable = `
+      <h3 style="margin-top:18px">
+        Materiais requisitados (${itens.length})
+      </h3>
+
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID ITEM</th>
+              <th>QNTD</th>
+              <th>PART NUMBER</th>
+              <th>REGISTRO</th>
+              <th>OM</th>
+              <th>ENDEREÇO</th>
+              <th>CÓDIGO</th>
+              <th>NOME DO ITEM</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            ${itens.map(x => `
+              <tr>
+                <td>${esc(x.id_item)}</td>
+                <td>${esc(x.q)}</td>
+                <td>${esc(x.pn)}</td>
+                <td>${esc(x.registro)}</td>
+                <td>${esc(x.om)}</td>
+                <td>${esc(x.end)}</td>
+                <td>${esc(x.codigo)}</td>
+                <td>${esc(x.nome)}</td>
+              </tr>
+            `).join("") || `
+              <tr>
+                <td colspan="8">Nenhum item</td>
+              </tr>
+            `}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  $("entryTitle").textContent =
+    (tables[tab]?.title || "Registro") +
+    " · " + r.id;
+
+  $("entryBody").innerHTML =
+    Object.entries(data).map(([k, v]) => `
+      <div class="kv">
+        <strong>${esc(k)}</strong>
+        <span class="break">
+          ${esc(
+            typeof v === "object"
+              ? JSON.stringify(v, null, 2)
+              : v
+          )}
+        </span>
+      </div>
+    `).join("") + materialTable;
+
+  $("entry").hidden = false;
+}
+
+$("closeEntry").onclick = () => {
+  $("entry").hidden = true;
+};
+
+$("entry").addEventListener("click", e => {
+  if (e.target === $("entry")) {
+    $("entry").hidden = true;
+  }
+});
+
+// ==========================================
+// PAINEL DE VISÃO GERAL
+// ==========================================
+
+function renderOverview() {
+
+  const r = DB.cadastro
+    .filter(matches)
+    .sort((a, b) => b.id - a.id);
+
+  const ultimo = r[0];
+
+  $("ultimo").innerHTML = ultimo
+    ? `
+      <small>
+        ID ${ultimo.id} ·
+        ÁREA ${esc(ultimo.a)} ·
+        ${esc(dat(ultimo.c))}
+      </small>
+
+      <div class="record">
+        ${esc(
+          ultimo.sap ||
+          ultimo.pn ||
+          "SEM CÓDIGO"
+        )}
+      </div>
+
+      <p>${esc(ultimo.d)}</p>
+
+      <small>
+        PN: ${esc(ultimo.pn || "—")}
+      </small>
+    `
+    : "Sem registros no filtro.";
+
+  // MOVIMENTAÇÕES POR MÊS
+
+  const all = [
+    ...DB.entradas.filter(matches)
+      .map(x => ({
+        c: x.c,
+        q: x.q
+      })),
+
+    ...DB.saidas.filter(matches)
+      .map(x => ({
+        c: x.c,
+        q: x.q
+      }))
+  ];
+
+  const buckets = new Map();
+
+  for (const x of all) {
+
+    const m = /^(\d{4})-(\d{2})/.exec(x.c);
+
+    if (!m) continue;
+
+    const k = m[1] + "-" + m[2];
+
+    buckets.set(
+      k,
+      (buckets.get(k) || 0) + x.q
+    );
+  }
+
+  const array = [...buckets]
+    .sort()
+    .slice(-8);
+
+  const max = Math.max(
+    1,
+    ...array.map(x => x[1])
+  );
+
+  $("meses").innerHTML = array.length
+    ? array.map(([k, v]) => `
+      <div class="barline">
+        <span>${esc(k)}</span>
+
+        <div class="bar">
+          <span style="width:${(v / max * 100).toFixed(1)}%"></span>
+        </div>
+
+        <strong>${fmt.format(v)}</strong>
+      </div>
+    `).join("")
+    : "Não há datas de movimentações para o gráfico.";
+
+  $("diagnostico").innerHTML = `
+    <p>
+      <b>${fmt.format(
+        DB.reqItens.filter(r => !r.erro).length
+      )}</b>
+      linhas de material extraídas do JSON_TABLE.
+    </p>
+
+    <p>
+      <b>${fmt.format(DB.saldo.length)}</b>
+      linhas de saldo,
+      <b>${fmt.format(DB.planejadores.length)}</b>
+      planejadores e
+      <b>${fmt.format(DB.enderecos.length)}</b>
+      endereços auxiliares.
+    </p>
+
+    <p>
+      Os alertas são indícios para conferência,
+      especialmente quando o pacote é parcial.
+    </p>
+  `;
+}
+
+// ==========================================
+// PAINEL DE OCORRÊNCIAS
+// ==========================================
+
+function renderIssues() {
+
+  const types = [
+    ...new Set(
+      DB.alertas.map(x => x.tipo)
+    )
+  ].sort();
+
+  const old = $("tipoAlerta").value;
+
+  $("tipoAlerta").replaceChildren(
+    new Option("TODOS OS TIPOS", ""),
+    ...types.map(t => new Option(t, t))
+  );
+
+  $("tipoAlerta").value =
+    types.includes(old) ? old : "";
+
+  const rs = DB.alertas.filter(x =>
+    (
+      !$("globalArea").value ||
+      x.a === $("globalArea").value
+    ) &&
+    (
+      !$("tipoAlerta").value ||
+      x.tipo === $("tipoAlerta").value
+    ) &&
+    matches(x)
+  );
+
+  $("alertCount").textContent = fmt.format(rs.length);
+
+  const pg = Math.max(
+    1,
+    Math.ceil(rs.length / 30)
+  );
+
+  state.issuesPage = Math.max(
+    0,
+    Math.min(state.issuesPage, pg - 1)
+  );
+
+  $("issues").innerHTML =
+    rs.slice(
+      state.issuesPage * 30,
+      state.issuesPage * 30 + 30
+    ).map(x => `
+      <div class="issue">
+        <strong>
+          ${esc(x.tipo)} ·
+          Área ${esc(x.a)} ·
+          Ref ${esc(x.id)}
+        </strong>
+
+        <p>${esc(x.msg)}</p>
+      </div>
+    `).join("") ||
+    '<div class="empty">Nenhuma ocorrência no filtro atual.</div>';
+
+  $("issuesInfo").textContent =
+    `Página ${state.issuesPage + 1}/${pg}`;
+
+  $("issuesPrev").disabled =
+    state.issuesPage === 0;
+
+  $("issuesNext").disabled =
+    state.issuesPage === pg - 1;
+}
+
+$("tipoAlerta").onchange = () => {
+  state.issuesPage = 0;
+  renderIssues();
+};
+
+$("issuesPrev").onclick = () => {
+  state.issuesPage--;
+  renderIssues();
+};
+
+$("issuesNext").onclick = () => {
+  state.issuesPage++;
+  renderIssues();
+};
+
+// ==========================================
+// FILTRO GLOBAL POR ÁREA
+// ==========================================
+
+function updateAreas() {
+
+  const areas = [
+    ...new Set(
+      [
+        ...DB.cadastro,
+        ...DB.requisicoes,
+        ...DB.entradas,
+        ...DB.saidas
+      ]
+      .map(r => r.a)
+      .filter(Boolean)
+    )
+  ].sort();
+
+  const v = $("globalArea").value;
+
+  $("globalArea").replaceChildren(
+    new Option("TODAS AS ÁREAS", ""),
+    ...areas.map(a =>
+      new Option("ÁREA " + a, a)
+    )
+  );
+
+  $("globalArea").value =
+    areas.includes(v) ? v : "";
+}
+
+// ==========================================
+// RENDERIZAÇÃO CENTRAL
+// ==========================================
+
+function render() {
+
+  const scope = DB.versao
+    ? (
+      DB.completo
+        ? "COBERTURA DECLARADA COMPLETA"
+        : "COBERTURA PARCIAL / NÃO COMPROVADA"
+    )
+    : "SEM DADOS";
+
+  $("scope").className =
+    "warnbox" + (DB.completo ? " okbox" : "");
+
+  $("scope").textContent =
+    scope + ". " +
+    (
+      DB.versao
+        ? "Esta análise cobre apenas os dados transferidos. " +
+          "Verifique lacunas entre registros e permissões. " +
+          "Entradas menos saídas não é necessariamente o saldo atual."
+        : "Cole o pacote CKTR-AUD-2 para começar."
+    );
+
+  $("kcad").textContent = DB.versao
+    ? fmt.format(
+      DB.cadastro.filter(matches).length
+    )
+    : "—";
+
+  $("kreq").textContent = DB.versao
+    ? fmt.format(
+      DB.requisicoes.filter(matches).length
+    )
+    : "—";
+
+  $("kentrada").textContent = DB.versao
+    ? fmt.format(
+      DB.entradas
+        .filter(matches)
+        .reduce((s, x) => s + x.q, 0)
+    )
+    : "—";
+
+  $("ksaida").textContent = DB.versao
+    ? fmt.format(
+      DB.saidas
+        .filter(matches)
+        .reduce((s, x) => s + x.q, 0)
+    )
+    : "—";
+
+  $("kalertas").textContent = DB.versao
+    ? fmt.format(
+      DB.alertas.filter(matches).length
+    )
+    : "—";
+
+  for (
+    const el of document.querySelectorAll(".view")
+  ) {
+    el.hidden = el.id !== "v-" + state.tab;
+  }
+
+  for (
+    const el of document.querySelectorAll("nav button")
+  ) {
+    el.classList.toggle(
+      "active",
+      el.dataset.view === state.tab
+    );
+  }
+
+  if (state.tab === "geral") {
+    renderOverview();
+  } else if (state.tab === "alertas") {
+    renderIssues();
+  } else {
+    renderTable(state.tab);
+  }
+}
+
+// ==========================================
+// BOTÕES DAS ABAS
+// ==========================================
 
 for (
-    const b of document.querySelectorAll('[data-view]')
+  const b of document.querySelectorAll("nav button")
 ) {
-
-    b.onclick = () => {
-
-        const aba = b.dataset.view;
-
-        for (
-            const s of document.querySelectorAll('.view')
-        ) {
-            s.hidden = s.id !== 'v-' + aba;
-        }
-
-        for (
-            const tab of document.querySelectorAll('nav button')
-        ) {
-            tab.classList.toggle(
-                'active',
-                tab.dataset.view === aba
-            );
-        }
-    };
+  b.onclick = () => {
+    state.tab = b.dataset.view;
+    state.page = 0;
+    state.issuesPage = 0;
+    render();
+  };
 }
 
-// ============================================
-// CKTR | FILTROS DO HISTÓRICO
-// ============================================
-
-for (const id of [
-    'buscaHist',
-    'areaHist',
-    'ordem'
-]) {
-
-    $(id).addEventListener('input', () => {
-        state.page = 0;
-        renderHistory();
-    });
-}
-
-// ============================================
-// CKTR | FILTROS DE DUPLICIDADES
-// ============================================
-
-for (const id of [
-    'tipoDup',
-    'areaDup',
-    'buscaDup'
-]) {
-
-    $(id).addEventListener(
-        'input',
-        renderDuplicates
-    );
-}
-
-// ============================================
-// CKTR | FILTROS DE PENDÊNCIAS
-// ============================================
-
-for (const id of [
-    'tipoPend',
-    'areaPend'
-]) {
-
-    $(id).addEventListener('input', () => {
-        state.pendPage = 0;
-        renderPending();
-    });
-}
-
-// ============================================
-// CKTR | PAGINAÇÃO
-// ============================================
-
-$('anterior').onclick = () => {
-    state.page--;
-    renderHistory();
+$("globalArea").onchange = () => {
+  state.page = 0;
+  state.issuesPage = 0;
+  render();
 };
 
-$('proximo').onclick = () => {
-    state.page++;
-    renderHistory();
+$("busca").oninput = () => {
+  state.page = 0;
+  state.issuesPage = 0;
+  render();
 };
 
-$('pendAnt').onclick = () => {
-    state.pendPage--;
-    renderPending();
-};
-
-$('pendProx').onclick = () => {
-    state.pendPage++;
-    renderPending();
-};
-
-// ============================================
-// CKTR | EXPORTAÇÃO CSV SEGURA
-// ============================================
+// ==========================================
+// EXPORTAÇÃO CSV
+// ==========================================
 
 function csvCell(v) {
 
-    let s = txt(v);
+  let s = txt(v);
 
-    // EVITAR EXECUÇÃO DE FÓRMULAS NA PLANILHA
-    if (/^[=+@\-\t\r]/.test(s)) {
-        s = "'" + s;
-    }
+  if (/^[=+@\-\t\r]/.test(s)) {
+    s = "'" + s;
+  }
 
-    return '"' +
-        s.replace(/"/g, '""') +
-        '"';
+  return '"' +
+    s.replace(/"/g, '""') +
+    '"';
 }
 
-function exportCSV(nome, colunas, linhas) {
+function exportCSV(name, rows) {
 
-    if (!state.rows.length) {
-
-        toast(
-            'CKTR | SEM DADOS',
-            'Processe um pacote antes de exportar.',
-            'warn'
-        );
-
-        return;
-    }
-
-    const conteudo =
-        '\uFEFF' +
-        [colunas, ...linhas]
-            .map(r =>
-                r.map(csvCell).join(';')
-            )
-            .join('\r\n');
-
-    const url = URL.createObjectURL(
-        new Blob(
-            [conteudo],
-            {
-                type: 'text/csv;charset=utf-8'
-            }
-        )
-    );
-
-    const link = document.createElement('a');
-
-    link.href = url;
-    link.download = nome;
-
-    document.body.append(link);
-
-    link.click();
-    link.remove();
-
-    setTimeout(() => {
-        URL.revokeObjectURL(url);
-    }, 2000);
-
+  if (!rows.length) {
     toast(
-        'CKTR | RELATÓRIO GERADO',
-        `${nf.format(linhas.length)} linhas exportadas.`
+      "SEM REGISTROS",
+      "Nada para exportar no filtro.",
+      "warning"
     );
+    return;
+  }
+
+  const keys = Object.keys(rows[0]);
+
+  const content =
+    "\uFEFF" +
+    [
+      keys,
+      ...rows.map(r =>
+        keys.map(k =>
+          typeof r[k] === "object"
+            ? JSON.stringify(r[k])
+            : r[k]
+        )
+      )
+    ]
+    .map(l => l.map(csvCell).join(";"))
+    .join("\r\n");
+
+  const href = URL.createObjectURL(
+    new Blob(
+      [content],
+      {
+        type: "text/csv;charset=utf-8"
+      }
+    )
+  );
+
+  const a = document.createElement("a");
+
+  a.href = href;
+  a.download = name;
+
+  document.body.append(a);
+  a.click();
+  a.remove();
+
+  setTimeout(() => {
+    URL.revokeObjectURL(href);
+  }, 2000);
+
+  toast(
+    "RELATÓRIO GERADO",
+    rows.length + " linhas exportadas."
+  );
 }
 
-const colunas = [
-    'ID',
-    'ID_AREA',
-    'Título',
-    'Codigo_Fornecedor',
-    'Descricao_Item',
-    'Criado'
-];
+$("exportar").onclick = () => {
 
-const cells = r => [
-    r.id,
-    r.area,
-    r.sap,
-    r.pn,
-    r.descricao,
-    r.criado
-];
+  const tab = state.tab;
 
-// ============================================
-// CKTR | EXPORTAR HISTÓRICO
-// ============================================
-
-$('csvHistorico').onclick = () => {
-
-    exportCSV(
-        'CKTR_HISTORICO.csv',
-        colunas,
-        historyRows().map(cells)
+  if (tab === "alertas") {
+    return exportCSV(
+      "CKTR_AUDITORIA.csv",
+      DB.alertas.filter(matches)
     );
+  }
+
+  if (tab === "geral") {
+    return exportCSV(
+      "CKTR_RESUMO_CADASTROS.csv",
+      DB.cadastro.filter(matches)
+    );
+  }
+
+  return exportCSV(
+    "CKTR_" + tab.toUpperCase() + ".csv",
+    filtered(tab)
+  );
 };
 
-// ============================================
-// CKTR | EXPORTAR PENDÊNCIAS
-// ============================================
-
-$('csvPend').onclick = () => {
-
-    exportCSV(
-        'CKTR_PENDENCIAS.csv',
-        [...colunas, 'Pendencias'],
-
-        pendingRows().map(r => [
-            ...cells(r),
-            faltas(r).join(' | ')
-        ])
-    );
-};
-
-// ============================================
-// CKTR | EXPORTAR DUPLICIDADES
-// ============================================
-
-$('csvDup').onclick = () => {
-
-    const campo = $('tipoDup').value;
-
-    exportCSV(
-        'CKTR_DUPLICIDADES.csv',
-
-        [
-            'Tipo',
-            'Valor',
-            'Ocorrencias',
-            ...colunas
-        ],
-
-        filteredDuplicates().flatMap(g =>
-            g.itens.map(r => [
-                campo,
-                g.codigo,
-                g.itens.length,
-                ...cells(r)
-            ])
-        )
-    );
-};
-
-// INICIAR PAINEL SEM DADOS FICTÍCIOS
+// INICIAR SEM DADOS FICTÍCIOS
 render();
 
 </script>
