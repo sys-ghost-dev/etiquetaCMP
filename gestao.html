@@ -1,341 +1,370 @@
+
+<!DOCTYPE html>
 <html lang="pt-BR">
-</script></body></html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#075c52">
 
 <title>CKTR | Gestão e Auditoria</title>
 
 <style>
-* {
-    box-sizing: border-box;
+:root{
+    font-family:"Segoe UI",Arial,sans-serif;
+    color:#e8f8ee;
+    background:#091e1b;
 }
 
-body {
-    margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    color: #e8f8ee;
-    background: #091e1b;
-    min-height: 100vh;
+*{
+    box-sizing:border-box;
 }
 
-header {
-    background: linear-gradient(115deg, #075c52, #0a3c34);
-    padding: 22px;
-    border-bottom: 1px solid #39776b;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    flex-wrap: wrap;
+body{
+    margin:0;
+    min-height:100vh;
 }
 
-.brand {
-    color: #9ce5c7;
-    font-size: 11px;
-    letter-spacing: 2px;
-    font-weight: 800;
+button,textarea,input,select{
+    font:inherit;
 }
 
-h1 {
-    font-size: 24px;
-    margin: 8px 0;
+button{
+    border:1px solid #39725b;
+    background:#173d34;
+    color:#e8f8ee;
+    border-radius:9px;
+    padding:10px 13px;
+    font-size:12px;
+    font-weight:750;
+    cursor:pointer;
 }
 
-h2 {
-    font-size: 16px;
-    margin: 0 0 15px;
+button:hover{
+    border-color:#6addae;
 }
 
-small, .muted {
-    color: #a4c3b4;
-    font-size: 12px;
+button:disabled{
+    opacity:.4;
+    cursor:not-allowed;
 }
 
-main {
-    max-width: 1400px;
-    padding: 20px;
-    margin: auto;
+button.active,button.primary{
+    background:#0d806a;
+    border-color:#36c79a;
 }
 
-button,
-input,
-select {
-    font: inherit;
+header{
+    padding:22px;
+    background:linear-gradient(115deg,#075c52,#0a3c34);
+    border-bottom:1px solid #39776b;
 }
 
-button {
-    border: 1px solid #39725b;
-    border-radius: 9px;
-    padding: 11px 13px;
-    background: #173d34;
-    color: #e8f8ee;
-    font-size: 12px;
-    font-weight: 700;
-    cursor: pointer;
+.shell{
+    max-width:1380px;
+    margin:auto;
 }
 
-button:hover {
-    border-color: #6addae;
+.brand{
+    font-size:11px;
+    letter-spacing:2px;
+    font-weight:800;
+    color:#9ce5c7;
 }
 
-button.active,
-button.primary {
-    background: #0d806a;
-    border-color: #36c79a;
-    color: white;
+h1{
+    font-size:clamp(20px,3vw,28px);
+    margin:8px 0;
 }
 
-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 18px;
+h2{
+    font-size:16px;
+    margin:0 0 12px;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    margin-bottom: 16px;
+p{
+    line-height:1.55;
 }
 
-.metric,
-.panel {
-    border: 1px solid #315d4e;
-    background: #102f28;
-    border-radius: 13px;
+.muted,small{
+    color:#a4c3b4;
+    font-size:12px;
 }
 
-.metric {
-    padding: 19px;
+main{
+    padding:20px;
 }
 
-.metric b {
-    display: block;
-    font-size: 30px;
-    margin-top: 9px;
+.panel,.metric{
+    background:#102f28;
+    border:1px solid #315d4e;
+    border-radius:13px;
 }
 
-.metric small {
-    display: block;
+.panel{
+    padding:18px;
+    margin-bottom:16px;
 }
 
-.panel {
-    padding: 18px;
-    margin-bottom: 15px;
+.metric{
+    padding:17px;
+    min-width:0;
 }
 
-.panels {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+.metric b{
+    display:block;
+    font-size:29px;
+    margin:9px 0;
+    overflow-wrap:anywhere;
 }
 
-.heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 15px;
-    flex-wrap: wrap;
+.metric small{
+    display:block;
 }
 
-.heading h2 {
-    margin: 0;
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:12px;
+    margin-bottom:16px;
 }
 
-.toolbar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 15px;
+.two{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
 }
 
-input,
-select {
-    border: 1px solid #376456;
-    border-radius: 9px;
-    min-height: 40px;
-    padding: 10px;
-    background: #153b32;
-    color: #ffffff;
+.row,.tools,.heading{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
 }
 
-input[type="search"] {
-    flex: 1;
-    min-width: 200px;
+.heading{
+    justify-content:space-between;
+    margin-bottom:14px;
 }
 
-.tablewrap {
-    overflow-x: auto;
-    border: 1px solid #315d4e;
-    border-radius: 10px;
+.heading h2{
+    margin:0;
 }
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-    min-width: 760px;
+textarea,input,select{
+    border:1px solid #376456;
+    border-radius:9px;
+    background:#153b32;
+    color:white;
+    padding:10px;
 }
 
-th, td {
-    padding: 12px;
-    border-bottom: 1px solid #2b5144;
-    text-align: left;
-    font-size: 12px;
-    vertical-align: top;
+textarea{
+    width:100%;
+    min-height:100px;
+    resize:vertical;
+    font-size:12px;
+    line-height:1.5;
 }
 
-th {
-    background: #194237;
-    color: #a5dfc0;
-    font-size: 10px;
-    text-transform: uppercase;
+input[type=search]{
+    flex:1;
+    min-width:190px;
 }
 
-tr:hover td {
-    background: #1a4035;
+.tools{
+    margin:12px 0;
 }
 
-.tag {
-    display: inline-block;
-    border-radius: 6px;
-    padding: 5px 8px;
-    background: #285c49;
-    color: #c2e5d2;
-    font-size: 11px;
+.hint{
+    font-size:12px;
+    color:#b9d3c4;
+    margin-top:9px;
+    line-height:1.6;
 }
 
-.warning {
-    background: #634c26;
-    color: #ffe0a1;
+.note{
+    padding:12px 14px;
+    border-radius:10px;
+    background:#3b3523;
+    border:1px solid #78643a;
+    color:#f4dca7;
+    font-size:12px;
+    line-height:1.6;
+    margin:0 0 16px;
 }
 
-.note {
-    border: 1px solid #7e673c;
-    background: #443922;
-    border-radius: 10px;
-    color: #f8dc9f;
-    padding: 14px;
-    font-size: 12px;
-    line-height: 1.7;
-    margin-bottom: 16px;
+nav{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin:0 0 16px;
 }
 
-.empty {
-    text-align: center;
-    padding: 35px 12px;
-    color: #a6c5b4;
-    font-size: 12px;
+.view[hidden],#toast[hidden]{
+    display:none!important;
 }
 
-.value {
-    font-weight: 800;
-    font-size: 24px;
-    margin: 14px 0;
-    overflow-wrap: anywhere;
+.tablewrap{
+    overflow:auto;
+    border:1px solid #315d4e;
+    border-radius:10px;
 }
 
-.paging {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 9px;
-    margin-top: 15px;
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:760px;
 }
 
-.paging button:disabled {
-    opacity: 0.35;
+th,td{
+    padding:11px 12px;
+    border-bottom:1px solid #2b5144;
+    text-align:left;
+    vertical-align:top;
+    font-size:12px;
+    overflow-wrap:anywhere;
 }
 
-.doubles {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+th{
+    background:#194237;
+    color:#a5dfc0;
+    font-size:10px;
+    text-transform:uppercase;
 }
 
-.dup {
-    border: 1px solid #3b6452;
-    border-radius: 10px;
-    background: #17392f;
-    padding: 14px;
+tr:hover td{
+    background:#1a4035;
 }
 
-.dup strong {
-    font-size: 14px;
-    overflow-wrap: anywhere;
+.tag{
+    display:inline-block;
+    border-radius:6px;
+    padding:5px 8px;
+    background:#285c49;
+    color:#c2e5d2;
+    font-size:11px;
 }
 
-.dup p {
-    font-size: 11px;
-    color: #abd0b8;
-    line-height: 1.7;
-    overflow-wrap: anywhere;
+.warn{
+    background:#604923;
+    color:#ffdfa1;
 }
 
-.view[hidden],
-#toast[hidden] {
-    display: none;
+.empty{
+    text-align:center;
+    padding:26px;
+    color:#a6c5b4;
+    font-size:12px;
 }
 
-#toast {
-    position: fixed;
-    z-index: 100;
-    top: 16px;
-    right: 16px;
-    width: min(380px, calc(100% - 32px));
-    padding: 15px 40px 15px 16px;
-    background: #13463a;
-    border: 1px solid #5ec99c;
-    border-left: 5px solid #6be1a6;
-    border-radius: 12px;
-    color: white;
-    box-shadow: 0 14px 40px #0008;
+.value{
+    font-size:23px;
+    font-weight:800;
+    margin:12px 0;
+    overflow-wrap:anywhere;
 }
 
-#toast.error {
-    border-color: #ff8585;
+.paging{
+    display:flex;
+    gap:8px;
+    justify-content:flex-end;
+    align-items:center;
+    margin-top:14px;
+    flex-wrap:wrap;
 }
 
-#toast.warn {
-    border-color: #f0c36b;
+.doubles{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
 }
 
-#toast strong {
-    font-size: 13px;
+.dup{
+    padding:13px;
+    border:1px solid #3b6452;
+    border-radius:10px;
+    background:#17392f;
 }
 
-#toast p {
-    font-size: 12px;
-    color: #daf1e5;
-    line-height: 1.5;
+.dup strong{
+    overflow-wrap:anywhere;
 }
 
-#closeToast {
-    position: absolute;
-    right: 8px;
-    top: 7px;
-    border: none;
-    background: transparent;
-    font-size: 22px;
+.dup p{
+    font-size:12px;
+    color:#abd0b8;
+    overflow-wrap:anywhere;
 }
 
-footer {
-    padding: 25px;
-    text-align: center;
-    color: #80aa97;
-    font-size: 11px;
+#toast{
+    position:fixed;
+    z-index:20;
+    right:16px;
+    top:16px;
+    width:min(385px,calc(100% - 32px));
+    padding:15px 42px 15px 16px;
+    background:#13463a;
+    border:1px solid #5ec99c;
+    border-left:5px solid #6be1a6;
+    border-radius:12px;
+    box-shadow:0 14px 40px #0009;
 }
 
-@media(max-width: 850px) {
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
+#toast.error{
+    border-color:#ff8585;
+}
+
+#toast.warn{
+    border-color:#f0c36b;
+}
+
+#toast strong{
+    font-size:13px;
+}
+
+#toast p{
+    font-size:12px;
+    color:#daf1e5;
+    margin:7px 0 0;
+}
+
+#closeToast{
+    position:absolute;
+    top:5px;
+    right:8px;
+    border:0;
+    background:none;
+    font-size:23px;
+}
+
+footer{
+    text-align:center;
+    padding:25px;
+    color:#80aa97;
+    font-size:11px;
+}
+
+@media(max-width:850px){
+    .grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .panels,
-    .doubles {
-        grid-template-columns: 1fr;
+    .two,.doubles{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:480px){
+    main{
+        padding:12px;
+    }
+
+    .panel{
+        padding:13px;
+    }
+
+    .metric b{
+        font-size:23px;
     }
 }
 </style>
@@ -344,55 +373,84 @@ footer {
 <body>
 
 <header>
-    <div>
+    <div class="shell">
         <div class="brand">CKTR SERVIÇOS / GMP</div>
+
         <h1>Gestão e Auditoria de Almoxarifado</h1>
-        <small>Integridade de cadastro · Histórico · Rastreabilidade</small>
-    </div>
 
-    <div>
-        <label style="cursor:pointer">
-            <span style="
-                display:inline-block;
-                background:#0d806a;
-                color:white;
-                border-radius:9px;
-                padding:12px;
-                font-size:12px;
-                font-weight:700;
-            ">
-                + IMPORTAR BASE
-            </span>
-
-            <input
-                id="arquivo"
-                type="file"
-                accept=".csv,.tsv,.txt,.json"
-                hidden
-            >
-        </label>
-
-        <button id="limpar">LIMPAR DADOS</button>
+        <small>
+            Integridade cadastral · Histórico · Códigos repetidos
+        </small>
     </div>
 </header>
 
-<main>
+<main class="shell">
+
+<section class="panel" aria-label="Transferência do Power Apps">
+
+    <div class="heading">
+        <h2>Receber auditoria do Power Apps</h2>
+        <span class="tag">SEM IMPORTAÇÃO DE ARQUIVO</span>
+    </div>
+
+    <textarea
+        id="pacote"
+        spellcheck="false"
+        placeholder="Cole aqui com Ctrl+V o pacote CKTR-AUD-1: copiado no Power Apps..."
+    ></textarea>
+
+    <div class="tools">
+        <button class="primary" id="processar">
+            PROCESSAR AUDITORIA
+        </button>
+
+        <button id="colar">
+            COLAR DO CLIPBOARD
+        </button>
+
+        <button id="limpar">
+            LIMPAR DADOS
+        </button>
+    </div>
+
+    <div class="hint" id="estado">
+        Nenhum pacote processado. Ao colar um pacote válido
+        com Ctrl+V, a auditoria será iniciada automaticamente.
+    </div>
+
+</section>
 
 <div class="note">
-    A auditoria considera somente os registros importados.
-    Para verificar toda a TB_CADASTRO_ITEM, utilize uma
-    exportação completa e autorizada do SharePoint.
-    Não publique dados corporativos no GitHub.
+    Os dados são analisados nesta aba do navegador, sem envio
+    do pacote pelo código desta página.
+
+    <b>CKTR-AUD-1 é codificação de texto, não criptografia.</b>
+
+    Não cole pacotes em páginas não autorizadas. A análise
+    cobre apenas os cadastros incluídos no pacote; ela não
+    comprova a integridade da lista inteira do SharePoint.
 </div>
 
-<nav>
-    <button data-view="resumo" class="active">VISÃO GERAL</button>
-    <button data-view="historico">HISTÓRICO</button>
-    <button data-view="duplicados">DUPLICIDADES</button>
-    <button data-view="pendencias">PENDÊNCIAS</button>
+<nav aria-label="Navegação">
+    <button data-view="resumo" class="active">
+        VISÃO GERAL
+    </button>
+
+    <button data-view="historico">
+        HISTÓRICO
+    </button>
+
+    <button data-view="duplicados">
+        DUPLICIDADES
+    </button>
+
+    <button data-view="pendencias">
+        PENDÊNCIAS
+    </button>
 </nav>
 
 <div class="grid">
+
     <div class="metric">
         <small>MATERIAIS ANALISADOS</small>
         <b id="total">—</b>
@@ -412,21 +470,26 @@ footer {
         <small>CADASTROS COM PENDÊNCIAS</small>
         <b id="faltas">—</b>
     </div>
+
 </div>
 
-<section class="view" id="v-resumo">
+<!-- VISÃO GERAL -->
 
-    <div class="panels">
+<section id="v-resumo" class="view">
+
+    <div class="two">
 
         <article class="panel">
+
             <div class="heading">
                 <h2>Último material cadastrado</h2>
-                <span class="tag">MAIOR ID</span>
+                <span class="tag">MAIOR ID DO PACOTE</span>
             </div>
 
             <div id="ultimo" class="empty">
-                Importe os dados para consultar o último material.
+                Aguardando auditoria.
             </div>
+
         </article>
 
         <article class="panel">
@@ -440,8 +503,10 @@ footer {
     </div>
 
     <article class="panel">
+
         <div class="heading">
             <h2>10 cadastros mais recentes</h2>
+
             <button data-view="historico">
                 HISTÓRICO COMPLETO
             </button>
@@ -459,23 +524,30 @@ footer {
                         <th>CRIADO</th>
                     </tr>
                 </thead>
+
                 <tbody id="recentes"></tbody>
             </table>
         </div>
-    </article>
 
+    </article>
 </section>
 
-<section class="view" id="v-historico" hidden>
+<!-- HISTÓRICO -->
+
+<section id="v-historico" class="view" hidden>
 
     <article class="panel">
 
         <div class="heading">
             <h2>Histórico de cadastros</h2>
-            <button id="csvHistorico">EXPORTAR CSV</button>
+
+            <button id="csvHistorico">
+                EXPORTAR CSV
+            </button>
         </div>
 
-        <div class="toolbar">
+        <div class="tools">
+
             <input
                 type="search"
                 id="buscaHist"
@@ -490,6 +562,7 @@ footer {
                 <option value="desc">MAIS RECENTES</option>
                 <option value="asc">MAIS ANTIGOS</option>
             </select>
+
         </div>
 
         <div class="tablewrap">
@@ -504,12 +577,13 @@ footer {
                         <th>CRIADO</th>
                     </tr>
                 </thead>
+
                 <tbody id="histBody"></tbody>
             </table>
         </div>
 
         <div class="paging">
-            <span class="muted" id="histInfo"></span>
+            <span id="histInfo" class="muted"></span>
             <button id="anterior">ANTERIOR</button>
             <button id="proximo">PRÓXIMA</button>
         </div>
@@ -517,16 +591,22 @@ footer {
     </article>
 </section>
 
-<section class="view" id="v-duplicados" hidden>
+<!-- DUPLICIDADES -->
+
+<section id="v-duplicados" class="view" hidden>
 
     <article class="panel">
 
         <div class="heading">
             <h2>Auditoria de códigos repetidos</h2>
-            <button id="csvDup">EXPORTAR CSV</button>
+
+            <button id="csvDup">
+                EXPORTAR CSV
+            </button>
         </div>
 
-        <div class="toolbar">
+        <div class="tools">
+
             <select id="tipoDup">
                 <option value="sap">CÓDIGO SAP</option>
                 <option value="pn">CÓDIGO PN</option>
@@ -540,8 +620,9 @@ footer {
             <input
                 type="search"
                 id="buscaDup"
-                placeholder="Pesquisar duplicidades"
+                placeholder="Pesquisar código ou descrição"
             >
+
         </div>
 
         <div id="listaDup" class="doubles"></div>
@@ -549,16 +630,22 @@ footer {
     </article>
 </section>
 
-<section class="view" id="v-pendencias" hidden>
+<!-- PENDÊNCIAS -->
+
+<section id="v-pendencias" class="view" hidden>
 
     <article class="panel">
 
         <div class="heading">
-            <h2>Pendências cadastrais</h2>
-            <button id="csvPend">EXPORTAR CSV</button>
+            <h2>Possíveis pendências cadastrais</h2>
+
+            <button id="csvPend">
+                EXPORTAR CSV
+            </button>
         </div>
 
-        <div class="toolbar">
+        <div class="tools">
+
             <select id="areaPend">
                 <option value="">TODAS AS ÁREAS</option>
             </select>
@@ -569,6 +656,12 @@ footer {
                 <option value="pn">SEM PN</option>
                 <option value="descricao">SEM DESCRIÇÃO</option>
             </select>
+
+        </div>
+
+        <div class="hint">
+            Um PN vazio pode ser válido em alguns cadastros;
+            revise antes de classificar como erro.
         </div>
 
         <div class="tablewrap">
@@ -583,12 +676,13 @@ footer {
                         <th>PENDÊNCIA</th>
                     </tr>
                 </thead>
+
                 <tbody id="pendBody"></tbody>
             </table>
         </div>
 
         <div class="paging">
-            <span class="muted" id="pendInfo"></span>
+            <span id="pendInfo" class="muted"></span>
             <button id="pendAnt">ANTERIOR</button>
             <button id="pendProx">PRÓXIMA</button>
         </div>
@@ -600,16 +694,28 @@ footer {
 
 <footer>
     CKTR | CENTRAL DE GESTÃO E AUDITORIA
+    · Dados apenas na memória desta aba
 </footer>
 
-<div id="toast" hidden role="status">
-    <button id="closeToast">×</button>
+<!-- NOTIFICAÇÃO -->
+
+<div id="toast" hidden role="status" aria-live="polite">
+
+    <button id="closeToast" aria-label="Fechar">
+        ×
+    </button>
+
     <strong id="toastTitle"></strong>
     <p id="toastMsg"></p>
+
 </div>
 
 <script>
-"use strict";
+'use strict';
+
+// ============================================
+// CKTR | CONFIGURAÇÕES PRINCIPAIS
+// ============================================
 
 const $ = id => document.getElementById(id);
 
@@ -619,273 +725,220 @@ const state = {
     pendPage: 0
 };
 
-const nf = new Intl.NumberFormat("pt-BR");
+const nf = new Intl.NumberFormat('pt-BR');
 
 let toastTimer;
 
-function txt(v) {
-    return String(v ?? "").trim();
-}
+const txt = v => String(v ?? '').trim();
 
-function esc(v) {
-    return txt(v).replace(
-        /[&<>"']/g,
-        c => ({
-            "&": "&amp;",
-            "<": "&lt;",
-            ">": "&gt;",
-            '"': "&quot;",
-            "'": "&#39;"
-        }[c])
-    );
-}
+const esc = v => txt(v).replace(
+    /[&<>"']/g,
+    c => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+    }[c])
+);
 
-function key(v) {
-    return txt(v)
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLowerCase()
-        .replace(/[^a-z0-9]/g, "");
-}
+const key = v => txt(v)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '');
 
-function norm(v) {
-    return txt(v)
-        .toLocaleUpperCase("pt-BR")
-        .replace(/\s+/g, " ");
-}
+const norm = v => txt(v)
+    .toLocaleUpperCase('pt-BR')
+    .replace(/\s+/g, ' ');
 
-function get(o, keys) {
-    const map = new Map(
-        Object.entries(o).map(([k, v]) => [key(k), v])
+function get(o, nomes) {
+
+    const m = new Map(
+        Object.entries(o).map(
+            ([k, v]) => [key(k), v]
+        )
     );
 
-    for (const k of keys) {
-        const v = map.get(key(k));
-
-        if (v !== undefined) {
-            return v;
+    for (const k of nomes) {
+        if (m.has(key(k))) {
+            return m.get(key(k));
         }
     }
 
-    return "";
+    return '';
 }
 
-// =======================================
-// NOTIFICAÇÃO AUTOMÁTICA COM X
-// =======================================
+// ============================================
+// CKTR | NOTIFICAÇÕES AUTOMÁTICAS
+// ============================================
 
-function toast(titulo, mensagem, tipo = "ok") {
+function toast(titulo, mensagem, tipo = 'ok') {
+
     clearTimeout(toastTimer);
 
-    $("toastTitle").textContent = titulo;
-    $("toastMsg").textContent = mensagem;
+    $('toastTitle').textContent = titulo;
+    $('toastMsg').textContent = mensagem;
 
-    $("toast").className =
-        tipo === "ok" ? "" : tipo;
+    $('toast').className =
+        tipo === 'ok' ? '' : tipo;
 
-    $("toast").hidden = false;
+    $('toast').hidden = false;
 
     toastTimer = setTimeout(() => {
-        $("toast").hidden = true;
+        $('toast').hidden = true;
     }, 2400);
 }
 
-$("closeToast").onclick = () => {
+$('closeToast').onclick = () => {
     clearTimeout(toastTimer);
-    $("toast").hidden = true;
+    $('toast').hidden = true;
 };
 
-// =======================================
-// IMPORTAÇÃO CSV / TSV
-// =======================================
-
-function parseCSV(texto) {
-    const s = texto.replace(/^\uFEFF/, "");
-
-    const primeiraLinha = s.split(/\r?\n/, 1)[0];
-
-    const separadores = [";", ",", "\t"].map(d => [
-        d,
-        primeiraLinha.split(d).length - 1
-    ]);
-
-    separadores.sort((a, b) => b[1] - a[1]);
-
-    const delimitador = separadores[0][0];
-
-    const linhas = [];
-    let linha = [];
-    let valor = "";
-    let aspas = false;
-
-    for (let i = 0; i < s.length; i++) {
-        const c = s[i];
-
-        if (c === '"') {
-            if (aspas && s[i + 1] === '"') {
-                valor += '"';
-                i++;
-            } else {
-                aspas = !aspas;
-            }
-        } else if (!aspas && c === delimitador) {
-            linha.push(valor);
-            valor = "";
-        } else if (
-            !aspas &&
-            (c === "\n" || c === "\r")
-        ) {
-            if (c === "\r" && s[i + 1] === "\n") {
-                i++;
-            }
-
-            linha.push(valor);
-
-            if (linha.some(x => txt(x))) {
-                linhas.push(linha);
-            }
-
-            linha = [];
-            valor = "";
-        } else {
-            valor += c;
-        }
-    }
-
-    linha.push(valor);
-
-    if (linha.some(x => txt(x))) {
-        linhas.push(linha);
-    }
-
-    if (linhas.length < 2) {
-        throw Error("Arquivo sem registros.");
-    }
-
-    const cabecalhos = linhas.shift();
-
-    return linhas.map(linha =>
-        Object.fromEntries(
-            cabecalhos.map((c, i) => [
-                c,
-                linha[i] ?? ""
-            ])
-        )
-    );
-}
-
-// =======================================
-// NORMALIZAR DADOS DO SHAREPOINT
-// =======================================
+// ============================================
+// CKTR | NORMALIZAÇÃO DOS DADOS
+// COMPATÍVEL COM POWER APPS
+// ============================================
 
 function normalizeRow(r) {
-    const id = Number(get(r, ["ID"]));
+
+    const id = Number(get(r, ['i', 'ID']));
 
     return {
-        id: Number.isFinite(id) ? id : 0,
+        id: Number.isSafeInteger(id) && id > 0
+            ? id
+            : 0,
 
         area: txt(
-            get(r, ["ID_AREA", "Area"])
-        ) || "—",
+            get(r, ['a', 'ID_AREA', 'Area'])
+        ) || '—',
 
         sap: txt(
-            get(r, ["Título", "Title", "SAP", "CodigoSAP"])
+            get(r, [
+                's',
+                'Título',
+                'Title',
+                'SAP',
+                'CodigoSAP'
+            ])
         ),
 
         pn: txt(
-            get(r, ["Codigo_Fornecedor", "PN"])
+            get(r, [
+                'p',
+                'Codigo_Fornecedor',
+                'PN'
+            ])
         ),
 
         descricao: txt(
-            get(r, ["Descricao_Item", "Descricao"])
+            get(r, [
+                'd',
+                'Descricao_Item',
+                'Descricao'
+            ])
         ),
 
         criado: txt(
-            get(r, ["Criado", "Created"])
+            get(r, [
+                'c',
+                'Criado',
+                'Created'
+            ])
         )
     };
 }
 
-// =======================================
-// AUDITORIA DE DUPLICIDADES
-// =======================================
+// ============================================
+// CKTR | AUDITORIA DE DUPLICIDADES
+// ============================================
 
-function mapGroups(rows, campo) {
-    const mapa = new Map();
+function groups(rows, campo) {
+
+    const m = new Map();
 
     for (const r of rows) {
+
         const codigo = norm(r[campo]);
 
-        if (!codigo) continue;
-
-        if (!mapa.has(codigo)) {
-            mapa.set(codigo, []);
+        if (!codigo) {
+            continue;
         }
 
-        mapa.get(codigo).push(r);
+        if (!m.has(codigo)) {
+            m.set(codigo, []);
+        }
+
+        m.get(codigo).push(r);
     }
 
-    return [...mapa.entries()]
-        .filter(([, itens]) =>
-            new Set(itens.map(x => x.id)).size > 1
+    return [...m]
+        .filter(([, items]) =>
+            new Set(
+                items.map(r => r.area + '|' + r.id)
+            ).size > 1
         )
         .map(([codigo, itens]) => ({
             codigo,
             itens
         }))
         .sort((a, b) =>
-            b.itens.length - a.itens.length
+            b.itens.length - a.itens.length ||
+            a.codigo.localeCompare(b.codigo)
         );
 }
 
-function faltas(r) {
-    return ["sap", "pn", "descricao"]
-        .filter(campo => !r[campo]);
-}
+// ============================================
+// CKTR | PENDÊNCIAS E ORDENAÇÃO
+// ============================================
 
-function pendentes() {
-    return state.rows.filter(r =>
-        faltas(r).length > 0
+const faltas = r =>
+    ['sap', 'pn', 'descricao']
+        .filter(c => !r[c]);
+
+const ordered = (rows, desc = true) =>
+    [...rows].sort(
+        (a, b) => desc
+            ? b.id - a.id
+            : a.id - b.id
     );
-}
 
-function ordered(rows, desc = true) {
-    return [...rows].sort((a, b) =>
-        desc ? b.id - a.id : a.id - b.id
+const areaRows = id =>
+    state.rows.filter(
+        r => !$(id).value || r.area === $(id).value
     );
-}
 
-function areaRows(id) {
-    const area = $(id).value;
-
-    return state.rows.filter(r =>
-        !area || r.area === area
-    );
-}
-
-// =======================================
-// GERAÇÃO DE LINHAS DA TABELA
-// =======================================
+// ============================================
+// CKTR | GERAÇÃO DE TABELAS
+// ============================================
 
 function line(r, extra) {
+
     return `
         <tr>
             <td>${esc(r.id)}</td>
-            <td><span class="tag">${esc(r.area)}</span></td>
-            <td>${esc(r.sap || "—")}</td>
-            <td>${esc(r.pn || "—")}</td>
-            <td>${esc(r.descricao || "—")}</td>
-            <td>${esc(extra ?? r.criado ?? "—")}</td>
+            <td>
+                <span class="tag">${esc(r.area)}</span>
+            </td>
+            <td>${esc(r.sap || '—')}</td>
+            <td>${esc(r.pn || '—')}</td>
+            <td>${esc(r.descricao || '—')}</td>
+            <td>${esc(extra ?? r.criado ?? '—')}</td>
         </tr>
     `;
 }
 
-function show(id, rows, fn = line) {
+function show(id, rows, render = line) {
+
     $(id).innerHTML = rows.length
-        ? rows.map(fn).join("")
-        : `<tr><td colspan="6" class="empty">
-            Nenhum registro para exibir.
-           </td></tr>`;
+        ? rows.map(render).join('')
+        : `
+            <tr>
+                <td colspan="6" class="empty">
+                    Nenhum registro para exibir.
+                </td>
+            </tr>
+        `;
 }
 
 function page(
@@ -893,10 +946,11 @@ function page(
     indice,
     body,
     info,
-    anterior,
-    proximo,
-    fn = line
+    ant,
+    prox,
+    render = line
 ) {
+
     const total = Math.max(
         1,
         Math.ceil(rows.length / 25)
@@ -913,61 +967,64 @@ function page(
             indice * 25,
             indice * 25 + 25
         ),
-        fn
+        render
     );
 
     $(info).textContent =
         `${nf.format(rows.length)} registros · ` +
         `Página ${indice + 1}/${total}`;
 
-    $(anterior).disabled = indice === 0;
-    $(proximo).disabled = indice >= total - 1;
+    $(ant).disabled = indice === 0;
+    $(prox).disabled = indice >= total - 1;
 
     return indice;
 }
 
-// =======================================
-// HISTÓRICO
-// =======================================
+// ============================================
+// CKTR | HISTÓRICO
+// ============================================
 
 function historyRows() {
-    const busca = norm($("buscaHist").value);
+
+    const busca = norm($('buscaHist').value);
 
     return ordered(
-        areaRows("areaHist").filter(r =>
+        areaRows('areaHist').filter(r =>
             !busca ||
             norm([
                 r.id,
                 r.sap,
                 r.pn,
                 r.descricao
-            ].join(" ")).includes(busca)
+            ].join(' ')).includes(busca)
         ),
-        $("ordem").value === "desc"
+        $('ordem').value === 'desc'
     );
 }
 
 function renderHistory() {
+
     state.page = page(
         historyRows(),
         state.page,
-        "histBody",
-        "histInfo",
-        "anterior",
-        "proximo"
+        'histBody',
+        'histInfo',
+        'anterior',
+        'proximo'
     );
 }
 
-// =======================================
-// PENDÊNCIAS
-// =======================================
+// ============================================
+// CKTR | PENDÊNCIAS
+// ============================================
 
 function pendingRows() {
-    const tipo = $("tipoPend").value;
+
+    const tipo = $('tipoPend').value;
 
     return ordered(
-        areaRows("areaPend").filter(r =>
-            tipo === "qualquer"
+        areaRows('areaPend').filter(r =>
+            tipo === 'qualquer'
                 ? faltas(r).length > 0
                 : !r[tipo]
         )
@@ -975,32 +1032,34 @@ function pendingRows() {
 }
 
 function renderPending() {
+
     state.pendPage = page(
         pendingRows(),
         state.pendPage,
-        "pendBody",
-        "pendInfo",
-        "pendAnt",
-        "pendProx",
+        'pendBody',
+        'pendInfo',
+        'pendAnt',
+        'pendProx',
         r => line(
             r,
             faltas(r)
-                .map(x => "SEM " + x.toUpperCase())
-                .join(" | ")
+                .map(x => 'SEM ' + x.toUpperCase())
+                .join(' | ')
         )
     );
 }
 
-// =======================================
-// DUPLICIDADES
-// =======================================
+// ============================================
+// CKTR | DUPLICIDADES
+// ============================================
 
-function renderDuplicates() {
-    const campo = $("tipoDup").value;
-    const busca = norm($("buscaDup").value);
+function filteredDuplicates() {
 
-    const grupos = mapGroups(
-        areaRows("areaDup"),
+    const campo = $('tipoDup').value;
+    const busca = norm($('buscaDup').value);
+
+    return groups(
+        areaRows('areaDup'),
         campo
     ).filter(g =>
         !busca ||
@@ -1009,120 +1068,56 @@ function renderDuplicates() {
             norm(r.descricao).includes(busca)
         )
     );
+}
 
-    $("listaDup").innerHTML = grupos.length
-        ? grupos.slice(0, 250).map(g => `
+function renderDuplicates() {
+
+    const gs = filteredDuplicates();
+
+    $('listaDup').innerHTML = gs.length
+        ? gs.slice(0, 250).map(g => `
             <div class="dup">
                 <strong>${esc(g.codigo)}</strong>
-                <span class="tag warning">
+
+                <span class="tag warn">
                     ${g.itens.length} ocorrências
                 </span>
+
                 <p>
                     ${esc(
                         g.itens.map(r =>
-                            "ID " + r.id +
-                            " (Área " + r.area + ")"
-                        ).join(" · ")
+                            `ID ${r.id} (Área ${r.area})`
+                        ).join(' · ')
                     )}
                 </p>
             </div>
-        `).join("")
-        : `<div class="empty">
-            Nenhuma duplicidade encontrada.
-           </div>`;
+        `).join('')
+        : `
+            <div class="empty">
+                Nenhuma duplicidade encontrada
+                neste conjunto de dados.
+            </div>
+        `;
 
-    if (grupos.length > 250) {
-        $("listaDup").insertAdjacentHTML(
-            "beforeend",
-            `<div class="muted">
-                Exibindo 250 grupos.
-                Exporte o CSV para consultar todos.
-            </div>`
+    if (gs.length > 250) {
+        $('listaDup').insertAdjacentHTML(
+            'beforeend',
+            `
+                <div class="hint">
+                    Exibindo 250 grupos.
+                    Exporte o CSV para consultar todos.
+                </div>
+            `
         );
     }
 }
 
-// =======================================
-// PAINEL PRINCIPAL
-// =======================================
-
-function render() {
-    const rows = state.rows;
-
-    const sap = mapGroups(rows, "sap");
-    const pn = mapGroups(rows, "pn");
-    const p = pendentes();
-
-    const ultimo = ordered(rows)[0];
-
-    $("total").textContent = rows.length
-        ? nf.format(rows.length) : "—";
-
-    $("sapDup").textContent = rows.length
-        ? nf.format(sap.length) : "—";
-
-    $("pnDup").textContent = rows.length
-        ? nf.format(pn.length) : "—";
-
-    $("faltas").textContent = rows.length
-        ? nf.format(p.length) : "—";
-
-    $("ultimo").className = ultimo
-        ? "" : "empty";
-
-    $("ultimo").innerHTML = ultimo
-        ? `
-            <div class="muted">
-                ID ${esc(ultimo.id)}
-                · ÁREA ${esc(ultimo.area)}
-            </div>
-            <div class="value">
-                ${esc(
-                    ultimo.sap ||
-                    ultimo.pn ||
-                    "SEM CÓDIGO"
-                )}
-            </div>
-            <p>
-                ${esc(
-                    ultimo.descricao ||
-                    "Sem descrição"
-                )}
-            </p>
-            <div class="muted">
-                PN: ${esc(ultimo.pn || "—")}
-                · Criado: ${esc(
-                    ultimo.criado || "Não informado"
-                )}
-            </div>
-          `
-        : "Nenhum cadastro importado.";
-
-    $("diagnostico").innerHTML = rows.length
-        ? `
-            <p>${nf.format(rows.length)} registros importados.</p>
-            <p>${nf.format(sap.length)} grupos SAP repetidos.</p>
-            <p>${nf.format(pn.length)} grupos PN repetidos.</p>
-            <p>${nf.format(p.length)} cadastros incompletos.</p>
-            <p>Análise da base importada.</p>
-          `
-        : "Nenhuma base carregada.";
-
-    show(
-        "recentes",
-        ordered(rows).slice(0, 10)
-    );
-
-    renderHistory();
-    renderDuplicates();
-    renderPending();
-}
-
-// =======================================
-// FILTROS POR ÁREA
-// =======================================
+// ============================================
+// CKTR | FILTROS DE ÁREA
+// ============================================
 
 function refreshAreas() {
+
     const areas = [
         ...new Set(
             state.rows.map(r => r.area)
@@ -1130,169 +1125,549 @@ function refreshAreas() {
     ].sort((a, b) => Number(a) - Number(b));
 
     for (const id of [
-        "areaHist",
-        "areaDup",
-        "areaPend"
+        'areaHist',
+        'areaDup',
+        'areaPend'
     ]) {
-        $(id).innerHTML =
-            `<option value="">TODAS AS ÁREAS</option>` +
-            areas.map(a => `
-                <option value="${esc(a)}">
-                    ÁREA ${esc(a)}
-                </option>
-            `).join("");
+
+        const current = $(id).value;
+
+        $(id).replaceChildren(
+            new Option('TODAS AS ÁREAS', ''),
+            ...areas.map(a =>
+                new Option('ÁREA ' + a, a)
+            )
+        );
+
+        $(id).value = areas.includes(current)
+            ? current
+            : '';
     }
 }
 
-// =======================================
-// CARREGAR ARQUIVO
-// =======================================
+// ============================================
+// CKTR | ATUALIZAR PAINEL
+// ============================================
 
-function importRows(raw, origem) {
-    if (!Array.isArray(raw) || !raw.length) {
-        throw Error("Base sem registros.");
-    }
+function render() {
 
-    if (raw.length > 150000) {
-        throw Error("Limite local de 150 mil registros.");
-    }
+    const r = state.rows;
+    const sap = groups(r, 'sap');
+    const pn = groups(r, 'pn');
 
-    const colunas = Object.keys(raw[0]).map(key);
+    const pend = r.filter(
+        x => faltas(x).length
+    );
 
-    if (
-        !colunas.includes("id") ||
-        !colunas.some(x =>
-            [
-                "titulo",
-                "title",
-                "sap",
-                "codigosap",
-                "descricaoitem"
-            ].includes(x)
-        )
-    ) {
+    const ultimo = ordered(r)[0];
+
+    $('total').textContent = r.length
+        ? nf.format(r.length)
+        : '—';
+
+    $('sapDup').textContent = r.length
+        ? nf.format(sap.length)
+        : '—';
+
+    $('pnDup').textContent = r.length
+        ? nf.format(pn.length)
+        : '—';
+
+    $('faltas').textContent = r.length
+        ? nf.format(pend.length)
+        : '—';
+
+    $('ultimo').className = ultimo
+        ? ''
+        : 'empty';
+
+    $('ultimo').innerHTML = ultimo
+        ? `
+            <div class="muted">
+                ID ${esc(ultimo.id)}
+                · ÁREA ${esc(ultimo.area)}
+            </div>
+
+            <div class="value">
+                ${esc(
+                    ultimo.sap ||
+                    ultimo.pn ||
+                    'SEM CÓDIGO'
+                )}
+            </div>
+
+            <p>
+                ${esc(
+                    ultimo.descricao ||
+                    'Sem descrição'
+                )}
+            </p>
+
+            <div class="muted">
+                PN: ${esc(ultimo.pn || '—')}
+                · Criado: ${esc(
+                    ultimo.criado || 'Não informado'
+                )}
+            </div>
+        `
+        : 'Aguardando auditoria.';
+
+    $('diagnostico').innerHTML = r.length
+        ? `
+            <p>
+                ${nf.format(r.length)}
+                materiais analisados.
+            </p>
+
+            <p>
+                ${nf.format(sap.length)}
+                grupos SAP repetidos.
+            </p>
+
+            <p>
+                ${nf.format(pn.length)}
+                grupos PN repetidos.
+            </p>
+
+            <p>
+                ${nf.format(pend.length)}
+                cadastros com possíveis pendências.
+            </p>
+
+            <p>
+                <b>Escopo:</b>
+                apenas dados transferidos do Power Apps.
+            </p>
+        `
+        : 'Nenhuma base carregada.';
+
+    show(
+        'recentes',
+        ordered(r).slice(0, 10)
+    );
+
+    renderHistory();
+    renderDuplicates();
+    renderPending();
+}
+
+// ============================================
+// CKTR | DECODIFICAR PACOTE DO POWER APPS
+// ============================================
+
+function decodePacote(raw) {
+
+    const texto = txt(raw);
+
+    if (!texto.startsWith('CKTR-AUD-1:')) {
         throw Error(
-            "Colunas ID e Título/SAP não localizadas."
+            'Pacote inválido. Copie o texto iniciado por ' +
+            'CKTR-AUD-1: no Power Apps.'
         );
     }
 
-    const rows = raw
-        .map(normalizeRow)
-        .filter(r => r.id > 0);
-
-    if (!rows.length) {
-        throw Error("Nenhum ID válido.");
+    if (texto.length > 12000000) {
+        throw Error(
+            'Pacote acima de 12 milhões de caracteres. ' +
+            'Divida a transferência em lotes.'
+        );
     }
 
-    state.rows = rows;
+    let data;
+
+    try {
+
+        data = JSON.parse(
+            decodeURIComponent(
+                texto.slice('CKTR-AUD-1:'.length)
+            )
+        );
+
+    } catch {
+
+        throw Error(
+            'Não foi possível decodificar o pacote. ' +
+            'Copie o texto completo novamente.'
+        );
+    }
+
+    if (
+        !data ||
+        data.v !== 1 ||
+        !Array.isArray(data.itens)
+    ) {
+        throw Error(
+            'Estrutura incompatível. Era esperado ' +
+            'um pacote CKTR-AUD-1 versão 1.'
+        );
+    }
+
+    if (data.itens.length > 150000) {
+        throw Error(
+            'Limite local de 150 mil registros. ' +
+            'Divida a base em lotes.'
+        );
+    }
+
+    return data.itens;
+}
+
+// ============================================
+// CKTR | PROCESSAR AUDITORIA
+// ============================================
+
+function processar() {
+
+    try {
+
+        const raw = decodePacote(
+            $('pacote').value
+        );
+
+        if (!raw.length) {
+            throw Error(
+                'O pacote não contém materiais.'
+            );
+        }
+
+        const vistos = new Set();
+        const rows = [];
+
+        let ignorados = 0;
+        let repetidos = 0;
+
+        for (const item of raw) {
+
+            if (
+                !item ||
+                typeof item !== 'object' ||
+                Array.isArray(item)
+            ) {
+                ignorados++;
+                continue;
+            }
+
+            const r = normalizeRow(item);
+
+            if (!r.id) {
+                ignorados++;
+                continue;
+            }
+
+            const k = r.area + '|' + r.id;
+
+            if (vistos.has(k)) {
+                repetidos++;
+                continue;
+            }
+
+            vistos.add(k);
+            rows.push(r);
+        }
+
+        if (!rows.length) {
+            throw Error(
+                'Nenhum registro com ID válido no pacote.'
+            );
+        }
+
+        state.rows = rows;
+        state.page = 0;
+        state.pendPage = 0;
+
+        refreshAreas();
+        render();
+
+        // LIMPAR O CAMPO, MAS MANTER A AUDITORIA
+        $('pacote').value = '';
+
+        $('estado').textContent =
+            `${nf.format(rows.length)} materiais analisados nesta aba.` +
+            (
+                repetidos
+                    ? ` ${repetidos} repetição(ões) de ID removidas.`
+                    : ''
+            ) +
+            (
+                ignorados
+                    ? ` ${ignorados} registro(s) inválido(s) ignorados.`
+                    : ''
+            );
+
+        toast(
+            'CKTR | AUDITORIA PROCESSADA',
+            `${nf.format(rows.length)} materiais carregados.`
+        );
+
+    } catch (e) {
+
+        toast(
+            'CKTR | ERRO NO PACOTE',
+            e.message,
+            'error'
+        );
+    }
+}
+
+// ============================================
+// CKTR | BOTÃO PROCESSAR
+// ============================================
+
+$('processar').onclick = processar;
+
+// ============================================
+// CKTR | CTRL+V AUTOMÁTICO
+// ============================================
+
+$('pacote').addEventListener(
+    'paste',
+    () => {
+
+        setTimeout(() => {
+
+            if (
+                txt($('pacote').value)
+                    .startsWith('CKTR-AUD-1:')
+            ) {
+                processar();
+            }
+
+        }, 0);
+    }
+);
+
+// ============================================
+// CKTR | COLAR DO CLIPBOARD
+// ============================================
+
+$('colar').onclick = async () => {
+
+    try {
+
+        if (!navigator.clipboard?.readText) {
+            throw Error(
+                'O navegador não disponibilizou a leitura automática. ' +
+                'Use Ctrl+V no campo.'
+            );
+        }
+
+        $('pacote').value =
+            await navigator.clipboard.readText();
+
+        processar();
+
+    } catch (e) {
+
+        toast(
+            'CKTR | USE CTRL+V',
+            e.message ||
+                'Não foi possível ler a área de transferência.',
+            'warn'
+        );
+
+        $('pacote').focus();
+    }
+};
+
+// ============================================
+// CKTR | LIMPAR DADOS
+// ============================================
+
+$('limpar').onclick = () => {
+
+    state.rows = [];
     state.page = 0;
     state.pendPage = 0;
+
+    $('pacote').value = '';
+
+    $('estado').textContent =
+        'Nenhum pacote processado.';
 
     refreshAreas();
     render();
 
     toast(
-        "AUDITORIA CARREGADA",
-        `${nf.format(rows.length)} registros · ${origem}`
+        'CKTR | DADOS LIMPOS',
+        'Os dados foram retirados da memória desta aba.'
+    );
+};
+
+// ============================================
+// CKTR | NAVEGAÇÃO ENTRE ABAS
+// ============================================
+
+for (
+    const b of document.querySelectorAll('[data-view]')
+) {
+
+    b.onclick = () => {
+
+        const aba = b.dataset.view;
+
+        for (
+            const s of document.querySelectorAll('.view')
+        ) {
+            s.hidden = s.id !== 'v-' + aba;
+        }
+
+        for (
+            const tab of document.querySelectorAll('nav button')
+        ) {
+            tab.classList.toggle(
+                'active',
+                tab.dataset.view === aba
+            );
+        }
+    };
+}
+
+// ============================================
+// CKTR | FILTROS DO HISTÓRICO
+// ============================================
+
+for (const id of [
+    'buscaHist',
+    'areaHist',
+    'ordem'
+]) {
+
+    $(id).addEventListener('input', () => {
+        state.page = 0;
+        renderHistory();
+    });
+}
+
+// ============================================
+// CKTR | FILTROS DE DUPLICIDADES
+// ============================================
+
+for (const id of [
+    'tipoDup',
+    'areaDup',
+    'buscaDup'
+]) {
+
+    $(id).addEventListener(
+        'input',
+        renderDuplicates
     );
 }
 
-$("arquivo").onchange = async event => {
-    const arquivo = event.target.files[0];
+// ============================================
+// CKTR | FILTROS DE PENDÊNCIAS
+// ============================================
 
-    if (!arquivo) return;
+for (const id of [
+    'tipoPend',
+    'areaPend'
+]) {
 
-    try {
-        if (arquivo.size > 50 * 1024 * 1024) {
-            throw Error("Arquivo acima de 50 MB.");
-        }
-
-        const conteudo = await arquivo.text();
-
-        const dados = /\.json$/i.test(arquivo.name)
-            ? JSON.parse(conteudo)
-            : parseCSV(conteudo);
-
-        importRows(
-            Array.isArray(dados)
-                ? dados
-                : dados.value ?? dados.items ?? [],
-            arquivo.name
-        );
-
-    } catch (erro) {
-        toast(
-            "ERRO NA IMPORTAÇÃO",
-            erro.message,
-            "error"
-        );
-    } finally {
-        event.target.value = "";
-    }
-};
-
-// =======================================
-// EXPORTAÇÃO CSV
-// =======================================
-
-function csvCell(v) {
-    let valor = txt(v);
-
-    if (/^[=+@\-\t\r]/.test(valor)) {
-        valor = "'" + valor;
-    }
-
-    return '"' + valor.replace(/"/g, '""') + '"';
+    $(id).addEventListener('input', () => {
+        state.pendPage = 0;
+        renderPending();
+    });
 }
 
-function csv(nome, cabecalhos, linhas) {
+// ============================================
+// CKTR | PAGINAÇÃO
+// ============================================
+
+$('anterior').onclick = () => {
+    state.page--;
+    renderHistory();
+};
+
+$('proximo').onclick = () => {
+    state.page++;
+    renderHistory();
+};
+
+$('pendAnt').onclick = () => {
+    state.pendPage--;
+    renderPending();
+};
+
+$('pendProx').onclick = () => {
+    state.pendPage++;
+    renderPending();
+};
+
+// ============================================
+// CKTR | EXPORTAÇÃO CSV SEGURA
+// ============================================
+
+function csvCell(v) {
+
+    let s = txt(v);
+
+    // EVITAR EXECUÇÃO DE FÓRMULAS NA PLANILHA
+    if (/^[=+@\-\t\r]/.test(s)) {
+        s = "'" + s;
+    }
+
+    return '"' +
+        s.replace(/"/g, '""') +
+        '"';
+}
+
+function exportCSV(nome, colunas, linhas) {
+
     if (!state.rows.length) {
+
         toast(
-            "SEM DADOS",
-            "Importe uma base primeiro.",
-            "warn"
+            'CKTR | SEM DADOS',
+            'Processe um pacote antes de exportar.',
+            'warn'
         );
+
         return;
     }
 
     const conteudo =
-        "\uFEFF" +
-        cabecalhos.map(csvCell).join(";") +
-        "\r\n" +
-        linhas.map(l =>
-            l.map(csvCell).join(";")
-        ).join("\r\n");
+        '\uFEFF' +
+        [colunas, ...linhas]
+            .map(r =>
+                r.map(csvCell).join(';')
+            )
+            .join('\r\n');
 
     const url = URL.createObjectURL(
         new Blob(
             [conteudo],
-            { type: "text/csv;charset=utf-8" }
+            {
+                type: 'text/csv;charset=utf-8'
+            }
         )
     );
 
-    const link = document.createElement("a");
+    const link = document.createElement('a');
 
     link.href = url;
     link.download = nome;
+
+    document.body.append(link);
+
     link.click();
+    link.remove();
 
     setTimeout(() => {
         URL.revokeObjectURL(url);
-    }, 1500);
+    }, 2000);
 
     toast(
-        "RELATÓRIO GERADO",
+        'CKTR | RELATÓRIO GERADO',
         `${nf.format(linhas.length)} linhas exportadas.`
     );
 }
 
-const headers = [
-    "ID",
-    "ID_AREA",
-    "Título",
-    "Codigo_Fornecedor",
-    "Descricao_Item",
-    "Criado"
+const colunas = [
+    'ID',
+    'ID_AREA',
+    'Título',
+    'Codigo_Fornecedor',
+    'Descricao_Item',
+    'Criado'
 ];
 
 const cells = r => [
@@ -1304,42 +1679,55 @@ const cells = r => [
     r.criado
 ];
 
-$("csvHistorico").onclick = () => {
-    csv(
-        "CKTR_HISTORICO.csv",
-        headers,
+// ============================================
+// CKTR | EXPORTAR HISTÓRICO
+// ============================================
+
+$('csvHistorico').onclick = () => {
+
+    exportCSV(
+        'CKTR_HISTORICO.csv',
+        colunas,
         historyRows().map(cells)
     );
 };
 
-$("csvPend").onclick = () => {
-    csv(
-        "CKTR_PENDENCIAS.csv",
-        [...headers, "Pendencias"],
+// ============================================
+// CKTR | EXPORTAR PENDÊNCIAS
+// ============================================
+
+$('csvPend').onclick = () => {
+
+    exportCSV(
+        'CKTR_PENDENCIAS.csv',
+        [...colunas, 'Pendencias'],
+
         pendingRows().map(r => [
             ...cells(r),
-            faltas(r).join(" | ")
+            faltas(r).join(' | ')
         ])
     );
 };
 
-$("csvDup").onclick = () => {
-    const campo = $("tipoDup").value;
+// ============================================
+// CKTR | EXPORTAR DUPLICIDADES
+// ============================================
 
-    const grupos = mapGroups(
-        areaRows("areaDup"),
-        campo
-    );
+$('csvDup').onclick = () => {
 
-    csv(
-        "CKTR_DUPLICIDADES.csv",
+    const campo = $('tipoDup').value;
+
+    exportCSV(
+        'CKTR_DUPLICIDADES.csv',
+
         [
-            "Tipo",
-            "Valor",
-            "Ocorrencias",
-            ...headers
+            'Tipo',
+            'Valor',
+            'Ocorrencias',
+            ...colunas
         ],
-        grupos.flatMap(g =>
+
+        filteredDuplicates().flatMap(g =>
             g.itens.map(r => [
                 campo,
                 g.codigo,
@@ -1350,99 +1738,7 @@ $("csvDup").onclick = () => {
     );
 };
 
-// =======================================
-// BOTÕES
-// =======================================
-
-$("limpar").onclick = () => {
-    state.rows = [];
-    state.page = 0;
-    state.pendPage = 0;
-
-    refreshAreas();
-    render();
-
-    toast(
-        "DADOS REMOVIDOS",
-        "A base foi retirada da memória desta aba."
-    );
-};
-
-for (
-    const botao of document.querySelectorAll(
-        "[data-view]"
-    )
-) {
-    botao.onclick = () => {
-        const aba = botao.dataset.view;
-
-        document.querySelectorAll(".view")
-            .forEach(secao => {
-                secao.hidden = secao.id !== "v-" + aba;
-            });
-
-        document.querySelectorAll("nav button")
-            .forEach(b => {
-                b.classList.toggle(
-                    "active",
-                    b.dataset.view === aba
-                );
-            });
-    };
-}
-
-for (const id of [
-    "buscaHist",
-    "areaHist",
-    "ordem"
-]) {
-    $(id).addEventListener("input", () => {
-        state.page = 0;
-        renderHistory();
-    });
-}
-
-for (const id of [
-    "tipoDup",
-    "areaDup",
-    "buscaDup"
-]) {
-    $(id).addEventListener(
-        "input",
-        renderDuplicates
-    );
-}
-
-for (const id of [
-    "areaPend",
-    "tipoPend"
-]) {
-    $(id).addEventListener("input", () => {
-        state.pendPage = 0;
-        renderPending();
-    });
-}
-
-$("anterior").onclick = () => {
-    state.page--;
-    renderHistory();
-};
-
-$("proximo").onclick = () => {
-    state.page++;
-    renderHistory();
-};
-
-$("pendAnt").onclick = () => {
-    state.pendPage--;
-    renderPending();
-};
-
-$("pendProx").onclick = () => {
-    state.pendPage++;
-    renderPending();
-};
-
+// INICIAR PAINEL SEM DADOS FICTÍCIOS
 render();
 
 </script>
