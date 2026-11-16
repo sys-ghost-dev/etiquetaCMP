@@ -1,6 +1,5 @@
-
-<!DOCTYPE html>
 <html lang="pt-BR">
+</script></body></html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1015,11 +1014,9 @@ function renderDuplicates() {
         ? grupos.slice(0, 250).map(g => `
             <div class="dup">
                 <strong>${esc(g.codigo)}</strong>
-
                 <span class="tag warning">
                     ${g.itens.length} ocorrências
                 </span>
-
                 <p>
                     ${esc(
                         g.itens.map(r =>
@@ -1079,7 +1076,6 @@ function render() {
                 ID ${esc(ultimo.id)}
                 · ÁREA ${esc(ultimo.area)}
             </div>
-
             <div class="value">
                 ${esc(
                     ultimo.sap ||
@@ -1087,14 +1083,12 @@ function render() {
                     "SEM CÓDIGO"
                 )}
             </div>
-
             <p>
                 ${esc(
                     ultimo.descricao ||
                     "Sem descrição"
                 )}
             </p>
-
             <div class="muted">
                 PN: ${esc(ultimo.pn || "—")}
                 · Criado: ${esc(
