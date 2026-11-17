@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; base-uri 'none'; form-action 'none'">
 <meta name="theme-color" content="#ffffff">
-<title>CKTR SERVIÇOS | GESTÃO DE ETIQUETAS V2.4</title>
+<title>CKTR SERVIÇOS | GESTÃO DE ETIQUETAS V2.5</title>
 <style>
 :root{color-scheme:light;--ink:#172a27;--muted:#506661;--line:#d4dfdb;--green:#19584d;--label-w:98.4mm;--label-h:48.4mm;--qr:22.5mm;font:16px system-ui,"Segoe UI",sans-serif}
 *{box-sizing:border-box}
@@ -1888,98 +1888,447 @@ try{const raw=new URLSearchParams(location.search).get('dados');if(raw){const da
 @media(max-width:740px){.v2grid{grid-template-columns:1fr}#v2Body{padding:13px}#v2Head{padding:15px}#v2Dock{right:8px;bottom:8px}.v2btn{padding:10px}}
 @media print{#v2Dock,#v2Modal,#v2Toast{display:none!important}}
 </style>
-<div id="v2Dock"><button class="v2btn" id="v2Open" type="button">▣ GESTÃO DE ETIQUETAS · V2</button></div>
-<div id="v2Toast" hidden role="status"></div>
+<style id="cktr-v25-style">
+/* GESTÃO DE ETIQUETAS | Interface 2.5 — upgrade do gerador existente */
+:root{--v25-emerald:#27c1a0;--v25-gold:#d4b56f;--v25-ink:#eaf6f2;--v25-muted:#a5c3bc}
+body.v2-lock{overflow:hidden!important}
+#v2Dock{right:20px;bottom:18px;z-index:990}
+#v2Open{display:flex;align-items:center;gap:12px;text-align:left;min-height:64px;padding:10px 16px 10px 11px;background:linear-gradient(120deg,#0d3d39,#105a50);border:1px solid #3c8c7d;border-radius:17px;box-shadow:0 15px 40px #001b1880,0 0 0 3px #7fd9bf10;transition:transform .18s ease,box-shadow .18s ease}
+#v2Open:hover{transform:translateY(-2px);box-shadow:0 18px 44px #001b1899}
+#v2Open .v2DockIcon{display:grid;place-items:center;width:41px;height:41px;flex:none;background:#e0f9ed18;border:1px solid #8ae5cb3a;border-radius:12px;color:#a7f2d4;font-size:24px}
+#v2Open .v2DockText{display:grid;gap:3px}
+#v2Open .v2DockText b{font-size:12px;letter-spacing:.025em;white-space:nowrap}
+#v2Open .v2DockText small{font-size:10px;color:#a9ded0;font-weight:500}
+#v2Open .v2DockChevron{font-size:18px;color:#b4eedb;margin-left:10px}
+#v2StorageChip[data-state="warn"]{color:#ffdda0!important}
+#v2StorageChip[data-state="ok"]{color:#8af2c0!important}
+#v2Modal{z-index:1600!important;background:rgba(4,20,21,.83)!important;backdrop-filter:blur(13px) saturate(.85);padding:18px!important}
+#v2Box{background:#0e2527!important;color:#e7f5ee!important;border:1px solid #316459!important;box-shadow:0 34px 105px #0009!important;border-radius:22px!important;width:min(1100px,100%)!important;max-height:min(94vh,930px)}
+#v2Head{background:linear-gradient(125deg,#103630,#0e2b2c 55%,#143e38)!important;border-bottom:1px solid #2e594f;padding:19px 27px!important;min-height:100px}
+#v2Head .v2Identity{display:flex;align-items:center;gap:16px}
+#v2Head .v2LogoMark{display:grid;place-items:center;border:1px solid #79d4b04d;background:#74daa61c;color:#a5ecd6;min-width:52px;height:52px;border-radius:14px;font-size:18px;font-weight:900;letter-spacing:-1px}
+#v2Head strong{font-size:22px!important;letter-spacing:-.5px}
+#v2Head small{color:#b2cfc6!important;font-size:11px!important;line-height:1.7}
+#v2Head .v2Overline{color:#57d5b1!important;font-weight:800;letter-spacing:1.6px;font-size:9px!important}
+#v2Head .v2HeadRight{display:flex;gap:9px;align-items:center}
+#v2Head .v2FirstBadge{font-size:10px;letter-spacing:1px;color:#ffdea5;background:#baa16b18;border:1px solid #ceaf7057;border-radius:99px;padding:8px 10px;font-weight:700}
+#v2Head #v2Close{border-radius:10px!important;background:#ffffff10;color:#ecfcf3;border-color:#ffffff24;font-size:12px}
+#v2Body{padding:24px 26px 27px!important;background:linear-gradient(#0e2527,#0d2325)}
+#v2Welcome{margin:0 0 20px!important;background:transparent!important;border:0!important;padding:0!important;display:grid;grid-template-columns:.9fr 1.1fr;gap:26px}
+#v2Welcome[hidden]{display:none!important}
+.v2WizardIntro{padding:25px 12px 20px 6px;display:flex;flex-direction:column;align-items:flex-start}
+.v2StepNumber{border-radius:99px;color:#a6eccf;background:#52bf9019;border:1px solid #69d8a146;font-size:10px;font-weight:800;letter-spacing:1.4px;padding:8px 12px}
+.v2SetupSymbol{font-size:28px;color:#a7edcd;width:76px;height:76px;background:#77d8b514;border:1px solid #6dc6a646;display:grid;place-items:center;border-radius:22px;margin:24px 0 18px;box-shadow:0 12px 34px #0002}
+.v2Wizard h2{font-size:clamp(23px,3vw,32px);letter-spacing:-.8px;color:#f1f9f4;line-height:1.17;margin:0 0 13px}
+.v2WizardIntro p{font-size:13px;line-height:1.8;color:#a9cac1;margin:0;max-width:350px}
+.v2WizardRight{background:#142e2e;border:1px solid #2c514b;border-radius:17px;padding:21px}
+.v2FormatCard{display:grid;gap:7px;padding:16px;border:1px solid #42827288;background:linear-gradient(120deg,#174439,#163b3b);border-radius:13px}
+.v2FormatCard span{font-size:10px;color:#8bceba;font-weight:800;letter-spacing:1.3px}
+.v2FormatCard b{font:750 17px Consolas,monospace;letter-spacing:-.3px;color:#defae7}
+.v2FormatCard small{font-size:11px;color:#a8c4ba;line-height:1.6}
+.v2SetupSteps{display:grid;gap:0;margin:13px 0}
+.v2SetupSteps>div{display:flex;gap:13px;align-items:center;padding:10px 0;border-bottom:1px solid #2c4945}
+.v2SetupSteps>div:last-child{border:0}
+.v2SetupSteps span{display:grid;place-items:center;width:27px;height:27px;flex:none;background:#1e5549;border-radius:50%;color:#aef4d8;font-size:10px;font-weight:900}
+.v2SetupSteps p{margin:0;color:#c6dfd5;font-size:12px;line-height:1.5}
+.v2StorageMode{font-size:10px;color:#89d9be;font-weight:800;letter-spacing:.4px;margin:9px 0 5px}
+#v2FolderHint{margin:3px 0 14px}
+#v2Box .v2hint,#v2Box .v2Hint{font-size:11px;color:#a4c1b8;line-height:1.68}
+#v2Box .v2status{color:#a7e5c6;font-size:11px;line-height:1.7}
+#v2Box .v2actions{gap:8px;margin-top:12px}
+#v2Box .v2actions button{color:#d9f3e8!important;background:#20403d!important;border:1px solid #3b6358!important;border-radius:9px!important;padding:10px 12px!important;font-size:11px!important;min-height:37px;transition:background .15s ease, transform .15s ease}
+#v2Box .v2actions button:hover:not(:disabled){background:#2d594e!important;transform:translateY(-1px)}
+#v2Box .v2actions button.main{background:linear-gradient(110deg,#137866,#0f695e)!important;border-color:#31a38a!important;color:#f4fff8!important}
+#v2Box .v2actions button:focus-visible{outline:2px solid #9be6c9;outline-offset:2px}
+#v2Box .v2WizardButtons button.main{width:100%;font-size:12px!important;min-height:47px}
+#v2Box .v2WizardButtons #v2ConfirmBackup{width:100%;background:#334f36!important;border-color:#7cbb85!important}
+.v2Safety{display:flex;gap:10px;align-items:start;background:#101f20;border:1px solid #35534b;border-radius:9px;padding:12px;color:#b4d1c6;font-size:10px;line-height:1.7;margin-top:13px}
+.v2Safety b{color:#f0d59c;font-size:10px;white-space:nowrap}
+#v2ModuleContent{margin-top:3px}
+body.v2-lock #v2ModuleContent{display:none!important}
+body.v2-lock #v2Head #v2Close{display:none!important}
+body.v2-lock #v2Box{width:min(895px,100%)!important}
+.v2SectionLabel{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:3px 0 13px;color:#60d6ae;font-size:10px;font-weight:850;letter-spacing:1.3px}
+.v2SectionLabel small{color:#a4bfb6;letter-spacing:0;font-weight:400;font-size:11px}
+#v2Box .v2grid{gap:14px}
+#v2Box .v2card{background:#173133!important;border-color:#315550!important;border-radius:14px;padding:18px!important;margin-bottom:14px;box-shadow:0 6px 25px #00161227}
+.v2CardTitle{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:12px}
+#v2Box .v2card h3{color:#f0f7f1!important;font-size:15px;letter-spacing:-.2px;margin:0}
+.v2CardTitle>span{background:#24584b;border-radius:50px;color:#98e2c0;font-size:9px;font-weight:750;letter-spacing:.8px;padding:6px 9px}
+#v2Box .v2field{color:#bed8cd!important;font-weight:600;gap:7px;margin:11px 0!important}
+#v2Box .v2field input,#v2Box .v2field select{background:#0d2325!important;color:#f2fff8!important;border-color:#3c5b54!important;min-height:43px;border-radius:8px!important;padding:10px 11px}
+#v2Box .v2field input:focus,#v2Box .v2field select:focus{border-color:#5ee1b5!important;outline:2px solid #73bca33d}
+.v2Dimensions{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#v2Box .v2metric small{color:#a2bfb4!important}
+#v2Box .v2metric b{font-size:23px;color:#ddf9e6}
+.v2TableScroll{overflow:auto;max-height:300px;border:1px solid #335650;border-radius:9px}
+#v2Box .v2table th{position:sticky;top:0;background:#21443e;color:#c2e6d2;border-color:#3d6258;font-size:10px;z-index:1}
+#v2Box .v2table td{color:#d7eade;border-color:#31534c;overflow-wrap:anywhere}
+#v2Box .v2table tr:hover{background:#20504777}
+#v2Box .v2table button{border-radius:7px;border:1px solid #4d9d7b;background:#1e5548;color:#defff0;padding:7px;font-size:10px;cursor:pointer}
+.v2FileLocation{background:#0d2222;border:1px solid #386459;border-radius:9px;padding:10px;color:#b5d8ca;font:11px/1.6 Consolas,monospace;overflow-wrap:anywhere}
+#v2Toast{background:#0d3833;color:#f1fbf5;border:1px solid #4ab08f;border-left:4px solid #65edba;border-radius:12px;padding:14px 16px;z-index:2500;max-width:min(445px,92vw);box-shadow:0 16px 40px #0007}
+#v2Toast[data-bad="true"]{border-left-color:#e5a880}
+@media(max-width:870px){#v2Welcome{grid-template-columns:1fr;gap:8px}.v2WizardIntro{padding:5px}.v2SetupSymbol{margin:16px 0}.v2WizardRight{padding:17px}#v2Head{padding:15px!important}#v2Box .v2grid{grid-template-columns:1fr}#v2Body{padding:15px!important}}
+@media(max-width:560px){#v2Dock{right:9px;bottom:9px}#v2Open{min-height:51px}#v2Open .v2DockText b{font-size:10px}#v2Open .v2DockChevron{display:none}#v2Modal{padding:7px!important}#v2Box{border-radius:12px!important;max-height:97vh}#v2Head strong{font-size:17px!important}#v2Head .v2LogoMark{display:none}.v2HeadRight .v2FirstBadge{font-size:9px}.v2Dimensions{grid-template-columns:1fr 1fr}}
+@media print{#v2Dock,#v2Modal,#v2Toast{display:none!important}}
+
+</style>
+<div id="v2Dock">
+  <button class="v2btn" id="v2Open" type="button" title="Banco de dados, histórico e configurações">
+    <span class="v2DockIcon" aria-hidden="true">▤</span>
+    <span class="v2DockText"><b>GESTÃO DE ETIQUETAS</b><small id="v2StorageChip" data-state="neutral">● Verificando banco...</small></span>
+    <span class="v2DockChevron" aria-hidden="true">↗</span>
+  </button>
+</div>
+<div id="v2Toast" hidden role="status" aria-live="polite"></div>
 <div id="v2Modal" hidden role="dialog" aria-modal="true" aria-label="Gestão de Etiquetas V2">
   <div id="v2Box">
-    <div id="v2Head"><div><strong>CKTR | GESTÃO DE ETIQUETAS</strong><small>VERSÃO 2 · BANCO LOCAL · HISTÓRICO · PRODUTIVIDADE</small></div><button type="button" class="v2btn alt" id="v2Close">Fechar ×</button></div>
+    <header id="v2Head">
+      <div class="v2Identity"><span class="v2LogoMark" aria-hidden="true">CK</span>
+      <div><small class="v2Overline">CKTR SERVIÇOS · IMPRESSORA 2</small><strong>GESTÃO DE ETIQUETAS</strong><small>Central de produção, histórico e armazenamento</small></div></div>
+      <div class="v2HeadRight"><span id="v2FirstBadge" class="v2FirstBadge" hidden>CONFIGURAÇÃO INICIAL</span><button type="button" class="v2btn alt" id="v2Close">Fechar ×</button></div>
+    </header>
     <div id="v2Body">
-      <div class="v2card" id="v2Welcome"><h3>Salvar banco de dados</h3><p class="v2hint">No Chrome/Edge, escolha uma pasta autorizada, como <b>Documentos</b>, para criar ou abrir <b>banco_cktr.json</b>. No Firefox/Safari, os dados ficam no navegador e você pode exportar/importar o mesmo JSON manualmente.</p><div class="v2actions"><button class="main" id="v2Pick">📁 SALVAR BANCO DE DADOS</button><button id="v2Authorize">Autorizar novamente</button><button id="v2Offline">💾 USAR BANCO NO NAVEGADOR</button><button id="v2Later">Configurar depois</button></div><p id="v2State" class="v2status">Banco ainda não conectado.</p></div>
-      <div class="v2grid"><div>
-        <div class="v2card"><h3>Histórico e reimpressão</h3><div id="v2Metrics"></div><label class="v2field">Pesquisar gerações, SAP ou descrição<input type="search" id="v2HistorySearch" placeholder="Pesquisar histórico..."></label><div style="overflow:auto;max-height:355px"><table class="v2table"><thead><tr><th>Geração</th><th>Data</th><th>Etiquetas</th><th>Operação</th></tr></thead><tbody id="v2History"></tbody></table></div></div>
-        <div class="v2card"><h3>Pesquisa na pré-visualização atual</h3><p class="v2hint">Filtra visualmente etiquetas já carregadas pela importação CSV ou pelo Power Apps. Para imprimir o lote inteiro, limpe a busca antes de imprimir.</p><label class="v2field">SAP, PN, descrição ou endereço<input id="v2SearchCurrent" placeholder="Pesquisar etiquetas atuais"></label><div class="v2actions"><button id="v2Find">Pesquisar</button><button id="v2Unfilter">Mostrar todas</button></div><p id="v2FindState" class="v2hint"></p></div>
-      </div><div>
-        <div class="v2card"><h3>Banco JSON em Documentos</h3><p id="v2IntegrityInfo" class="v2hint" role="status">Integridade: aguardando inicialização.</p><div class="v2actions"><button id="v2Sync">Salvar agora</button><button id="v2Reload">Recarregar arquivo</button><button id="v2Export">Exportar backup</button><button id="v2Import">Importar backup</button><button id="v2SaveAs">Salvar banco_cktr.json</button></div><p id="v2FileInfo" class="v2hint"></p><p class="v2hint">O GitHub hospeda a interface, não seus dados. No Firefox/Safari é necessário exportar o JSON para atualizá-lo em Documentos; salvar no navegador não atualiza automaticamente o arquivo. Nunca salve informações pessoais ou corporativas sem permissão.</p></div>
-        <div class="v2card"><h3>Preferências e modelos</h3><label class="v2field">Operador<input id="v2Operator" placeholder="Nome de exibição"></label><label class="v2field">Nome do modelo<input id="v2ModelName" placeholder="Ex.: Zebra 100x50"></label><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><label class="v2field">Largura (mm)<input type="number" id="v2Width" min="30" max="420" value="90"></label><label class="v2field">Altura (mm)<input type="number" id="v2Height" min="30" max="420" value="90"></label></div><div class="v2actions"><button id="v2SavePrefs">Salvar operador</button><button id="v2SaveModel">Salvar modelo</button></div><label class="v2field">Modelos salvos<select id="v2Models"><option value="">Selecionar modelo...</option></select></label><div class="v2actions"><button id="v2ApplyModel">Aplicar tamanho ao gerador</button></div></div>
-      </div></div>
+      <div class="v2Wizard" id="v2Welcome">
+        <div class="v2WizardIntro">
+          <span class="v2StepNumber">ETAPA ÚNICA · 01/01</span>
+          <div class="v2SetupSymbol" aria-hidden="true">▣</div>
+          <h2 id="v2SetupTitle">Primeira configuração do banco</h2>
+          <p id="v2WelcomeText">Selecione onde guardar o banco antes de utilizar o sistema. O arquivo é criado ou recuperado sem apagar dados existentes.</p>
+        </div>
+        <div class="v2WizardRight">
+          <div class="v2FormatCard"><span>ARQUIVO PRINCIPAL</span><b>⌁ banco_cktr.json</b><small>Histórico de gerações, modelos e preferências — armazenado localmente</small></div>
+          <div class="v2SetupSteps"><div><span>01</span><p>Selecione a pasta ou arquivo autorizado</p></div><div><span>02</span><p>O sistema cria ou restaura seu banco</p></div><div><span>03</span><p>Nas próximas visitas, acesso direto ao sistema</p></div></div>
+          <p class="v2StorageMode" id="v2StorageMode">Verificando a compatibilidade de armazenamento...</p>
+          <p class="v2Hint" id="v2FolderHint">Escolha uma localização autorizada pela sua empresa.</p>
+          <div class="v2actions v2WizardButtons"><button class="main" id="v2Pick" type="button">SELECIONAR ONDE SALVAR</button><button id="v2SetupAuthorize" type="button" hidden>Reconectar pasta anterior</button><button id="v2UseLocal" type="button">Alternativa: salvar JSON manualmente</button><button id="v2ConfirmBackup" type="button" hidden>✓ CONFIRMO QUE SALVEI O JSON</button><button id="v2Later" type="button" hidden>Configurar depois</button></div>
+          <p class="v2status" id="v2State" aria-live="polite">Aguardando configuração do banco.</p>
+          <div class="v2Safety"><b>Privacidade</b><span>O JSON não é criptografado. Escolha uma pasta aprovada para dados de trabalho. O GitHub hospeda o site, não o conteúdo do arquivo.</span></div>
+          <p id="v2ManualStep" class="v2Hint" hidden>Se o navegador não oferecer acesso direto a pastas, o botão baixa o JSON. Confirme o salvamento para usar o histórico no navegador.</p>
+        </div>
+      </div>
+      <div id="v2ModuleContent">
+        <div class="v2SectionLabel"><span>PAINEL OPERACIONAL</span><small>Configurações e rastreabilidade da produção</small></div>
+        <div class="v2grid"><div>
+          <div class="v2card"><div class="v2CardTitle"><h3>Histórico e reimpressão</h3><span>LOCAL</span></div><div id="v2Metrics"></div><label class="v2field">Pesquisar geração, SAP ou descrição<input type="search" id="v2HistorySearch" placeholder="Buscar registros anteriores..."></label><div class="v2TableScroll"><table class="v2table"><thead><tr><th>Geração</th><th>Data</th><th>Etiquetas</th><th>Ação</th></tr></thead><tbody id="v2History"></tbody></table></div><p class="v2hint">O histórico registra o envio para a janela de impressão, não a confirmação física da Zebra.</p></div>
+          <div class="v2card"><div class="v2CardTitle"><h3>Pesquisa na prévia atual</h3><span>PRODUÇÃO</span></div><p class="v2hint">Filtre etiquetas já recebidas pelo Power Apps ou CSV. Limpe o filtro antes de imprimir o lote completo.</p><label class="v2field">SAP, PN, descrição ou endereço<input id="v2SearchCurrent" type="search" placeholder="Pesquisar materiais no lote..."></label><div class="v2actions"><button id="v2Find">Pesquisar</button><button id="v2Unfilter">Limpar pesquisa</button></div><p id="v2FindState" class="v2hint"></p></div>
+        </div><div>
+          <div class="v2card"><div class="v2CardTitle"><h3>Banco de dados local</h3><span>ARMAZENAMENTO</span></div><p id="v2IntegrityInfo" class="v2status" role="status">Verificando integridade.</p><p id="v2FileInfo" class="v2FileLocation"></p><div class="v2actions"><button class="main" id="v2Authorize">Reconectar banco</button><button id="v2Sync">Salvar agora</button><button id="v2Reload">Recarregar JSON</button><button id="v2Discard" hidden>Descartar pendências e recarregar</button><button id="v2Export">Exportar backup</button><button id="v2Import">Importar backup</button><button id="v2SaveAs">Baixar banco_cktr.json</button></div><p class="v2hint">Se o Brave ou a política corporativa bloquear a pasta, use IndexedDB com backup JSON manual. Reautorizações não reabrem a configuração inicial.</p></div>
+          <div class="v2card"><div class="v2CardTitle"><h3>Operador e modelos</h3><span>PREFERÊNCIAS</span></div><label class="v2field">Nome do operador<input id="v2Operator" placeholder="Nome de exibição"></label><div class="v2actions"><button id="v2SavePrefs">Salvar operador</button></div><label class="v2field">Nome do modelo<input id="v2ModelName" placeholder="Ex.: Zebra 90 × 90 mm"></label><div class="v2Dimensions"><label class="v2field">Largura (mm)<input type="number" id="v2Width" min="30" max="420" value="90"></label><label class="v2field">Altura (mm)<input type="number" id="v2Height" min="30" max="420" value="90"></label></div><div class="v2actions"><button id="v2SaveModel">Salvar modelo</button></div><label class="v2field">Modelos personalizados<select id="v2Models"><option value="">Selecionar modelo...</option></select></label><div class="v2actions"><button class="main" id="v2ApplyModel">Aplicar ao gerador</button></div></div>
+        </div></div>
+      </div>
       <input id="v2ImportFile" type="file" accept=".json,application/json" hidden>
     </div>
   </div>
 </div>
+
 <script id="cktr-v2-js">
 (()=>{'use strict';
-const $=id=>document.getElementById(id), F='banco_cktr.json', DBNAME='CKTR_GESTAO_ETIQUETAS_V2';
-let handle=null, fileHandle=null, idb=null, connected=false, dirty=false, busy=false, alertTimer=null;
-let fileLastModified=null, memoryRevision=0, browserStorageAvailable=true;
-const fresh=()=>({sistema:'CKTR_GESTAO_ETIQUETAS_V2',versao:2,criado:new Date().toISOString(),alterado:new Date().toISOString(),preferencias:{operador:''},modelos:[],geracoes:[]});
-let db=fresh();
-const say=(m)=>{const el=$('v2Toast');el.textContent=m;el.hidden=false;clearTimeout(alertTimer);alertTimer=setTimeout(()=>el.hidden=true,5500)};
-function check(o){if(!o||typeof o!=='object'||Array.isArray(o)||o.sistema!=='CKTR_GESTAO_ETIQUETAS_V2'||!Array.isArray(o.geracoes)||!Array.isArray(o.modelos)||!o.preferencias||typeof o.preferencias!=='object'||Array.isArray(o.preferencias))throw Error('Arquivo JSON inválido ou não pertence à Gestão de Etiquetas V2.');if(o.geracoes.length>200000)throw Error('Banco com número de gerações acima do limite preventivo.');return o}
-function openDB(){return new Promise((res,rej)=>{if(!window.indexedDB)return rej(Error('IndexedDB indisponível neste perfil.'));const q=indexedDB.open(DBNAME,1);q.onupgradeneeded=()=>{if(!q.result.objectStoreNames.contains('meta'))q.result.createObjectStore('meta')};q.onsuccess=()=>{idb=q.result;res()};q.onerror=()=>rej(q.error)})}
-function idbGet(k){return new Promise((res,rej)=>{if(!idb)return res(null);let q=idb.transaction('meta').objectStore('meta').get(k);q.onsuccess=()=>res(q.result||null);q.onerror=()=>rej(q.error)})}
-function idbSet(k,v){return new Promise((res,rej)=>{if(!idb)return rej(Error('IndexedDB indisponível'));const tx=idb.transaction('meta','readwrite');tx.objectStore('meta').put(v,k);tx.oncomplete=res;tx.onerror=()=>rej(tx.error)})}
-async function permitted(ask=false){if(!handle)return false;try{let v=await handle.queryPermission({mode:'readwrite'});if(v==='granted')return true;if(ask)v=await handle.requestPermission({mode:'readwrite'});return v==='granted'}catch{return false}}
-const isSupported=()=>!!window.showDirectoryPicker&&isSecureContext;
-async function loadFile(){if(dirty)throw Error('Há alterações não gravadas; exporte um backup antes de carregar outro arquivo.');const candidate=await handle.getFileHandle(F,{create:false});const f=await candidate.getFile();const parsed=check(JSON.parse(await f.text()));fileHandle=candidate;db=parsed;fileLastModified=f.lastModified;memoryRevision++;dirty=false;connected=true;await idbSet('cache',db).catch(()=>{});draw()}
-async function selectFolder(){if(!isSupported()){say('Este navegador usa o modo universal: banco no IndexedDB e exportação/importação manual de JSON.');$('v2Welcome').hidden=true;draw();return}try{const picked=await showDirectoryPicker({id:'cktr-v2',startIn:'documents',mode:'readwrite'});if(dirty&&!confirm('Existem alterações não gravadas. Deseja continuar e abandonar essas alterações?'))return;const old={handle,fileHandle,db,connected,dirty,fileLastModified};try{handle=picked;fileHandle=null;connected=false;let exists=true;try{await handle.getFileHandle(F,{create:false})}catch(e){if(e.name==='NotFoundError')exists=false;else throw e}if(exists){dirty=false;await loadFile()}else{db=fresh();fileLastModified=null;connected=true;dirty=true;memoryRevision++;await saveFile()}await idbSet('handle',handle);draw();say(exists?'Banco existente recuperado.':'Banco criado em '+handle.name+'/'+F);$('v2Welcome').hidden=true}catch(e){handle=old.handle;fileHandle=old.fileHandle;db=old.db;connected=old.connected;dirty=old.dirty;fileLastModified=old.fileLastModified;draw();throw e}}catch(e){if(e.name!=='AbortError')say('Falha: '+e.message)}}
-async function saveFile(){
-  if(!handle||!await permitted())throw Error('Pasta não autorizada para escrita.');
-  if(busy)throw Error('Há outra gravação em andamento. Aguarde e tente novamente.');
-  busy=true;
-  try{
-    const h=fileHandle||await handle.getFileHandle(F,{create:true});
-    const existing=await h.getFile();
-    // Se outra aba ou outro aplicativo mudou o arquivo, não sobrescrever.
-    if(fileLastModified!==null && existing.lastModified!==fileLastModified){
-      connected=false;
-      throw Error('O banco JSON foi modificado fora desta aba. Exporte seu backup antes de recarregar.');
-    }
-    // Sem conhecimento da versão do arquivo não podemos sobrescrever dados existentes.
-    if(fileLastModified===null && existing.size>0){
-      connected=false;
-      throw Error('Já existe um banco na pasta. Recarregue-o antes de gravar.');
-    }
-    const revision=memoryRevision;
-    const snap=JSON.parse(JSON.stringify(db));
-    snap.alterado=new Date().toISOString();
-    const writable=await h.createWritable();
-    try{await writable.write(JSON.stringify(snap,null,2));await writable.close()}
-    catch(e){try{await writable.abort()}catch{}throw e}
-    fileHandle=h;
-    const updated=await h.getFile();
-    fileLastModified=updated.lastModified;
-    if(revision===memoryRevision){
-      db.alterado=snap.alterado;
-      dirty=false;
-    } else {
-      dirty=true;
-    }
-    connected=true;
-    await idbSet('cache',db).catch(()=>{});
-    draw();
-  }finally{busy=false}
+// CKTR | GESTÃO DE ETIQUETAS 2.5 — armazenamento seguro no navegador.
+const $=id=>document.getElementById(id);
+const NAME='banco_cktr.json', DBNAME='CKTR_GESTAO_ETIQUETAS_V2';
+const now=()=>new Date().toISOString();
+const fresh=()=>({sistema:'CKTR_GESTAO_ETIQUETAS_V2',versao:2,criado:now(),alterado:now(),preferencias:{operador:''},modelos:[],geracoes:[]});
+let db=fresh(), idb=null, dirHandle=null, fileHandle=null, connected=false, configured=false;
+let storageMode='none', dirty=false, revision=0, fileLastModified=null, lastError='', firstRun=false;
+let writeQueue=Promise.resolve(), debounce=null, toastTimer=null, pendingSave=false;
+const fsFolder=()=>!!window.isSecureContext&&typeof window.showDirectoryPicker==='function';
+const fsFile=()=>!!window.isSecureContext&&typeof window.showSaveFilePicker==='function';
+const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const readable=e=>e?.name==='AbortError'?'Operação cancelada.':e?.name==='NotAllowedError'?'Permissão de acesso negada pelo navegador.':String(e?.message||e||'Erro inesperado.');
+function notice(message,bad=false){const el=$('v2Toast'); el.textContent=String(message);el.dataset.bad=bad?'true':'false';el.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.hidden=true,bad?8500:4200)}
+function validate(o){if(!o||typeof o!=='object'||Array.isArray(o)||o.sistema!=='CKTR_GESTAO_ETIQUETAS_V2'||!Array.isArray(o.geracoes)||!Array.isArray(o.modelos)||!o.preferencias||typeof o.preferencias!=='object'||Array.isArray(o.preferencias))throw Error('O JSON selecionado não é um banco CKTR válido. Nenhum dado foi substituído.');if(o.geracoes.length>200000)throw Error('Banco acima do limite preventivo de registros.');return o}
+function idbOpen(){return new Promise((ok,no)=>{if(!window.indexedDB)return no(Error('IndexedDB indisponível.'));const q=indexedDB.open(DBNAME,1);q.onupgradeneeded=()=>{if(!q.result.objectStoreNames.contains('meta'))q.result.createObjectStore('meta')};q.onsuccess=()=>{idb=q.result;ok()};q.onerror=()=>no(q.error)})}
+function idbGet(k){return new Promise((ok,no)=>{if(!idb)return ok(null);const q=idb.transaction('meta','readonly').objectStore('meta').get(k);q.onsuccess=()=>ok(q.result??null);q.onerror=()=>no(q.error)})}
+function idbPut(k,v){return new Promise((ok,no)=>{if(!idb)return no(Error('IndexedDB indisponível.'));const tx=idb.transaction('meta','readwrite');tx.objectStore('meta').put(v,k);tx.oncomplete=()=>ok();tx.onerror=()=>no(tx.error);tx.onabort=()=>no(tx.error)})}
+async function cache(){await idbPut('cache',db);await idbPut('dirty',dirty)}
+async function storeSetup(mode,handle){
+  // Gravado somente depois que o banco foi realmente criado/carregado ou o download foi confirmado.
+  await idbPut('setup',{configured:true,mode,at:now(),name:handle?.name||NAME});
+  if(mode==='folder')await idbPut('handle',handle);
+  if(mode==='file')await idbPut('fileHandle',handle);
+  configured=true;storageMode=mode;
 }
-async function modify(fn){if(busy)throw Error('Gravação em andamento; tente novamente.');fn();memoryRevision++;dirty=true;await idbSet('cache',db).catch(()=>{});draw();if(connected){try{await saveFile()}catch(e){say('Registrado no cache, não no JSON: '+e.message)}}else say('Salvo temporariamente no navegador. Autorize o JSON para persistir.')}
-async function authorize(){try{if(!handle)return selectFolder();if(!await permitted(true))throw Error('Permissão não concedida');if(dirty)throw Error('Há alterações locais pendentes. Exporte backup antes de reconectar para evitar conflito.');await loadFile();$('v2Welcome').hidden=true;say('Banco reconectado.')}catch(e){say(e.message)}}
-async function reload(){if(!handle)return say('Selecione primeiro uma pasta.');if(dirty){if(!confirm('Existem alterações locais pendentes. Exporte um backup antes de descartar. Continuar?'))return;dirty=false;}try{if(!await permitted(true))throw Error('Permissão negada');await loadFile();say('Banco recarregado.')}catch(e){say(e.message)}}
-const safe=(s)=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function draw(){let total=db.geracoes.reduce((n,x)=>n+(Number(x.quantidade)||0),0);$('v2Metrics').innerHTML=`<span class="v2metric"><small>GERAÇÕES</small><b>${db.geracoes.length}</b></span><span class="v2metric"><small>ETIQUETAS</small><b>${total}</b></span><span class="v2metric"><small>MODELOS</small><b>${db.modelos.length}</b></span>`;$('v2State').textContent=connected?`Conectado: ${handle.name}/${F}${dirty?' (alterações pendentes)':''}`:handle?'Pasta conhecida. Autorize novamente.':'Nenhuma pasta conectada. Use SALVAR BANCO DE DADOS.';$('v2IntegrityInfo').textContent=dirty?'● Alterações pendentes — exporte um backup se necessário.':connected?'● Banco JSON conectado; última gravação sem erro reportado.':'● Modo local — exporte o JSON para ter uma cópia fora do navegador.';$('v2FileInfo').textContent=$('v2State').textContent+(isSupported()?' | Pasta disponível sob autorização.':' | Modo universal: IndexedDB + JSON manual, sem acesso automático a Documentos.');$('v2Operator').value=db.preferencias.operador||'';$('v2Models').innerHTML='<option value="">Selecionar modelo...</option>'+db.modelos.map((m,i)=>`<option value="${i}">${safe(m.nome)} (${m.w}×${m.h} mm)</option>`).join('');renderHistory()}
-function renderHistory(){const q=$('v2HistorySearch').value.trim().toLowerCase();const rows=db.geracoes.filter(x=>JSON.stringify({id:x.id,descricao:x.resumo,data:x.data}).toLowerCase().includes(q)).slice().reverse().slice(0,100);$('v2History').innerHTML=rows.map(x=>`<tr><td title="${safe(x.id)}">${safe(x.id)}</td><td>${safe(new Date(x.data).toLocaleString('pt-BR'))}</td><td>${safe(x.quantidade)}</td><td><button type="button" data-reprint="${safe(x.id)}">Reimprimir</button></td></tr>`).join('')||'<tr><td colspan="4">Nenhum lote salvo.</td></tr>'}
-function cssPrint(w,h){return `@page{size:${w}mm ${h}mm;margin:0}html,body{margin:0;padding:0;background:white} .labels{display:block!important}.label{display:flex!important;position:relative!important;width:${w}mm!important;height:${h}mm!important;min-width:0!important;min-height:0!important;box-shadow:none!important;break-after:page!important;page-break-after:always!important} .label:last-child{break-after:auto!important} .label img{max-width:100%} `}
-function reprint(x){if(!x?.html)return say('Este lote não possui prévia arquivada.');if(!confirm('Abrir a janela de reimpressão deste lote? Confira a Zebra, o papel e as dimensões.'))return;const f=document.createElement('iframe');f.setAttribute('title','Reimpressão CKTR');f.style='position:fixed;left:0;bottom:0;width:0;height:0;border:0';document.body.append(f);const d=f.contentDocument;const template=document.createElement('template');template.innerHTML=x.html;template.content.querySelectorAll('script,iframe,object,embed,form,link,meta').forEach(el=>el.remove());template.content.querySelectorAll('*').forEach(el=>{for(const a of [...el.attributes])if(/^on/i.test(a.name)||(['href','src','xlink:href'].includes(a.name.toLowerCase())&&!String(a.value).startsWith('data:image/')))el.removeAttribute(a.name)});const cleanHTML=template.innerHTML;const styles=Array.from(document.querySelectorAll('style:not(#cktr-v2-style)')).map(s=>s.textContent).join('\n');d.open();d.write('<!doctype html><html><head><meta charset="utf-8"><style>'+styles+'\n'+cssPrint(x.w,x.h)+'</style></head><body class="ready"><div class="labels">'+cleanHTML+'</div></body></html>');d.close();let done=false;const p=()=>{if(done)return;done=true;f.contentWindow.focus();f.contentWindow.print()};Promise.all(Array.from(d.images).map(im=>im.complete?Promise.resolve():new Promise(r=>{im.onload=r;im.onerror=r}))).then(()=>setTimeout(p,300));f.contentWindow.addEventListener('afterprint',()=>setTimeout(()=>f.remove(),1000),{once:true});setTimeout(()=>{if(f.isConnected)f.remove()},120000)}
-async function capturePrint(){const cards=[...document.querySelectorAll('#etiquetas .label')];if(!cards.length)return;const w=Number($('largura')?.value)||90,h=Number($('altura')?.value)||90;if(!Number.isFinite(w)||!Number.isFinite(h)||w<20||h<20||w>420||h>420)throw Error('Dimensões fora do intervalo permitido.');const html=cards.map(c=>c.outerHTML).join('');let resumo=cards.slice(0,4).map(c=>c.innerText).join(' / ').slice(0,240);let id='CKTR2-'+(crypto.randomUUID?crypto.randomUUID():Date.now()+'-'+Math.random()).slice(0,32);await modify(()=>db.geracoes.push({id,data:new Date().toISOString(),quantidade:cards.length,w,h,html,resumo,operador:db.preferencias.operador||'',status:'ENVIO_A_IMPRESSAO'}))}
+async function permission(ask=false){const h=storageMode==='folder'?dirHandle:fileHandle;if(!h)return false;try{const q=await h.queryPermission({mode:'readwrite'});if(q==='granted')return true;if(ask&&typeof h.requestPermission==='function')return (await h.requestPermission({mode:'readwrite'}))==='granted';return false}catch{return false}}
+async function locateFile(create=false){if(storageMode==='folder'){if(!dirHandle)throw Error('Pasta ainda não vinculada.');return await dirHandle.getFileHandle(NAME,{create})}if(storageMode==='file'&&fileHandle)return fileHandle;throw Error('Arquivo ainda não vinculado.')}
+async function readExisting(h){const f=await h.getFile();const content=(await f.text()).trim();if(!content)throw Error('O arquivo existente está vazio; ele não será sobrescrito automaticamente.');return {file:f,data:validate(JSON.parse(content))}}
+async function applyExisting(h){
+  if(dirty)throw Error('Há mudanças locais pendentes. Exporte um backup antes de carregar outro banco.');
+  const loaded=await readExisting(h);
+  db=loaded.data;fileHandle=h;fileLastModified=loaded.file.lastModified;revision++;dirty=false;
+  await cache();await idbPut('fileLastModified',fileLastModified);connected=true;lastError='';draw();
+}
+async function writeSnapshot(){
+  if(!connected||!await permission(false))throw Error('O banco precisa ser reconectado antes de gravar.');
+  const capturedRevision=revision;
+  const payload={...db,alterado:now()};
+  const h=await locateFile(true);
+  const previous=await h.getFile();
+  if(fileLastModified!==null&&previous.lastModified!==fileLastModified){connected=false;lastError='O banco foi modificado fora desta aba. Faça backup e reconecte para resolver o conflito.';throw Error(lastError)}
+  if(fileLastModified===null&&previous.size>0)throw Error('Já existe um arquivo com conteúdo. A gravação foi bloqueada para evitar sobrescrita.');
+  const writable=await h.createWritable();
+  try{await writable.write(JSON.stringify(payload,null,2));await writable.close()}
+  catch(e){try{await writable.abort()}catch{}throw e}
+  const updated=await h.getFile();fileLastModified=updated.lastModified;fileHandle=h;db.alterado=payload.alterado;
+  await idbPut('fileLastModified',fileLastModified);
+  dirty=(capturedRevision!==revision);
+  await cache();lastError='';draw();return true;
+}
+function queueWrite(){
+  writeQueue=writeQueue.catch(()=>{}).then(()=>writeSnapshot());
+  return writeQueue;
+}
+async function changeData(fn){
+  if(!configured){notice('Configure o banco de dados antes de usar o histórico.',true);return false}
+  fn();revision++;dirty=true;
+  try{await cache()}catch(e){lastError='Não foi possível guardar o cache: '+readable(e);notice(lastError,true);draw();return false}
+  draw();
+  if(storageMode==='download'){notice('Gravado no navegador. Exporte o JSON para manter o arquivo atualizado.');return true}
+  if(!connected){notice('Salvo no navegador. Abra Banco de dados > Reconectar para atualizar o JSON.',true);return true}
+  try{await queueWrite();return true}catch(e){lastError=readable(e);notice('Não foi gravado no JSON: '+lastError,true);draw();return false}
+}
+function showModal(first=false){
+  firstRun=first;
+  $('v2Modal').hidden=false;
+  $('v2Welcome').hidden=!(first||!configured);
+  $('v2Close').hidden=first;
+  $('v2Later').hidden=true;
+  $('v2FirstBadge').hidden=!first;
+  $('v2SetupTitle').textContent=first?'Primeira configuração do banco':'Configurar armazenamento';
+  $('v2WelcomeText').textContent=first?'Selecione onde guardar o banco antes de utilizar o sistema. O arquivo é criado ou recuperado sem apagar dados existentes.':'Você pode escolher uma nova pasta ou reconectar o armazenamento existente.';
+  $('v2Pick').textContent=fsFolder()?'Selecionar pasta e criar banco':fsFile()?'Escolher arquivo JSON':'Baixar banco JSON';
+  $('v2StorageMode').textContent=fsFolder()?'Pasta autorizada · armazenamento automático':fsFile()?'Arquivo autorizado · armazenamento automático':'Modo universal · armazenamento no navegador e backup manual';
+  $('v2FolderHint').textContent=fsFolder()?'O navegador pode iniciar em Documentos. Você escolhe a pasta e concede acesso.':fsFile()?'Escolha o arquivo banco_cktr.json, preferencialmente em Documentos.':'O navegador não permite escrever diretamente em Documentos: salve o arquivo na pasta desejada por meio do download.';
+  $('v2ManualStep').hidden=!(first&&!(fsFolder()||fsFile()));
+  $('v2ConfirmBackup').hidden=true;
+  $('v2SetupAuthorize').hidden=first||!(dirHandle||fileHandle);
+  $('v2Modal').setAttribute('aria-label',first?'Configuração obrigatória do armazenamento':'Central de dados e histórico');
+  document.body.classList.toggle('v2-lock',first);
+  // Focar dentro do diálogo. O botão do seletor mantém o gesto do usuário para a API.
+  setTimeout(()=>{$('v2Pick').focus()},30);
+}
+function closeModal(){if(firstRun&&!configured)return;firstRun=false;$('v2Modal').hidden=true;document.body.classList.remove('v2-lock')}
+function finishSetup(){firstRun=false;closeModal();draw()}
+function chosenModal(){showModal(false);$('v2Welcome').hidden=false;$('v2Close').hidden=false}
+async function chooseStorage(){
+  // Os seletores precisam ser chamados diretamente pelo clique — sem await anterior.
+  if(fsFolder()){
+    let picked;
+    try{picked=await window.showDirectoryPicker({id:'cktr-gestao-etiquetas',startIn:'documents',mode:'readwrite'})}
+    catch(e){if(e?.name!=='AbortError')notice('Não foi possível selecionar a pasta: '+readable(e),true);return}
+    await adoptFolder(picked);return;
+  }
+  if(fsFile()){
+    let picked;
+    try{picked=await window.showSaveFilePicker({suggestedName:NAME,startIn:'documents',types:[{description:'Banco de dados JSON',accept:{'application/json':['.json']}}]})}
+    catch(e){if(e?.name!=='AbortError')notice('Não foi possível selecionar o arquivo: '+readable(e),true);return}
+    await adoptFile(picked);return;
+  }
+  beginManual();
+}
+function beginManual(){
+  if(!idb){notice('IndexedDB indisponível. Não é possível garantir a persistência neste navegador.',true);return}
+  exportJSON(NAME);
+  $('v2ConfirmBackup').hidden=false;
+  $('v2ConfirmBackup').focus();
+  notice('Após guardar o arquivo JSON na pasta desejada, confirme no botão abaixo.');
+}
+async function adoptFolder(picked){
+  if(dirty){notice('Há alterações pendentes. Exporte um backup antes de trocar a pasta.',true);return}
+  const old={dirHandle,fileHandle,storageMode,connected,db,fileLastModified};
+  try{
+    dirHandle=picked;fileHandle=null;storageMode='folder';connected=false;fileLastModified=null;
+    let present=true;
+    try{await picked.getFileHandle(NAME,{create:false})}catch(e){if(e?.name==='NotFoundError')present=false;else throw e}
+    if(present){const h=await picked.getFileHandle(NAME,{create:false});await applyExisting(h)}
+    else{
+      // Se havia cache de uma versão anterior, reaproveitar; caso contrário banco vazio.
+      const existing=await picked.getFileHandle(NAME,{create:true});
+      fileHandle=existing;connected=true;fileLastModified=null;dirty=true;revision++;
+      await queueWrite();
+    }
+    await storeSetup('folder',picked); await cache();finishSetup();
+    notice(present?'Banco existente recuperado.':'Banco criado em '+picked.name+'/'+NAME);
+  }catch(e){
+    dirHandle=old.dirHandle;fileHandle=old.fileHandle;storageMode=old.storageMode;connected=old.connected;db=old.db;fileLastModified=old.fileLastModified;
+    if(!configured)dirty=false;
+    draw();notice('Configuração não concluída: '+readable(e),true)
+  }
+}
+async function adoptFile(picked){
+  if(dirty){notice('Existem alterações pendentes. Exporte o backup antes de trocar o arquivo.',true);return}
+  const old={dirHandle,fileHandle,storageMode,connected,db,fileLastModified};
+  try{
+    dirHandle=null;fileHandle=picked;storageMode='file';connected=false;fileLastModified=null;
+    const f=await picked.getFile();
+    if(f.size){await applyExisting(picked)}
+    else{connected=true;dirty=true;revision++;await queueWrite()}
+    await storeSetup('file',picked);await cache();finishSetup();notice('Banco JSON conectado.');
+  }catch(e){dirHandle=old.dirHandle;fileHandle=old.fileHandle;storageMode=old.storageMode;connected=old.connected;db=old.db;fileLastModified=old.fileLastModified;if(!configured)dirty=false;draw();notice('Não foi possível configurar o arquivo: '+readable(e),true)}
+}
+async function confirmManual(){
+  if(!idb){notice('O IndexedDB está bloqueado. Não é seguro continuar.',true);return}
+  try{await cache();await storeSetup('download',null);finishSetup();notice('Configuração concluída. O histórico será salvo neste navegador; exporte backups periódicos.')}
+  catch(e){notice('Não foi possível salvar a configuração: '+readable(e),true)}
+}
+async function authorize(){
+  if(storageMode==='download'){notice('Modo navegador ativo: use Exportar backup para atualizar o arquivo JSON.');return}
+  if(!(dirHandle||fileHandle)){chosenModal();return}
+  try{
+    const p=await permission(true);
+    if(!p)throw Error('O acesso não foi autorizado.');
+    const h=await locateFile(false);
+    if(dirty){
+      const current=await h.getFile();
+      if(fileLastModified===null || current.lastModified!==fileLastModified){
+        throw Error('O JSON pode ter sido alterado após a última leitura. Exporte seu backup local e compare antes de descartar ou restaurar os dados.');
+      }
+      if(!confirm('Há alterações locais pendentes. O arquivo continua com a mesma data de modificação. Deseja sincronizar essas alterações no banco JSON?'))return;
+      connected=true;
+      try{await queueWrite()}catch(e){connected=false;throw e}
+      closeModal();notice('Alterações locais sincronizadas no banco JSON.');return;
+    }
+    await applyExisting(h);connected=true;closeModal();notice('Banco reconectado. Você pode continuar normalmente.');
+  }catch(e){lastError=readable(e);draw();notice(lastError,true)}
+}
+async function discardPending(){
+  if(!dirty){notice('Não existem alterações pendentes para descartar.');return}
+  if(storageMode==='download'){notice('No modo universal, use Importar backup para substituir os dados locais.',true);return}
+  if(!await permission(true)){notice('É necessário autorizar o acesso ao arquivo JSON.',true);return}
+  try{
+    const h=await locateFile(false);
+    // Valida o arquivo antes de oferecer a substituição dos dados locais.
+    const loaded=await readExisting(h);
+    if(!confirm('ATENÇÃO: esta operação descarta TODAS as alterações locais pendentes e carrega o JSON existente. Exporte o backup local antes. Tem certeza?'))return;
+    db=loaded.data;fileHandle=h;fileLastModified=loaded.file.lastModified;revision++;dirty=false;connected=true;lastError='';
+    await cache();await idbPut('fileLastModified',fileLastModified);draw();
+    notice('As alterações locais foram descartadas e o banco original foi recarregado.');
+  }catch(e){notice('Não foi possível recarregar o arquivo: '+readable(e),true)}
+}
+async function reload(){
+  if(dirty){notice('Há alterações locais pendentes. Exporte um backup ou use Descartar pendências para recarregar.',true);return}
+  if(!await permission(true)){notice('Autorize a pasta ou arquivo antes de recarregar.',true);return}
+  try{await applyExisting(await locateFile(false));notice('Banco recarregado do arquivo JSON.')}
+  catch(e){notice(readable(e),true)}
+}
+function exportJSON(name='backup_gestao_etiquetas_v2.json'){
+  const data=JSON.stringify(db,null,2), url=URL.createObjectURL(new Blob([data],{type:'application/json;charset=utf-8'}));
+  const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),15000);
+}
+async function importJSON(file){if(!file)return;
+  try{
+    const incoming=validate(JSON.parse(await file.text()));
+    if(!confirm('Substituir o histórico e as preferências deste navegador pelos dados do backup selecionado?'))return;
+    if(connected&&!confirm('O arquivo JSON conectado também será atualizado. Confirma?'))return;
+    db=incoming;revision++;dirty=true;
+    try{await cache();if(connected)await queueWrite();draw();notice('Backup restaurado.');}
+    catch(e){draw();notice('Backup mantido no navegador, mas não gravado no JSON: '+readable(e),true)}
+  }catch(e){notice('Falha ao importar: '+readable(e),true)}
+}
+function draw(){
+  const total=db.geracoes.reduce((acc,r)=>acc+(Number(r.quantidade)||0),0);
+  $('v2Metrics').innerHTML=`<span class="v2metric"><small>GERAÇÕES</small><b>${db.geracoes.length}</b></span><span class="v2metric"><small>ETIQUETAS</small><b>${total}</b></span><span class="v2metric"><small>MODELOS</small><b>${db.modelos.length}</b></span>`;
+  const label=connected?'Conectado ao JSON':configured?'Configurado · '+(storageMode==='download'?'histórico neste navegador':'permissão pendente'):'Configuração necessária';
+  $('v2State').textContent=label;
+  $('v2IntegrityInfo').textContent=dirty?'● Há alterações pendentes. Recomenda-se exportar um backup.':connected?'● Banco JSON atualizado e disponível.':configured?'● Configuração salva. O histórico está no navegador; reconecte para atualizar o arquivo.':'● Primeira configuração obrigatória.';
+  $('v2FileInfo').textContent=(dirHandle?dirHandle.name+'/'+NAME:fileHandle?fileHandle.name:storageMode==='download'?'Banco local no navegador; backup JSON manual.':'Local não selecionado.') + (lastError?' | Atenção: '+lastError:'');
+  $('v2StorageChip').textContent=connected?'● JSON conectado':dirty?'● Salvamento pendente':configured?'● Banco configurado':'● Configurar banco';
+  $('v2StorageChip').dataset.state=connected?'ok':dirty?'warn':configured?'neutral':'warn';
+  $('v2Open').setAttribute('aria-label','Abrir banco de dados e histórico. '+label);
+  $('v2Operator').value=db.preferencias.operador||'';
+  const models=$('v2Models');const chosen=models.value;models.replaceChildren(new Option('Selecionar modelo...',''));
+  db.modelos.forEach((m,i)=>models.add(new Option(m.nome+' ('+m.w+'×'+m.h+' mm)',String(i))));models.value=chosen;
+  $('v2Authorize').hidden=!(dirHandle||fileHandle);$('v2SetupAuthorize').hidden=!(dirHandle||fileHandle);
+  $('v2Sync').disabled=!connected;
+  $('v2Reload').disabled=!(dirHandle||fileHandle);$('v2Discard').hidden=!(dirty&&(dirHandle||fileHandle));
+  renderHistory();
+}
+function renderHistory(){const search=$('v2HistorySearch').value.trim().toLowerCase();const rows=db.geracoes.filter(x=>JSON.stringify({id:x.id,resumo:x.resumo,data:x.data}).toLowerCase().includes(search)).slice().reverse().slice(0,100);
+  $('v2History').innerHTML=rows.map(x=>`<tr><td title="${safe(x.id)}">${safe(x.id)}</td><td>${safe(new Date(x.data).toLocaleString('pt-BR'))}</td><td>${safe(x.quantidade)}</td><td><button type="button" data-reprint="${safe(x.id)}">Reimprimir</button></td></tr>`).join('')||'<tr><td colspan="4">Nenhum lote salvo.</td></tr>'}
+function cssPrint(w,h){return `@page{size:${w}mm ${h}mm;margin:0}html,body{margin:0;padding:0;background:white}.labels{display:block!important}.label{display:flex!important;position:relative!important;width:${w}mm!important;height:${h}mm!important;min-width:0!important;min-height:0!important;box-shadow:none!important;break-after:page!important;page-break-after:always!important}.label:last-child{break-after:auto!important}.label img{max-width:100%}`}
+function reprint(x){
+  if(!x?.html)return notice('Lote sem prévia arquivada.');
+  if(!confirm('Abrir a janela de reimpressão deste lote? Confira as dimensões e a impressora.'))return;
+  const f=document.createElement('iframe');f.title='Reimpressão CKTR';f.style='position:fixed;left:0;bottom:0;width:0;height:0;border:0';document.body.append(f);
+  const d=f.contentDocument,t=document.createElement('template');t.innerHTML=x.html;
+  t.content.querySelectorAll('script,iframe,object,embed,form,link,meta').forEach(e=>e.remove());
+  t.content.querySelectorAll('*').forEach(e=>{for(const a of [...e.attributes])if(/^on/i.test(a.name)||(['href','src','xlink:href'].includes(a.name.toLowerCase())&&!String(a.value).startsWith('data:image/')))e.removeAttribute(a.name)});
+  const styles=[...document.querySelectorAll('style:not(#cktr-v2-style):not(#cktr-v25-style)')].map(s=>s.textContent).join('\n');
+  d.open();d.write('<!doctype html><html><head><meta charset="utf-8"><style>'+styles+'\n'+cssPrint(Number(x.w)||90,Number(x.h)||90)+'</style></head><body class="ready"><div class="labels">'+t.innerHTML+'</div></body></html>');d.close();
+  let printed=false;const p=()=>{if(printed)return;printed=true;f.contentWindow.focus();f.contentWindow.print()};
+  Promise.all([...d.images].map(im=>im.complete?Promise.resolve():new Promise(ok=>{im.onload=ok;im.onerror=ok}))).then(()=>setTimeout(p,250));
+  f.contentWindow.addEventListener('afterprint',()=>setTimeout(()=>f.remove(),1000),{once:true});setTimeout(()=>{if(f.isConnected)f.remove()},120000);
+}
+async function capturePrint(){
+  if(!configured)return;
+  const cards=[...document.querySelectorAll('#etiquetas .label')];if(!cards.length)return;
+  const w=Number($('largura')?.value)||90,h=Number($('altura')?.value)||90;
+  if(!Number.isFinite(w)||!Number.isFinite(h)||w<20||h<20||w>420||h>420)throw Error('Dimensões de etiqueta inválidas.');
+  const html=cards.map(c=>c.outerHTML).join(''),resumo=cards.slice(0,4).map(c=>c.innerText).join(' / ').slice(0,240);
+  const uid=(window.crypto?.randomUUID?.()||`${Date.now()}-${Math.random()}`).slice(0,32);
+  await changeData(()=>db.geracoes.push({id:'CKTR2-'+uid,data:now(),quantidade:cards.length,w,h,html,resumo,operador:db.preferencias.operador||'',status:'ENVIADO_A_JANELA_DE_IMPRESSAO'}));
+}
 function filterPreview(q){const cards=[...document.querySelectorAll('#etiquetas .label')];let n=0;cards.forEach(c=>{const show=!q||c.textContent.toLowerCase().includes(q.toLowerCase());c.style.display=show?'':'none';if(show)n++});$('v2FindState').textContent=n+' de '+cards.length+' etiquetas visíveis. Limpe o filtro antes de imprimir.'}
-function exportJSON(filename='banco_cktr.json'){const blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'}),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),5000);say('JSON preparado para download. Escolha Documentos na janela do navegador, se disponível.')}
-$('v2SaveAs').onclick=()=>exportJSON('banco_cktr.json');$('v2Offline').onclick=()=>{$('v2Welcome').hidden=true;draw();say('Banco local ativado. Use Salvar banco_cktr.json para manter uma cópia em Documentos.');};$('v2Open').onclick=()=>{$('v2Modal').hidden=false;draw()};$('v2Close').onclick=()=>$('v2Modal').hidden=true;$('v2Later').onclick=()=>$('v2Modal').hidden=true;$('v2Pick').onclick=selectFolder;$('v2Authorize').onclick=authorize;$('v2Sync').onclick=async()=>{try{await saveFile();say('Banco JSON atualizado.')}catch(e){say(e.message)}};$('v2Reload').onclick=reload;$('v2Export').onclick=()=>exportJSON('backup_gestao_etiquetas_v2.json');$('v2Import').onclick=()=>$('v2ImportFile').click();
-$('v2ImportFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const incoming=check(JSON.parse(await f.text()));if(!confirm('Substituir os dados locais por este backup?'))return;if(busy)throw Error('Aguarde a gravação atual.');if(connected && !confirm('O banco JSON conectado será atualizado. Confirma a restauração?'))return;db=incoming;memoryRevision++;dirty=true;await idbSet('cache',db).catch(()=>{});draw();if(connected)await saveFile();say(connected?'Backup restaurado no JSON.':'Backup restaurado no navegador; exporte o JSON para preservar uma cópia.')}catch(e){say(e.message)}finally{e.target.value=''}};
-$('v2SavePrefs').onclick=async()=>{const operator=$('v2Operator').value.trim();await modify(()=>db.preferencias.operador=operator);try{localStorage.setItem('cktr-v2-operator',operator)}catch{}say('Preferência salva.')};
-$('v2SaveModel').onclick=async()=>{const nome=$('v2ModelName').value.trim(),w=Number($('v2Width').value),h=Number($('v2Height').value);if(!nome||w<30||h<30||w>420||h>420)return say('Informe nome e dimensões entre 30 e 420 mm.');await modify(()=>{const idx=db.modelos.findIndex(x=>x.nome.toLowerCase()===nome.toLowerCase());const model={nome,w,h};if(idx<0)db.modelos.push(model);else db.modelos[idx]=model});say('Modelo salvo.')};
-$('v2ApplyModel').onclick=()=>{const selected=$('v2Models').value;const m=selected===''?null:db.modelos[Number(selected)];if(!m)return say('Selecione um modelo.');$('largura').value=m.w;$('altura').value=m.h;$('largura').dispatchEvent(new Event('input',{bubbles:true}));$('altura').dispatchEvent(new Event('input',{bubbles:true}));$('v2Modal').hidden=true;say('Tamanho aplicado. Confira a prévia e o driver da impressora.')};
-$('v2HistorySearch').oninput=renderHistory;$('v2History').onclick=e=>{const b=e.target.closest('[data-reprint]');if(b)reprint(db.geracoes.find(x=>x.id===b.dataset.reprint))};$('v2Find').onclick=()=>filterPreview($('v2SearchCurrent').value);$('v2Unfilter').onclick=()=>{$('v2SearchCurrent').value='';filterPreview('')};
-// Registra a tentativa de impressão real sem interferir com o manipulador original.
-$('imprimir').addEventListener('click',()=>{filterPreview('');capturePrint().catch(e=>say('Histórico não salvo: '+e.message))},true);
-(async()=>{try{await openDB();const cached=await idbGet('cache');if(cached)db=check(cached);handle=await idbGet('handle');if(handle&&await permitted())await loadFile();else if(handle)connected=false}catch(e){browserStorageAvailable=false;console.warn('CKTR V2 armazenamento:',e);say('O banco do navegador está indisponível ou precisa ser reconectado. Exporte backups regularmente.')}if(!connected){$('v2Welcome').hidden=false;$('v2Modal').hidden=false;if(!isSupported()){$('v2Pick').textContent='USAR BANCO LOCAL NO NAVEGADOR';$('v2Authorize').hidden=true;$('v2Offline').textContent='Continuar no navegador';$('v2State').textContent='Modo universal ativo. Para criar o JSON em Documentos, use o botão Salvar banco_cktr.json.'}}draw()})();
+// Navegação de histórico / controles
+$('v2Open').onclick=()=>{chosenModal();draw()};$('v2Close').onclick=closeModal;
+$('v2Pick').onclick=chooseStorage; $('v2UseLocal').onclick=beginManual;
+$('v2Authorize').onclick=authorize; $('v2SetupAuthorize').onclick=authorize;
+$('v2ConfirmBackup').onclick=confirmManual;
+$('v2Sync').onclick=async()=>{try{await queueWrite();notice('Banco JSON atualizado.')}catch(e){notice('Não foi possível salvar: '+readable(e),true)}};
+$('v2Reload').onclick=reload; $('v2Discard').onclick=discardPending;
+$('v2Export').onclick=()=>exportJSON();
+$('v2SaveAs').onclick=()=>exportJSON(NAME);
+$('v2Import').onclick=()=>$('v2ImportFile').click();
+$('v2ImportFile').onchange=async e=>{await importJSON(e.target.files[0]);e.target.value=''};
+$('v2SavePrefs').onclick=async()=>{const operador=$('v2Operator').value.trim();const ok=await changeData(()=>db.preferencias.operador=operador);if(ok)notice('Operador salvo.')};
+$('v2SaveModel').onclick=async()=>{const nome=$('v2ModelName').value.trim(),w=Number($('v2Width').value),h=Number($('v2Height').value);if(!nome||![w,h].every(Number.isFinite)||w<30||h<30||w>420||h>420)return notice('Informe nome e dimensões entre 30 e 420 mm.',true);const ok=await changeData(()=>{const i=db.modelos.findIndex(x=>x.nome.toLowerCase()===nome.toLowerCase());const m={nome,w,h};if(i<0)db.modelos.push(m);else db.modelos[i]=m});if(ok)notice('Modelo salvo.')};
+$('v2ApplyModel').onclick=()=>{const x=$('v2Models').value,m=x===''?null:db.modelos[Number(x)];if(!m)return notice('Selecione um modelo.');$('largura').value=m.w;$('altura').value=m.h;$('largura').dispatchEvent(new Event('input',{bubbles:true}));$('altura').dispatchEvent(new Event('input',{bubbles:true}));closeModal();notice('Modelo aplicado. Confira a pré-visualização e o driver da impressora.')};
+$('v2HistorySearch').oninput=renderHistory;
+$('v2History').onclick=e=>{const btn=e.target.closest('[data-reprint]');if(btn)reprint(db.geracoes.find(x=>x.id===btn.dataset.reprint))};
+$('v2Find').onclick=()=>filterPreview($('v2SearchCurrent').value);
+$('v2Unfilter').onclick=()=>{$('v2SearchCurrent').value='';filterPreview('')};
+$('imprimir')?.addEventListener('click',()=>{filterPreview('');capturePrint().catch(e=>notice('Histórico não atualizado: '+readable(e),true))},true);
+// Impedir fuga do diálogo obrigatório pelo teclado. Depois da configuração o diálogo é normal.
+$('v2Modal').addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&firstRun){e.preventDefault();return}
+  if(e.key==='Escape'){closeModal();return}
+  if(e.key!=='Tab'||!firstRun)return;
+  const focusables=[...$('v2Modal').querySelectorAll('button:not([hidden]):not(:disabled),input:not([hidden]):not(:disabled),select:not([hidden]):not(:disabled)')].filter(e=>e.getClientRects().length);
+  if(!focusables.length)return;
+  const first=focusables[0],last=focusables.at(-1);
+  if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+  if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+});
+async function init(){
+  try{
+    await idbOpen();
+    const cacheDb=await idbGet('cache');if(cacheDb)db=validate(cacheDb);
+    dirty=Boolean(await idbGet('dirty'));
+    fileLastModified=await idbGet('fileLastModified');
+    const setup=await idbGet('setup');
+    if(setup?.configured){configured=true;storageMode=setup.mode;
+      dirHandle=storageMode==='folder'?await idbGet('handle'):null;
+      fileHandle=storageMode==='file'?await idbGet('fileHandle'):null;
+    }else{
+      // Migração silenciosa: já existia um banco V2 anterior com pasta registrada.
+      const oldHandle=await idbGet('handle');
+      if(oldHandle){configured=true;storageMode='folder';dirHandle=oldHandle;await storeSetup('folder',oldHandle)}
+    }
+    if(configured&&storageMode!=='download'&&(dirHandle||fileHandle)&&await permission(false)&&!dirty){
+      try{await applyExisting(await locateFile(false))}catch(e){lastError=readable(e);connected=false}
+    }
+  }catch(e){lastError=readable(e);console.warn('CKTR inicialização do banco:',e)}
+  draw();
+  if(!configured){showModal(true)}
+  else{closeModal();if(storageMode!=='download'&&!connected){
+    // Não reabrir instalação: a permissão é renovada por escolha do usuário.
+    $('v2StorageChip').textContent=dirty?'● Dados locais pendentes':'● Reconectar banco';
+  }}
+}
+init();
 })();
+
 </script>
 
 </body>
