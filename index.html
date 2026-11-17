@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; base-uri 'none'; form-action 'none'">
 <meta name="theme-color" content="#ffffff">
-<title>CKTR | Central de Etiquetas 1.9</title>
+<title>CKTR SERVIÇOS | GESTÃO DE ETIQUETAS V2.4</title>
 <style>
 :root{color-scheme:light;--ink:#172a27;--muted:#506661;--line:#d4dfdb;--green:#19584d;--label-w:98.4mm;--label-h:48.4mm;--qr:22.5mm;font:16px system-ui,"Segoe UI",sans-serif}
 *{box-sizing:border-box}
@@ -298,22 +298,9 @@ html[data-theme="dark"] .cktr-header{background:var(--cktr-card)!important}
 .label .label-codes,.label.has-location .label-codes{height:39%!important;padding-top:calc(.6mm * var(--label-font-scale))!important}
 .label .label-foot{font-size:calc(6pt * var(--label-font-scale))!important;height:calc(3mm * var(--label-font-scale))!important}
 </style>
-
-<style id="cktr-qr-adaptativo-v21">
-/* QR compacto de requisição: somente nome do planejador e acesso ao Power Apps. */
-.label.qr-dense .label-codes,.label.qr-dense.has-location .label-codes{
-  height:var(--cktr-codes-h,50%)!important;
-}
-.label.qr-dense .qr-slot{
-  height:var(--cktr-qr,42mm)!important;
-  width:var(--cktr-qr,42mm)!important;
-  flex:none!important;
-}
-.label .qr-slot svg{display:block;shape-rendering:crispEdges;}
-</style>
 </head>
 <body>
-<header class="cktr-header"><div class="cktr-brand"><div class="cktr-wordmark" aria-label="CKTR Serviços"><strong>CKTR</strong><small>SERVIÇOS</small></div><div class="cktr-brand-name"><strong><span>CENTRAL DE ETIQUETAS</span></strong><small>Gestão de identificação e impressão · Desenvolvido por Antonio</small></div></div><div class="cktr-header-right"><span class="cktr-online"><i></i> VERSÃO 2.4</span><div class="theme-control"><label for="tema">Tema</label><select id="tema" aria-label="Aparência do site"><option value="light">Claro</option><option value="dark">Escuro</option><option value="system">Sistema</option></select></div></div></header>
+<header class="cktr-header"><div class="cktr-brand"><div class="cktr-wordmark" aria-label="CKTR Serviços"><strong>CKTR</strong><small>SERVIÇOS</small></div><div class="cktr-brand-name"><strong><span>GESTÃO DE ETIQUETAS</span></strong><small>Gestão de identificação e impressão · Desenvolvido por Antonio</small></div></div><div class="cktr-header-right"><span class="cktr-online"><i></i> VERSÃO 1.9v</span><div class="theme-control"><label for="tema">Tema</label><select id="tema" aria-label="Aparência do site"><option value="light">Claro</option><option value="dark">Escuro</option><option value="system">Sistema</option></select></div></div></header>
 <main class="cktr-layout"><aside class="cktr-sidebar"><div class="sidebar-title"><span class="sidebar-kicker">CENTRAL DE CONTROLE</span><h2>Configurações</h2><p>Prepare o lote, ajuste as dimensões e envie para impressão.</p></div>
   <div class="section-heading"><div><span class="section-kicker">01 / CONFIGURAÇÃO</span><h2>Preparar impressão</h2></div><span class="section-note">Importação e exportação de lote</span></div>
   <section class="panel" aria-label="Planilha e impressão">
@@ -327,13 +314,13 @@ html[data-theme="dark"] .cktr-header{background:var(--cktr-card)!important}
       <div class="print-settings"><label for="papel">Formato de impressão</label><select id="papel"><option value="90x90">Etiqueta 90 × 90 mm (padrão)</option><option value="70x70">Etiqueta 70 × 70 mm</option><option value="100x100">Etiqueta 100 × 100 mm</option><option value="a4p">A4 · Retrato (210 × 297 mm)</option><option value="a4l">A4 · Paisagem (297 × 210 mm)</option><option value="a3p">A3 · Retrato (297 × 420 mm)</option><option value="a3l">A3 · Paisagem (420 × 297 mm)</option><option value="custom">Personalizado</option></select><div class="dimensions" aria-label="Medidas da etiqueta"><label>Largura (mm)<input type="number" id="largura" value="90" min="30" max="420" step="0.1" inputmode="decimal"></label><label>Altura (mm)<input type="number" id="altura" value="90" min="30" max="420" step="0.1" inputmode="decimal"></label></div><div class="setting-help" id="paper-help">Para etiquetas térmicas, configure o mesmo tamanho no driver da impressora.</div></div></div><p class="hint">Impressão: escala 100%, margens zero, sem cabeçalhos e rodapés. A4/A3 exigem impressora compatível.</p>
     <div id="mensagem" class="message" role="status" aria-live="polite" hidden></div>
   </section>
-  </aside><section class="cktr-content"><div class="workspace-top"><div><span class="sidebar-kicker">PAINEL DE PRODUÇÃO</span><h1>Prévia de etiquetas</h1><p>Confira os materiais recebidos pelo Power Apps ou importados por CSV. Cada QR Code mostra o planejador responsável e o acesso ao Power Apps.</p></div><div class="workspace-stats"><div><span>ETIQUETAS</span><strong id="metric-total">00</strong></div><div><span>MATERIAIS</span><strong id="metric-items">00</strong></div><div><span>FORMATO</span><strong id="metric-size">90 × 90</strong></div></div></div>
+  </aside><section class="cktr-content"><div class="workspace-top"><div><span class="sidebar-kicker">PAINEL DE PRODUÇÃO</span><h1>Prévia de etiquetas</h1><p>Confira os materiais recebidos pelo Power Apps ou importados por CSV. Cada QR Code abre a ficha digital do item.</p></div><div class="workspace-stats"><div><span>ETIQUETAS</span><strong id="metric-total">00</strong></div><div><span>MATERIAIS</span><strong id="metric-items">00</strong></div><div><span>FORMATO</span><strong id="metric-size">90 × 90</strong></div></div></div>
   <div class="results-bar"><div><span class="section-kicker">02 / CONFERÊNCIA</span><h2>Prévia do lote</h2></div><span id="total" class="total-chip" aria-live="polite">0 etiquetas</span></div>
   <div id="vazio" class="empty"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h10l8 8-9 9-9-9z"/><circle cx="8" cy="9" r="1.35"/></svg><p>Importe um CSV ou envie materiais pelo Power Apps para ver as etiquetas. A tabela de saldos é enviada apenas pelo Power Apps.</p></div>
   <div id="previa" class="preview" hidden><div class="labels" id="etiquetas"></div></div>
   <div id="print-block">Abra um lote válido e confira a prévia antes de imprimir.</div>
 </section></main>
-<footer class="cktr-footer"><span>© CKTR SERVIÇOS · CENTRAL DE ETIQUETAS</span><span>Conceito e desenvolvimento · <a class="cktr-feedback" href="mailto:c0702896@vale.com?subject=FEEDBACK%20CENTRAL%20DE%20ETIQUETAS&body=Prezado%20Antonio%2C%0A%0A" title="Enviar feedback para Antonio">Antonio</a></span></footer>
+<footer class="cktr-footer"><span>© CKTR SERVIÇOS · GESTÃO DE ETIQUETAS · V2</span><span>Conceito e desenvolvimento · <a class="cktr-feedback" href="mailto:c0702896@vale.com?subject=FEEDBACK%20CENTRAL%20DE%20ETIQUETAS&body=Prezado%20Antonio%2C%0A%0A" title="Enviar feedback para Antonio">Antonio</a></span></footer>
 <script>
 /*!
 
@@ -1645,145 +1632,79 @@ const labels=$('etiquetas'), input=$('arquivo'), status=$('mensagem');
 let items=[];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function msg(s,err=false){status.hidden=false;status.textContent=s;status.className='message'+(err?' error':'');}
-function qrSvg(value){
-  // Sem teto artificial de caracteres. Usa correção M normalmente e L quando necessário.
-  // O limite real é o padrão QR Code; para volumes maiores é preciso hospedar os dados.
-  let qr, nivel='M';
-  try {
-    qr=new CktrQR(-1,0); qr.addData(String(value)); qr.make();
-  } catch(erroM) {
-    try {
-      qr=new CktrQR(-1,1); qr.addData(String(value)); qr.make(); nivel='L';
-    } catch(erroL) {
-      throw new Error('Os dados excedem a capacidade física de um único QR Code, mesmo com a compactação e a correção mínima. Para preservar todas as informações, será necessário armazená-las em uma página ou serviço e usar um link curto.');
-    }
-  }
-  const n=qr.getModuleCount(), svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
-  svg.dataset.qrEcc=nivel;svg.setAttribute('viewBox',`0 0 ${n+8} ${n+8}`);svg.setAttribute('role','img');svg.setAttribute('aria-label','QR para abrir a ficha digital do material');svg.setAttribute('shape-rendering','crispEdges');svg.dataset.qrModules=String(n+8);let d='';for(let y=0;y<n;y++)for(let x=0;x<n;x++)if(qr.isDark(y,x))d+=`M${x+4} ${y+4}h1v1h-1z`;const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',d);svg.append(path);return svg;}
+function qrSvg(value){const qr=new CktrQR(-1,0);qr.addData(String(value));qr.make();const n=qr.getModuleCount(), svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox',`0 0 ${n+8} ${n+8}`);svg.setAttribute('role','img');svg.setAttribute('aria-label','QR para abrir a ficha digital do material');let d='';for(let y=0;y<n;y++)for(let x=0;x<n;x++)if(qr.isDark(y,x))d+=`M${x+4} ${y+4}h1v1h-1z`;const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',d);svg.append(path);return svg;}
 function barcodeSvg(value){const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 180 42');svg.setAttribute('aria-label','Código SAP em texto, não código de barras');const t=document.createElementNS('http://www.w3.org/2000/svg','text');t.setAttribute('x','90');t.setAttribute('y','27');t.setAttribute('text-anchor','middle');t.setAttribute('font-size','17');t.setAttribute('font-weight','bold');t.textContent=value;svg.append(t);return svg;}
-function makeLabel(item,qrLink){const card=document.createElement('article');card.className='label';if(item.Localizacao)card.classList.add('has-location');card.innerHTML=`<div class="label-head"><strong>CKTR | ALMOXARIFADO</strong></div><div class="label-main"><div class="material-details"><small>${esc(item.TipoCodigo === 'PN' ? 'PN:' : 'CÓDIGO SAP')}</small><b>${esc(item.CodigoSAP||'SEM CÓDIGO')}</b><small>DESCRIÇÃO</small><strong>${esc(item.Descricao||'SEM DESCRIÇÃO')}</strong></div></div>${item.Localizacao ? `<div class="label-location"><small>ENDEREÇO</small><strong>${esc(item.Localizacao)}</strong></div>` : ''}<div class="label-codes"><div class="qr-slot"></div><div class="sap-slot"></div></div><div class="label-foot"><span>ID: ${esc(item.ID)}</span></div>`;const codigoQR=qrSvg(qrLink);card.dataset.qrModules=codigoQR.dataset.qrModules;card.querySelector('.qr-slot').append(codigoQR);const logo=document.createElement('img');logo.src='data:image/png;base64,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';logo.alt='CKTR Serviços';card.querySelector('.sap-slot').append(logo);return card;}
+function makeLabel(item,qrLink){const card=document.createElement('article');card.className='label';if(item.Localizacao)card.classList.add('has-location');card.innerHTML=`<div class="label-head"><strong>CKTR | ALMOXARIFADO</strong></div><div class="label-main"><div class="material-details"><small>${esc(item.TipoCodigo === 'PN' ? 'PN:' : 'CÓDIGO SAP')}</small><b>${esc(item.CodigoSAP||'SEM CÓDIGO')}</b><small>DESCRIÇÃO</small><strong>${esc(item.Descricao||'SEM DESCRIÇÃO')}</strong></div></div>${item.Localizacao ? `<div class="label-location"><small>ENDEREÇO</small><strong>${esc(item.Localizacao)}</strong></div>` : ''}<div class="label-codes"><div class="qr-slot"></div><div class="sap-slot"></div></div><div class="label-foot"><span>ID: ${esc(item.ID)}</span></div>`;card.querySelector('.qr-slot').append(qrSvg(qrLink));const logo=document.createElement('img');logo.src='data:image/png;base64,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';logo.alt='CKTR Serviços';card.querySelector('.sap-slot').append(logo);return card;}
 function textoCampo(v){return v===null||v===undefined?'':String(v).trim();}
-function numeroSeguro(valor){
-  if(typeof valor==='number')return Number.isFinite(valor)?valor:0;
-  const texto=String(valor??'').trim().replace(/\s/g,'');
-  if(!texto)return 0;
-  const ajustado=texto.includes(',')?texto.replace(/\./g,'').replace(',','.'):texto;
-  const n=Number(ajustado);
-  return Number.isFinite(n)?n:0;
-}
-function unico(valores){
-  const vistos=new Set(),out=[];
-  for(const v of valores){const s=textoCampo(v);const chave=s.toLocaleUpperCase('pt-BR');if(s&&!vistos.has(chave)){vistos.add(chave);out.push(s)}}
-  return out;
-}
-function classificacaoNormalizada(valor){
-  if(valor==null)return '';
-  if(typeof valor==='object')return classificacaoNormalizada(valor.Value??valor.value??valor.Valor??'');
-  let v=textoCampo(valor);
-  if((v.startsWith('{')&&v.endsWith('}'))||(v.startsWith('"')&&v.endsWith('"'))){
-    try{return classificacaoNormalizada(JSON.parse(v))}catch(e){}
-  }
-  v=v.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase();
-  if(v.includes('INVESTIMENTO'))return 'INVESTIMENTO';
-  if(v.includes('CUSTEIO'))return 'CUSTEIO';
-  return '';
-}
-function normalizarResumo(r){
-  if(!r||typeof r!=='object')return null;
-  const lista=campo=>Array.isArray(campo)?campo:[];
-  const req=unico(lista(r.Requisicoes??r.requisicoes??r.e).map(x=>textoCampo(x?.Codigo??x?.Value??x)));
-  const plans=[],vistos=new Set();
-  for(const p of lista(r.Planejadores??r.planejadores??r.p)){
-    const nome=textoCampo(p?.Nome??p?.nome??(Array.isArray(p)?p[0]:p));
-    const gerencia=textoCampo(p?.Gerencia??p?.GERENCIA??p?.gerencia??(Array.isArray(p)?p[1]:''));
-    const chave=(nome+'|'+gerencia).toLocaleUpperCase('pt-BR');
-    if(nome&&!vistos.has(chave)){vistos.add(chave);plans.push([nome,gerencia])}
-  }
-  const classes=unico(lista(r.Classificacoes??r.classificacoes??r.k).map(x=>classificacaoNormalizada(x?.Valor??x?.Value??x))).filter(Boolean);
-  return {
-    total:numeroSeguro(r.SaldoTotal??r.Total??r.total??r.q),
-    registros:Math.max(0,Number(r.QuantidadeRegistros??r.Registros??r.registros??r.n)||0),
-    requisicoes:req,
-    planejadores:plans,
-    classificacoes:classes
-  };
-}
-function resumoLegado(linhas){
-  if(!Array.isArray(linhas))return null;
-  const req=[],plan=[],classes=[];
-  let total=0;
-  for(const linha of linhas){
-    const l=Array.isArray(linha)?linha:[linha.OM,linha.PEDIDO,linha.RESERVA,linha.SALDO_ITEM??linha.QUANTIDADE,linha.PLANEJADOR,linha.GERENCIA,linha.NUM_DOC_E,linha.CLASSIFICACAO];
-    total+=numeroSeguro(l[3]);
-    req.push(l[6]);
-    if(textoCampo(l[4]))plan.push({Nome:l[4],Gerencia:l[5]});
-    classes.push(l[7]);
-  }
-  return normalizarResumo({SaldoTotal:total,QuantidadeRegistros:linhas.length,Requisicoes:req,Planejadores:plan,Classificacoes:classes});
-}
-// Compatível com exportação antiga, CSV e o novo lote compacto v4.
-function nomesPlanejadores(entrada){
-  const nomes=[];
-  const adicionar=v=>{
-    if(v===null||v===undefined)return;
-    if(Array.isArray(v)){
-      for(const x of v){
-        // Na versão antiga o planejador vinha como [Nome, Gerencia].
-        if(Array.isArray(x))adicionar(x[0]);else adicionar(x);
-      }
-    }else if(typeof v==='object')adicionar(v.Nome??v.nome??v.Value??v.Título??v.PLANEJADOR);
-    else for(const parte of String(v).split(/\s*\|\s*/))if(parte.trim())nomes.push(parte.trim());
-  };
-  adicionar(entrada);
-  return unico(nomes).join(' | ');
+function normalizarLinhaSaldo(o){
+  // Uma linha para cada registro do SharePoint. Não aplicar Distinct nem GroupBy.
+  if(Array.isArray(o))return o.slice(0,7).map(textoCampo);
+  if(!o||typeof o!=='object')return null;
+  return [
+    textoCampo(o.OM??o.om),
+    textoCampo(o.PEDIDO??o.Pedido),
+    textoCampo(o.RESERVA??o.Reserva),
+    textoCampo(o.SALDO_ITEM??o.QUANTIDADE??o.Quantidade),
+    textoCampo(o.PLANEJADOR??o.Planejador),
+    textoCampo(o.GERENCIA??o.Gerencia),
+    textoCampo(o.NUM_DOC_E??o.CodigoRequisicaoGMP)
+  ];
 }
 function normalize(o){
-  const recebido=o.ResumoSaldo??o.RESUMO_SALDO??o.Resumo??o.ResumoSaldos;
-  const linhas=o.Saldos??o.SALDOS??o.LinhasSaldo??o.SaldoItens;
-  const resumo=recebido?normalizarResumo(recebido):resumoLegado(linhas);
+  const recebido=o.Saldos??o.SALDOS??o.LinhasSaldo??o.SaldoItens;
   return {
-    ID:textoCampo(o.i??o.ID??o.id),
-    CodigoSAP:textoCampo(o.c??o.CodigoSAP??o.CODIGO_SAP??o.sap),
-    TipoCodigo:textoCampo(o.t??o.TipoCodigo??o.TIPO_CODIGO??'SAP').toUpperCase()==='PN'?'PN':'SAP',
-    Descricao:textoCampo(o.d??o.Descricao??o.DESCRICAO??o.descricao),
-    Localizacao:textoCampo(o.l??o.Localizacao??o.LOCALIZACAO??o.localizacao),
-    // O QR usa SOMENTE o nome do planejador; nenhum saldo ou código é serializado nele.
-    Planejadores:nomesPlanejadores(o.p??o.Planejadores??o.PLANEJADORES??o.Planejador??o.PLANEJADOR??resumo?.planejadores??[]),
-    ID_AREA:textoCampo(o.a??o.ID_AREA??1),
-    QuantidadeEtiquetas:Math.min(100,Math.max(1,Number(o.q??o.QuantidadeEtiquetas??o.QUANTIDADE??1)||1))
+    ID:textoCampo(o.ID??o.id),
+    CodigoSAP:textoCampo(o.CodigoSAP??o.CODIGO_SAP??o.sap),
+    TipoCodigo:textoCampo(o.TipoCodigo??o.TIPO_CODIGO??'SAP').toUpperCase()==='PN'?'PN':'SAP',
+    Descricao:textoCampo(o.Descricao??o.DESCRICAO??o.descricao),
+    Localizacao:textoCampo(o.Localizacao??o.LOCALIZACAO??o.localizacao),
+    // null significa "não enviado"; [] significa "consulta realizada, sem registros".
+    Saldos:Array.isArray(recebido)?recebido.map(normalizarLinhaSaldo).filter(Boolean):null,
+    ID_AREA:textoCampo(o.ID_AREA??1),
+    QuantidadeEtiquetas:Math.min(100,Math.max(1,Number(o.QuantidadeEtiquetas??o.QUANTIDADE??1)||1))
   };
 }
 
-// QR enxuto: contém somente o endereço público da página CKTR e o nome do planejador.
-// O link do Power Apps fica FIXO em material.html; não é repetido em cada QR.
+// Os dados ficam no QR da etiqueta, sem acesso direto ao SharePoint.
+// AVISO: QR e URL são legíveis por qualquer pessoa que os tenha. Não usar com dados
+// corporativos confidenciais sem autorização. Não representa saldo em tempo real.
 const MATERIAL_PAGE='https://sys-ghost-dev.github.io/etiquetaCMP/material.html';
-async function linkFicha(item){
-  const url=new URL(MATERIAL_PAGE);
-  url.hash='p='+encodeURIComponent(item.Planejadores||'');
-  return {url:url.href,avisos:[]};
+const QR_MAX_CHARS=550; // evita códigos excessivamente densos na etiqueta térmica
+function base64Url(bytes){
+  let str='';
+  for(let i=0;i<bytes.length;i+=8192)str+=String.fromCharCode(...bytes.subarray(i,i+8192));
+  return btoa(str).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
 }
-
-// O tamanho físico do QR é ajustado pelo número real de módulos, não apenas pela URL.
-// Zebra ZT230 203 dpi: 0,33 mm por módulo representa aproximadamente 2,6 pontos.
-// QR muito denso continua sujeito à qualidade de impressão e precisa ser testado.
-function ajustarQRs(){
-  const w=Number($('largura').value)||90, h=Number($('altura').value)||90;
-  const menor=Math.min(w,h), base=Math.min(85,Math.max(20,menor*.36));
-  let densos=0,risco=0;
-  for(const card of labels.querySelectorAll('.label')){
-    const modulos=Number(card.dataset.qrModules)||0;
-    const recomendado=Math.max(base,modulos*.33);
-    const maximo=Math.min(85,menor*.54);
-    const real=Math.min(recomendado,maximo);
-    const denso=recomendado>base+1;
-    card.classList.toggle('qr-dense',denso);
-    card.classList.toggle('qr-risk',recomendado>maximo+.1);
-    if(denso)densos++;
-    if(recomendado>maximo+.1)risco++;
-    card.style.setProperty('--cktr-qr',real.toFixed(2)+'mm');
-    card.style.setProperty('--cktr-codes-h',Math.max(39,Math.ceil((real+2.2)/h*100))+'%');
+async function codificarFicha(obj){
+  const json=JSON.stringify(obj);
+  const url=new URL(MATERIAL_PAGE);
+  if(typeof CompressionStream==='function'){
+    const fluxo=new Blob([json],{type:'application/json'}).stream().pipeThrough(new CompressionStream('deflate'));
+    url.searchParams.set('z',base64Url(new Uint8Array(await new Response(fluxo).arrayBuffer())));
+  }else{
+    // Não se perde saldo no fallback: se não couber, a geração será bloqueada.
+    url.searchParams.set('dados',json);
   }
-  return {densos,risco};
+  return url.href;
+}
+async function linkFicha(item){
+  const avisos=[];
+  const base={v:2,i:item.ID,c:item.CodigoSAP,t:item.TipoCodigo,d:item.Descricao,l:item.Localizacao};
+  if(item.Saldos!==null){
+    base.s=item.Saldos; // todos os registros, inclusive OM/PEDIDO/RESERVA repetidos
+    base.a=new Date().toISOString();
+  }else avisos.push('Power Apps ainda não enviou as linhas de saldo para este material.');
+  // A ficha preserva a descrição completa e TODAS as linhas de saldo.
+  // Se não couber no QR, interrompe a impressão em vez de ocultar informações.
+  const url=await codificarFicha(base);
+  if(url.length>QR_MAX_CHARS){
+    throw Error('Material ID '+item.ID+': dados demais para um QR Code legível ('+
+      (item.Saldos?.length??0)+' linhas de saldo, '+url.length+' caracteres). '+
+      'Nenhuma linha nem parte da descrição será omitida. Para muitos registros, '+
+      'é necessária uma consulta interna autenticada por ID.');
+  }
+  if(url.length>420)avisos.push('QR de alta densidade ('+url.length+' caracteres): teste com a câmera antes da impressão definitiva.');
+  return {url,avisos};
 }
 
 // Ajuste proporcional da descrição para evitar corte visual na etiqueta.
@@ -1818,7 +1739,7 @@ async function render(){
   labels.replaceChildren();
   $('imprimir').disabled=true;
   document.body.classList.remove('ready');
-  msg('Preparando QR Codes de requisição...');
+  msg('Preparando QR Codes das fichas digitais...');
   let count=0;
   const avisos=[];
   try{
@@ -1828,7 +1749,6 @@ async function render(){
       if(atual!==renderId)return;
       avisos.push(...ficha.avisos.map(a=>'ID '+item.ID+': '+a));
       const primeira=makeLabel(item,ficha.url);
-      if(primeira.querySelector('.qr-slot svg')?.dataset.qrEcc==='L')avisos.push('ID '+item.ID+': QR no limite de capacidade, com menor tolerância a danos. Verifique a leitura na etiqueta impressa.');
       for(let n=0;n<item.QuantidadeEtiquetas;n++){
         labels.append(n===0?primeira:primeira.cloneNode(true));
         count++;
@@ -1837,8 +1757,6 @@ async function render(){
     if(atual!==renderId)return;
     $('vazio').hidden=!!count;
     $('previa').hidden=!count;
-    const qrInfo=ajustarQRs();
-    if(qrInfo.risco)avisos.push(qrInfo.risco+' etiqueta(s) com QR muito denso para o tamanho escolhido: aumente o tamanho físico da etiqueta.');
     const cortes=ajustarTodasDescricoes();
     if(cortes)avisos.push(cortes+' etiqueta(s) com descrição longa demais para o espaço físico: confira a prévia antes de imprimir.');
     $('total').textContent=count+' etiqueta(s)';
@@ -1846,7 +1764,7 @@ async function render(){
     $('metric-items').textContent=String(items.length).padStart(2,'0');
     $('imprimir').disabled=!count;
     document.body.classList.toggle('ready',!!count);
-    const resumo=count+' etiqueta(s) prontas. QR mostra o planejador e o acesso ao Power Apps.';
+    const resumo=count+' etiqueta(s) prontas. QR abre a ficha digital pelo celular.';
     msg(avisos.length?resumo+' AVISOS: '+avisos.slice(0,3).join(' | ')+(avisos.length>3?' (e outros)':''):resumo,!!avisos.length);
   }catch(e){
     if(atual!==renderId)return;
@@ -1860,12 +1778,12 @@ async function render(){
 }
 
 function download(name,content,type){const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);}
-function csv(){const rows=[['ID','CODIGO_SAP','TIPO_CODIGO','DESCRICAO','ID_AREA','QUANTIDADE','LOCALIZACAO','PLANEJADORES'],...items.map(i=>[i.ID,i.CodigoSAP,i.TipoCodigo,i.Descricao,i.ID_AREA,i.QuantidadeEtiquetas,i.Localizacao,i.Planejadores])];return '\uFEFF'+rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\r\n');}
+function csv(){const rows=[['ID','CODIGO_SAP','TIPO_CODIGO','DESCRICAO','ID_AREA','QUANTIDADE','LOCALIZACAO'],...items.map(i=>[i.ID,i.CodigoSAP,i.TipoCodigo,i.Descricao,i.ID_AREA,i.QuantidadeEtiquetas,i.Localizacao])];return '\uFEFF'+rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\r\n');}
 function parseCsv(text){const out=[],rows=[];let row=[],cell='',quoted=false;for(let i=0;i<text.length;i++){const c=text[i];if(c==='"'){if(quoted&&text[i+1]==='"'){cell+='"';i++;}else quoted=!quoted;}else if(c===';'&&!quoted){row.push(cell);cell='';}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some(x=>x.trim()))rows.push(row);row=[];cell='';}else cell+=c;}row.push(cell);if(row.some(x=>x.trim()))rows.push(row);const headers=(rows.shift()||[]).map(x=>x.replace(/^\uFEFF/,'').trim().toUpperCase());for(const r of rows){const o={};headers.forEach((h,i)=>o[h]=r[i]||'');out.push(normalize(o));}return out;}
-$('exportar').textContent='Baixar planilha CSV';$('exportar').addEventListener('click',()=>download('Etiquetas-CKTR.csv',items.length?csv():'\uFEFFID;CODIGO_SAP;TIPO_CODIGO;DESCRICAO;ID_AREA;QUANTIDADE;LOCALIZACAO;PLANEJADORES\r\n','text/csv;charset=utf-8'));
+$('exportar').textContent='Baixar planilha CSV';$('exportar').addEventListener('click',()=>download('Etiquetas-CKTR.csv',items.length?csv():'\uFEFFID;CODIGO_SAP;TIPO_CODIGO;DESCRICAO;ID_AREA;QUANTIDADE;LOCALIZACAO\r\n','text/csv;charset=utf-8'));
 $('importar').textContent='Importar planilha CSV';input.setAttribute('accept','.csv,text/csv');$('importar').addEventListener('click',()=>input.click());input.addEventListener('change',async()=>{try{const file=input.files[0];if(!file)return;items=parseCsv(await file.text());if(!items.length)throw Error('Arquivo sem materiais.');await render();}catch(e){msg(e.message,true);}finally{input.value='';}});
 $('largura').value=90;$('altura').value=90;$('largura').min=30;$('altura').min=30;
-function sizing(){const w=Number($('largura').value),h=Number($('altura').value);if(!Number.isFinite(w)||!Number.isFinite(h)||w<30||w>420||h<30||h>420)return false;document.documentElement.style.setProperty('--label-w',w+'mm');document.documentElement.style.setProperty('--label-h',h+'mm');const scale=Math.max(.78,Math.min(3.1,Math.min(w/90,h/90)));document.documentElement.style.setProperty('--label-font-scale',scale.toFixed(3));document.documentElement.style.setProperty('--label-qr-size',Math.min(85,Math.max(20,Math.min(w,h)*.36)).toFixed(1)+'mm');ajustarQRs();$('page-size').textContent=`@page{size:${w}mm ${h}mm;margin:0}`;$('metric-size').textContent=`${w} × ${h}`;ajustarTodasDescricoes();return true;}
+function sizing(){const w=Number($('largura').value),h=Number($('altura').value);if(!Number.isFinite(w)||!Number.isFinite(h)||w<30||w>420||h<30||h>420)return false;document.documentElement.style.setProperty('--label-w',w+'mm');document.documentElement.style.setProperty('--label-h',h+'mm');const scale=Math.max(.78,Math.min(3.1,Math.min(w/90,h/90)));document.documentElement.style.setProperty('--label-font-scale',scale.toFixed(3));document.documentElement.style.setProperty('--label-qr-size',Math.min(85,Math.max(20,Math.min(w,h)*.36)).toFixed(1)+'mm');$('page-size').textContent=`@page{size:${w}mm ${h}mm;margin:0}`;$('metric-size').textContent=`${w} × ${h}`;ajustarTodasDescricoes();return true;}
 const formats={'90x90':[90,90],'70x70':[70,70],'100x100':[100,100],a4p:[210,297],a4l:[297,210],a3p:[297,420],a3l:[420,297]};
 const format=$('papel'),theme=$('tema');
 // Nova chave: não herda a configuração incorreta das versões anteriores.
@@ -1897,7 +1815,6 @@ $('largura').addEventListener('input',customSize);$('altura').addEventListener('
 function imprimirSomenteEtiquetas(){
   if(!sizing()){msg('Verifique as medidas da etiqueta.',true);return;}
   const cards=Array.from(labels.querySelectorAll('.label'));
-  const qtdQRsDeRisco=cards.filter(c=>c.classList.contains('qr-risk')).length;
   if(!cards.length){msg('Não existem etiquetas para imprimir.',true);return;}
   const w=Number($('largura').value),h=Number($('altura').value);
   const scale=Math.max(.78,Math.min(3.1,Math.min(w/90,h/90)));
@@ -1933,23 +1850,137 @@ function imprimirSomenteEtiquetas(){
   iframe.contentWindow.addEventListener('afterprint',cleanup,{once:true});
   const startPrint=()=>{if(printed)return;printed=true;iframe.contentWindow.focus();iframe.contentWindow.print();};
   Promise.all(Array.from(doc.images).map(img=>img.complete?Promise.resolve():new Promise(resolve=>{img.addEventListener('load',resolve,{once:true});img.addEventListener('error',resolve,{once:true});}))).then(()=>setTimeout(startPrint,250));
-  msg(`Impressão preparada: ${cards.length} etiqueta(s) de ${w} × ${h} mm. ${qtdQRsDeRisco ? 'ATENÇÃO: '+qtdQRsDeRisco+' QR(s) com densidade acima da recomendação para esta etiqueta; a leitura pelo celular não é garantida. Faça um teste antes de imprimir em lote. ' : ''}Confira papel e orientação na janela da impressora.`,qtdQRsDeRisco>0);
+  msg(`Impressão preparada: ${cards.length} etiqueta(s) de ${w} × ${h} mm. Confira papel e orientação na janela da impressora.`);
 }
 $('imprimir').addEventListener('click',imprimirSomenteEtiquetas);
-try{
-  // O fragmento #dados= não é enviado ao servidor do GitHub, evitando o erro HTTP 414.
-  // Continua aceitando o formato antigo ?dados= e a importação CSV.
-  const raw=new URLSearchParams(location.hash.replace(/^#/,'')).get('dados')
-    ??new URLSearchParams(location.search).get('dados');
-  if(raw){
-    const payload=JSON.parse(raw);
-    const data=Array.isArray(payload)?payload:(payload?.itens??payload?.Itens);
-    if(!Array.isArray(data))throw Error('O lote não contém uma lista válida de materiais.');
-    items=data.map(normalize).filter(x=>x.ID);
-    render().catch(e=>msg(e.message,true));
-  }else msg('Importe um CSV ou abra este site pelo Power Apps.');
-}catch(e){msg('Não foi possível receber os dados do Power Apps: '+e.message,true);}sizing();
+try{const raw=new URLSearchParams(location.search).get('dados');if(raw){const data=JSON.parse(raw);if(!Array.isArray(data))throw Error('Dados inválidos.');items=data.map(normalize).filter(x=>x.ID);render().catch(e=>msg(e.message,true));}else msg('Importe um CSV ou abra este site pelo Power Apps.');}catch(e){msg('Não foi possível receber os dados do Power Apps: '+e.message,true);}sizing();
 })();
 </script>
+
+<!-- CKTR V2: módulo aditivo; gerador, importação e impressora V1 preservados -->
+<style id="cktr-v2-style">
+:root{--v2:#0e6a5b;--v2border:#d1e6df;--v2ink:#123c34}
+#v2Dock{position:fixed;z-index:98;right:18px;bottom:18px;display:flex;gap:8px;align-items:center}
+.v2btn{border:1px solid #267b69;border-radius:10px;background:#116e5b;color:#fff;padding:12px 16px;font:700 12px Segoe UI,Arial,sans-serif;cursor:pointer;box-shadow:0 8px 25px #0003}
+.v2btn.alt{background:#f4faf7;color:#165645;border-color:#b5d2c7}
+#v2Modal[hidden],#v2Toast[hidden]{display:none!important}
+#v2Modal{position:fixed;inset:0;z-index:1001;background:#071d1bc9;backdrop-filter:blur(8px);display:grid;place-items:center;padding:16px}
+#v2Box{width:min(1080px,100%);max-height:94vh;overflow:auto;background:#f5faf8;color:#173c33;border:1px solid #8ebdae;box-shadow:0 30px 90px #0008;border-radius:19px}
+#v2Head{background:linear-gradient(110deg,#062d28,#146c59);color:white;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+#v2Head strong{display:block;font-size:21px;letter-spacing:-.4px}
+#v2Head small{font-size:11px;color:#b5e1d4}
+#v2Body{padding:21px 24px 27px}
+.v2grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
+.v2card{background:#fff;border:1px solid #d0e2db;border-radius:13px;padding:16px;margin-bottom:15px;min-width:0}
+.v2card h3{margin:0 0 10px;font-size:15px;color:#165548}
+.v2hint{font-size:12px;color:#5b786d;line-height:1.6}
+.v2status{font-weight:700;color:#14694d;font-size:12px;overflow-wrap:anywhere}
+.v2actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.v2actions button{border:1px solid #b5d0c4;background:#f2faf6;border-radius:8px;padding:9px 11px;color:#195c4c;font-weight:700;cursor:pointer}
+.v2actions button.main{background:#126f59;border-color:#126f59;color:white}
+.v2field{display:grid;gap:6px;font-size:12px;color:#325b51;margin:11px 0}
+.v2field input,.v2field select{background:white!important;color:#193e34!important;border:1px solid #b3d0c4;border-radius:8px;padding:9px;width:100%;min-width:0}
+.v2table{width:100%;border-collapse:collapse;font-size:12px}
+.v2table th,.v2table td{padding:9px;border-bottom:1px solid #dfece6;text-align:left;color:#244d42;vertical-align:top}
+.v2table th{position:static;background:#e9f3ee}
+#v2Toast{position:fixed;z-index:2000;right:20px;top:20px;background:#083b32;color:white;padding:14px 18px;border-radius:9px;max-width:440px;font-size:13px;box-shadow:0 15px 40px #0004}
+.v2metric{display:inline-grid;gap:3px;margin:4px 18px 9px 0}.v2metric b{font-size:22px}.v2metric small{font-size:10px;color:#67857b}
+@media(max-width:740px){.v2grid{grid-template-columns:1fr}#v2Body{padding:13px}#v2Head{padding:15px}#v2Dock{right:8px;bottom:8px}.v2btn{padding:10px}}
+@media print{#v2Dock,#v2Modal,#v2Toast{display:none!important}}
+</style>
+<div id="v2Dock"><button class="v2btn" id="v2Open" type="button">▣ GESTÃO DE ETIQUETAS · V2</button></div>
+<div id="v2Toast" hidden role="status"></div>
+<div id="v2Modal" hidden role="dialog" aria-modal="true" aria-label="Gestão de Etiquetas V2">
+  <div id="v2Box">
+    <div id="v2Head"><div><strong>CKTR | GESTÃO DE ETIQUETAS</strong><small>VERSÃO 2 · BANCO LOCAL · HISTÓRICO · PRODUTIVIDADE</small></div><button type="button" class="v2btn alt" id="v2Close">Fechar ×</button></div>
+    <div id="v2Body">
+      <div class="v2card" id="v2Welcome"><h3>Salvar banco de dados</h3><p class="v2hint">No Chrome/Edge, escolha uma pasta autorizada, como <b>Documentos</b>, para criar ou abrir <b>banco_cktr.json</b>. No Firefox/Safari, os dados ficam no navegador e você pode exportar/importar o mesmo JSON manualmente.</p><div class="v2actions"><button class="main" id="v2Pick">📁 SALVAR BANCO DE DADOS</button><button id="v2Authorize">Autorizar novamente</button><button id="v2Offline">💾 USAR BANCO NO NAVEGADOR</button><button id="v2Later">Configurar depois</button></div><p id="v2State" class="v2status">Banco ainda não conectado.</p></div>
+      <div class="v2grid"><div>
+        <div class="v2card"><h3>Histórico e reimpressão</h3><div id="v2Metrics"></div><label class="v2field">Pesquisar gerações, SAP ou descrição<input type="search" id="v2HistorySearch" placeholder="Pesquisar histórico..."></label><div style="overflow:auto;max-height:355px"><table class="v2table"><thead><tr><th>Geração</th><th>Data</th><th>Etiquetas</th><th>Operação</th></tr></thead><tbody id="v2History"></tbody></table></div></div>
+        <div class="v2card"><h3>Pesquisa na pré-visualização atual</h3><p class="v2hint">Filtra visualmente etiquetas já carregadas pela importação CSV ou pelo Power Apps. Para imprimir o lote inteiro, limpe a busca antes de imprimir.</p><label class="v2field">SAP, PN, descrição ou endereço<input id="v2SearchCurrent" placeholder="Pesquisar etiquetas atuais"></label><div class="v2actions"><button id="v2Find">Pesquisar</button><button id="v2Unfilter">Mostrar todas</button></div><p id="v2FindState" class="v2hint"></p></div>
+      </div><div>
+        <div class="v2card"><h3>Banco JSON em Documentos</h3><p id="v2IntegrityInfo" class="v2hint" role="status">Integridade: aguardando inicialização.</p><div class="v2actions"><button id="v2Sync">Salvar agora</button><button id="v2Reload">Recarregar arquivo</button><button id="v2Export">Exportar backup</button><button id="v2Import">Importar backup</button><button id="v2SaveAs">Salvar banco_cktr.json</button></div><p id="v2FileInfo" class="v2hint"></p><p class="v2hint">O GitHub hospeda a interface, não seus dados. No Firefox/Safari é necessário exportar o JSON para atualizá-lo em Documentos; salvar no navegador não atualiza automaticamente o arquivo. Nunca salve informações pessoais ou corporativas sem permissão.</p></div>
+        <div class="v2card"><h3>Preferências e modelos</h3><label class="v2field">Operador<input id="v2Operator" placeholder="Nome de exibição"></label><label class="v2field">Nome do modelo<input id="v2ModelName" placeholder="Ex.: Zebra 100x50"></label><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><label class="v2field">Largura (mm)<input type="number" id="v2Width" min="30" max="420" value="90"></label><label class="v2field">Altura (mm)<input type="number" id="v2Height" min="30" max="420" value="90"></label></div><div class="v2actions"><button id="v2SavePrefs">Salvar operador</button><button id="v2SaveModel">Salvar modelo</button></div><label class="v2field">Modelos salvos<select id="v2Models"><option value="">Selecionar modelo...</option></select></label><div class="v2actions"><button id="v2ApplyModel">Aplicar tamanho ao gerador</button></div></div>
+      </div></div>
+      <input id="v2ImportFile" type="file" accept=".json,application/json" hidden>
+    </div>
+  </div>
+</div>
+<script id="cktr-v2-js">
+(()=>{'use strict';
+const $=id=>document.getElementById(id), F='banco_cktr.json', DBNAME='CKTR_GESTAO_ETIQUETAS_V2';
+let handle=null, fileHandle=null, idb=null, connected=false, dirty=false, busy=false, alertTimer=null;
+let fileLastModified=null, memoryRevision=0, browserStorageAvailable=true;
+const fresh=()=>({sistema:'CKTR_GESTAO_ETIQUETAS_V2',versao:2,criado:new Date().toISOString(),alterado:new Date().toISOString(),preferencias:{operador:''},modelos:[],geracoes:[]});
+let db=fresh();
+const say=(m)=>{const el=$('v2Toast');el.textContent=m;el.hidden=false;clearTimeout(alertTimer);alertTimer=setTimeout(()=>el.hidden=true,5500)};
+function check(o){if(!o||typeof o!=='object'||Array.isArray(o)||o.sistema!=='CKTR_GESTAO_ETIQUETAS_V2'||!Array.isArray(o.geracoes)||!Array.isArray(o.modelos)||!o.preferencias||typeof o.preferencias!=='object'||Array.isArray(o.preferencias))throw Error('Arquivo JSON inválido ou não pertence à Gestão de Etiquetas V2.');if(o.geracoes.length>200000)throw Error('Banco com número de gerações acima do limite preventivo.');return o}
+function openDB(){return new Promise((res,rej)=>{if(!window.indexedDB)return rej(Error('IndexedDB indisponível neste perfil.'));const q=indexedDB.open(DBNAME,1);q.onupgradeneeded=()=>{if(!q.result.objectStoreNames.contains('meta'))q.result.createObjectStore('meta')};q.onsuccess=()=>{idb=q.result;res()};q.onerror=()=>rej(q.error)})}
+function idbGet(k){return new Promise((res,rej)=>{if(!idb)return res(null);let q=idb.transaction('meta').objectStore('meta').get(k);q.onsuccess=()=>res(q.result||null);q.onerror=()=>rej(q.error)})}
+function idbSet(k,v){return new Promise((res,rej)=>{if(!idb)return rej(Error('IndexedDB indisponível'));const tx=idb.transaction('meta','readwrite');tx.objectStore('meta').put(v,k);tx.oncomplete=res;tx.onerror=()=>rej(tx.error)})}
+async function permitted(ask=false){if(!handle)return false;try{let v=await handle.queryPermission({mode:'readwrite'});if(v==='granted')return true;if(ask)v=await handle.requestPermission({mode:'readwrite'});return v==='granted'}catch{return false}}
+const isSupported=()=>!!window.showDirectoryPicker&&isSecureContext;
+async function loadFile(){if(dirty)throw Error('Há alterações não gravadas; exporte um backup antes de carregar outro arquivo.');const candidate=await handle.getFileHandle(F,{create:false});const f=await candidate.getFile();const parsed=check(JSON.parse(await f.text()));fileHandle=candidate;db=parsed;fileLastModified=f.lastModified;memoryRevision++;dirty=false;connected=true;await idbSet('cache',db).catch(()=>{});draw()}
+async function selectFolder(){if(!isSupported()){say('Este navegador usa o modo universal: banco no IndexedDB e exportação/importação manual de JSON.');$('v2Welcome').hidden=true;draw();return}try{const picked=await showDirectoryPicker({id:'cktr-v2',startIn:'documents',mode:'readwrite'});if(dirty&&!confirm('Existem alterações não gravadas. Deseja continuar e abandonar essas alterações?'))return;const old={handle,fileHandle,db,connected,dirty,fileLastModified};try{handle=picked;fileHandle=null;connected=false;let exists=true;try{await handle.getFileHandle(F,{create:false})}catch(e){if(e.name==='NotFoundError')exists=false;else throw e}if(exists){dirty=false;await loadFile()}else{db=fresh();fileLastModified=null;connected=true;dirty=true;memoryRevision++;await saveFile()}await idbSet('handle',handle);draw();say(exists?'Banco existente recuperado.':'Banco criado em '+handle.name+'/'+F);$('v2Welcome').hidden=true}catch(e){handle=old.handle;fileHandle=old.fileHandle;db=old.db;connected=old.connected;dirty=old.dirty;fileLastModified=old.fileLastModified;draw();throw e}}catch(e){if(e.name!=='AbortError')say('Falha: '+e.message)}}
+async function saveFile(){
+  if(!handle||!await permitted())throw Error('Pasta não autorizada para escrita.');
+  if(busy)throw Error('Há outra gravação em andamento. Aguarde e tente novamente.');
+  busy=true;
+  try{
+    const h=fileHandle||await handle.getFileHandle(F,{create:true});
+    const existing=await h.getFile();
+    // Se outra aba ou outro aplicativo mudou o arquivo, não sobrescrever.
+    if(fileLastModified!==null && existing.lastModified!==fileLastModified){
+      connected=false;
+      throw Error('O banco JSON foi modificado fora desta aba. Exporte seu backup antes de recarregar.');
+    }
+    // Sem conhecimento da versão do arquivo não podemos sobrescrever dados existentes.
+    if(fileLastModified===null && existing.size>0){
+      connected=false;
+      throw Error('Já existe um banco na pasta. Recarregue-o antes de gravar.');
+    }
+    const revision=memoryRevision;
+    const snap=JSON.parse(JSON.stringify(db));
+    snap.alterado=new Date().toISOString();
+    const writable=await h.createWritable();
+    try{await writable.write(JSON.stringify(snap,null,2));await writable.close()}
+    catch(e){try{await writable.abort()}catch{}throw e}
+    fileHandle=h;
+    const updated=await h.getFile();
+    fileLastModified=updated.lastModified;
+    if(revision===memoryRevision){
+      db.alterado=snap.alterado;
+      dirty=false;
+    } else {
+      dirty=true;
+    }
+    connected=true;
+    await idbSet('cache',db).catch(()=>{});
+    draw();
+  }finally{busy=false}
+}
+async function modify(fn){if(busy)throw Error('Gravação em andamento; tente novamente.');fn();memoryRevision++;dirty=true;await idbSet('cache',db).catch(()=>{});draw();if(connected){try{await saveFile()}catch(e){say('Registrado no cache, não no JSON: '+e.message)}}else say('Salvo temporariamente no navegador. Autorize o JSON para persistir.')}
+async function authorize(){try{if(!handle)return selectFolder();if(!await permitted(true))throw Error('Permissão não concedida');if(dirty)throw Error('Há alterações locais pendentes. Exporte backup antes de reconectar para evitar conflito.');await loadFile();$('v2Welcome').hidden=true;say('Banco reconectado.')}catch(e){say(e.message)}}
+async function reload(){if(!handle)return say('Selecione primeiro uma pasta.');if(dirty){if(!confirm('Existem alterações locais pendentes. Exporte um backup antes de descartar. Continuar?'))return;dirty=false;}try{if(!await permitted(true))throw Error('Permissão negada');await loadFile();say('Banco recarregado.')}catch(e){say(e.message)}}
+const safe=(s)=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function draw(){let total=db.geracoes.reduce((n,x)=>n+(Number(x.quantidade)||0),0);$('v2Metrics').innerHTML=`<span class="v2metric"><small>GERAÇÕES</small><b>${db.geracoes.length}</b></span><span class="v2metric"><small>ETIQUETAS</small><b>${total}</b></span><span class="v2metric"><small>MODELOS</small><b>${db.modelos.length}</b></span>`;$('v2State').textContent=connected?`Conectado: ${handle.name}/${F}${dirty?' (alterações pendentes)':''}`:handle?'Pasta conhecida. Autorize novamente.':'Nenhuma pasta conectada. Use SALVAR BANCO DE DADOS.';$('v2IntegrityInfo').textContent=dirty?'● Alterações pendentes — exporte um backup se necessário.':connected?'● Banco JSON conectado; última gravação sem erro reportado.':'● Modo local — exporte o JSON para ter uma cópia fora do navegador.';$('v2FileInfo').textContent=$('v2State').textContent+(isSupported()?' | Pasta disponível sob autorização.':' | Modo universal: IndexedDB + JSON manual, sem acesso automático a Documentos.');$('v2Operator').value=db.preferencias.operador||'';$('v2Models').innerHTML='<option value="">Selecionar modelo...</option>'+db.modelos.map((m,i)=>`<option value="${i}">${safe(m.nome)} (${m.w}×${m.h} mm)</option>`).join('');renderHistory()}
+function renderHistory(){const q=$('v2HistorySearch').value.trim().toLowerCase();const rows=db.geracoes.filter(x=>JSON.stringify({id:x.id,descricao:x.resumo,data:x.data}).toLowerCase().includes(q)).slice().reverse().slice(0,100);$('v2History').innerHTML=rows.map(x=>`<tr><td title="${safe(x.id)}">${safe(x.id)}</td><td>${safe(new Date(x.data).toLocaleString('pt-BR'))}</td><td>${safe(x.quantidade)}</td><td><button type="button" data-reprint="${safe(x.id)}">Reimprimir</button></td></tr>`).join('')||'<tr><td colspan="4">Nenhum lote salvo.</td></tr>'}
+function cssPrint(w,h){return `@page{size:${w}mm ${h}mm;margin:0}html,body{margin:0;padding:0;background:white} .labels{display:block!important}.label{display:flex!important;position:relative!important;width:${w}mm!important;height:${h}mm!important;min-width:0!important;min-height:0!important;box-shadow:none!important;break-after:page!important;page-break-after:always!important} .label:last-child{break-after:auto!important} .label img{max-width:100%} `}
+function reprint(x){if(!x?.html)return say('Este lote não possui prévia arquivada.');if(!confirm('Abrir a janela de reimpressão deste lote? Confira a Zebra, o papel e as dimensões.'))return;const f=document.createElement('iframe');f.setAttribute('title','Reimpressão CKTR');f.style='position:fixed;left:0;bottom:0;width:0;height:0;border:0';document.body.append(f);const d=f.contentDocument;const template=document.createElement('template');template.innerHTML=x.html;template.content.querySelectorAll('script,iframe,object,embed,form,link,meta').forEach(el=>el.remove());template.content.querySelectorAll('*').forEach(el=>{for(const a of [...el.attributes])if(/^on/i.test(a.name)||(['href','src','xlink:href'].includes(a.name.toLowerCase())&&!String(a.value).startsWith('data:image/')))el.removeAttribute(a.name)});const cleanHTML=template.innerHTML;const styles=Array.from(document.querySelectorAll('style:not(#cktr-v2-style)')).map(s=>s.textContent).join('\n');d.open();d.write('<!doctype html><html><head><meta charset="utf-8"><style>'+styles+'\n'+cssPrint(x.w,x.h)+'</style></head><body class="ready"><div class="labels">'+cleanHTML+'</div></body></html>');d.close();let done=false;const p=()=>{if(done)return;done=true;f.contentWindow.focus();f.contentWindow.print()};Promise.all(Array.from(d.images).map(im=>im.complete?Promise.resolve():new Promise(r=>{im.onload=r;im.onerror=r}))).then(()=>setTimeout(p,300));f.contentWindow.addEventListener('afterprint',()=>setTimeout(()=>f.remove(),1000),{once:true});setTimeout(()=>{if(f.isConnected)f.remove()},120000)}
+async function capturePrint(){const cards=[...document.querySelectorAll('#etiquetas .label')];if(!cards.length)return;const w=Number($('largura')?.value)||90,h=Number($('altura')?.value)||90;if(!Number.isFinite(w)||!Number.isFinite(h)||w<20||h<20||w>420||h>420)throw Error('Dimensões fora do intervalo permitido.');const html=cards.map(c=>c.outerHTML).join('');let resumo=cards.slice(0,4).map(c=>c.innerText).join(' / ').slice(0,240);let id='CKTR2-'+(crypto.randomUUID?crypto.randomUUID():Date.now()+'-'+Math.random()).slice(0,32);await modify(()=>db.geracoes.push({id,data:new Date().toISOString(),quantidade:cards.length,w,h,html,resumo,operador:db.preferencias.operador||'',status:'ENVIO_A_IMPRESSAO'}))}
+function filterPreview(q){const cards=[...document.querySelectorAll('#etiquetas .label')];let n=0;cards.forEach(c=>{const show=!q||c.textContent.toLowerCase().includes(q.toLowerCase());c.style.display=show?'':'none';if(show)n++});$('v2FindState').textContent=n+' de '+cards.length+' etiquetas visíveis. Limpe o filtro antes de imprimir.'}
+function exportJSON(filename='banco_cktr.json'){const blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'}),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),5000);say('JSON preparado para download. Escolha Documentos na janela do navegador, se disponível.')}
+$('v2SaveAs').onclick=()=>exportJSON('banco_cktr.json');$('v2Offline').onclick=()=>{$('v2Welcome').hidden=true;draw();say('Banco local ativado. Use Salvar banco_cktr.json para manter uma cópia em Documentos.');};$('v2Open').onclick=()=>{$('v2Modal').hidden=false;draw()};$('v2Close').onclick=()=>$('v2Modal').hidden=true;$('v2Later').onclick=()=>$('v2Modal').hidden=true;$('v2Pick').onclick=selectFolder;$('v2Authorize').onclick=authorize;$('v2Sync').onclick=async()=>{try{await saveFile();say('Banco JSON atualizado.')}catch(e){say(e.message)}};$('v2Reload').onclick=reload;$('v2Export').onclick=()=>exportJSON('backup_gestao_etiquetas_v2.json');$('v2Import').onclick=()=>$('v2ImportFile').click();
+$('v2ImportFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const incoming=check(JSON.parse(await f.text()));if(!confirm('Substituir os dados locais por este backup?'))return;if(busy)throw Error('Aguarde a gravação atual.');if(connected && !confirm('O banco JSON conectado será atualizado. Confirma a restauração?'))return;db=incoming;memoryRevision++;dirty=true;await idbSet('cache',db).catch(()=>{});draw();if(connected)await saveFile();say(connected?'Backup restaurado no JSON.':'Backup restaurado no navegador; exporte o JSON para preservar uma cópia.')}catch(e){say(e.message)}finally{e.target.value=''}};
+$('v2SavePrefs').onclick=async()=>{const operator=$('v2Operator').value.trim();await modify(()=>db.preferencias.operador=operator);try{localStorage.setItem('cktr-v2-operator',operator)}catch{}say('Preferência salva.')};
+$('v2SaveModel').onclick=async()=>{const nome=$('v2ModelName').value.trim(),w=Number($('v2Width').value),h=Number($('v2Height').value);if(!nome||w<30||h<30||w>420||h>420)return say('Informe nome e dimensões entre 30 e 420 mm.');await modify(()=>{const idx=db.modelos.findIndex(x=>x.nome.toLowerCase()===nome.toLowerCase());const model={nome,w,h};if(idx<0)db.modelos.push(model);else db.modelos[idx]=model});say('Modelo salvo.')};
+$('v2ApplyModel').onclick=()=>{const selected=$('v2Models').value;const m=selected===''?null:db.modelos[Number(selected)];if(!m)return say('Selecione um modelo.');$('largura').value=m.w;$('altura').value=m.h;$('largura').dispatchEvent(new Event('input',{bubbles:true}));$('altura').dispatchEvent(new Event('input',{bubbles:true}));$('v2Modal').hidden=true;say('Tamanho aplicado. Confira a prévia e o driver da impressora.')};
+$('v2HistorySearch').oninput=renderHistory;$('v2History').onclick=e=>{const b=e.target.closest('[data-reprint]');if(b)reprint(db.geracoes.find(x=>x.id===b.dataset.reprint))};$('v2Find').onclick=()=>filterPreview($('v2SearchCurrent').value);$('v2Unfilter').onclick=()=>{$('v2SearchCurrent').value='';filterPreview('')};
+// Registra a tentativa de impressão real sem interferir com o manipulador original.
+$('imprimir').addEventListener('click',()=>{filterPreview('');capturePrint().catch(e=>say('Histórico não salvo: '+e.message))},true);
+(async()=>{try{await openDB();const cached=await idbGet('cache');if(cached)db=check(cached);handle=await idbGet('handle');if(handle&&await permitted())await loadFile();else if(handle)connected=false}catch(e){browserStorageAvailable=false;console.warn('CKTR V2 armazenamento:',e);say('O banco do navegador está indisponível ou precisa ser reconectado. Exporte backups regularmente.')}if(!connected){$('v2Welcome').hidden=false;$('v2Modal').hidden=false;if(!isSupported()){$('v2Pick').textContent='USAR BANCO LOCAL NO NAVEGADOR';$('v2Authorize').hidden=true;$('v2Offline').textContent='Continuar no navegador';$('v2State').textContent='Modo universal ativo. Para criar o JSON em Documentos, use o botão Salvar banco_cktr.json.'}}draw()})();
+})();
+</script>
+
 </body>
 </html>
