@@ -3,2048 +3,1719 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#075d53">
-<title>CKTR | Gestão e Auditoria 3.0</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#214969">
+<title>CKTR ERP | Gestão e Auditoria</title>
 <style>
-:root {
-  font-family: "Segoe UI", Arial, sans-serif;
-  color: #ebf8f1;
-  background: #081c19;
-  font-size: 14px;
+:root{
+  --blue:#214969;
+  --blue2:#376e94;
+  --line:#bccdd9;
+  --bg:#e9eff3;
+  --ink:#263f52;
+  --muted:#718696;
+  --white:#fff;
 }
-* { box-sizing: border-box; }
-body { margin: 0; min-height: 100vh; }
-button, input, select, textarea { font: inherit; }
-button {
-  background: #153d33;
-  border: 1px solid #376958;
-  color: #ecf8f1;
-  border-radius: 9px;
-  padding: 10px 13px;
-  cursor: pointer;
-  font-weight: 700;
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  font:12px "Segoe UI",Arial,sans-serif;
+  color:var(--ink);
 }
-button:hover { border-color: #76d6a7; }
-button:disabled { opacity: .4; cursor: not-allowed; }
-.primary, .active {
-  background: #087b65;
-  border-color: #46cfa0;
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+button:disabled{opacity:.45;cursor:not-allowed}
+.top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  min-height:47px;
+  padding:9px 17px;
+  background:var(--blue);
+  color:white;
+  gap:12px;
 }
-header {
-  background: linear-gradient(120deg, #075d53, #0b332d);
-  border-bottom: 1px solid #327263;
-  padding: 22px;
+.logo{font-size:18px;font-weight:850}
+.logo span{color:#99e6c3}
+.top small{color:#bdd5e5}
+.toolbar{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:9px 15px;
+  background:#dce7ee;
+  border-bottom:1px solid #b5c8d5;
+  flex-wrap:wrap;
 }
-.shell { max-width: 1480px; margin: auto; }
-.brand {
-  color: #8ee1c0;
-  font-size: 11px;
-  letter-spacing: 2px;
-  font-weight: 800;
+button,.btn{
+  border:1px solid #afc3d1;
+  background:linear-gradient(#fff,#e3ebf1);
+  color:#28516d;
+  padding:8px 11px;
+  border-radius:3px;
+  font-weight:650;
 }
-h1 { font-size: clamp(20px, 2.6vw, 29px); margin: 7px 0; }
-h2 { font-size: 17px; margin: 0 0 12px; }
-h3 { font-size: 14px; margin: 0 0 9px; }
-p { line-height: 1.6; }
-small, .muted { font-size: 12px; color: #a6c8b7; }
-main { padding: 20px; }
-.panel, .metric {
-  background: #102d26;
-  border: 1px solid #315b4d;
-  border-radius: 13px;
+button:hover{background:#d7eaf5}
+button.primary{
+  background:#247955;
+  border-color:#247955;
+  color:white;
 }
-.panel { padding: 18px; margin-bottom: 15px; }
-.metric { padding: 17px; min-width: 0; }
-.metric b {
-  display: block;
-  font-size: 27px;
-  margin-top: 10px;
-  overflow-wrap: anywhere;
+input,select,textarea{
+  border:1px solid #adc0cd;
+  background:#fff;
+  color:#26485e;
+  border-radius:3px;
+  padding:8px;
 }
-.metrics {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 11px;
-  margin: 14px 0;
+.command{width:155px}
+.layout{
+  display:flex;
+  min-height:calc(100vh - 90px);
 }
-.grid2 {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+aside{
+  width:230px;
+  flex-shrink:0;
+  background:#f5f8fa;
+  border-right:1px solid var(--line);
+  padding:13px 9px;
 }
-.row, .toolbar, .head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
+.side-title{
+  font-size:10px;
+  font-weight:850;
+  letter-spacing:1.2px;
+  color:#718a9b;
+  padding:9px;
 }
-.head { justify-content: space-between; margin-bottom: 12px; }
-.head h2 { margin: 0; }
-.toolbar { margin: 10px 0 15px; }
-input, select, textarea {
-  background: #163a31;
-  border: 1px solid #366451;
-  border-radius: 8px;
-  color: white;
-  padding: 10px;
+.nav{
+  display:block;
+  text-align:left;
+  width:100%;
+  border:0;
+  border-radius:3px;
+  background:transparent;
+  margin-bottom:3px;
+  padding:11px;
 }
-input[type="search"] { flex: 1; min-width: 180px; }
-textarea {
-  width: 100%;
-  min-height: 94px;
-  resize: vertical;
-  line-height: 1.55;
-  font-size: 12px;
+.nav.active{
+  background:#d5e8f4;
+  color:#12517a;
+  border-left:4px solid #247cae;
+  padding-left:7px;
 }
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 14px 0;
+main{padding:18px;flex:1;min-width:0}
+.breadcrumb{font-size:10px;color:#8194a2}
+h1{font-size:22px;margin:6px 0 4px}
+.subtitle{
+  color:var(--muted);
+  margin-bottom:17px;
 }
-.warnbox {
-  padding: 12px;
-  border: 1px solid #866e3c;
-  background: #3b3220;
-  border-radius: 10px;
-  color: #f4dcaa;
-  font-size: 12px;
-  line-height: 1.65;
-  margin-bottom: 16px;
+.panel{
+  background:#fff;
+  border:1px solid var(--line);
+  margin-bottom:14px;
+  border-radius:4px;
+  overflow:hidden;
 }
-.okbox {
-  border-color: #367561;
-  background: #10392d;
-  color: #c6edcf;
+.panel-head{
+  background:linear-gradient(#f5f9fc,#e5eef4);
+  padding:12px 14px;
+  font-weight:800;
+  border-bottom:1px solid var(--line);
+  color:#315e7b;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
 }
-.view[hidden], #toast[hidden], #entry[hidden] {
-  display: none !important;
+.panel-body{padding:14px}
+#pacote{
+  width:100%;
+  height:98px;
+  resize:vertical;
+  font-size:11px;
 }
-.tablewrap {
-  overflow-x: auto;
-  border: 1px solid #31574a;
-  border-radius: 10px;
+.actions{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:9px;
 }
-table {
-  border-collapse: collapse;
-  min-width: 840px;
-  width: 100%;
+.note{
+  background:#fff6dd;
+  border:1px solid #e3cb86;
+  padding:11px 13px;
+  color:#86631b;
+  margin-bottom:15px;
+  border-radius:4px;
+  line-height:1.6;
 }
-th, td {
-  font-size: 12px;
-  text-align: left;
-  padding: 10px 11px;
-  vertical-align: top;
-  border-bottom: 1px solid #2b4c40;
-  overflow-wrap: anywhere;
+.note.ok{
+  background:#e5f5ea;
+  color:#27653b;
+  border-color:#add5b7;
 }
-th {
-  background: #194237;
-  color: #b8e3cc;
-  font-size: 10px;
-  text-transform: uppercase;
+.kpis{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:11px;
+  margin-bottom:15px;
 }
-tr:hover td { background: #174034; }
-tbody tr[data-index] { cursor: pointer; }
-.tag {
-  display: inline-block;
-  border-radius: 6px;
-  background: #255743;
-  color: #d4f1da;
-  font-size: 11px;
-  padding: 4px 7px;
-  white-space: nowrap;
+.kpi{
+  background:white;
+  border:1px solid var(--line);
+  border-top:3px solid #417da4;
+  padding:14px;
 }
-.tag.orange { background: #594524; color: #ffdea0; }
-.tag.red { background: #5d2e32; color: #ffb7b7; }
-.empty {
-  padding: 23px;
-  text-align: center;
-  color: #b2cebd;
-  font-size: 12px;
+.kpi small{
+  display:block;
+  color:#71899a;
+  font-weight:800;
+  font-size:10px;
 }
-.pager {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 8px;
-  margin-top: 12px;
-  flex-wrap: wrap;
+.kpi strong{
+  display:block;
+  font-size:26px;
+  color:#244f6b;
+  margin-top:8px;
 }
-.record {
-  font-size: 23px;
-  font-weight: 800;
-  overflow-wrap: anywhere;
+.kpi.warning{border-top-color:#d4993a}
+.filters{
+  padding:12px;
+  border:1px solid #bfd0da;
+  background:#f7fafc;
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  align-items:center;
+  margin-bottom:14px;
 }
-.break {
-  overflow-wrap: anywhere;
-  word-break: break-word;
+.filters input{min-width:180px;flex:1}
+.table-wrap{
+  max-height:580px;
+  overflow:auto;
 }
-.bars { display: grid; gap: 9px; }
-.barline {
-  display: grid;
-  grid-template-columns: minmax(95px, 1fr) minmax(110px, 3fr) 60px;
-  align-items: center;
-  gap: 10px;
-  font-size: 12px;
+table{
+  width:100%;
+  min-width:780px;
+  border-collapse:collapse;
 }
-.bar {
-  height: 10px;
-  border-radius: 9px;
-  background: #214538;
-  overflow: hidden;
+th{
+  position:sticky;
+  top:0;
+  background:#d9e8f2;
+  border:1px solid #b5cbd9;
+  padding:10px;
+  font-size:10px;
+  text-align:left;
+  white-space:nowrap;
+  z-index:1;
 }
-.bar > span {
-  display: block;
-  height: 100%;
-  background: #57c79e;
-  border-radius: 9px;
+td{
+  border:1px solid #e0e8ed;
+  padding:9px 10px;
+  vertical-align:top;
+  max-width:340px;
+  overflow-wrap:anywhere;
 }
-.issues { display: grid; gap: 9px; }
-.issue {
-  border: 1px solid #446453;
-  background: #183a30;
-  padding: 11px;
-  border-radius: 9px;
-  font-size: 12px;
+tbody tr:nth-child(even){background:#f5f9fc}
+tbody tr:hover{background:#dcecf7;cursor:pointer}
+.pager{
+  padding:10px;
+  background:#f5f9fc;
+  border-top:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
 }
-.issue strong { color: #f4d79a; }
-.issue p { margin: 5px 0 0; color: #c8ded1; }
-#toast {
-  position: fixed;
-  z-index: 100;
-  top: 16px;
-  right: 16px;
-  width: min(410px, calc(100% - 32px));
-  padding: 14px 42px 12px 16px;
-  background: #123e34;
-  border: 1px solid #72d8aa;
-  border-left: 5px solid #72d8aa;
-  border-radius: 11px;
-  box-shadow: 0 15px 40px #0009;
+.grid2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:13px;
 }
-#toast.error { border-color: #ff8290; }
-#toast.warning { border-color: #e9c572; }
-#closeToast {
-  position: absolute;
-  top: 5px;
-  right: 8px;
-  background: none;
-  border: 0;
-  font-size: 22px;
+.big{
+  font-size:25px;
+  font-weight:850;
+  color:#225476;
+  margin:10px 0;
+  overflow-wrap:anywhere;
 }
-#toast p {
-  font-size: 12px;
-  margin: 7px 0 0;
-  color: #d8ebe1;
+.muted{font-size:11px;color:var(--muted)}
+.empty{padding:24px;text-align:center;color:#8397a5}
+.summary-row{
+  padding:10px 0;
+  border-bottom:1px solid #e3ebf0;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
 }
-#entry {
-  position: fixed;
-  z-index: 60;
-  inset: 0;
-  background: #000a;
-  display: grid;
-  place-items: center;
-  padding: 15px;
+.issue{
+  padding:13px;
+  border-bottom:1px solid #e4ebf0;
+  line-height:1.55;
 }
-#entry .panel {
-  width: min(850px, 100%);
-  max-height: 85vh;
-  overflow: auto;
-  box-shadow: 0 30px 75px #000b;
+.issue strong{color:#ae632a}
+.tag{
+  display:inline-block;
+  background:#e5eef4;
+  padding:4px 7px;
+  font-size:10px;
+  border-radius:3px;
+  margin:3px;
 }
-.kv {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 8px;
-  padding: 8px 0;
-  border-bottom: 1px solid #2d4d40;
-  font-size: 12px;
+.view[hidden],#toast[hidden],#modal[hidden]{
+  display:none!important;
 }
-.kv > strong { color: #9ddcbc; }
-footer {
-  text-align: center;
-  padding: 28px;
-  color: #88ad98;
-  font-size: 11px;
+#toast{
+  position:fixed;
+  z-index:99;
+  right:15px;
+  top:15px;
+  width:min(390px,calc(100% - 30px));
+  padding:15px 40px 15px 15px;
+  background:#214969;
+  border-left:5px solid #7de2a5;
+  color:white;
+  box-shadow:0 12px 30px #0004;
 }
-@media(max-width:1050px) {
-  .metrics { grid-template-columns: repeat(3, 1fr); }
+#toast.error{border-color:#ff8f8f}
+#toast p{font-size:12px;line-height:1.5}
+#closeToast{
+  position:absolute;
+  right:7px;
+  top:7px;
+  border:0;
+  background:transparent;
+  color:white;
+  font-size:21px;
 }
-@media(max-width:720px) {
-  main { padding: 12px; }
-  .metrics { grid-template-columns: repeat(2, 1fr); }
-  .grid2 { grid-template-columns: 1fr; }
-  .panel { padding: 13px; }
-  .kv { grid-template-columns: 1fr; }
+#modal{
+  position:fixed;
+  inset:0;
+  z-index:90;
+  background:#122c42a8;
+  display:grid;
+  place-items:center;
+  padding:15px;
+}
+.dialog{
+  width:min(930px,100%);
+  max-height:88vh;
+  overflow:auto;
+  background:white;
+  border:1px solid #8aabc0;
+  box-shadow:0 25px 65px #0006;
+}
+.detail-row{
+  padding:10px 0;
+  border-bottom:1px solid #e4ecf1;
+  display:grid;
+  grid-template-columns:160px 1fr;
+  gap:12px;
+}
+.detail-row span{white-space:pre-wrap;overflow-wrap:anywhere}
+@media(max-width:950px){
+  .kpis{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:700px){
+  .layout{display:block}
+  aside{
+    width:100%;
+    display:flex;
+    overflow:auto;
+    padding:8px;
+  }
+  .side-title{display:none}
+  .nav{white-space:nowrap;width:auto}
+  main{padding:11px}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .grid2{grid-template-columns:1fr}
+  .detail-row{grid-template-columns:1fr}
 }
 </style>
 </head>
-
 <body>
 
-<header>
-  <div class="shell">
-    <div class="brand">CKTR SERVIÇOS / GMP</div>
-    <h1>Gestão e Auditoria de Almoxarifado</h1>
-    <small>
-      Cadastro · Requisições · Entradas · Saídas ·
-      Conciliação · Integridade
-    </small>
-  </div>
+<header class="top">
+  <div class="logo">CKTR <span>ERP</span> | AUDIT</div>
+  <small>CONTROLE DE ALMOXARIFADO · V4.0</small>
 </header>
 
-<main class="shell">
+<div class="toolbar">
+  <input id="command" class="command" placeholder="Transação: ZMAT">
+  <button id="runCommand">Executar ↵</button>
+  <button id="home">⌂ Início</button>
+  <button id="export">Exportar CSV</button>
+  <button id="clear">Limpar sessão</button>
+</div>
+
+<div class="layout">
+
+<aside>
+  <div class="side-title">MENU DE TRANSAÇÕES</div>
+
+  <button class="nav active" data-tab="resumo">
+    ▣ ZDASH · Visão geral
+  </button>
+
+  <button class="nav" data-tab="cadastro">
+    ▤ ZMAT · Cadastros
+  </button>
+
+  <button class="nav" data-tab="requisicoes">
+    ▤ ZREQ · Requisições
+  </button>
+
+  <button class="nav" data-tab="itens">
+    ▤ ZITEM · Materiais requisitados
+  </button>
+
+  <button class="nav" data-tab="entradas">
+    ▥ ZENT · Entradas
+  </button>
+
+  <button class="nav" data-tab="saidas">
+    ▥ ZSAI · Saídas
+  </button>
+
+  <button class="nav" data-tab="conciliacao">
+    ⚖ ZCONC · Conciliação
+  </button>
+
+  <button class="nav" data-tab="auditoria">
+    ⚑ ZAUD · Auditoria
+  </button>
+
+  <button class="nav" data-tab="auxiliares">
+    ▦ ZAUX · Bases auxiliares
+  </button>
+</aside>
+
+<main>
+
+<div class="breadcrumb">
+  CKTR / GESTÃO / ALMOXARIFADO
+</div>
+
+<h1 id="pageTitle">Visão geral</h1>
+
+<div class="subtitle">
+  Auditoria de materiais e movimentações do SharePoint
+</div>
 
 <section class="panel">
-  <div class="head">
-    <h2>Receber auditoria do Power Apps</h2>
-    <span class="tag">CKTR-AUD-2</span>
+  <div class="panel-head">
+    Transferência de auditoria do Power Apps
+    <span class="tag" id="connection">AGUARDANDO DADOS</span>
   </div>
 
-  <textarea id="pacote" spellcheck="false"
-    placeholder="Cole o pacote copiado pelo botão GERAR AUDITORIA (Ctrl+V)..."></textarea>
+  <div class="panel-body">
+    <textarea
+      id="pacote"
+      spellcheck="false"
+      placeholder="Cole aqui o pacote CKTR-AUD-2 com Ctrl+V..."
+    ></textarea>
 
-  <div class="toolbar">
-    <button class="primary" id="processar">
-      PROCESSAR AUDITORIA
-    </button>
-    <button id="colar">COLAR DO CLIPBOARD</button>
-    <button id="limpar">LIMPAR SESSÃO</button>
+    <div class="actions">
+      <button class="primary" id="process">PROCESSAR AUDITORIA</button>
+      <button id="paste">COLAR AUTOMATICAMENTE</button>
+    </div>
+
+    <p id="estado" class="muted">
+      Aguardando pacote do Power Apps.
+    </p>
   </div>
-
-  <small id="estado">
-    Aguardando pacote. O Ctrl+V inicia a análise automaticamente.
-  </small>
 </section>
 
-<div id="scope" class="warnbox">
-  Nenhum dado recebido. O processamento ocorre na memória
-  desta aba. Não cole pacotes em sites não autorizados.
+<div class="note" id="scope">
+  Ainda não há dados para análise. Os dados copiados são
+  processados nesta aba, sem envio do pacote pelo código
+  desta página.
 </div>
 
-<div class="toolbar">
-  <label>
-    ÁREA
-    <select id="globalArea">
-      <option value="">TODAS AS ÁREAS</option>
-    </select>
-  </label>
-
-  <input id="busca" type="search"
-    placeholder="Pesquisar código, ID, documento, descrição ou nome">
-
-  <button id="exportar">EXPORTAR ABA CSV</button>
-</div>
-
-<div class="metrics">
-  <div class="metric">
+<div class="kpis">
+  <div class="kpi">
     <small>CADASTROS</small>
-    <b id="kcad">—</b>
+    <strong id="kCadastro">—</strong>
   </div>
 
-  <div class="metric">
+  <div class="kpi">
     <small>REQUISIÇÕES</small>
-    <b id="kreq">—</b>
+    <strong id="kReq">—</strong>
   </div>
 
-  <div class="metric">
+  <div class="kpi">
     <small>ENTRADAS · QTD</small>
-    <b id="kentrada">—</b>
+    <strong id="kEntradas">—</strong>
   </div>
 
-  <div class="metric">
+  <div class="kpi">
     <small>SAÍDAS · QTD</small>
-    <b id="ksaida">—</b>
+    <strong id="kSaidas">—</strong>
   </div>
 
-  <div class="metric">
-    <small>ALERTAS DE INTEGRIDADE</small>
-    <b id="kalertas">—</b>
+  <div class="kpi warning">
+    <small>OCORRÊNCIAS</small>
+    <strong id="kAlertas">—</strong>
   </div>
 </div>
 
-<nav>
-  <button data-view="geral" class="active">VISÃO GERAL</button>
-  <button data-view="cadastro">CADASTROS</button>
-  <button data-view="requisicoes">REQUISIÇÕES</button>
-  <button data-view="itens">ITENS REQUISITADOS</button>
-  <button data-view="entrada">ENTRADAS</button>
-  <button data-view="saida">SAÍDAS</button>
-  <button data-view="conciliacao">CONCILIAÇÃO</button>
-  <button data-view="alertas">AUDITORIA</button>
-</nav>
+<div class="filters">
+  <strong>Filtros:</strong>
 
-<!-- ========================================
-     VISÃO GERAL
-======================================== -->
+  <select id="area">
+    <option value="">TODAS AS ÁREAS</option>
+  </select>
 
-<section class="view" id="v-geral">
+  <input
+    id="search"
+    type="search"
+    placeholder="Pesquisar SAP, PN, ID, documento, OM..."
+  >
 
+  <button id="resetFilters">LIMPAR FILTROS</button>
+</div>
+
+<section id="v-resumo" class="view">
   <div class="grid2">
-
     <article class="panel">
-      <h2>Último item cadastrado no pacote</h2>
-      <div id="ultimo" class="empty">Aguardando dados.</div>
-    </article>
-
-    <article class="panel">
-      <h2>Volume de movimentações por mês</h2>
-      <div id="meses" class="bars">
-        <div class="empty">Aguardando dados.</div>
+      <div class="panel-head">Último material cadastrado</div>
+      <div class="panel-body" id="ultimo">
+        <div class="empty">Aguardando dados</div>
       </div>
     </article>
 
+    <article class="panel">
+      <div class="panel-head">Diagnóstico das bases</div>
+      <div class="panel-body" id="diagnostico">
+        <div class="empty">Aguardando dados</div>
+      </div>
+    </article>
   </div>
 
   <article class="panel">
-    <h2>Resumo operacional</h2>
-    <div id="diagnostico" class="muted">
-      Aguardando auditoria.
-    </div>
-  </article>
-
-</section>
-
-<!-- ========================================
-     TABELAS DINÂMICAS
-======================================== -->
-
-<section class="view" id="v-cadastro" hidden></section>
-<section class="view" id="v-requisicoes" hidden></section>
-<section class="view" id="v-itens" hidden></section>
-<section class="view" id="v-entrada" hidden></section>
-<section class="view" id="v-saida" hidden></section>
-<section class="view" id="v-conciliacao" hidden></section>
-
-<!-- ========================================
-     AUDITORIA
-======================================== -->
-
-<section class="view" id="v-alertas" hidden>
-  <article class="panel">
-
-    <div class="head">
-      <h2>Ocorrências encontradas</h2>
-      <span class="tag orange" id="alertCount">0</span>
-    </div>
-
-    <div class="toolbar">
-      <select id="tipoAlerta">
-        <option value="">TODOS OS TIPOS</option>
-      </select>
-    </div>
-
-    <div id="issues" class="issues"></div>
-
-    <div class="pager">
-      <span id="issuesInfo" class="muted"></span>
-      <button id="issuesPrev">ANTERIOR</button>
-      <button id="issuesNext">PRÓXIMA</button>
-    </div>
-
+    <div class="panel-head">10 cadastros mais recentes</div>
+    <div id="recentes"></div>
   </article>
 </section>
+
+<section id="v-cadastro" class="view" hidden></section>
+<section id="v-requisicoes" class="view" hidden></section>
+<section id="v-itens" class="view" hidden></section>
+<section id="v-entradas" class="view" hidden></section>
+<section id="v-saidas" class="view" hidden></section>
+<section id="v-conciliacao" class="view" hidden></section>
+<section id="v-auditoria" class="view" hidden></section>
+<section id="v-auxiliares" class="view" hidden></section>
 
 </main>
-
-<footer>
-  CKTR · Gestão e Auditoria 3.0 ·
-  Nenhum dado é enviado pelo código desta página
-</footer>
-
-<!-- ========================================
-     NOTIFICAÇÃO
-======================================== -->
-
-<div id="toast" hidden role="status" aria-live="polite">
-  <button id="closeToast" aria-label="Fechar">×</button>
-  <strong id="toastTitle"></strong>
-  <p id="toastMsg"></p>
 </div>
 
-<!-- ========================================
-     DETALHES DE REGISTROS
-======================================== -->
+<div id="toast" hidden role="status">
+  <button id="closeToast">×</button>
+  <strong id="toastTitle"></strong>
+  <p id="toastText"></p>
+</div>
 
-<div id="entry" hidden>
-  <article class="panel">
-    <div class="head">
-      <h2 id="entryTitle">Detalhes</h2>
-      <button id="closeEntry">FECHAR ×</button>
+<div id="modal" hidden>
+  <div class="dialog">
+    <div class="panel-head">
+      <span id="modalTitle">Detalhes</span>
+      <button id="closeModal">FECHAR ×</button>
     </div>
-    <div id="entryBody"></div>
-  </article>
+    <div class="panel-body" id="modalBody"></div>
+  </div>
 </div>
 
 <script>
 "use strict";
 
-// ==========================================
+// =====================================
 // UTILITÁRIOS
-// ==========================================
+// =====================================
 
 const $ = id => document.getElementById(id);
 
 const fmt = new Intl.NumberFormat("pt-BR");
 
-const txt = v => String(v ?? "").trim();
+const text = v => String(v ?? "").trim();
 
-const norm = v => txt(v)
-  .normalize("NFD")
-  .replace(/[\u0300-\u036f]/g, "")
-  .toUpperCase()
-  .replace(/\s+/g, " ");
+const num = v => Number(v) || 0;
 
-const esc = v => txt(v).replace(
-  /[&<>"']/g,
-  c => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  }[c])
-);
-
-const n = v => Number(v) || 0;
-
-function unbox(v) {
-  if (v === null || v === undefined) return "";
-
-  if (typeof v === "object") {
-    return txt(
-      v.Value ??
-      v.value ??
-      v.DisplayName ??
-      v.Title ??
-      ""
-    );
-  }
-
-  if (
-    typeof v === "string" &&
-    /^[\[{"]/.test(v)
-  ) {
-    try {
-      return unbox(JSON.parse(v));
-    } catch {}
-  }
-
-  return txt(v);
+function escapeHTML(v){
+  return text(v).replace(/[&<>"']/g,c=>({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#39;"
+  }[c]));
 }
 
-const pick = (r, ...keys) => {
-  for (const k of keys) {
-    if (Object.prototype.hasOwnProperty.call(r ?? {}, k)) {
-      return r[k];
+function normalizeText(v){
+  return text(v)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .toUpperCase();
+}
+
+function pick(obj,...keys){
+  for(const k of keys){
+    if(
+      obj &&
+      Object.prototype.hasOwnProperty.call(obj,k)
+    ){
+      return obj[k];
     }
   }
   return "";
-};
-
-const dat = v => {
-  const s = txt(v);
-  if (!s) return "";
-
-  const d = new Date(s);
-
-  return Number.isNaN(d.valueOf())
-    ? s
-    : d.toLocaleDateString("pt-BR");
-};
-
-// ==========================================
-// SISTEMA DE NOTIFICAÇÕES
-// ==========================================
-
-let timer;
-
-function toast(titulo, mensagem, tipo = "ok") {
-  clearTimeout(timer);
-
-  $("toastTitle").textContent = titulo;
-  $("toastMsg").textContent = mensagem;
-
-  $("toast").className = tipo === "ok" ? "" : tipo;
-  $("toast").hidden = false;
-
-  timer = setTimeout(() => {
-    $("toast").hidden = true;
-  }, tipo === "error" ? 4500 : 2400);
 }
 
-$("closeToast").onclick = () => {
-  clearTimeout(timer);
-  $("toast").hidden = true;
-};
+function unpack(v){
+  if(v===null||v===undefined)return "";
 
-// ==========================================
-// BANCO TEMPORÁRIO EM MEMÓRIA
-// ==========================================
+  if(typeof v==="object"){
+    if(Array.isArray(v)){
+      return v.map(unpack).join(" | ");
+    }
 
-const DB = {
-  cadastro: [],
-  requisicoes: [],
-  entradas: [],
-  saidas: [],
-  saldo: [],
-  enderecos: [],
-  planejadores: [],
-  reqItens: [],
-  alertas: [],
-  conciliacao: [],
-  completo: false,
-  limite: 0,
-  gerado: "",
-  versao: 0
-};
-
-const state = {
-  tab: "geral",
-  page: 0,
-  issuesPage: 0
-};
-
-// ==========================================
-// CONVERTER JSON_TABLE DAS REQUISIÇÕES
-// ==========================================
-
-function itemJson(v) {
-  if (!v) return [];
-
-  try {
-    const p = typeof v === "string" ? JSON.parse(v) : v;
-    return Array.isArray(p) ? p : [];
-  } catch {
-    return null;
+    return text(
+      v.Value ??
+      v.DisplayName ??
+      v.Title ??
+      JSON.stringify(v)
+    );
   }
+
+  if(typeof v==="string" && /^[\[{"].*/.test(v.trim())){
+    try{
+      return unpack(JSON.parse(v));
+    }catch{}
+  }
+
+  return text(v);
 }
 
-// ==========================================
-// NORMALIZAR AS SETE BASES
-// ==========================================
+// =====================================
+// NOTIFICAÇÕES
+// =====================================
 
-function normalize(raw) {
+let toastTimer;
 
-  DB.cadastro = (raw.cadastro || []).map(r => ({
-    id: n(pick(r, "i", "ID")),
-    a: txt(pick(r, "a", "ID_AREA")),
-    sap: unbox(pick(r, "s", "Título", "Title")),
-    pn: unbox(pick(r, "p", "Codigo_Fornecedor")),
-    d: txt(pick(r, "d", "Descricao_Item")),
-    c: txt(pick(r, "c", "Created"))
+function toast(title,message,type="ok"){
+  clearTimeout(toastTimer);
+
+  $("toastTitle").textContent=title;
+  $("toastText").textContent=message;
+
+  $("toast").className=type;
+  $("toast").hidden=false;
+
+  toastTimer=setTimeout(()=>{
+    $("toast").hidden=true;
+  },type==="error"?5000:2500);
+}
+
+$("closeToast").onclick=()=>{
+  clearTimeout(toastTimer);
+  $("toast").hidden=true;
+};
+
+// =====================================
+// BASES EM MEMÓRIA
+// =====================================
+
+const DB={
+  cadastro:[],
+  requisicoes:[],
+  itens:[],
+  entradas:[],
+  saidas:[],
+  saldo:[],
+  enderecos:[],
+  planejadores:[],
+  conciliacao:[],
+  alertas:[],
+  completo:false,
+  carregado:false
+};
+
+const state={
+  tab:"resumo",
+  page:0
+};
+
+// =====================================
+// NORMALIZAR SETE BASES
+// =====================================
+
+function normalizeBases(b){
+
+  DB.cadastro=(b.cadastro||[]).map(r=>({
+    id:num(pick(r,"i","ID")),
+    a:text(pick(r,"a","ID_AREA")),
+    sap:unpack(pick(r,"s","Título","Title")),
+    pn:unpack(pick(r,"p","Codigo_Fornecedor")),
+    descricao:text(pick(r,"d","Descricao_Item")),
+    criado:text(pick(r,"c","Created"))
   }));
 
-  DB.requisicoes = (raw.requisicoes || []).map(r => ({
-    id: n(pick(r, "i", "ID")),
-    a: txt(pick(r, "a", "ID_AREA")),
-    doc: txt(pick(r, "doc", "NUM_DOC_REQ")),
-    mat: txt(pick(r, "mat", "MAT")),
-    req: txt(pick(r, "req", "REQ")),
-    sol: unbox(pick(r, "sol", "REQUISITANTE")),
-    om: txt(pick(r, "om", "OM_RETIRADA")),
-    c: txt(pick(r, "c", "Created")),
-    autor: unbox(pick(r, "autor", "Author")),
-    apr: unbox(pick(r, "apr", "STATUS_APROVAÇÃO")),
-    cmp: unbox(pick(r, "cmp", "STATUS_CMP")),
-    rec: unbox(pick(r, "rec", "RECEBEDOR")),
-    cpf: txt(pick(r, "cpf", "MATRICULA/CPF")),
-    tipo: unbox(pick(r, "tipo", "TIPO_SAIDA")),
-    local: unbox(pick(r, "local", "Local_Entrega")),
-    json: pick(r, "j", "JSON_TABLE")
+  DB.requisicoes=(b.requisicoes||[]).map(r=>({
+    id:num(pick(r,"i","ID")),
+    a:text(pick(r,"a","ID_AREA")),
+    doc:text(pick(r,"doc","NUM_DOC_REQ")),
+    mat:unpack(pick(r,"mat","MAT_REQ")),
+    req:unpack(pick(r,"req","REQ")),
+    sol:unpack(pick(r,"sol","REQUISITANTE")),
+    om:text(pick(r,"om","OM_RETIRADA")),
+    criado:text(pick(r,"c","Created")),
+    autor:unpack(pick(r,"autor","Author")),
+    aprovacao:unpack(pick(r,"apr","STATUS_APROVAÇÃO")),
+    cmp:unpack(pick(r,"cmp","STATUS_CMP")),
+    recebedor:unpack(pick(r,"rec","RECEBEDOR")),
+    cpf:text(pick(r,"cpf","MATRICULA/CPF")),
+    tipo:unpack(pick(r,"tipo","TIPO_SAIDA")),
+    local:unpack(pick(r,"local","Local_Entrega")),
+    json:pick(r,"j","JSON_TABLE")
   }));
 
-  DB.entradas = (raw.entradas || []).map(r => ({
-    id: n(pick(r, "i", "ID")),
-    a: txt(pick(r, "a", "ID_AREA")),
-    om: txt(pick(r, "om", "OM")),
-    ped: txt(pick(r, "ped", "PEDIDO")),
-    nf: txt(pick(r, "nf", "NOTA_FISCAL")),
-    plan: unbox(pick(r, "plan", "PLANEJADOR")),
-    proj: txt(pick(r, "proj", "PROJETO")),
-    cc: txt(pick(r, "cc", "CENTRO_CUSTO")),
-    q: n(pick(r, "q", "Quantidade")),
-    doc: txt(pick(r, "doc", "NUM_DOC")),
-    cl: unbox(pick(r, "cl", "Classificacao")),
-    c: txt(pick(r, "c", "Created")),
-    apl: unbox(pick(r, "apl", "Aplicacao")),
-    valor: n(pick(r, "valor", "Valor_Total")),
-    autor: unbox(pick(r, "autor", "Author")),
-    item: n(pick(r, "item", "ID_ITEM")),
-    end: txt(pick(r, "end", "ID_ENDERECO")),
-    forn: txt(pick(r, "forn", "NOME_FORNECEDOR"))
+  DB.entradas=(b.entradas||[]).map(r=>({
+    id:num(pick(r,"i","ID")),
+    a:text(pick(r,"a","ID_AREA")),
+    item:num(pick(r,"item","ID_ITEM")),
+    q:num(pick(r,"q","Quantidade")),
+    doc:text(pick(r,"doc","NUM_DOC")),
+    om:text(pick(r,"om","OM")),
+    pedido:text(pick(r,"ped","PEDIDO")),
+    nf:text(pick(r,"nf","NOTA_FISCAL")),
+    planejador:unpack(pick(r,"plan","PLANEJADOR")),
+    projeto:text(pick(r,"proj","PROJETO")),
+    cc:text(pick(r,"cc","CENTRO_CUSTO")),
+    classe:unpack(pick(r,"cl","Classificacao")),
+    aplicacao:unpack(pick(r,"apl","Aplicacao")),
+    criado:text(pick(r,"c","Created")),
+    valor:num(pick(r,"valor","Valor_Total")),
+    autor:unpack(pick(r,"autor","Author")),
+    endereco:text(pick(r,"end","ID_ENDERECO")),
+    fornecedor:text(pick(r,"forn","NOME_FORNECEDOR"))
   }));
 
-  DB.saidas = (raw.saidas || []).map(r => ({
-    id: n(pick(r, "i", "ID")),
-    a: txt(pick(r, "a", "ID_AREA")),
-    ome: txt(pick(r, "ome", "OM_ENTRADA")),
-    proj: txt(pick(r, "proj", "PROJETO_ENTRADA")),
-    nf: txt(pick(r, "nf", "NOTA_FISCAL")),
-    cc: txt(pick(r, "cc", "CENTRO_CUSTO")),
-    q: n(pick(r, "q", "Quantidade")),
-    doc: txt(pick(r, "doc", "NUM_DOC_E")),
-    cl: unbox(pick(r, "cl", "Classificacao")),
-    c: txt(pick(r, "c", "Created")),
-    apl: unbox(pick(r, "apl", "Aplicacao")),
-    mat: txt(pick(r, "mat", "MAT_REQUISITANTE")),
-    requ: unbox(pick(r, "requ", "REQUISITANTEM")),
-    oms: txt(pick(r, "oms", "OM_SAIDA")),
-    item: n(pick(r, "item", "ID_ITEM")),
-    end: txt(pick(r, "end", "ID_END")),
-    plan: txt(pick(r, "plan", "ID_PLANEJ"))
+  DB.saidas=(b.saidas||[]).map(r=>({
+    id:num(pick(r,"i","ID")),
+    a:text(pick(r,"a","ID_AREA")),
+    item:num(pick(r,"item","ID_ITEM")),
+    q:num(pick(r,"q","Quantidade")),
+    doc:text(pick(r,"doc","NUM_DOC_E")),
+    om:text(pick(r,"oms","OM_SAIDA")),
+    omEntrada:text(pick(r,"ome","OM_ENTRADA")),
+    nf:text(pick(r,"nf","NOTA_FISCAL")),
+    classe:unpack(pick(r,"cl","Classificacao")),
+    aplicacao:unpack(pick(r,"apl","Aplicacao")),
+    criado:text(pick(r,"c","Created")),
+    requisitante:unpack(pick(r,"requ","REQUISITANTEM")),
+    matricula:text(pick(r,"mat","MAT_REQUISITANTE")),
+    endereco:text(pick(r,"end","ID_END")),
+    planejador:text(pick(r,"plan","ID_PLANEJ"))
   }));
 
-  DB.saldo = (raw.saldo || []).map(r => ({
-    a: txt(pick(r, "a", "ID_AREA")),
-    item: n(pick(r, "item", "ID_ITEM")),
-    q: n(pick(r, "q", "SALDO_ITEM")),
-    end: txt(pick(r, "end", "ID_END"))
+  DB.saldo=(b.saldo||[]).map(r=>({
+    a:text(pick(r,"a","ID_AREA")),
+    item:num(pick(r,"item","ID_ITEM")),
+    q:num(pick(r,"q","SALDO_ITEM")),
+    endereco:text(pick(r,"end","ID_END"))
   }));
 
-  DB.enderecos = (raw.enderecos || []).map(r => ({
-    id: n(pick(r, "i", "ID")),
-    a: txt(pick(r, "a", "ID_AREA")),
-    nome: txt(pick(r, "n", "Título"))
+  DB.enderecos=(b.enderecos||[]).map(r=>({
+    id:num(pick(r,"i","ID")),
+    a:text(pick(r,"a","ID_AREA")),
+    nome:text(pick(r,"n","Título"))
   }));
 
-  DB.planejadores = (raw.planejadores || []).map(r => ({
-    id: n(pick(r, "i", "ID")),
-    a: txt(pick(r, "a", "ID_AREA")),
-    nome: txt(pick(r, "n", "Título"))
+  DB.planejadores=(b.planejadores||[]).map(r=>({
+    id:num(pick(r,"i","ID")),
+    a:text(pick(r,"a","ID_AREA")),
+    nome:text(pick(r,"n","Título"))
   }));
 
-  DB.reqItens = [];
+  // TRANSFORMAR JSON_TABLE EM LINHAS
 
-  for (const r of DB.requisicoes) {
+  DB.itens=[];
 
-    const arr = itemJson(r.json);
+  for(const req of DB.requisicoes){
 
-    if (arr === null) {
-      DB.reqItens.push({
-        id: 0,
-        req: r.id,
-        a: r.a,
-        erro: true
+    let lista;
+
+    try{
+      lista=typeof req.json==="string"
+        ?JSON.parse(req.json||"[]")
+        :req.json||[];
+
+      if(!Array.isArray(lista)){
+        throw Error("JSON_TABLE não é lista");
+      }
+    }catch{
+      DB.itens.push({
+        req:req.id,
+        a:req.a,
+        erro:"JSON_TABLE inválido"
       });
       continue;
     }
 
-    for (const x of arr) {
-      DB.reqItens.push({
-        id: n(pick(x, "id_item")),
-        req: r.id,
-        a: r.a,
-        id_item: n(pick(x, "id_item")),
-        q: n(pick(x, "Qntd")),
-        pn: unbox(pick(x, "PartNumber")),
-        registro: txt(pick(x, "Registro")),
-        om: txt(pick(x, "OM")),
-        end: txt(pick(x, "Endereco")),
-        codigo: txt(pick(x, "Codigo")),
-        nome: txt(pick(x, "Nome_Item"))
+    for(const x of lista){
+      DB.itens.push({
+        req:req.id,
+        a:req.a,
+        id_item:num(x.id_item),
+        q:num(x.Qntd),
+        pn:text(x.PartNumber),
+        registro:text(x.Registro),
+        om:text(x.OM),
+        endereco:text(x.Endereco),
+        codigo:text(x.Codigo),
+        nome:text(x.Nome_Item)
       });
     }
   }
 }
 
-// ==========================================
-// MOTOR DE AUDITORIA
-// ==========================================
+// =====================================
+// AUDITORIA
+// =====================================
 
-const key = (a, id) => txt(a) + "|" + txt(id);
+function audit(){
 
-function audit() {
+  DB.alertas=[];
+  DB.conciliacao=[];
 
-  DB.alertas = [];
-
-  const push = (tipo, msg, area = "", id = "") => {
+  const add=(tipo,descricao,a,id)=>{
     DB.alertas.push({
-      tipo,
-      msg,
-      a: txt(area),
-      id: txt(id)
+      tipo,descricao,a:text(a),id:text(id)
     });
   };
 
-  const itemMap = new Map(
-    DB.cadastro.map(r => [key(r.a, r.id), r])
+  const cadastro=new Map(
+    DB.cadastro.map(r=>[r.a+"|"+r.id,r])
   );
 
-  // SAP E PN REPETIDOS POR ÁREA
+  // CÓDIGOS SAP E PN REPETIDOS
 
-  for (const field of ["sap", "pn"]) {
+  for(const campo of ["sap","pn"]){
 
-    const groups = new Map();
+    const grupos=new Map();
 
-    for (const r of DB.cadastro) {
+    for(const r of DB.cadastro){
 
-      const val = norm(r[field]);
-      if (!val) continue;
+      const codigo=normalizeText(r[campo]);
+      if(!codigo)continue;
 
-      const k = key(r.a, val);
+      const chave=r.a+"|"+codigo;
 
-      if (!groups.has(k)) {
-        groups.set(k, []);
+      if(!grupos.has(chave)){
+        grupos.set(chave,[]);
       }
 
-      groups.get(k).push(r);
+      grupos.get(chave).push(r);
     }
 
-    for (const rs of groups.values()) {
+    for(const grupo of grupos.values()){
 
-      if (new Set(rs.map(x => x.id)).size > 1) {
-        push(
-          "DUPLICADO " + field.toUpperCase(),
-          rs.length +
-            " cadastros com " +
-            field.toUpperCase() +
-            " " + rs[0][field] +
-            ": IDs " + rs.map(x => x.id).join(", "),
-          rs[0].a,
-          rs[0].id
+      if(new Set(grupo.map(r=>r.id)).size>1){
+
+        add(
+          campo.toUpperCase()+" DUPLICADO",
+          "Código "+grupo[0][campo]+
+          " encontrado nos IDs "+
+          grupo.map(r=>r.id).join(", "),
+          grupo[0].a,
+          grupo[0].id
         );
       }
     }
   }
 
-  // PENDÊNCIAS DE CADASTRO
+  // CADASTROS INCOMPLETOS
 
-  for (const r of DB.cadastro) {
+  for(const r of DB.cadastro){
 
-    if (!r.sap) {
-      push(
-        "CADASTRO SEM SAP",
-        "Material " + r.id + ": sem código SAP",
-        r.a,
-        r.id
+    if(!r.sap){
+      add(
+        "SAP AUSENTE",
+        "Material sem código SAP",
+        r.a,r.id
       );
     }
 
-    if (!r.d) {
-      push(
-        "CADASTRO SEM DESCRIÇÃO",
-        "Material " + r.id + ": descrição vazia",
-        r.a,
-        r.id
+    if(!r.descricao){
+      add(
+        "DESCRIÇÃO AUSENTE",
+        "Material sem descrição",
+        r.a,r.id
       );
     }
   }
 
-  // VERIFICAR ENTRADAS
+  // ITENS REQUISITADOS
 
-  for (const r of DB.entradas) {
+  for(const r of DB.itens){
 
-    if (!r.item) {
-      push(
-        "ENTRADA SEM ITEM",
-        "Entrada " + r.id + " não informa ID_ITEM",
-        r.a,
-        r.id
-      );
-    } else if (!itemMap.has(key(r.a, r.item))) {
-      push(
-        "ITEM NÃO ENCONTRADO",
-        "Entrada " + r.id +
-          ": item " + r.item +
-          " ausente do pacote de cadastro",
-        r.a,
-        r.id
-      );
-    }
-
-    if (r.q <= 0) {
-      push(
-        "QUANTIDADE INVÁLIDA",
-        "Entrada " + r.id + ": quantidade " + r.q,
-        r.a,
-        r.id
-      );
-    }
-  }
-
-  // VERIFICAR SAÍDAS
-
-  for (const r of DB.saidas) {
-
-    if (!r.item) {
-      push(
-        "SAÍDA SEM ITEM",
-        "Saída " + r.id + " não informa ID_ITEM",
-        r.a,
-        r.id
-      );
-    } else if (!itemMap.has(key(r.a, r.item))) {
-      push(
-        "ITEM NÃO ENCONTRADO",
-        "Saída " + r.id +
-          ": item " + r.item +
-          " ausente do pacote de cadastro",
-        r.a,
-        r.id
-      );
-    }
-
-    if (r.q <= 0) {
-      push(
-        "QUANTIDADE INVÁLIDA",
-        "Saída " + r.id + ": quantidade " + r.q,
-        r.a,
-        r.id
-      );
-    }
-  }
-
-  // VERIFICAR ITENS DO JSON_TABLE
-
-  for (const r of DB.reqItens) {
-
-    if (r.erro) {
-      push(
+    if(r.erro){
+      add(
         "JSON INVÁLIDO",
-        "Requisição " + r.req +
-          ": JSON_TABLE não pôde ser interpretado",
-        r.a,
-        r.req
+        r.erro,r.a,r.req
       );
       continue;
     }
 
-    if (!r.id_item) {
-      push(
-        "REQUISIÇÃO SEM ITEM",
-        "Requisição " + r.req +
-          ": material sem id_item",
-        r.a,
-        r.req
+    if(!r.id_item){
+      add(
+        "ID_ITEM AUSENTE",
+        "Material da requisição sem ID_ITEM",
+        r.a,r.req
       );
     }
 
-    if (r.q <= 0) {
-      push(
+    if(r.q<=0){
+      add(
         "QUANTIDADE INVÁLIDA",
-        "Requisição " + r.req + ": Qntd " + r.q,
-        r.a,
-        r.req
+        "Quantidade inválida na requisição",
+        r.a,r.req
       );
     }
   }
 
-  // CONCILIAÇÃO POR ÁREA + ID_ITEM
+  // CONCILIAÇÃO
 
-  const byItem = new Map();
+  const mapa=new Map();
 
-  const ensure = (a, id) => {
+  function ensure(a,item){
+    const k=a+"|"+item;
 
-    const k = key(a, id);
-
-    if (!byItem.has(k)) {
-      byItem.set(k, {
-        a: txt(a),
-        id: n(id),
-        entrada: 0,
-        saida: 0,
-        saldo: null,
-        entradas: 0,
-        saidas: 0
+    if(!mapa.has(k)){
+      mapa.set(k,{
+        a,item,entrada:0,saida:0,saldo:null,
+        sap:cadastro.get(k)?.sap||"—"
       });
     }
 
-    return byItem.get(k);
-  };
-
-  for (const r of DB.entradas) {
-    if (r.item) {
-      const v = ensure(r.a, r.item);
-      v.entrada += r.q;
-      v.entradas++;
-    }
+    return mapa.get(k);
   }
 
-  for (const r of DB.saidas) {
-    if (r.item) {
-      const v = ensure(r.a, r.item);
-      v.saida += r.q;
-      v.saidas++;
-    }
-  }
+  for(const r of DB.entradas){
 
-  for (const r of DB.saldo) {
-    if (r.item) {
-      const v = ensure(r.a, r.item);
-      v.saldo = (v.saldo ?? 0) + r.q;
-    }
-  }
+    if(!r.item){
+      add("ENTRADA SEM ITEM","ID_ITEM vazio",r.a,r.id);
+    }else{
+      ensure(r.a,r.item).entrada+=r.q;
 
-  DB.conciliacao = [...byItem.values()]
-    .map(r => ({
-      ...r,
-      diferenca: r.entrada - r.saida,
-      divergencia: r.saldo === null
-        ? null
-        : r.entrada - r.saida - r.saldo,
-      item: itemMap.get(key(r.a, r.id))?.sap || "—"
-    }))
-    .sort((a, b) => b.id - a.id);
-
-  // SINALIZAR DIVERGÊNCIA SOMENTE COM
-  // DECLARAÇÃO DE BASE COMPLETA
-
-  if (DB.completo) {
-
-    for (const r of DB.conciliacao) {
-
-      if (
-        r.divergencia !== null &&
-        Math.abs(r.divergencia) > 0.0001
-      ) {
-        push(
-          "RECONCILIAÇÃO",
-          "Item " + r.id +
-            ": diferença entre movimentações e saldo = " +
-            r.divergencia,
-          r.a,
-          r.id
+      if(!cadastro.has(r.a+"|"+r.item)){
+        add(
+          "REFERÊNCIA NÃO ENCONTRADA",
+          "ID_ITEM "+r.item+
+          " não localizado no cadastro transferido",
+          r.a,r.id
         );
       }
     }
-  }
-}
 
-// ==========================================
-// RECEBER PACOTE CKTR-AUD-1 OU CKTR-AUD-2
-// ==========================================
-
-function parsePackage(value) {
-
-  const s = txt(value);
-  const i = s.indexOf(":");
-
-  if (
-    i < 0 ||
-    !/^CKTR-AUD-[12]$/.test(s.slice(0, i))
-  ) {
-    throw Error(
-      "Pacote inválido: precisa iniciar com " +
-      "CKTR-AUD-1: ou CKTR-AUD-2:"
-    );
-  }
-
-  if (s.length > 25000000) {
-    throw Error(
-      "Pacote grande demais para esta aba."
-    );
-  }
-
-  const body = s.slice(i + 1);
-
-  let p;
-
-  try {
-    p = JSON.parse(body);
-  } catch {
-    try {
-      p = JSON.parse(decodeURIComponent(body));
-    } catch {
-      throw Error(
-        "JSON do pacote inválido ou incompleto."
+    if(r.q<=0){
+      add(
+        "QUANTIDADE INVÁLIDA",
+        "Entrada com quantidade inválida",
+        r.a,r.id
       );
     }
   }
 
-  // COMPATIBILIDADE COM A VERSÃO ANTIGA
+  for(const r of DB.saidas){
 
-  if (
-    Number(p.v) === 1 &&
-    Array.isArray(p.itens)
-  ) {
-    return {
-      v: 1,
-      completo: false,
-      bases: {
-        cadastro: p.itens
+    if(!r.item){
+      add("SAÍDA SEM ITEM","ID_ITEM vazio",r.a,r.id);
+    }else{
+      ensure(r.a,r.item).saida+=r.q;
+
+      if(!cadastro.has(r.a+"|"+r.item)){
+        add(
+          "REFERÊNCIA NÃO ENCONTRADA",
+          "ID_ITEM "+r.item+
+          " não localizado no cadastro transferido",
+          r.a,r.id
+        );
       }
-    };
-  }
+    }
 
-  if (
-    Number(p.v) !== 2 ||
-    !p.bases ||
-    typeof p.bases !== "object"
-  ) {
-    throw Error(
-      "Estrutura incompatível com CKTR-AUD-2."
-    );
-  }
-
-  for (const [k, v] of Object.entries(p.bases)) {
-    if (v !== null && !Array.isArray(v)) {
-      throw Error(
-        "A base " + k + " não é uma lista."
+    if(r.q<=0){
+      add(
+        "QUANTIDADE INVÁLIDA",
+        "Saída com quantidade inválida",
+        r.a,r.id
       );
     }
   }
 
-  return p;
+  for(const r of DB.saldo){
+    if(!r.item)continue;
+
+    const o=ensure(r.a,r.item);
+    o.saldo=(o.saldo??0)+r.q;
+  }
+
+  DB.conciliacao=[...mapa.values()].map(r=>({
+    ...r,
+    movimento:r.entrada-r.saida,
+    diferenca:r.saldo===null
+      ?null
+      :r.entrada-r.saida-r.saldo
+  }));
 }
 
-// ==========================================
-// PROCESSAR AUDITORIA
-// ==========================================
+// =====================================
+// PROCESSAR PACOTE
+// =====================================
 
-function processar() {
+function processar(){
 
-  try {
+  try{
 
-    const raw = parsePackage($("pacote").value);
+    const bruto=text($("pacote").value);
+    const prefixo="CKTR-AUD-2:";
 
-    DB.completo = raw.completo === true;
-    DB.limite = n(raw.limite);
-    DB.gerado = txt(raw.gerado);
-    DB.versao = raw.v;
+    if(!bruto.startsWith(prefixo)){
+      throw Error("Pacote precisa iniciar com CKTR-AUD-2:");
+    }
 
-    normalize(raw.bases);
+    let dados;
+
+    try{
+      dados=JSON.parse(bruto.slice(prefixo.length));
+    }catch{
+      dados=JSON.parse(
+        decodeURIComponent(bruto.slice(prefixo.length))
+      );
+    }
+
+    if(dados.v!==2 || !dados.bases){
+      throw Error("Versão ou estrutura incompatível");
+    }
+
+    const bases=[
+      "cadastro","requisicoes","entradas",
+      "saidas","saldo","enderecos","planejadores"
+    ];
+
+    for(const nome of bases){
+      if(!Array.isArray(dados.bases[nome])){
+        throw Error("Base ausente ou inválida: "+nome);
+      }
+    }
+
+    normalizeBases(dados.bases);
+
+    DB.completo=dados.completo===true;
+    DB.carregado=true;
+
     audit();
 
-    $("pacote").value = "";
+    $("pacote").value="";
 
-    state.page = 0;
-    state.issuesPage = 0;
-    state.tab = "geral";
+    $("connection").textContent="DADOS CARREGADOS";
 
-    updateAreas();
+    $("estado").textContent=
+      fmt.format(DB.cadastro.length)+" cadastros | "+
+      fmt.format(DB.requisicoes.length)+" requisições | "+
+      fmt.format(DB.entradas.length)+" entradas | "+
+      fmt.format(DB.saidas.length)+" saídas";
+
+    atualizarAreas();
     render();
 
-    $("estado").textContent =
-      "Pacote recebido: " +
-      fmt.format(DB.cadastro.length) + " cadastros, " +
-      fmt.format(DB.requisicoes.length) + " requisições, " +
-      fmt.format(DB.entradas.length) + " entradas e " +
-      fmt.format(DB.saidas.length) + " saídas.";
-
     toast(
-      "AUDITORIA PROCESSADA",
-      DB.versao === 2
-        ? "Pacote v2 carregado. Consulte as abas e alertas."
-        : "Pacote antigo carregado: apenas cadastro."
+      "CKTR | AUDITORIA PROCESSADA",
+      "Pacote recebido e indicadores atualizados."
     );
 
-  } catch (e) {
+  }catch(e){
 
     toast(
-      "ERRO NO PACOTE",
+      "CKTR | ERRO NA TRANSFERÊNCIA",
       e.message,
       "error"
     );
   }
 }
 
-$("processar").onclick = processar;
+$("process").onclick=processar;
 
-// ==========================================
 // CTRL+V AUTOMÁTICO
-// ==========================================
-
-$("pacote").addEventListener("paste", () => {
-
-  setTimeout(() => {
-
-    if (
-      /^CKTR-AUD-[12]:/.test(
-        txt($("pacote").value)
-      )
-    ) {
+$("pacote").addEventListener("paste",()=>{
+  setTimeout(()=>{
+    if(text($("pacote").value).startsWith("CKTR-AUD-2:")){
       processar();
     }
-
-  }, 0);
+  },0);
 });
 
-// ==========================================
-// COLAR PELO BOTÃO
-// ==========================================
-
-$("colar").onclick = async () => {
-
-  try {
-
-    if (!navigator.clipboard?.readText) {
-      throw Error(
-        "Use Ctrl+V no campo acima."
-      );
-    }
-
-    $("pacote").value =
-      await navigator.clipboard.readText();
-
+// BOTÃO DE COLAR
+$("paste").onclick=async()=>{
+  try{
+    $("pacote").value=await navigator.clipboard.readText();
     processar();
-
-  } catch (e) {
-
+  }catch{
     toast(
-      "ÁREA DE TRANSFERÊNCIA",
-      e.message,
-      "warning"
+      "CKTR | ÁREA DE TRANSFERÊNCIA",
+      "Clique no campo e utilize Ctrl+V.",
+      "error"
     );
-
-    $("pacote").focus();
   }
 };
 
-// ==========================================
-// LIMPAR DADOS
-// ==========================================
+// =====================================
+// TABELAS
+// =====================================
 
-$("limpar").onclick = () => {
+const configs={
 
-  for (const k of [
-    "cadastro",
-    "requisicoes",
-    "entradas",
-    "saidas",
-    "saldo",
-    "enderecos",
-    "planejadores",
-    "reqItens",
-    "alertas",
-    "conciliacao"
-  ]) {
-    DB[k] = [];
-  }
+  cadastro:[
+    ["id","ID"],["a","ÁREA"],["sap","SAP"],
+    ["pn","PN"],["descricao","DESCRIÇÃO"],
+    ["criado","CRIADO"]
+  ],
 
-  DB.completo = false;
-  DB.versao = 0;
-  DB.gerado = "";
+  requisicoes:[
+    ["id","ID"],["a","ÁREA"],["doc","DOCUMENTO"],
+    ["sol","REQUISITANTE"],["aprovacao","APROVAÇÃO"],
+    ["cmp","STATUS CMP"],["tipo","TIPO SAÍDA"],
+    ["local","ENTREGA"],["criado","CRIADO"]
+  ],
 
-  $("pacote").value = "";
-  $("estado").textContent =
-    "Sessão limpa. Nenhum pacote carregado.";
+  itens:[
+    ["req","REQUISIÇÃO"],["id_item","ID ITEM"],
+    ["a","ÁREA"],["q","QUANTIDADE"],
+    ["pn","PART NUMBER"],["registro","REGISTRO"],
+    ["om","OM"],["endereco","ENDEREÇO"],
+    ["codigo","CÓDIGO"],["nome","NOME DO ITEM"]
+  ],
 
-  updateAreas();
-  render();
+  entradas:[
+    ["id","ID"],["a","ÁREA"],["item","ID ITEM"],
+    ["q","QUANTIDADE"],["doc","DOCUMENTO"],
+    ["om","OM"],["nf","NOTA FISCAL"],
+    ["fornecedor","FORNECEDOR"],["classe","CLASSIFICAÇÃO"],
+    ["valor","VALOR"],["criado","CRIADO"]
+  ],
 
-  toast(
-    "SESSÃO LIMPA",
-    "Dados removidos da memória desta aba."
-  );
+  saidas:[
+    ["id","ID"],["a","ÁREA"],["item","ID ITEM"],
+    ["q","QUANTIDADE"],["doc","DOCUMENTO"],
+    ["om","OM SAÍDA"],["requisitante","REQUISITANTE"],
+    ["classe","CLASSIFICAÇÃO"],
+    ["aplicacao","APLICAÇÃO"],["criado","CRIADO"]
+  ],
+
+  conciliacao:[
+    ["item","ID ITEM"],["a","ÁREA"],["sap","SAP"],
+    ["entrada","ENTRADAS"],["saida","SAÍDAS"],
+    ["movimento","ENT - SAI"],
+    ["saldo","SALDO INFORMADO"],
+    ["diferenca","DIFERENÇA"]
+  ]
 };
 
-// ==========================================
-// DEFINIÇÃO DAS TABELAS
-// ==========================================
+function filtrados(lista){
 
-const tables = {
+  const area=$("area").value;
+  const busca=normalizeText($("search").value);
 
-  cadastro: {
-    title: "Cadastros",
-    cols: [
-      ["id", "ID"],
-      ["a", "ÁREA"],
-      ["sap", "SAP"],
-      ["pn", "PN"],
-      ["d", "DESCRIÇÃO"],
-      ["c", "CRIADO"]
-    ]
-  },
-
-  itens: {
-    title: "Itens das Requisições (JSON_TABLE)",
-    cols: [
-      ["req", "ID REQUISIÇÃO"],
-      ["id_item", "ID ITEM"],
-      ["a", "ÁREA"],
-      ["q", "QUANTIDADE"],
-      ["pn", "PART NUMBER"],
-      ["registro", "REGISTRO"],
-      ["om", "OM"],
-      ["end", "ENDEREÇO"],
-      ["codigo", "CÓDIGO"],
-      ["nome", "NOME DO ITEM"]
-    ]
-  },
-
-  requisicoes: {
-    title: "Requisições",
-    cols: [
-      ["id", "ID"],
-      ["a", "ÁREA"],
-      ["doc", "NUM_DOC_REQ"],
-      ["sol", "REQUISITANTE"],
-      ["apr", "APROVAÇÃO"],
-      ["cmp", "STATUS CMP"],
-      ["tipo", "TIPO SAÍDA"],
-      ["local", "ENTREGA"],
-      ["c", "CRIADO"]
-    ]
-  },
-
-  entrada: {
-    title: "Entradas",
-    cols: [
-      ["id", "ID"],
-      ["a", "ÁREA"],
-      ["item", "ID ITEM"],
-      ["q", "QTD"],
-      ["doc", "DOCUMENTO"],
-      ["om", "OM"],
-      ["nf", "NF"],
-      ["cl", "CLASSIFICAÇÃO"],
-      ["apl", "APLICAÇÃO"],
-      ["valor", "VALOR"],
-      ["c", "CRIADO"]
-    ]
-  },
-
-  saida: {
-    title: "Saídas",
-    cols: [
-      ["id", "ID"],
-      ["a", "ÁREA"],
-      ["item", "ID ITEM"],
-      ["q", "QTD"],
-      ["doc", "DOCUMENTO"],
-      ["oms", "OM SAÍDA"],
-      ["requ", "REQUISITANTE"],
-      ["cl", "CLASSIFICAÇÃO"],
-      ["apl", "APLICAÇÃO"],
-      ["c", "CRIADO"]
-    ]
-  },
-
-  conciliacao: {
-    title: "Conciliação",
-    cols: [
-      ["id", "ID ITEM"],
-      ["a", "ÁREA"],
-      ["item", "SAP"],
-      ["entrada", "ENTRADAS"],
-      ["saida", "SAÍDAS"],
-      ["diferenca", "ENT - SAI"],
-      ["saldo", "SALDO IMPORTADO"],
-      ["divergencia", "DIFERENÇA"]
-    ]
-  }
-
-};
-
-// ==========================================
-// OBTER DADOS DA ABA
-// ==========================================
-
-function source(tab) {
-
-  switch (tab) {
-    case "cadastro": return DB.cadastro;
-    case "requisicoes": return DB.requisicoes;
-    case "itens": return DB.reqItens;
-    case "entrada": return DB.entradas;
-    case "saida": return DB.saidas;
-    case "conciliacao": return DB.conciliacao;
-    default: return [];
-  }
-}
-
-function matches(r) {
-
-  const a = $("globalArea").value;
-  const q = norm($("busca").value);
-
-  return (
-    (!a || r.a === a) &&
+  return lista.filter(r=>
+    (!area||r.a===area) &&
     (
-      !q ||
-      Object.values(r).some(v =>
-        norm(v).includes(q)
+      !busca ||
+      Object.values(r).some(
+        v=>normalizeText(v).includes(busca)
       )
     )
   );
 }
 
-function filtered(tab) {
+function construirTabela(rows,cols){
 
-  return source(tab)
-    .filter(matches)
-    .sort((a, b) => n(b.id) - n(a.id));
+  return `
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            ${cols.map(c=>`<th>${escapeHTML(c[1])}</th>`).join("")}
+          </tr>
+        </thead>
+        <tbody>
+          ${rows.map((r,i)=>`
+            <tr data-index="${i}">
+              ${cols.map(([k])=>`
+                <td>${escapeHTML(
+                  r[k]===null||r[k]===undefined||r[k]===""
+                    ?"—":r[k]
+                )}</td>
+              `).join("")}
+            </tr>
+          `).join("") ||
+          `<tr><td colspan="${cols.length}" class="empty">
+            Nenhum registro encontrado
+          </td></tr>`}
+        </tbody>
+      </table>
+    </div>
+  `;
 }
 
-// ==========================================
-// CÉLULAS E TABELAS
-// ==========================================
+function dadosDaAba(){
 
-function cell(v, k) {
+  const map={
+    cadastro:DB.cadastro,
+    requisicoes:DB.requisicoes,
+    itens:DB.itens,
+    entradas:DB.entradas,
+    saidas:DB.saidas,
+    conciliacao:DB.conciliacao
+  };
 
-  if (
-    k === "valor" &&
-    typeof v === "number"
-  ) {
-    return esc(
-      v.toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL"
-      })
+  return filtrados(map[state.tab]||[]);
+}
+
+// =====================================
+// DETALHES DO REGISTRO
+// =====================================
+
+function detalhes(registro){
+
+  $("modalTitle").textContent="Detalhes do registro";
+
+  $("modalBody").replaceChildren();
+
+  for(const [campo,valor] of Object.entries(registro)){
+
+    if(campo==="json")continue;
+
+    const row=document.createElement("div");
+    row.className="detail-row";
+
+    const nome=document.createElement("strong");
+    nome.textContent=campo;
+
+    const conteudo=document.createElement("span");
+    conteudo.textContent=typeof valor==="object"
+      ?JSON.stringify(valor,null,2)
+      :text(valor);
+
+    row.append(nome,conteudo);
+    $("modalBody").append(row);
+  }
+
+  if(state.tab==="requisicoes"){
+
+    const itens=DB.itens.filter(r=>
+      r.req===registro.id &&
+      r.a===registro.a
     );
+
+    const titulo=document.createElement("h3");
+    titulo.textContent="Materiais requisitados ("+itens.length+")";
+
+    const div=document.createElement("div");
+    div.innerHTML=construirTabela(itens,configs.itens);
+
+    $("modalBody").append(titulo,div);
   }
 
-  if (
-    (k === "saldo" || k === "divergencia") &&
-    v === null
-  ) {
-    return '<span class="muted">não informado</span>';
-  }
-
-  return esc(
-    v === undefined ||
-    v === null ||
-    v === ""
-      ? "—"
-      : v
-  );
+  $("modal").hidden=false;
 }
 
-function renderTable(tab) {
+$("closeModal").onclick=()=>{
+  $("modal").hidden=true;
+};
 
-  const t = tables[tab];
-  const r = filtered(tab);
+$("modal").onclick=e=>{
+  if(e.target===$("modal")){
+    $("modal").hidden=true;
+  }
+};
 
-  const pages = Math.max(
-    1,
-    Math.ceil(r.length / 35)
+// =====================================
+// RENDERIZAR TABELAS PAGINADAS
+// =====================================
+
+function renderTabela(){
+
+  const tab=state.tab;
+
+  const lista=dadosDaAba()
+    .sort((a,b)=>
+      num(b.id??b.req??b.item)-
+      num(a.id??a.req??a.item)
+    );
+
+  const paginas=Math.max(
+    1,Math.ceil(lista.length/50)
   );
 
-  state.page = Math.max(
-    0,
-    Math.min(state.page, pages - 1)
+  state.page=Math.min(
+    Math.max(state.page,0),
+    paginas-1
   );
 
-  const start = state.page * 35;
-  const view = r.slice(start, start + 35);
+  const itens=lista.slice(
+    state.page*50,
+    state.page*50+50
+  );
 
-  const header = t.cols
-    .map(x => `<th>${esc(x[1])}</th>`)
-    .join("");
+  const root=$("v-"+tab);
 
-  const rows = view.map((it, j) => `
-    <tr data-index="${start + j}">
-      ${t.cols.map(([k]) =>
-        `<td>${cell(it[k], k)}</td>`
-      ).join("")}
-    </tr>
-  `).join("");
+  root.innerHTML=`
+    <section class="panel">
 
-  const html = `
-    <article class="panel">
-
-      <div class="head">
-        <h2>
-          ${t.title}
-          <span class="tag">${fmt.format(r.length)}</span>
-        </h2>
-        <small>Clique em uma linha para ver todos os campos</small>
+      <div class="panel-head">
+        ${tab.toUpperCase()}
+        <span>${fmt.format(lista.length)} registros</span>
       </div>
 
-      <div class="tablewrap">
-        <table>
-          <thead>
-            <tr>${header}</tr>
-          </thead>
-
-          <tbody>
-            ${rows || `
-              <tr>
-                <td colspan="${t.cols.length}" class="empty">
-                  Nenhum registro no filtro atual.
-                </td>
-              </tr>
-            `}
-          </tbody>
-        </table>
-      </div>
+      ${construirTabela(itens,configs[tab])}
 
       <div class="pager">
-        <span class="muted">
-          Página ${state.page + 1}/${pages}
-        </span>
+        <span>Página ${state.page+1}/${paginas}</span>
 
-        <button id="prev"
-          ${state.page === 0 ? "disabled" : ""}>
+        <button id="previous"
+          ${state.page===0?"disabled":""}>
           ANTERIOR
         </button>
 
         <button id="next"
-          ${state.page >= pages - 1 ? "disabled" : ""}>
+          ${state.page===paginas-1?"disabled":""}>
           PRÓXIMA
         </button>
       </div>
 
-    </article>
+    </section>
   `;
 
-  const node = $("v-" + tab);
-  node.innerHTML = html;
-
-  node.querySelector("#prev").onclick = () => {
+  root.querySelector("#previous").onclick=()=>{
     state.page--;
-    renderTable(tab);
+    renderTabela();
   };
 
-  node.querySelector("#next").onclick = () => {
+  root.querySelector("#next").onclick=()=>{
     state.page++;
-    renderTable(tab);
+    renderTabela();
   };
 
-  node.querySelectorAll("tr[data-index]")
-    .forEach(x => {
-      x.onclick = () =>
-        details(
-          tab,
-          r[Number(x.dataset.index)]
-        );
-    });
+  root.querySelectorAll("tr[data-index]").forEach(tr=>{
+    tr.ondblclick=()=>{
+      const item=itens[Number(tr.dataset.index)];
+      if(item)detalhes(item);
+    };
+  });
 }
 
-// ==========================================
-// JANELA DE DETALHES
-// ==========================================
+// =====================================
+// RESUMO
+// =====================================
 
-function details(tab, r) {
+function renderResumo(){
 
-  const data = { ...r };
-  let materialTable = "";
+  const lista=filtrados(DB.cadastro)
+    .sort((a,b)=>b.id-a.id);
 
-  if (tab === "requisicoes") {
+  const ultimo=lista[0];
 
-    const itens = DB.reqItens.filter(x =>
-      x.req === r.id &&
-      x.a === r.a
-    );
+  $("ultimo").innerHTML=ultimo?`
+    <div class="muted">
+      ID ${ultimo.id} · ÁREA ${escapeHTML(ultimo.a)}
+    </div>
 
-    delete data.json;
+    <div class="big">
+      ${escapeHTML(ultimo.sap||"SEM SAP")}
+    </div>
 
-    materialTable = `
-      <h3 style="margin-top:18px">
-        Materiais requisitados (${itens.length})
-      </h3>
+    <p>${escapeHTML(ultimo.descricao)}</p>
 
-      <div class="tablewrap">
-        <table>
-          <thead>
-            <tr>
-              <th>ID ITEM</th>
-              <th>QNTD</th>
-              <th>PART NUMBER</th>
-              <th>REGISTRO</th>
-              <th>OM</th>
-              <th>ENDEREÇO</th>
-              <th>CÓDIGO</th>
-              <th>NOME DO ITEM</th>
-            </tr>
-          </thead>
+    <small>
+      PN: ${escapeHTML(ultimo.pn||"—")}
+      · Criado: ${escapeHTML(ultimo.criado)}
+    </small>
+  `:
+  '<div class="empty">Nenhum material encontrado</div>';
 
-          <tbody>
-            ${itens.map(x => `
-              <tr>
-                <td>${esc(x.id_item)}</td>
-                <td>${esc(x.q)}</td>
-                <td>${esc(x.pn)}</td>
-                <td>${esc(x.registro)}</td>
-                <td>${esc(x.om)}</td>
-                <td>${esc(x.end)}</td>
-                <td>${esc(x.codigo)}</td>
-                <td>${esc(x.nome)}</td>
-              </tr>
-            `).join("") || `
-              <tr>
-                <td colspan="8">Nenhum item</td>
-              </tr>
-            `}
-          </tbody>
-        </table>
-      </div>
-    `;
-  }
-
-  $("entryTitle").textContent =
-    (tables[tab]?.title || "Registro") +
-    " · " + r.id;
-
-  $("entryBody").innerHTML =
-    Object.entries(data).map(([k, v]) => `
-      <div class="kv">
-        <strong>${esc(k)}</strong>
-        <span class="break">
-          ${esc(
-            typeof v === "object"
-              ? JSON.stringify(v, null, 2)
-              : v
-          )}
-        </span>
-      </div>
-    `).join("") + materialTable;
-
-  $("entry").hidden = false;
-}
-
-$("closeEntry").onclick = () => {
-  $("entry").hidden = true;
-};
-
-$("entry").addEventListener("click", e => {
-  if (e.target === $("entry")) {
-    $("entry").hidden = true;
-  }
-});
-
-// ==========================================
-// PAINEL DE VISÃO GERAL
-// ==========================================
-
-function renderOverview() {
-
-  const r = DB.cadastro
-    .filter(matches)
-    .sort((a, b) => b.id - a.id);
-
-  const ultimo = r[0];
-
-  $("ultimo").innerHTML = ultimo
-    ? `
-      <small>
-        ID ${ultimo.id} ·
-        ÁREA ${esc(ultimo.a)} ·
-        ${esc(dat(ultimo.c))}
-      </small>
-
-      <div class="record">
-        ${esc(
-          ultimo.sap ||
-          ultimo.pn ||
-          "SEM CÓDIGO"
-        )}
-      </div>
-
-      <p>${esc(ultimo.d)}</p>
-
-      <small>
-        PN: ${esc(ultimo.pn || "—")}
-      </small>
-    `
-    : "Sem registros no filtro.";
-
-  // MOVIMENTAÇÕES POR MÊS
-
-  const all = [
-    ...DB.entradas.filter(matches)
-      .map(x => ({
-        c: x.c,
-        q: x.q
-      })),
-
-    ...DB.saidas.filter(matches)
-      .map(x => ({
-        c: x.c,
-        q: x.q
-      }))
+  const valores=[
+    ["Cadastros",DB.cadastro.length],
+    ["Requisições",DB.requisicoes.length],
+    ["Materiais requisitados",DB.itens.length],
+    ["Entradas",DB.entradas.length],
+    ["Saídas",DB.saidas.length],
+    ["Linhas de saldo",DB.saldo.length],
+    ["Endereços",DB.enderecos.length],
+    ["Planejadores",DB.planejadores.length]
   ];
 
-  const buckets = new Map();
+  $("diagnostico").innerHTML=valores.map(([k,v])=>`
+    <div class="summary-row">
+      <span>${escapeHTML(k)}</span>
+      <strong>${fmt.format(v)}</strong>
+    </div>
+  `).join("");
 
-  for (const x of all) {
-
-    const m = /^(\d{4})-(\d{2})/.exec(x.c);
-
-    if (!m) continue;
-
-    const k = m[1] + "-" + m[2];
-
-    buckets.set(
-      k,
-      (buckets.get(k) || 0) + x.q
-    );
-  }
-
-  const array = [...buckets]
-    .sort()
-    .slice(-8);
-
-  const max = Math.max(
-    1,
-    ...array.map(x => x[1])
+  $("recentes").innerHTML=construirTabela(
+    lista.slice(0,10),
+    configs.cadastro
   );
+}
 
-  $("meses").innerHTML = array.length
-    ? array.map(([k, v]) => `
-      <div class="barline">
-        <span>${esc(k)}</span>
+// =====================================
+// ALERTAS DE AUDITORIA
+// =====================================
 
-        <div class="bar">
-          <span style="width:${(v / max * 100).toFixed(1)}%"></span>
-        </div>
+function renderAuditoria(){
 
-        <strong>${fmt.format(v)}</strong>
+  const alertas=filtrados(DB.alertas);
+
+  $("v-auditoria").innerHTML=`
+    <section class="panel">
+      <div class="panel-head">
+        Ocorrências de auditoria
+        <span>${fmt.format(alertas.length)}</span>
       </div>
-    `).join("")
-    : "Não há datas de movimentações para o gráfico.";
 
-  $("diagnostico").innerHTML = `
-    <p>
-      <b>${fmt.format(
-        DB.reqItens.filter(r => !r.erro).length
-      )}</b>
-      linhas de material extraídas do JSON_TABLE.
-    </p>
+      <div id="issuesBody"></div>
 
-    <p>
-      <b>${fmt.format(DB.saldo.length)}</b>
-      linhas de saldo,
-      <b>${fmt.format(DB.planejadores.length)}</b>
-      planejadores e
-      <b>${fmt.format(DB.enderecos.length)}</b>
-      endereços auxiliares.
-    </p>
-
-    <p>
-      Os alertas são indícios para conferência,
-      especialmente quando o pacote é parcial.
-    </p>
+      <div class="pager">
+        <span id="issuesPage"></span>
+        <button id="issuesPrev">ANTERIOR</button>
+        <button id="issuesNext">PRÓXIMA</button>
+      </div>
+    </section>
   `;
-}
 
-// ==========================================
-// PAINEL DE OCORRÊNCIAS
-// ==========================================
+  const pages=Math.max(1,Math.ceil(alertas.length/50));
+  state.page=Math.min(Math.max(state.page,0),pages-1);
 
-function renderIssues() {
+  function paint(){
+    $("issuesBody").innerHTML=alertas
+      .slice(state.page*50,state.page*50+50)
+      .map(r=>`
+        <div class="issue">
+          <strong>${escapeHTML(r.tipo)}</strong>
+          <span class="tag">ÁREA ${escapeHTML(r.a)}</span>
+          <span class="tag">REF ${escapeHTML(r.id)}</span>
+          <div>${escapeHTML(r.descricao)}</div>
+        </div>
+      `).join("")||
+      '<div class="empty">Nenhuma ocorrência</div>';
 
-  const types = [
-    ...new Set(
-      DB.alertas.map(x => x.tipo)
-    )
-  ].sort();
+    $("issuesPage").textContent=
+      `Página ${state.page+1}/${pages}`;
 
-  const old = $("tipoAlerta").value;
-
-  $("tipoAlerta").replaceChildren(
-    new Option("TODOS OS TIPOS", ""),
-    ...types.map(t => new Option(t, t))
-  );
-
-  $("tipoAlerta").value =
-    types.includes(old) ? old : "";
-
-  const rs = DB.alertas.filter(x =>
-    (
-      !$("globalArea").value ||
-      x.a === $("globalArea").value
-    ) &&
-    (
-      !$("tipoAlerta").value ||
-      x.tipo === $("tipoAlerta").value
-    ) &&
-    matches(x)
-  );
-
-  $("alertCount").textContent = fmt.format(rs.length);
-
-  const pg = Math.max(
-    1,
-    Math.ceil(rs.length / 30)
-  );
-
-  state.issuesPage = Math.max(
-    0,
-    Math.min(state.issuesPage, pg - 1)
-  );
-
-  $("issues").innerHTML =
-    rs.slice(
-      state.issuesPage * 30,
-      state.issuesPage * 30 + 30
-    ).map(x => `
-      <div class="issue">
-        <strong>
-          ${esc(x.tipo)} ·
-          Área ${esc(x.a)} ·
-          Ref ${esc(x.id)}
-        </strong>
-
-        <p>${esc(x.msg)}</p>
-      </div>
-    `).join("") ||
-    '<div class="empty">Nenhuma ocorrência no filtro atual.</div>';
-
-  $("issuesInfo").textContent =
-    `Página ${state.issuesPage + 1}/${pg}`;
-
-  $("issuesPrev").disabled =
-    state.issuesPage === 0;
-
-  $("issuesNext").disabled =
-    state.issuesPage === pg - 1;
-}
-
-$("tipoAlerta").onchange = () => {
-  state.issuesPage = 0;
-  renderIssues();
-};
-
-$("issuesPrev").onclick = () => {
-  state.issuesPage--;
-  renderIssues();
-};
-
-$("issuesNext").onclick = () => {
-  state.issuesPage++;
-  renderIssues();
-};
-
-// ==========================================
-// FILTRO GLOBAL POR ÁREA
-// ==========================================
-
-function updateAreas() {
-
-  const areas = [
-    ...new Set(
-      [
-        ...DB.cadastro,
-        ...DB.requisicoes,
-        ...DB.entradas,
-        ...DB.saidas
-      ]
-      .map(r => r.a)
-      .filter(Boolean)
-    )
-  ].sort();
-
-  const v = $("globalArea").value;
-
-  $("globalArea").replaceChildren(
-    new Option("TODAS AS ÁREAS", ""),
-    ...areas.map(a =>
-      new Option("ÁREA " + a, a)
-    )
-  );
-
-  $("globalArea").value =
-    areas.includes(v) ? v : "";
-}
-
-// ==========================================
-// RENDERIZAÇÃO CENTRAL
-// ==========================================
-
-function render() {
-
-  const scope = DB.versao
-    ? (
-      DB.completo
-        ? "COBERTURA DECLARADA COMPLETA"
-        : "COBERTURA PARCIAL / NÃO COMPROVADA"
-    )
-    : "SEM DADOS";
-
-  $("scope").className =
-    "warnbox" + (DB.completo ? " okbox" : "");
-
-  $("scope").textContent =
-    scope + ". " +
-    (
-      DB.versao
-        ? "Esta análise cobre apenas os dados transferidos. " +
-          "Verifique lacunas entre registros e permissões. " +
-          "Entradas menos saídas não é necessariamente o saldo atual."
-        : "Cole o pacote CKTR-AUD-2 para começar."
-    );
-
-  $("kcad").textContent = DB.versao
-    ? fmt.format(
-      DB.cadastro.filter(matches).length
-    )
-    : "—";
-
-  $("kreq").textContent = DB.versao
-    ? fmt.format(
-      DB.requisicoes.filter(matches).length
-    )
-    : "—";
-
-  $("kentrada").textContent = DB.versao
-    ? fmt.format(
-      DB.entradas
-        .filter(matches)
-        .reduce((s, x) => s + x.q, 0)
-    )
-    : "—";
-
-  $("ksaida").textContent = DB.versao
-    ? fmt.format(
-      DB.saidas
-        .filter(matches)
-        .reduce((s, x) => s + x.q, 0)
-    )
-    : "—";
-
-  $("kalertas").textContent = DB.versao
-    ? fmt.format(
-      DB.alertas.filter(matches).length
-    )
-    : "—";
-
-  for (
-    const el of document.querySelectorAll(".view")
-  ) {
-    el.hidden = el.id !== "v-" + state.tab;
+    $("issuesPrev").disabled=state.page===0;
+    $("issuesNext").disabled=state.page===pages-1;
   }
 
-  for (
-    const el of document.querySelectorAll("nav button")
-  ) {
-    el.classList.toggle(
-      "active",
-      el.dataset.view === state.tab
-    );
-  }
-
-  if (state.tab === "geral") {
-    renderOverview();
-  } else if (state.tab === "alertas") {
-    renderIssues();
-  } else {
-    renderTable(state.tab);
-  }
-}
-
-// ==========================================
-// BOTÕES DAS ABAS
-// ==========================================
-
-for (
-  const b of document.querySelectorAll("nav button")
-) {
-  b.onclick = () => {
-    state.tab = b.dataset.view;
-    state.page = 0;
-    state.issuesPage = 0;
-    render();
+  $("issuesPrev").onclick=()=>{
+    state.page--;
+    paint();
   };
+
+  $("issuesNext").onclick=()=>{
+    state.page++;
+    paint();
+  };
+
+  paint();
 }
 
-$("globalArea").onchange = () => {
-  state.page = 0;
-  state.issuesPage = 0;
-  render();
-};
+// =====================================
+// BASES AUXILIARES
+// =====================================
 
-$("busca").oninput = () => {
-  state.page = 0;
-  state.issuesPage = 0;
-  render();
-};
+function renderAuxiliares(){
 
-// ==========================================
-// EXPORTAÇÃO CSV
-// ==========================================
+  const grupos=[
+    {
+      nome:"SALDOS",
+      itens:DB.saldo,
+      cols:[
+        ["a","ÁREA"],["item","ID ITEM"],
+        ["q","SALDO"],["endereco","ENDEREÇO"]
+      ]
+    },
+    {
+      nome:"ENDEREÇOS",
+      itens:DB.enderecos,
+      cols:[
+        ["id","ID"],["a","ÁREA"],["nome","NOME"]
+      ]
+    },
+    {
+      nome:"PLANEJADORES",
+      itens:DB.planejadores,
+      cols:[
+        ["id","ID"],["a","ÁREA"],["nome","NOME"]
+      ]
+    }
+  ];
 
-function csvCell(v) {
+  $("v-auxiliares").innerHTML=grupos.map(g=>`
+    <section class="panel">
+      <div class="panel-head">${g.nome}</div>
+      ${construirTabela(filtrados(g.itens).slice(0,200),g.cols)}
+    </section>
+  `).join("");
+}
 
-  let s = txt(v);
+// =====================================
+// FILTROS E PAINEL
+// =====================================
 
-  if (/^[=+@\-\t\r]/.test(s)) {
-    s = "'" + s;
+function atualizarAreas(){
+
+  const areas=[...new Set([
+    ...DB.cadastro,
+    ...DB.requisicoes,
+    ...DB.entradas,
+    ...DB.saidas,
+    ...DB.saldo
+  ].map(r=>r.a).filter(Boolean))].sort();
+
+  $("area").replaceChildren(
+    new Option("TODAS AS ÁREAS",""),
+    ...areas.map(a=>
+      new Option("ÁREA "+a,a)
+    )
+  );
+}
+
+function render(){
+
+  $("scope").className=
+    "note"+(DB.completo?" ok":"");
+
+  $("scope").textContent=DB.carregado
+    ?(
+      DB.completo
+      ?"COBERTURA DECLARADA COMPLETA. "
+      :"COBERTURA PARCIAL OU NÃO COMPROVADA. "
+    )+
+    "Os indicadores usam somente os registros recebidos. "+
+    "A diferença entre entradas, saídas e saldo "+
+    "não comprova erro sem considerar saldo inicial, "+
+    "ajustes e período."
+    :"Aguardando pacote CKTR-AUD-2.";
+
+  const kpis=[
+    ["kCadastro",filtrados(DB.cadastro).length],
+    ["kReq",filtrados(DB.requisicoes).length],
+    ["kEntradas",filtrados(DB.entradas)
+      .reduce((s,r)=>s+r.q,0)],
+    ["kSaidas",filtrados(DB.saidas)
+      .reduce((s,r)=>s+r.q,0)],
+    ["kAlertas",filtrados(DB.alertas).length]
+  ];
+
+  for(const [id,value] of kpis){
+    $(id).textContent=DB.carregado
+      ?fmt.format(value)
+      :"—";
   }
 
-  return '"' +
-    s.replace(/"/g, '""') +
-    '"';
+  document.querySelectorAll(".view").forEach(el=>{
+    el.hidden=el.id!=="v-"+state.tab;
+  });
+
+  document.querySelectorAll(".nav").forEach(el=>{
+    el.classList.toggle(
+      "active",el.dataset.tab===state.tab
+    );
+  });
+
+  const titles={
+    resumo:"Visão geral do almoxarifado",
+    cadastro:"Cadastro de materiais",
+    requisicoes:"Monitor de requisições",
+    itens:"Materiais requisitados",
+    entradas:"Movimentações de entrada",
+    saidas:"Movimentações de saída",
+    conciliacao:"Conciliação de estoque",
+    auditoria:"Auditoria e ocorrências",
+    auxiliares:"Cadastros auxiliares"
+  };
+
+  $("pageTitle").textContent=titles[state.tab];
+
+  if(state.tab==="resumo")renderResumo();
+  else if(state.tab==="auditoria")renderAuditoria();
+  else if(state.tab==="auxiliares")renderAuxiliares();
+  else renderTabela();
 }
 
-function exportCSV(name, rows) {
+function go(tab){
+  state.tab=tab;
+  state.page=0;
+  render();
+}
 
-  if (!rows.length) {
+document.querySelectorAll(".nav").forEach(btn=>{
+  btn.onclick=()=>go(btn.dataset.tab);
+});
+
+$("home").onclick=()=>go("resumo");
+
+$("area").onchange=()=>{
+  state.page=0;
+  render();
+};
+
+$("search").oninput=()=>{
+  state.page=0;
+  render();
+};
+
+$("resetFilters").onclick=()=>{
+  $("area").value="";
+  $("search").value="";
+  state.page=0;
+  render();
+};
+
+// =====================================
+// COMANDOS ERP
+// =====================================
+
+const commands={
+  ZDASH:"resumo",
+  ZMAT:"cadastro",
+  ZREQ:"requisicoes",
+  ZITEM:"itens",
+  ZENT:"entradas",
+  ZSAI:"saidas",
+  ZCONC:"conciliacao",
+  ZAUD:"auditoria",
+  ZAUX:"auxiliares"
+};
+
+$("runCommand").onclick=()=>{
+
+  const code=normalizeText($("command").value);
+
+  if(commands[code]){
+    go(commands[code]);
+  }else{
     toast(
-      "SEM REGISTROS",
-      "Nada para exportar no filtro.",
-      "warning"
+      "TRANSAÇÃO NÃO ENCONTRADA",
+      "Digite um comando válido.",
+      "error"
     );
+  }
+};
+
+$("command").onkeydown=e=>{
+  if(e.key==="Enter"){
+    $("runCommand").click();
+  }
+};
+
+// =====================================
+// EXPORTAR CSV
+// =====================================
+
+function csvCell(v){
+
+  let s=text(v);
+
+  if(/^[=+@\-\t\r]/.test(s)){
+    s="'"+s;
+  }
+
+  return '"'+s.replace(/"/g,'""')+'"';
+}
+
+$("export").onclick=()=>{
+
+  const map={
+    resumo:DB.cadastro,
+    cadastro:DB.cadastro,
+    requisicoes:DB.requisicoes,
+    itens:DB.itens,
+    entradas:DB.entradas,
+    saidas:DB.saidas,
+    conciliacao:DB.conciliacao,
+    auditoria:DB.alertas,
+    auxiliares:DB.saldo
+  };
+
+  const rows=filtrados(map[state.tab]||[]);
+
+  if(!rows.length){
+    toast("SEM REGISTROS","Nada para exportar.","error");
     return;
   }
 
-  const keys = Object.keys(rows[0]);
+  const keys=Object.keys(rows[0]);
 
-  const content =
-    "\uFEFF" +
-    [
-      keys,
-      ...rows.map(r =>
-        keys.map(k =>
-          typeof r[k] === "object"
-            ? JSON.stringify(r[k])
-            : r[k]
-        )
-      )
-    ]
-    .map(l => l.map(csvCell).join(";"))
-    .join("\r\n");
+  const csv="\uFEFF"+
+    [keys,...rows.map(r=>keys.map(k=>r[k]))]
+      .map(r=>r.map(csvCell).join(";"))
+      .join("\r\n");
 
-  const href = URL.createObjectURL(
-    new Blob(
-      [content],
-      {
-        type: "text/csv;charset=utf-8"
-      }
-    )
+  const url=URL.createObjectURL(
+    new Blob([csv],{type:"text/csv;charset=utf-8"})
   );
 
-  const a = document.createElement("a");
-
-  a.href = href;
-  a.download = name;
+  const a=document.createElement("a");
+  a.href=url;
+  a.download="CKTR_"+state.tab.toUpperCase()+".csv";
 
   document.body.append(a);
   a.click();
   a.remove();
 
-  setTimeout(() => {
-    URL.revokeObjectURL(href);
-  }, 2000);
+  setTimeout(()=>URL.revokeObjectURL(url),2000);
 
   toast(
     "RELATÓRIO GERADO",
-    rows.length + " linhas exportadas."
-  );
-}
-
-$("exportar").onclick = () => {
-
-  const tab = state.tab;
-
-  if (tab === "alertas") {
-    return exportCSV(
-      "CKTR_AUDITORIA.csv",
-      DB.alertas.filter(matches)
-    );
-  }
-
-  if (tab === "geral") {
-    return exportCSV(
-      "CKTR_RESUMO_CADASTROS.csv",
-      DB.cadastro.filter(matches)
-    );
-  }
-
-  return exportCSV(
-    "CKTR_" + tab.toUpperCase() + ".csv",
-    filtered(tab)
+    fmt.format(rows.length)+" linhas exportadas."
   );
 };
 
-// INICIAR SEM DADOS FICTÍCIOS
+// =====================================
+// LIMPAR DADOS
+// =====================================
+
+$("clear").onclick=()=>{
+
+  for(const nome of [
+    "cadastro","requisicoes","itens",
+    "entradas","saidas","saldo",
+    "enderecos","planejadores",
+    "conciliacao","alertas"
+  ]){
+    DB[nome]=[];
+  }
+
+  DB.carregado=false;
+  DB.completo=false;
+
+  $("pacote").value="";
+  $("estado").textContent="Sessão limpa.";
+  $("connection").textContent="AGUARDANDO DADOS";
+  $("search").value="";
+
+  atualizarAreas();
+  go("resumo");
+
+  toast("SESSÃO LIMPA","Os dados foram removidos desta aba.");
+};
+
+atualizarAreas();
 render();
 
 </script>
-
 </body>
 </html>
