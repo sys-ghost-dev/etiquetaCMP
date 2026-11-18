@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="light">
+<html lang="pt-BR" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; base-uri 'none'; form-action 'none'">
 <meta name="theme-color" content="#ffffff">
-<title>CKTR | Central de Etiquetas 1.9</title>
+<title>CKTR | Gestão de Etiquetas — Premium 3.0</title>
 <style>
 :root{color-scheme:light;--ink:#172a27;--muted:#506661;--line:#d4dfdb;--green:#19584d;--label-w:98.4mm;--label-h:48.4mm;--qr:22.5mm;font:16px system-ui,"Segoe UI",sans-serif}
 *{box-sizing:border-box}
@@ -311,29 +311,304 @@ html[data-theme="dark"] .cktr-header{background:var(--cktr-card)!important}
 }
 .label .qr-slot svg{display:block;shape-rendering:crispEdges;}
 </style>
+<style id="cktr-premium-ui-v30">
+/* CKTR Premium 3.0 · camada visual, isolada da lógica de impressão */
+:root{--ge-bg:#071917;--ge-panel:#102520;--ge-elevated:#122a26;--ge-text:#f3faf7;--ge-muted:#96ada7;--ge-line:rgba(192,230,219,.12);--ge-primary:#3ed1af;--ge-primary-dark:#0f8e75;--ge-gold:#d7b677;--ge-glow:rgba(39,197,157,.15);--ge-shadow:0 18px 55px rgba(0,0,0,.20);--ge-radius:18px;--ge-zoom:1;--ge-fast:180ms;--ge-ease:cubic-bezier(.2,.75,.25,1);scroll-behavior:smooth}
+html[data-theme="light"]{--ge-bg:#f4f8f6;--ge-panel:#ffffff;--ge-elevated:#f4faf7;--ge-text:#193832;--ge-muted:#657e77;--ge-line:#d8e6e0;--ge-primary:#087f67;--ge-primary-dark:#096c59;--ge-gold:#b38a4f;--ge-glow:rgba(15,158,124,.09);--ge-shadow:0 16px 38px rgba(14,70,54,.07)}
+html[data-ge-accent="blue"]{--ge-primary:#67b7ff;--ge-primary-dark:#137abf;--ge-glow:rgba(71,147,221,.14)}
+html[data-theme="light"][data-ge-accent="blue"]{--ge-primary:#247cac;--ge-primary-dark:#1d6c99}
+html[data-ge-accent="violet"]{--ge-primary:#c0a5ff;--ge-primary-dark:#7463c7;--ge-glow:rgba(158,126,221,.17)}
+html[data-theme="light"][data-ge-accent="violet"]{--ge-primary:#7058af;--ge-primary-dark:#624d9c}
+html[data-ge-motion="off"] *,html[data-ge-motion="off"] *::before,html[data-ge-motion="off"] *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+html{scrollbar-color:var(--ge-primary-dark) var(--ge-bg);scrollbar-width:thin}
+html::-webkit-scrollbar,.ge-drawer-scroll::-webkit-scrollbar,.ge-preview::-webkit-scrollbar,.ge-rail::-webkit-scrollbar{width:9px;height:9px}
+html::-webkit-scrollbar-thumb,.ge-drawer-scroll::-webkit-scrollbar-thumb,.ge-preview::-webkit-scrollbar-thumb,.ge-rail::-webkit-scrollbar-thumb{background:linear-gradient(160deg,var(--ge-primary-dark),#346d63);border-radius:99px;border:2px solid var(--ge-bg)}
+html::-webkit-scrollbar-track,.ge-drawer-scroll::-webkit-scrollbar-track,.ge-preview::-webkit-scrollbar-track,.ge-rail::-webkit-scrollbar-track{background:var(--ge-bg)}
+html,body.ge-body{background:var(--ge-bg)!important;color:var(--ge-text)!important;font-family:Inter,"Segoe UI",system-ui,Arial,sans-serif!important;min-height:100%;margin:0!important}
+body.ge-body{overflow-x:hidden;font-size:13px;line-height:1.5;isolation:isolate}
+body.ge-body *{box-sizing:border-box}
+body.ge-body [hidden]{display:none!important}
+body.ge-body button,body.ge-body select,body.ge-body input{font:inherit}
+body.ge-body button{cursor:pointer}
+body.ge-body :is(button,input,select,a):focus-visible{outline:3px solid var(--ge-primary)!important;outline-offset:3px!important}
+body.ge-body button:disabled{cursor:not-allowed;filter:saturate(.5);opacity:.47}
+.ge-icons{position:absolute;width:0;height:0;overflow:hidden}
+.ge-decor-orb{position:fixed;pointer-events:none;z-index:-1;filter:blur(4px);width:460px;height:460px;border-radius:100%}
+.ge-decor-one{top:-260px;right:-130px;background:radial-gradient(circle,var(--ge-glow),transparent 70%)}
+.ge-decor-two{bottom:-350px;left:-230px;background:radial-gradient(circle,var(--ge-glow),transparent 75%)}
+.ge-body svg:not(.qr-slot svg){height:19px;width:19px;flex:none;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.75}
+.ge-topbar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ge-panel) 92%,transparent);backdrop-filter:blur(22px);border-bottom:1px solid var(--ge-line);box-shadow:0 4px 18px #00000007}
+.ge-topbar-inner{max-width:1740px;margin:auto;height:82px;display:flex;justify-content:space-between;align-items:center;padding:0 clamp(18px,3.1vw,52px);gap:25px}
+.ge-identity{display:flex;align-items:center;gap:15px;min-width:0}
+.ge-symbol{height:46px;width:46px;display:grid;place-content:center;letter-spacing:-.13em;font-size:25px;font-weight:950;line-height:1;background:linear-gradient(145deg,var(--ge-primary-dark),#1d5c4e);border-radius:13px;color:#fff;box-shadow:0 8px 22px var(--ge-glow)}
+.ge-symbol span{color:#b7f3df}
+.ge-identity-copy{display:grid;gap:1px;min-width:0}
+.ge-identity-copy strong{font-size:16px;letter-spacing:.01em;color:var(--ge-text);white-space:nowrap}
+.ge-identity-copy strong span{font-size:10px;color:var(--ge-primary);font-weight:800;letter-spacing:.22em;margin-left:5px}
+.ge-identity-copy small{font-size:10px;color:var(--ge-muted);letter-spacing:.12em;font-weight:730;white-space:nowrap}
+.ge-identity-copy b{color:var(--ge-gold);padding:0 4px}
+.ge-top-actions{display:flex;align-items:center;gap:11px}
+.ge-version{display:flex;align-items:center;gap:9px;color:var(--ge-muted);font-size:11px;white-space:nowrap;padding-right:18px;border-right:1px solid var(--ge-line)}
+.ge-version b{color:var(--ge-primary);margin-left:4px}
+.ge-pulse{display:inline-block;width:7px;height:7px;background:#45dba7;border-radius:50%;box-shadow:0 0 0 5px rgba(69,219,167,.1),0 0 10px #4de4b163}
+.ge-icon-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--ge-line)!important;background:var(--ge-elevated)!important;color:var(--ge-text)!important;border-radius:12px!important;min-height:40px;padding:8px 13px;transition:transform var(--ge-fast),border-color var(--ge-fast),background var(--ge-fast)}
+.ge-icon-button:hover{border-color:var(--ge-primary)!important;transform:translateY(-2px)}
+.ge-operator{max-width:180px;font-weight:740;font-size:11px;overflow:hidden}
+.ge-operator span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ge-app{max-width:1740px;min-height:calc(100vh - 82px);margin:auto;display:grid;grid-template-columns:242px minmax(0,1fr)}
+.ge-rail{border-right:1px solid var(--ge-line);padding:32px 15px 30px 22px;display:flex;flex-direction:column;justify-content:space-between;gap:35px}
+.ge-rail-top{position:sticky;top:114px}
+.ge-rail-label{font-size:10px;font-weight:800;letter-spacing:.15em;color:var(--ge-muted);padding:0 12px;margin:5px 0 18px}
+.ge-rail-link{display:flex;align-items:center;gap:11px;min-height:47px;padding:11px 12px;color:var(--ge-muted);text-decoration:none;border-radius:11px;border:1px solid transparent;font-weight:740;font-size:12px;transition:background var(--ge-fast),color var(--ge-fast),transform var(--ge-fast)}
+.ge-rail-link svg{height:17px;width:17px}
+.ge-rail-link:hover{background:var(--ge-elevated);color:var(--ge-text);transform:translateX(2px)}
+.ge-rail-link.active{background:var(--ge-glow);border-color:color-mix(in srgb,var(--ge-primary) 22%,transparent);color:var(--ge-primary)}
+.ge-rail-link-arrow{margin-left:auto;font-size:20px;opacity:.7}
+.ge-rail-note{padding:18px 15px;background:var(--ge-elevated);border:1px solid var(--ge-line);border-radius:14px;display:grid;gap:9px}
+.ge-rail-note svg{color:var(--ge-primary);width:20px;height:20px}
+.ge-rail-note strong{font-size:12px;color:var(--ge-text)}
+.ge-rail-note span{font-size:11px;color:var(--ge-muted);line-height:1.55}
+.ge-rail-credit{color:var(--ge-muted);font-size:9px;letter-spacing:.09em;line-height:1.9;margin:19px 12px 0}
+.ge-rail-credit b{font-size:12px;color:var(--ge-text)}
+.ge-main{min-width:0;padding:31px clamp(18px,3.1vw,52px) 0}
+.ge-hero{border-radius:24px;border:1px solid color-mix(in srgb,var(--ge-primary) 22%,transparent);background:radial-gradient(ellipse 85% 145% at 95% 50%,var(--ge-glow),transparent 64%),linear-gradient(120deg,var(--ge-panel),var(--ge-elevated));min-height:245px;padding:39px 42px;display:flex;justify-content:space-between;gap:20px;position:relative;overflow:hidden;box-shadow:var(--ge-shadow)}
+.ge-hero:before{content:"";position:absolute;inset:0 0 0 auto;width:40%;background:linear-gradient(90deg,transparent,var(--ge-glow));opacity:.65;pointer-events:none}
+.ge-hero-left{z-index:1;min-width:0}
+.ge-hero-overline{display:flex;align-items:center;gap:8px;color:var(--ge-primary);font-size:10px;letter-spacing:.17em;font-weight:850}
+.ge-overline-dash{width:20px;height:2px;background:var(--ge-gold);border-radius:5px}
+.ge-hero h1{margin:15px 0 10px!important;font-size:clamp(30px,3.3vw,46px)!important;line-height:1.08!important;letter-spacing:-.055em!important;color:var(--ge-text)!important;font-weight:870}
+.ge-hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--ge-primary),#c0e9d5);background-clip:text;-webkit-background-clip:text;color:transparent}
+.ge-hero p{font-size:12px;max-width:610px;line-height:1.8;color:var(--ge-muted);margin:0 0 15px}
+.ge-hero-meta{display:flex;gap:9px;flex-wrap:wrap}
+.ge-hero-meta span{display:flex;gap:6px;align-items:center;background:var(--ge-glow);color:var(--ge-text);padding:5px 10px;border:1px solid var(--ge-line);border-radius:99px;font-size:10px;font-weight:700}
+.ge-hero-meta svg{height:12px!important;width:12px!important;color:var(--ge-primary)}
+.ge-hero-art{position:relative;width:270px;flex:none;display:grid;place-items:center;min-height:190px}
+.ge-orbit{position:absolute;inset:4px 15px;border-radius:50%;border:1px dashed color-mix(in srgb,var(--ge-primary) 26%,transparent)}
+.ge-orbit-1{transform:rotate(27deg) scale(1.15,.75)}
+.ge-orbit-2{transform:rotate(-27deg) scale(.95,.92)}
+.ge-hero-sticker{height:164px;width:145px;border-radius:15px;background:#f9fdfb;color:#18352c;transform:rotate(-8deg);box-shadow:0 15px 42px #0005;display:grid;place-items:center;padding:20px;gap:4px;position:relative;z-index:1;animation:ge-float 6s ease-in-out infinite}
+.ge-hero-sticker:before{content:"";position:absolute;top:0;left:0;right:0;height:10px;border-radius:15px 15px 0 0;background:var(--ge-primary-dark)}
+.ge-faux-qr{display:grid;grid-template-columns:repeat(2,1fr);font-size:41px;line-height:.8;letter-spacing:-9px;font-weight:950;color:#0a3029;transform:scale(.93)}
+.ge-sticker-lines{display:grid;gap:4px;width:100%}.ge-sticker-lines i{height:4px;border-radius:99px;background:#adcfc4}.ge-sticker-lines i:nth-child(2){width:75%}.ge-sticker-lines i:nth-child(3){width:58%}
+.ge-hero-sticker b{font-size:9px;letter-spacing:.16em}
+.ge-hero-art-caption{position:absolute;bottom:1px;font-size:9px;letter-spacing:.13em;color:var(--ge-muted);white-space:nowrap}
+@keyframes ge-float{50%{transform:rotate(-4deg) translateY(-7px)}}
+.ge-section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:33px 0 16px}
+.ge-overline{font-size:10px;font-weight:870;letter-spacing:.13em;color:var(--ge-primary)}
+.ge-section-heading h2{margin:5px 0 0!important;color:var(--ge-text)!important;font-size:22px;letter-spacing:-.035em}
+.ge-live{border:1px solid var(--ge-line);background:var(--ge-panel);border-radius:99px;display:flex;align-items:center;gap:10px;font-size:10px;color:var(--ge-muted);font-weight:800;padding:8px 12px;white-space:nowrap}
+.ge-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:26px}
+.ge-kpi{background:var(--ge-panel);border:1px solid var(--ge-line);border-radius:17px;min-width:0;padding:19px 18px;box-shadow:0 9px 28px #0000000b;transition:transform .22s var(--ge-ease),border-color .22s;position:relative;overflow:hidden}
+.ge-kpi:after{content:"";position:absolute;right:-20px;bottom:-37px;width:100px;height:100px;background:radial-gradient(circle,var(--ge-glow),transparent 70%);pointer-events:none}
+.ge-kpi:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--ge-primary) 34%,var(--ge-line))}
+.ge-kpi-icon{height:34px;width:34px;border-radius:9px;display:grid;place-items:center;margin-bottom:14px}
+.ge-kpi-icon svg{height:17px!important;width:17px!important}.ge-kpi-icon.green{background:rgba(45,201,153,.12);color:#56dcb9}.ge-kpi-icon.blue{background:rgba(93,166,224,.13);color:#81beee}.ge-kpi-icon.amber{background:rgba(214,169,78,.12);color:#dfb569}.ge-kpi-icon.neutral{background:var(--ge-glow);color:var(--ge-primary)}
+.ge-kpi-label{font-size:9px;font-weight:850;letter-spacing:.09em;color:var(--ge-muted);white-space:nowrap}
+.ge-kpi-number{font-size:30px;font-weight:870;color:var(--ge-text);letter-spacing:-.04em;line-height:1.3;margin-top:8px}
+.ge-kpi-size{font-size:22px;white-space:nowrap}.ge-kpi-status{font-size:14px;color:var(--ge-primary);font-weight:800;margin-top:14px;line-height:1.5;min-height:28px}
+.ge-kpi-sub{font-size:10px;color:var(--ge-muted);margin-top:5px}
+.ge-production-grid{display:grid;grid-template-columns:330px minmax(0,1fr);gap:20px;align-items:start}
+.ge-controls,.ge-workspace{min-width:0}
+.ge-card{background:var(--ge-panel);border:1px solid var(--ge-line);border-radius:var(--ge-radius);box-shadow:var(--ge-shadow);overflow:hidden}
+.ge-control-card{position:relative}
+.ge-control-card:before{content:"";height:2px;background:linear-gradient(90deg,var(--ge-primary),var(--ge-gold),transparent);position:absolute;top:0;left:0;right:0}
+.ge-card-head{display:flex;align-items:center;justify-content:space-between;gap:9px;padding:24px 22px 19px;border-bottom:1px solid var(--ge-line)}
+.ge-card-head h3,.ge-preview-heading h3{font-size:19px!important;letter-spacing:-.035em;color:var(--ge-text)!important;margin:6px 0 5px}
+.ge-card-head p,.ge-preview-heading p{font-size:11px;color:var(--ge-muted);margin:0;line-height:1.6}
+.ge-card-head-icon{border:1px solid var(--ge-line);border-radius:10px;height:37px;width:37px;display:grid;place-items:center;color:var(--ge-primary)}
+.ge-card-body{padding:21px 22px 24px}
+.ge-input-label{font-size:10px;color:var(--ge-muted);font-weight:840;letter-spacing:.1em;margin:3px 0 11px}
+.ge-btn{display:inline-flex!important;align-items:center;justify-content:center;gap:10px;border:1px solid transparent!important;min-height:44px!important;border-radius:11px!important;padding:11px 14px!important;font-size:12px!important;font-weight:780!important;transition:transform .18s var(--ge-ease),background .18s,border-color .18s,box-shadow .18s}
+.ge-btn svg{height:17px!important;width:17px!important}
+.ge-btn-wide{width:100%;margin:0 0 9px}.ge-btn-end{margin-left:auto;font-size:17px;line-height:1}
+.ge-btn-primary{color:#fff!important;background:linear-gradient(115deg,var(--ge-primary-dark),#126f5e)!important;border-color:var(--ge-primary-dark)!important;box-shadow:0 9px 22px var(--ge-glow)}
+.ge-btn-primary:hover:not(:disabled){transform:translateY(-2px);filter:brightness(1.15)}
+.ge-btn-outline{color:var(--ge-text)!important;background:var(--ge-elevated)!important;border-color:var(--ge-line)!important}
+.ge-btn-outline:hover:not(:disabled){border-color:var(--ge-primary)!important;transform:translateY(-1px)}
+.ge-btn-print{background:linear-gradient(115deg,var(--ge-primary),var(--ge-primary-dark))!important;color:#062721!important;box-shadow:0 11px 22px var(--ge-glow);font-size:13px!important;min-height:49px!important}
+.ge-btn-print:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 14px 30px var(--ge-glow)}
+.ge-print-chevron{margin-left:auto}.ge-divider{height:1px;background:var(--ge-line);margin:16px 0 19px}
+.ge-field{display:grid;gap:7px;margin-bottom:13px;color:var(--ge-text);font-size:11px;font-weight:720}
+.ge-field span{display:flex;justify-content:space-between;gap:8px}.ge-field small{font-size:10px;color:var(--ge-muted)}
+.ge-field :is(select,input),.ge-field-group input{display:block;width:100%;min-width:0;border-radius:10px!important;border:1px solid var(--ge-line)!important;background:var(--ge-elevated)!important;color:var(--ge-text)!important;min-height:44px;padding:11px 12px;outline-offset:3px;appearance:auto}
+.ge-field input:focus,.ge-field select:focus{border-color:var(--ge-primary)!important;box-shadow:0 0 0 3px var(--ge-glow)}
+.ge-size-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ge-help,.ge-print-footnote{color:var(--ge-muted)!important;font-size:10px!important;line-height:1.55!important;margin:7px 0 0!important}
+.ge-print-footnote{display:flex;gap:8px;align-items:start}.ge-print-footnote svg{height:15px!important;width:15px!important;color:var(--ge-primary)}
+.ge-status-message.message{border:1px solid color-mix(in srgb,var(--ge-primary) 30%,var(--ge-line))!important;border-left:3px solid var(--ge-primary)!important;background:var(--ge-glow)!important;color:var(--ge-text)!important;margin:15px 0 0!important;padding:13px!important;font-size:11px!important;line-height:1.6!important;border-radius:10px!important;overflow-wrap:anywhere}
+.ge-status-message.message.error{border-color:rgba(237,114,106,.4)!important;border-left-color:#e8736d!important;background:rgba(237,114,106,.10)!important}
+.ge-mini-card{display:flex;gap:12px;padding:20px;margin-top:15px;background:linear-gradient(125deg,var(--ge-panel),var(--ge-elevated))}
+.ge-mini-icon{height:36px;width:36px;display:grid;place-items:center;background:var(--ge-glow);color:var(--ge-primary);border-radius:10px;flex:none}
+.ge-mini-card strong{color:var(--ge-text);font-size:12px}.ge-mini-card p{font-size:11px;color:var(--ge-muted);line-height:1.6;margin:6px 0}.ge-text-button{background:none!important;border:0!important;padding:0!important;font-size:11px!important;color:var(--ge-primary)!important;font-weight:820;cursor:pointer;text-align:left}.ge-text-button:hover{text-decoration:underline}
+.ge-preview-card{min-height:590px}.ge-preview-heading{padding:25px 28px 22px;display:flex;justify-content:space-between;align-items:start;gap:12px}.ge-preview-heading h3{font-size:21px!important}
+.ge-count-chip{padding:8px 12px;border-radius:99px;color:var(--ge-primary)!important;background:var(--ge-glow);border:1px solid color-mix(in srgb,var(--ge-primary) 20%,transparent);font-weight:850;font-size:11px;white-space:nowrap}
+.ge-preview-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;background:var(--ge-elevated);border-top:1px solid var(--ge-line);border-bottom:1px solid var(--ge-line);padding:12px 25px}
+.ge-preview-toolbar-left{display:flex;gap:9px;align-items:center;min-width:0}
+.ge-round-icon{width:34px;height:34px;display:grid;place-items:center;color:var(--ge-primary);border:1px solid var(--ge-line);border-radius:10px}
+.ge-preview-toolbar-left strong{display:block;color:var(--ge-text);font-size:11px}.ge-preview-toolbar-left small{display:block;color:var(--ge-muted);font-size:10px;margin-top:2px}
+.ge-zoom{display:flex;align-items:center;gap:9px;min-width:0}.ge-zoom label{color:var(--ge-muted);font-size:10px;font-weight:850}.ge-zoom output{font-size:11px;color:var(--ge-text);font-weight:780;min-width:34px}
+.ge-zoom input{width:88px;accent-color:var(--ge-primary);cursor:pointer}
+.ge-preview-stage{padding:20px;min-height:390px;display:flex;align-items:stretch;justify-content:stretch;background:radial-gradient(circle,var(--ge-glow) 0,transparent 60%),var(--ge-panel)}
+.ge-empty.empty{min-height:346px!important;width:100%;border:1px dashed color-mix(in srgb,var(--ge-primary) 25%,var(--ge-line))!important;background:transparent!important;border-radius:15px!important;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:32px;text-align:center}
+.ge-empty-mark{border:1px solid var(--ge-line);border-radius:18px;width:73px;height:73px;display:grid;place-items:center;background:var(--ge-glow);color:var(--ge-primary);margin-bottom:4px}
+.ge-empty-mark svg{width:30px!important;height:30px!important}
+.ge-empty strong{font-size:17px;color:var(--ge-text);letter-spacing:-.025em}
+.ge-empty p{font-size:12px;color:var(--ge-muted);line-height:1.7;max-width:400px;margin:0}
+.ge-empty-hint{border:1px solid var(--ge-line);padding:7px 10px;border-radius:5px;font-size:9px;letter-spacing:.14em;font-weight:850;color:var(--ge-primary);margin-top:6px}
+.ge-preview.preview{width:100%;min-height:346px;padding:12px!important;overflow:auto!important;max-height:680px;scrollbar-color:var(--ge-primary-dark) var(--ge-panel);scrollbar-width:thin;border:0!important;background:transparent!important;box-shadow:none!important}
+.ge-preview .labels{display:flex!important;flex-wrap:wrap;align-items:flex-start;justify-content:flex-start;gap:16px!important;zoom:var(--ge-zoom)}
+.ge-preview .label{border-radius:0!important;box-shadow:0 16px 35px rgba(0,0,0,.18)!important;transition:box-shadow .18s,transform .18s}
+.ge-preview .label:hover{box-shadow:0 20px 44px rgba(0,0,0,.28)!important;transform:translateY(-2px)}
+.ge-preview-footer{padding:14px 25px;display:flex;gap:20px;justify-content:space-between;align-items:center;border-top:1px solid var(--ge-line);font-size:10px;color:var(--ge-muted)}
+.ge-preview-footer div{display:flex;gap:8px;align-items:center}.ge-preview-footer svg{height:15px!important;width:15px!important;color:var(--ge-primary)}
+.ge-preview-footer>span{font-size:9px;letter-spacing:.05em;white-space:nowrap}
+.ge-detail-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:15px}.ge-detail-card{padding:18px 19px;border:1px solid var(--ge-line);border-radius:14px;background:var(--ge-panel);display:flex;gap:11px}.ge-detail-card svg{color:var(--ge-primary)}.ge-detail-card strong{font-size:11px;color:var(--ge-text)}.ge-detail-card p{font-size:10px;color:var(--ge-muted);margin:6px 0 0;line-height:1.5}
+.ge-footer{margin-top:37px;padding:21px 0 30px;display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--ge-line);font-size:10px;color:var(--ge-muted)}.ge-footer b{color:var(--ge-text)}.ge-footer span{padding-left:5px;color:var(--ge-primary)}
+.ge-drawer-backdrop{position:fixed;inset:0;z-index:70;background:rgba(3,11,12,.72);backdrop-filter:blur(5px)}
+.ge-drawer{position:fixed;inset:0 0 0 auto;z-index:71;width:min(480px,100vw);display:flex;flex-direction:column;background:var(--ge-panel);box-shadow:-25px 0 80px rgba(0,0,0,.38);border-left:1px solid var(--ge-line);animation:ge-slide .25s var(--ge-ease)}
+@keyframes ge-slide{from{transform:translateX(20px);opacity:.7}to{transform:translateX(0);opacity:1}}
+.ge-drawer-header{padding:27px 28px 20px;display:flex;justify-content:space-between;gap:14px;border-bottom:1px solid var(--ge-line)}
+.ge-drawer-header h2{font-size:27px;margin:7px 0 3px!important;color:var(--ge-text)!important;letter-spacing:-.045em}
+.ge-drawer-header p{margin:0;color:var(--ge-muted);font-size:12px}.ge-close-button{width:38px;height:38px;padding:8px;flex:none}
+.ge-drawer-scroll{padding:7px 28px 30px;overflow-y:auto;flex:1;min-height:0;scrollbar-width:thin;scrollbar-color:var(--ge-primary-dark) transparent}
+.ge-settings-section{padding:24px 0;border-bottom:1px solid var(--ge-line)}
+.ge-settings-section h3{display:flex;align-items:center;gap:9px;color:var(--ge-text);font-size:13px;letter-spacing:-.01em;margin:0 0 11px}
+.ge-settings-section h3 svg{height:18px!important;width:18px!important;color:var(--ge-primary)}
+.ge-settings-section>p{color:var(--ge-muted);font-size:11px;line-height:1.6;margin:0 0 13px}
+.ge-settings-section .ge-field{margin-bottom:12px}
+.ge-field-group{display:flex;gap:7px;align-items:center}
+.ge-field-group input{flex:1;min-width:0}.ge-small-button{border:1px solid var(--ge-line)!important;background:var(--ge-elevated)!important;color:var(--ge-text)!important;border-radius:9px!important;padding:10px 12px!important;font-size:10px!important;font-weight:800;min-height:39px}
+.ge-small-button:hover{border-color:var(--ge-primary)!important}
+.ge-danger-outline{color:#e89b95!important}
+.ge-toggle-line{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:12px 0;color:var(--ge-text);font-size:12px;font-weight:740;cursor:pointer}
+.ge-toggle-line small{display:block;font-size:10px;font-weight:450;color:var(--ge-muted);margin-top:4px}
+.ge-toggle-line input{appearance:none;width:39px;height:23px;border-radius:99px;background:color-mix(in srgb,var(--ge-muted) 34%,transparent);border:1px solid var(--ge-line);position:relative;flex:none;cursor:pointer;transition:background .2s}
+.ge-toggle-line input:after{content:"";position:absolute;left:3px;top:3px;width:15px;height:15px;background:#fff;border-radius:50%;transition:transform .2s}
+.ge-toggle-line input:checked{background:var(--ge-primary-dark)}.ge-toggle-line input:checked:after{transform:translateX(16px)}
+.ge-setting-note{font-size:10px;color:var(--ge-muted);background:var(--ge-elevated);border:1px solid var(--ge-line);border-radius:9px;padding:11px;line-height:1.6;margin-top:12px}
+.ge-activity{max-height:255px;overflow:auto;border:1px solid var(--ge-line);border-radius:10px;margin:13px 0}
+.ge-activity-empty{padding:17px;color:var(--ge-muted);font-size:11px;text-align:center}
+.ge-activity-row{padding:10px 12px;border-bottom:1px solid var(--ge-line);display:flex;justify-content:space-between;gap:11px}.ge-activity-row:last-child{border:0}.ge-activity-row strong{display:block;font-size:11px;color:var(--ge-text)}.ge-activity-row small{display:block;font-size:10px;color:var(--ge-muted);margin-top:3px}.ge-activity-row .ge-act-amount{color:var(--ge-primary);font-size:12px;font-weight:800}
+.ge-button-pair{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:13px}
+.ge-shortcut{display:flex;align-items:center;gap:5px;padding:9px 0;border-bottom:1px solid var(--ge-line);font-size:11px;color:var(--ge-muted)}.ge-shortcut span{flex:1}.ge-shortcut kbd{font:700 10px "Segoe UI",sans-serif;min-width:25px;text-align:center;color:var(--ge-text);border:1px solid var(--ge-line);border-radius:5px;padding:5px;background:var(--ge-elevated)}
+.ge-drawer-bottom{padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--ge-elevated);border-top:1px solid var(--ge-line)}
+.ge-drawer-bottom>span{font-size:10px;color:var(--ge-muted)}
+.ge-toast-stack{position:fixed;z-index:100;right:23px;bottom:24px;display:grid;gap:10px;max-width:min(370px,calc(100vw - 32px))}
+.ge-toast{background:var(--ge-elevated);color:var(--ge-text);border:1px solid var(--ge-line);border-left:3px solid var(--ge-primary);box-shadow:var(--ge-shadow);border-radius:10px;padding:13px 15px;display:flex;gap:9px;align-items:start;font-size:11px;line-height:1.5;animation:ge-toast-in .22s var(--ge-ease)}
+.ge-toast svg{color:var(--ge-primary)}.ge-toast.warn{border-left-color:#dcaa5e}.ge-toast.warn svg{color:#dcaa5e}
+@keyframes ge-toast-in{from{transform:translateY(8px);opacity:0}to{transform:translateY(0);opacity:1}}
+html[data-ge-density="compact"] .ge-main{padding-top:19px}html[data-ge-density="compact"] .ge-hero{min-height:205px;padding:27px 32px}html[data-ge-density="compact"] .ge-kpi{padding:13px}html[data-ge-density="compact"] .ge-kpi-icon{margin-bottom:6px}html[data-ge-density="compact"] .ge-kpis{margin-bottom:16px}html[data-ge-density="compact"] .ge-section-heading{margin:22px 0 12px}html[data-ge-density="compact"] .ge-card-body{padding:15px 19px}
+@media(max-width:1350px){.ge-app{grid-template-columns:190px minmax(0,1fr)}.ge-rail{padding:23px 9px}.ge-rail-label{font-size:9px}.ge-main{padding:24px 19px 0}.ge-production-grid{grid-template-columns:300px minmax(0,1fr);gap:14px}.ge-hero-art{width:190px}.ge-kpi{padding:16px}.ge-preview-heading{padding:20px}}
+@media(max-width:1060px){.ge-app{grid-template-columns:1fr}.ge-rail{display:none}.ge-main{max-width:1000px;width:100%;padding:20px 18px 0}.ge-hero{padding:29px}.ge-production-grid{grid-template-columns:300px minmax(0,1fr)}}
+@media(max-width:770px){.ge-topbar-inner{height:auto;min-height:75px;padding:12px 15px}.ge-identity-copy strong{font-size:14px}.ge-identity-copy small{font-size:8px}.ge-version{display:none}.ge-operator{max-width:125px}.ge-operator svg{display:none}.ge-hero-art{display:none}.ge-hero{min-height:0;padding:24px}.ge-hero h1{font-size:32px!important}.ge-hero p{font-size:11px}.ge-kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.ge-production-grid{grid-template-columns:1fr}.ge-preview-card{min-height:510px}.ge-preview-stage{min-height:300px}.ge-empty.empty{min-height:295px!important}.ge-detail-row{grid-template-columns:1fr}.ge-footer{flex-direction:column}.ge-preview-heading{flex-wrap:wrap}.ge-preview-toolbar{padding:11px 14px;flex-wrap:wrap}.ge-preview-footer{padding:12px 14px}.ge-preview-footer>span{display:none}}
+@media(max-width:470px){.ge-main{padding:12px 11px 0}.ge-topbar-inner{gap:7px}.ge-symbol{width:38px;height:38px;font-size:22px}.ge-identity{gap:8px}.ge-identity-copy strong{font-size:12px}.ge-identity-copy strong span{font-size:8px}.ge-identity-copy small{font-size:7px}.ge-top-actions{gap:5px}.ge-operator{max-width:38px;min-width:38px;font-size:0;padding:9px}.ge-operator svg{display:block}.ge-hero{padding:21px 19px;border-radius:17px}.ge-hero h1{font-size:29px!important}.ge-kpi{padding:12px}.ge-kpi-number{font-size:26px}.ge-kpi-status{font-size:12px}.ge-card-head,.ge-card-body{padding:17px}.ge-preview-heading{padding:18px}.ge-preview-stage{padding:9px}.ge-empty.empty{padding:18px}.ge-drawer-header{padding:19px}.ge-drawer-scroll{padding:7px 18px}.ge-drawer-bottom{padding:12px 18px}}
+/* Fidelidade à Zebra: nenhuma skin premium é aplicada na mídia impressa. */
+@media print{.ge-topbar,.ge-rail,.ge-hero,.ge-section-heading,.ge-kpis,.ge-controls,.ge-detail-row,.ge-preview-heading,.ge-preview-toolbar,.ge-preview-footer,.ge-footer,.ge-drawer,.ge-drawer-backdrop,.ge-toast-stack,.ge-decor-orb{display:none!important}.ge-app,.ge-main,.ge-production-grid,.ge-workspace,.ge-preview-card,.ge-preview-stage,.ge-preview{display:block!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:#fff!important;max-height:none!important;min-height:0!important;overflow:visible!important}.ge-preview .labels{display:block!important;zoom:1!important}.ge-preview .label{box-shadow:none!important;transform:none!important}.ge-body{background:#fff!important}}
+/* O gerador antigo redefine o atributo class da mensagem durante a execução. */
+#mensagem.message{border:1px solid color-mix(in srgb,var(--ge-primary) 30%,var(--ge-line))!important;border-left:3px solid var(--ge-primary)!important;background:var(--ge-glow)!important;color:var(--ge-text)!important;margin:15px 0 0!important;padding:13px!important;font-size:11px!important;line-height:1.6!important;border-radius:10px!important;overflow-wrap:anywhere}
+#mensagem.message.error{border-color:rgba(237,114,106,.4)!important;border-left-color:#e8736d!important;background:rgba(237,114,106,.10)!important}
+
+</style>
 </head>
-<body>
-<header class="cktr-header"><div class="cktr-brand"><div class="cktr-wordmark" aria-label="CKTR Serviços"><strong>CKTR</strong><small>SERVIÇOS</small></div><div class="cktr-brand-name"><strong><span>CENTRAL DE ETIQUETAS</span></strong><small>Gestão de identificação e impressão · Desenvolvido por Antonio</small></div></div><div class="cktr-header-right"><span class="cktr-online"><i></i> VERSÃO 2.4</span><div class="theme-control"><label for="tema">Tema</label><select id="tema" aria-label="Aparência do site"><option value="light">Claro</option><option value="dark">Escuro</option><option value="system">Sistema</option></select></div></div></header>
-<main class="cktr-layout"><aside class="cktr-sidebar"><div class="sidebar-title"><span class="sidebar-kicker">CENTRAL DE CONTROLE</span><h2>Configurações</h2><p>Prepare o lote, ajuste as dimensões e envie para impressão.</p></div>
-  <div class="section-heading"><div><span class="section-kicker">01 / CONFIGURAÇÃO</span><h2>Preparar impressão</h2></div><span class="section-note">Importação e exportação de lote</span></div>
-  <section class="panel" aria-label="Planilha e impressão">
-    <div class="controls">
-      <div class="actions">
-        <button class="btn" id="exportar" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M4 17v4h16v-4"/></svg>Exportar planilha</button>
-        <button class="btn primary" id="importar" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m-4 4 4-4 4 4M4 17v4h16v-4"/></svg>Importar planilha</button>
-        <button class="btn" id="imprimir" type="button" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8V3h12v5M6 17H3V8h18v9h-3M6 14h12v7H6zm11-3h1"/></svg>Imprimir etiquetas</button>
-        <input type="file" id="arquivo" accept=".csv,text/csv" hidden>
-      </div>
-      <div class="print-settings"><label for="papel">Formato de impressão</label><select id="papel"><option value="90x90">Etiqueta 90 × 90 mm (padrão)</option><option value="70x70">Etiqueta 70 × 70 mm</option><option value="100x100">Etiqueta 100 × 100 mm</option><option value="a4p">A4 · Retrato (210 × 297 mm)</option><option value="a4l">A4 · Paisagem (297 × 210 mm)</option><option value="a3p">A3 · Retrato (297 × 420 mm)</option><option value="a3l">A3 · Paisagem (420 × 297 mm)</option><option value="custom">Personalizado</option></select><div class="dimensions" aria-label="Medidas da etiqueta"><label>Largura (mm)<input type="number" id="largura" value="90" min="30" max="420" step="0.1" inputmode="decimal"></label><label>Altura (mm)<input type="number" id="altura" value="90" min="30" max="420" step="0.1" inputmode="decimal"></label></div><div class="setting-help" id="paper-help">Para etiquetas térmicas, configure o mesmo tamanho no driver da impressora.</div></div></div><p class="hint">Impressão: escala 100%, margens zero, sem cabeçalhos e rodapés. A4/A3 exigem impressora compatível.</p>
-    <div id="mensagem" class="message" role="status" aria-live="polite" hidden></div>
-  </section>
-  </aside><section class="cktr-content"><div class="workspace-top"><div><span class="sidebar-kicker">PAINEL DE PRODUÇÃO</span><h1>Prévia de etiquetas</h1><p>Confira os materiais recebidos pelo Power Apps ou importados por CSV. Cada QR Code mostra o planejador responsável e o acesso ao Power Apps.</p></div><div class="workspace-stats"><div><span>ETIQUETAS</span><strong id="metric-total">00</strong></div><div><span>MATERIAIS</span><strong id="metric-items">00</strong></div><div><span>FORMATO</span><strong id="metric-size">90 × 90</strong></div></div></div>
-  <div class="results-bar"><div><span class="section-kicker">02 / CONFERÊNCIA</span><h2>Prévia do lote</h2></div><span id="total" class="total-chip" aria-live="polite">0 etiquetas</span></div>
-  <div id="vazio" class="empty"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h10l8 8-9 9-9-9z"/><circle cx="8" cy="9" r="1.35"/></svg><p>Importe um CSV ou envie materiais pelo Power Apps para ver as etiquetas. A tabela de saldos é enviada apenas pelo Power Apps.</p></div>
-  <div id="previa" class="preview" hidden><div class="labels" id="etiquetas"></div></div>
-  <div id="print-block">Abra um lote válido e confira a prévia antes de imprimir.</div>
-</section></main>
-<footer class="cktr-footer"><span>© CKTR SERVIÇOS · CENTRAL DE ETIQUETAS</span><span>Conceito e desenvolvimento · <a class="cktr-feedback" href="mailto:c0702896@vale.com?subject=FEEDBACK%20CENTRAL%20DE%20ETIQUETAS&body=Prezado%20Antonio%2C%0A%0A" title="Enviar feedback para Antonio">Antonio</a></span></footer>
+<body class="ge-body">
+<svg class="ge-icons" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-printer" viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v5a2 2 0 0 1-2 2h-2"/><path d="M6 15h12v7H6zM18 12h.01"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V3m0 0L7 8m5-5 5 5M4 16v5h16v-5"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v13m0 0 5-5m-5 5-5-5M4 16v5h16v-5"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.89l.06.06-2 2-.06-.06a1.7 1.7 0 0 0-1.89-.34 1.7 1.7 0 0 0-1.04 1.58V21h-2.8v-.09a1.7 1.7 0 0 0-1.04-1.58 1.7 1.7 0 0 0-1.89.34l-.06.06-2-2 .06-.06A1.7 1.7 0 0 0 7.42 15a1.7 1.7 0 0 0-1.58-1.04H5v-2.8h.09a1.7 1.7 0 0 0 1.58-1.04 1.7 1.7 0 0 0-.34-1.89l-.06-.06 2-2 .06.06a1.7 1.7 0 0 0 1.89.34 1.7 1.7 0 0 0 1.04-1.58V5h2.8v.09a1.7 1.7 0 0 0 1.04 1.58 1.7 1.7 0 0 0 1.89-.34l.06-.06 2 2-.06.06a1.7 1.7 0 0 0-.34 1.89 1.7 1.7 0 0 0 1.58 1.04H21v2.8h-.09A1.7 1.7 0 0 0 19.4 15Z"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h9m4 0h3M4 17h3m4 0h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 2 9 4v6c0 5-4 8.5-9 10-5-1.5-9-5-9-10V6l9-4Z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 2 7 7 2-7 2-2 7-2-7-7-2 7-2 2-7Z"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M20 13 11 22 2 13V2h11l7 7v4Z"/><circle cx="7" cy="7" r="1.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5 19 19M19 5 5 19"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-7-7 7 7-7 7"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v.1"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 3-8 8-8s8 3 8 8"/></symbol>
+  <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H3v5m0-5 6 6m7-6h5v5m0-5-6 6M3 16v5h5m-5 0 6-6m12 1v5h-5m5 0-6-6"/></symbol>
+</svg>
+<div class="ge-decor-orb ge-decor-one" aria-hidden="true"></div>
+<div class="ge-decor-orb ge-decor-two" aria-hidden="true"></div>
+<header class="ge-topbar">
+  <div class="ge-topbar-inner">
+    <div class="ge-identity">
+      <div class="ge-symbol" aria-hidden="true">C<span>K</span></div>
+      <div class="ge-identity-copy"><strong>CKTR <span>SERVIÇOS</span></strong><small>GESTÃO DE ETIQUETAS <b>•</b> CENTRAL OPERACIONAL</small></div>
+    </div>
+    <div class="ge-top-actions">
+      <div class="ge-version"><span class="ge-pulse"></span><span>Sistema local <b>v3.0</b></span></div>
+      <button id="ge-operator-button" class="ge-operator ge-icon-button" type="button" title="Alternar operador neste navegador"><svg><use href="#i-user"/></svg><span id="ge-operator-label">Operador local</span></button>
+      <button id="ge-open-settings" class="ge-icon-button ge-top-settings" type="button" aria-label="Abrir preferências" title="Preferências (Alt + S)"><svg><use href="#i-settings"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="ge-app">
+  <aside class="ge-rail" aria-label="Navegação e contexto">
+    <div class="ge-rail-top"><div class="ge-rail-label">WORKSPACE / PRODUÇÃO</div><a class="ge-rail-link active" href="#ge-production"><svg><use href="#i-grid"/></svg><span>Visão de produção</span><span class="ge-rail-link-arrow">›</span></a><a class="ge-rail-link" href="#ge-tools"><svg><use href="#i-sliders"/></svg><span>Preparar lote</span><span class="ge-rail-link-arrow">›</span></a><a class="ge-rail-link" href="#ge-preview-block"><svg><use href="#i-tag"/></svg><span>Prévia de impressão</span><span class="ge-rail-link-arrow">›</span></a></div>
+    <div class="ge-rail-bottom"><div class="ge-rail-note"><svg><use href="#i-shield"/></svg><strong>Processamento local</strong><span>Os dados do lote são preparados no navegador. Nenhum banco externo é necessário para este painel.</span></div><div class="ge-rail-credit">CONCEITO & DESENVOLVIMENTO<br><b>Antonio</b></div></div>
+  </aside>
+  <main class="ge-main" id="ge-production">
+    <section class="ge-hero" aria-labelledby="ge-headline">
+      <div class="ge-hero-left"><div class="ge-hero-overline"><span class="ge-overline-dash"></span> CENTRAL DE IDENTIFICAÇÃO DE MATERIAIS</div><h1 id="ge-headline">A sua operação,<br><em>mais inteligente.</em></h1><p>Prepare etiquetas com precisão, confira cada detalhe e envie seus lotes para impressão com uma experiência mais fluida e profissional.</p><div class="ge-hero-meta"><span><svg><use href="#i-check"/></svg> Importação CSV</span><span><svg><use href="#i-check"/></svg> Power Apps</span><span><svg><use href="#i-check"/></svg> QR Code local</span></div></div>
+      <div class="ge-hero-art" aria-hidden="true"><div class="ge-orbit ge-orbit-1"></div><div class="ge-orbit ge-orbit-2"></div><div class="ge-hero-sticker"><div class="ge-faux-qr"><span>◈</span><span>▦</span><span>◈</span><span>▥</span></div><div class="ge-sticker-lines"><i></i><i></i><i></i></div><b>CKTR / WMS</b></div><div class="ge-hero-art-caption">IDENTIFIQUE · CONFIRA · IMPRIMA</div></div>
+    </section>
+    <div class="ge-section-heading"><div><div class="ge-overline">VISÃO GERAL · EM TEMPO REAL</div><h2>Visão da produção</h2></div><div class="ge-live"><span class="ge-pulse"></span> AMBIENTE PRONTO</div></div>
+    <section class="ge-kpis" aria-label="Indicadores do lote">
+      <article class="ge-kpi"><div class="ge-kpi-icon green"><svg><use href="#i-tag"/></svg></div><div class="ge-kpi-label">ETIQUETAS</div><div class="ge-kpi-number" id="metric-total">00</div><div class="ge-kpi-sub">unidades no lote</div></article>
+      <article class="ge-kpi"><div class="ge-kpi-icon blue"><svg><use href="#i-grid"/></svg></div><div class="ge-kpi-label">MATERIAIS</div><div class="ge-kpi-number" id="metric-items">00</div><div class="ge-kpi-sub">registros recebidos</div></article>
+      <article class="ge-kpi"><div class="ge-kpi-icon amber"><svg><use href="#i-expand"/></svg></div><div class="ge-kpi-label">DIMENSÕES</div><div class="ge-kpi-number ge-kpi-size" id="metric-size">90 × 90</div><div class="ge-kpi-sub">milímetros</div></article>
+      <article class="ge-kpi"><div class="ge-kpi-icon neutral"><svg><use href="#i-shield"/></svg></div><div class="ge-kpi-label">STATUS DO LOTE</div><div class="ge-kpi-status" id="ge-readiness">Aguardando dados</div><div class="ge-kpi-sub" id="ge-source">Origem: não definida</div></article>
+    </section>
+    <div class="ge-production-grid">
+      <aside class="ge-controls" id="ge-tools">
+        <div class="ge-card ge-control-card"><div class="ge-card-head"><div><div class="ge-overline">01 / PREPARAÇÃO</div><h3>Central de controle</h3><p>Dados, layout e impressão em um só lugar.</p></div><div class="ge-card-head-icon"><svg><use href="#i-sliders"/></svg></div></div>
+          <div class="ge-card-body">
+            <div class="ge-input-label">GERENCIAMENTO DO LOTE</div>
+            <button class="ge-btn ge-btn-primary ge-btn-wide" type="button" id="importar"><svg><use href="#i-upload"/></svg>Importar planilha CSV <span class="ge-btn-end">↗</span></button>
+            <button class="ge-btn ge-btn-outline ge-btn-wide" type="button" id="exportar"><svg><use href="#i-download"/></svg>Baixar modelo CSV</button>
+            <input type="file" id="arquivo" accept=".csv,text/csv" hidden>
+            <div class="ge-divider"></div>
+            <div class="ge-input-label">FORMATO DA IMPRESSÃO</div>
+            <label class="ge-field"><span>Modelo de etiqueta</span><select id="papel"><option value="90x90">Etiqueta 90 × 90 mm — padrão</option><option value="70x70">Etiqueta 70 × 70 mm</option><option value="100x100">Etiqueta 100 × 100 mm</option><option value="a4p">A4 · Retrato (210 × 297 mm)</option><option value="a4l">A4 · Paisagem (297 × 210 mm)</option><option value="a3p">A3 · Retrato (297 × 420 mm)</option><option value="a3l">A3 · Paisagem (420 × 297 mm)</option><option value="custom">Personalizado</option></select></label>
+            <div class="ge-size-fields"><label class="ge-field"><span>Largura <small>mm</small></span><input id="largura" type="number" value="90" min="30" max="420" step="0.1" inputmode="decimal"></label><label class="ge-field"><span>Altura <small>mm</small></span><input id="altura" type="number" value="90" min="30" max="420" step="0.1" inputmode="decimal"></label></div>
+            <p id="paper-help" class="ge-help">Para etiquetas térmicas, configure o mesmo tamanho no driver da impressora.</p>
+            <div class="ge-divider"></div>
+            <button class="ge-btn ge-btn-print ge-btn-wide" type="button" id="imprimir" disabled><svg><use href="#i-printer"/></svg>Imprimir lote <svg class="ge-print-chevron"><use href="#i-arrow"/></svg></button>
+            <p class="ge-print-footnote"><svg><use href="#i-info"/></svg> No diálogo de impressão, use escala 100%, margens zero e sem cabeçalhos/rodapés.</p>
+            <div id="mensagem" class="ge-status-message message" role="status" aria-live="polite" hidden></div>
+          </div>
+        </div>
+        <div class="ge-card ge-mini-card"><div class="ge-mini-icon"><svg><use href="#i-spark"/></svg></div><div><strong>Configurações pessoais</strong><p>Tema, densidade, tamanho padrão e perfis ficam salvos neste navegador.</p><button class="ge-text-button" type="button" id="ge-configure-button">Personalizar experiência <span>→</span></button></div></div>
+      </aside>
+      <section class="ge-workspace" id="ge-preview-block" aria-label="Pré-visualização de etiquetas">
+        <div class="ge-card ge-preview-card"><div class="ge-preview-heading"><div><div class="ge-overline">02 / CONFERÊNCIA VISUAL</div><h3>Prévia de etiquetas</h3><p>Confira os materiais enviados pelo Power Apps ou importados do CSV antes de imprimir.</p></div><span class="ge-count-chip" id="total">0 etiquetas</span></div>
+          <div class="ge-preview-toolbar"><div class="ge-preview-toolbar-left"><div class="ge-round-icon"><svg><use href="#i-shield"/></svg></div><div><strong>Área de conferência</strong><small>Dimensões proporcionais à configuração selecionada</small></div></div><div class="ge-zoom"><label for="ge-zoom-range">Zoom</label><input id="ge-zoom-range" type="range" min="60" max="130" step="10" value="100" aria-label="Zoom da prévia"><output id="ge-zoom-value">100%</output></div></div>
+          <div class="ge-preview-stage"><div id="vazio" class="ge-empty empty"><div class="ge-empty-mark"><svg><use href="#i-tag"/></svg></div><strong>Seu lote começa aqui</strong><p>Importe uma planilha CSV ou abra esta página pelo Power Apps para visualizar as etiquetas. Nenhuma configuração de impressão será alterada automaticamente.</p><div class="ge-empty-hint">PRONTO PARA RECEBER MATERIAIS</div></div><div id="previa" class="preview ge-preview" hidden><div class="labels" id="etiquetas"></div></div></div>
+          <div class="ge-preview-footer"><div><svg><use href="#i-info"/></svg><span>O QR Code contém um link para a ficha digital e o planejador.</span></div><span>PRÉ-VISUALIZAÇÃO · NÃO É COMPROVANTE DE IMPRESSÃO</span></div>
+        </div>
+        <div class="ge-detail-row"><div class="ge-detail-card"><svg><use href="#i-shield"/></svg><div><strong>Proteção do arquivo original</strong><p>Impressão isolada, mantendo o tamanho físico e sem imprimir a interface.</p></div></div><div class="ge-detail-card"><svg><use href="#i-clock"/></svg><div><strong>Operação por etapas</strong><p>Receber → conferir → preparar impressão. O resultado físico depende da Zebra.</p></div></div></div>
+      </section>
+    </div>
+    <footer class="ge-footer"><div><b>CKTR SERVIÇOS</b> · GESTÃO DE ETIQUETAS <span>v3.0 Premium</span></div><div>Conceito e desenvolvimento · <b>Antonio</b></div></footer>
+  </main>
+</div>
+<div id="print-block" hidden>Abra um lote válido e confira a prévia antes de imprimir.</div>
+<div class="ge-drawer-backdrop" id="ge-drawer-backdrop" hidden></div>
+<aside class="ge-drawer" id="ge-settings-drawer" role="dialog" aria-modal="true" aria-labelledby="ge-settings-title" hidden>
+  <div class="ge-drawer-header"><div><div class="ge-overline">SEU ESPAÇO DE TRABALHO</div><h2 id="ge-settings-title">Preferências</h2><p>Personalize o sistema neste navegador.</p></div><button type="button" class="ge-icon-button ge-close-button" id="ge-settings-close" aria-label="Fechar preferências"><svg><use href="#i-close"/></svg></button></div>
+  <div class="ge-drawer-scroll">
+    <section class="ge-settings-section"><h3><svg><use href="#i-user"/></svg> Operador local</h3><p>Perfis são preferências deste navegador; não funcionam como autenticação de acesso.</p><label class="ge-field"><span>Perfil em uso</span><select id="ge-profile-select"></select></label><div class="ge-field-group"><input id="ge-new-profile" maxlength="36" placeholder="Nome do novo perfil" aria-label="Nome do novo perfil"><button type="button" class="ge-small-button" id="ge-add-profile">Criar perfil</button></div></section>
+    <section class="ge-settings-section"><h3><svg><use href="#i-spark"/></svg> Aparência do sistema</h3><label class="ge-field"><span>Tema de cores</span><select id="tema" aria-label="Aparência do site"><option value="dark">Escuro</option><option value="light">Claro</option><option value="system">Seguir sistema</option></select></label><label class="ge-field"><span>Cor de destaque</span><select id="ge-accent"><option value="emerald">Esmeralda CKTR</option><option value="blue">Azul corporativo</option><option value="violet">Violeta elegante</option></select></label><label class="ge-field"><span>Espaçamento da interface</span><select id="ge-density"><option value="comfortable">Confortável</option><option value="compact">Compacto</option></select></label><label class="ge-toggle-line"><span>Microanimações <small>Transições e efeitos sutis</small></span><input id="ge-motion" type="checkbox" checked></label></section>
+    <section class="ge-settings-section"><h3><svg><use href="#i-printer"/></svg> Impressão e conferência</h3><label class="ge-toggle-line"><span>Confirmar antes de imprimir <small>Exibe quantidade e medidas do lote</small></span><input id="ge-confirm-print" type="checkbox"></label><label class="ge-toggle-line"><span>Lembrar dimensões <small>Salva o tamanho selecionado</small></span><input id="ge-remember-size" type="checkbox" checked></label><div class="ge-setting-note">O site não altera automaticamente a velocidade, a temperatura ou a seleção da impressora.</div></section>
+    <section class="ge-settings-section"><h3><svg><use href="#i-clock"/></svg> Histórico de operações locais</h3><p id="ge-history-description">São salvos apenas data, quantidade e formato de tentativas de impressão — nunca códigos SAP, descrições ou nomes de planejadores.</p><div class="ge-activity" id="ge-activity"><div class="ge-activity-empty">Nenhuma atividade registrada neste navegador.</div></div><div class="ge-button-pair"><button type="button" id="ge-export-settings" class="ge-small-button">Exportar preferências</button><button type="button" id="ge-clear-activity" class="ge-small-button ge-danger-outline">Limpar histórico</button></div><input id="ge-import-settings-file" type="file" accept=".json,application/json" hidden><button type="button" id="ge-import-settings" class="ge-text-button">Importar preferências de outro navegador →</button></section>
+    <section class="ge-settings-section"><h3><svg><use href="#i-info"/></svg> Atalhos rápidos</h3><div class="ge-shortcut"><span>Abrir preferências</span><kbd>Alt</kbd> + <kbd>S</kbd></div><div class="ge-shortcut"><span>Importar CSV</span><kbd>Alt</kbd> + <kbd>I</kbd></div><div class="ge-shortcut"><span>Ir à prévia</span><kbd>Alt</kbd> + <kbd>P</kbd></div></section>
+  </div><div class="ge-drawer-bottom"><span id="ge-saved-state">Preferências locais</span><button class="ge-btn ge-btn-primary" type="button" id="ge-settings-done">Concluir <svg><use href="#i-check"/></svg></button></div>
+</aside>
+<div class="ge-toast-stack" id="ge-toast-stack" aria-live="polite" aria-relevant="additions"></div>
+
 <script>
 /*!
 
@@ -1950,6 +2225,230 @@ try{
   }else msg('Importe um CSV ou abra este site pelo Power Apps.');
 }catch(e){msg('Não foi possível receber os dados do Power Apps: '+e.message,true);}sizing();
 })();
+</script>
+<script id="cktr-premium-controller">
+(() => {
+  'use strict';
+  // Camada independente: não reimplementa nem intercepta o gerador QR/CSV/Zebra.
+  const el = id => document.getElementById(id);
+  const KEY = 'CKTR_GESTAO_ETIQUETAS_PREMIUM_V3';
+  const allowedFormats = new Set(['90x90','70x70','100x100','a4p','a4l','a3p','a3l','custom']);
+  const $html = document.documentElement;
+  let storageOK = true, inApply = false, lastFocus = null, observedFrom = location.hash.includes('dados=') || location.search.includes('dados=') ? 'Power Apps' : 'Nenhuma';
+  const clone = x => JSON.parse(JSON.stringify(x));
+  const defaults = () => ({theme:'dark',accent:'emerald',density:'comfortable',motion:true,zoom:100,confirmPrint:false,rememberSize:true,format:'90x90',w:90,h:90});
+  const defaultStore = () => ({version:1,active:'local',profiles:[{id:'local',name:'Operador local',prefs:defaults()}],activity:[]});
+  function sanitizePrefs(raw) {
+    const obj = raw && typeof raw === 'object' ? raw : {};
+    const res = defaults();
+    if (['dark','light','system'].includes(obj.theme)) res.theme = obj.theme;
+    if (['emerald','blue','violet'].includes(obj.accent)) res.accent=obj.accent;
+    if (['comfortable','compact'].includes(obj.density)) res.density=obj.density;
+    if (typeof obj.motion==='boolean') res.motion=obj.motion;
+    if (typeof obj.confirmPrint==='boolean') res.confirmPrint=obj.confirmPrint;
+    if (typeof obj.rememberSize==='boolean') res.rememberSize=obj.rememberSize;
+    if (Number.isInteger(+obj.zoom)) res.zoom=Math.max(60,Math.min(130,Math.round(+obj.zoom/10)*10));
+    if (allowedFormats.has(obj.format)) res.format=obj.format;
+    if (Number.isFinite(+obj.w)) res.w=Math.max(30,Math.min(420,+obj.w));
+    if (Number.isFinite(+obj.h)) res.h=Math.max(30,Math.min(420,+obj.h));
+    return res;
+  }
+  function validateStore(raw) {
+    if (!raw || typeof raw !== 'object' || !Array.isArray(raw.profiles)) return defaultStore();
+    const ids = new Set(), profiles=[];
+    for (const p of raw.profiles.slice(0,20)) {
+      if (!p || typeof p !== 'object') continue;
+      const id=String(p.id||'').replace(/[^a-z0-9_-]/gi,'').slice(0,48);
+      const name=String(p.name||'').trim().slice(0,36);
+      if (!id || !name || ids.has(id)) continue;
+      ids.add(id);profiles.push({id,name,prefs:sanitizePrefs(p.prefs)});
+    }
+    if (!profiles.length) return defaultStore();
+    const activity=Array.isArray(raw.activity)?raw.activity.slice(-80).filter(x=>x && typeof x==='object' && ids.has(String(x.profile)) && Number.isFinite(Number(x.count))).map(x=>({profile:String(x.profile),when:String(x.when||''),count:Math.max(0,Math.min(500,Number(x.count))),size:String(x.size||'').slice(0,30)})):[];
+    const active=profiles.some(p=>p.id===raw.active)?raw.active:profiles[0].id;
+    return {version:1,active,profiles,activity};
+  }
+  let store=defaultStore();
+  try {const raw=localStorage.getItem(KEY); if(raw)store=validateStore(JSON.parse(raw));}
+  catch (error) {storageOK=false;console.warn('CKTR: preferências indisponíveis',error);}
+  const active=()=>store.profiles.find(p=>p.id===store.active)||store.profiles[0];
+  const prefs=()=>active().prefs;
+  let saveTimer=0;
+  function save(){
+    try {localStorage.setItem(KEY,JSON.stringify(store));storageOK=true;el('ge-saved-state').textContent='Salvo neste navegador';}
+    catch(error){storageOK=false;el('ge-saved-state').textContent='Armazenamento indisponível';}
+  }
+  function queueSave(){clearTimeout(saveTimer);saveTimer=setTimeout(save,180);}
+  function svg(icon){return `<svg aria-hidden="true"><use href="#${icon}"></use></svg>`;}
+  function toast(message,warning=false){
+    const container=el('ge-toast-stack');const box=document.createElement('div');
+    box.className='ge-toast'+(warning?' warn':'');box.innerHTML=svg(warning?'i-info':'i-check');
+    const span=document.createElement('span');span.textContent=message;box.appendChild(span);container.append(box);
+    while(container.children.length>3)container.firstElementChild.remove();
+    setTimeout(()=>box.remove(),4400);
+  }
+  function renderProfiles(){
+    const select=el('ge-profile-select');select.replaceChildren();
+    store.profiles.forEach(p=>select.add(new Option(p.name,p.id)));
+    select.value=store.active;el('ge-operator-label').textContent=active().name;
+  }
+  function applyPreferences(){
+    inApply=true;
+    const p=prefs();
+    el('ge-operator-label').textContent=active().name;
+    $html.setAttribute('data-ge-accent',p.accent);
+    $html.setAttribute('data-ge-density',p.density);
+    $html.setAttribute('data-ge-motion',p.motion?'on':'off');
+    el('ge-accent').value=p.accent;
+    el('ge-density').value=p.density;
+    el('ge-motion').checked=p.motion;
+    el('ge-confirm-print').checked=p.confirmPrint;
+    el('ge-remember-size').checked=p.rememberSize;
+    el('ge-zoom-range').value=String(p.zoom);
+    setZoom(p.zoom);
+    el('tema').value=p.theme;
+    el('tema').dispatchEvent(new Event('change', {bubbles:true}));
+    if(p.rememberSize){
+      el('papel').value=p.format;
+      if(p.format!=='custom')el('papel').dispatchEvent(new Event('change',{bubbles:true}));
+      else {el('largura').value=String(p.w);el('altura').value=String(p.h);el('largura').dispatchEvent(new Event('input',{bubbles:true}));}
+    } else {el('papel').value='90x90';el('papel').dispatchEvent(new Event('change',{bubbles:true}));}
+    inApply=false;
+    refreshStatus();
+  }
+  function setZoom(value){const v=Math.max(60,Math.min(130,Number(value)||100));el('ge-zoom-value').textContent=v+'%';el('ge-zoom-range').value=v;$html.style.setProperty('--ge-zoom',String(v/100));}
+  function syncPrefs(){
+    if(inApply)return;
+    const p=prefs();
+    p.theme=el('tema').value;p.accent=el('ge-accent').value;p.density=el('ge-density').value;p.motion=el('ge-motion').checked;
+    p.confirmPrint=el('ge-confirm-print').checked;p.rememberSize=el('ge-remember-size').checked;
+    p.zoom=Number(el('ge-zoom-range').value);
+    p.format=el('papel').value;p.w=Number(el('largura').value)||90;p.h=Number(el('altura').value)||90;
+    $html.setAttribute('data-ge-accent',p.accent);$html.setAttribute('data-ge-density',p.density);$html.setAttribute('data-ge-motion',p.motion?'on':'off');
+    setZoom(p.zoom);queueSave();
+  }
+  function openDrawer(){
+    lastFocus=document.activeElement;
+    el('ge-drawer-backdrop').hidden=false;el('ge-settings-drawer').hidden=false;
+    document.body.style.overflow='hidden';renderProfiles();renderActivity();
+    setTimeout(()=>el('ge-settings-close').focus(),20);
+  }
+  function closeDrawer(){
+    el('ge-settings-drawer').hidden=true;el('ge-drawer-backdrop').hidden=true;document.body.style.overflow='';
+    if(lastFocus && typeof lastFocus.focus==='function')lastFocus.focus();
+  }
+  function renderActivity(){
+    const list=store.activity.filter(x=>x.profile===store.active).slice(-12).reverse();
+    const root=el('ge-activity');root.replaceChildren();
+    if(!list.length){const e=document.createElement('div');e.className='ge-activity-empty';e.textContent='Nenhuma tentativa de impressão registrada para este perfil.';root.append(e);return;}
+    for(const a of list){
+      const row=document.createElement('div');row.className='ge-activity-row';
+      const left=document.createElement('div'),name=document.createElement('strong'),date=document.createElement('small');
+      name.textContent='Abertura da impressão';date.textContent=(a.when?new Date(a.when).toLocaleString('pt-BR'):'Data indisponível')+' · '+a.size;
+      left.append(name,date);
+      const amount=document.createElement('span');amount.className='ge-act-amount';amount.textContent=a.count+' etiq.';
+      row.append(left,amount);root.append(row);
+    }
+  }
+  function recordPrintAttempt(count,size){
+    store.activity.push({profile:store.active,when:new Date().toISOString(),count,size});
+    store.activity=store.activity.slice(-80);save();renderActivity();
+  }
+  function refreshStatus(){
+    const count=el('etiquetas').querySelectorAll('.label').length;
+    const button=el('imprimir');
+    const ready=count>0 && !button.disabled;
+    el('ge-readiness').textContent=ready?'Pronto para conferir':count?'Preparando prévia':'Aguardando dados';
+    el('ge-source').textContent='Origem: '+observedFrom;
+    el('ge-zoom-range').disabled=!count;
+  }
+  function exportPrefs(){
+    // Exporta apenas preferências e histórico de contagens, nunca informações dos materiais.
+    const data=JSON.stringify({sistema:'GESTAO_ETIQUETAS_CKTR',tipo:'PREFERENCIAS_LOCAIS',data:new Date().toISOString(),config:store},null,2);
+    const url=URL.createObjectURL(new Blob([data],{type:'application/json;charset=utf-8'}));
+    const link=document.createElement('a');link.href=url;link.download='CKTR_PREFERENCIAS.json';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);
+    toast('Preferências exportadas em JSON.');
+  }
+  async function importPrefs(file){
+    if(!file)return;
+    try{
+      if(file.size>250000)throw new Error('Arquivo muito grande para preferências.');
+      const obj=JSON.parse(await file.text());
+      if(obj.sistema!=='GESTAO_ETIQUETAS_CKTR'||obj.tipo!=='PREFERENCIAS_LOCAIS'||!obj.config||!Array.isArray(obj.config.profiles))throw new Error('Esse arquivo não é um backup de preferências CKTR.');
+      if(!confirm('Importar preferências substituirá os perfis e o histórico de contagens salvos neste navegador. Continuar?'))return;
+      store=validateStore(obj.config);save();renderProfiles();applyPreferences();renderActivity();toast('Preferências importadas com sucesso.');
+    }catch(e){toast('Não foi possível importar: '+e.message,true);}
+  }
+  el('ge-open-settings').addEventListener('click',openDrawer);
+  el('ge-configure-button').addEventListener('click',openDrawer);
+  el('ge-operator-button').addEventListener('click',openDrawer);
+  el('ge-settings-close').addEventListener('click',closeDrawer);
+  el('ge-settings-done').addEventListener('click',()=>{save();closeDrawer();toast('Suas preferências foram salvas.');});
+  el('ge-drawer-backdrop').addEventListener('click',closeDrawer);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape' && !el('ge-settings-drawer').hidden)closeDrawer();
+    if(e.altKey&&!e.ctrlKey&&!e.metaKey){
+      const key=e.key.toLowerCase();
+      if(key==='s'){e.preventDefault();openDrawer();}
+      if(key==='i'){e.preventDefault();if(el('ge-settings-drawer').hidden)el('importar').click();}
+      if(key==='p'){e.preventDefault();closeDrawer();el('ge-preview-block').scrollIntoView({behavior:'smooth'});}
+    }
+    if(e.key==='Tab'&&!el('ge-settings-drawer').hidden){
+      const d=el('ge-settings-drawer');const f=Array.from(d.querySelectorAll('button:not(:disabled),input:not(:disabled),select:not(:disabled),a[href]')).filter(x=>x.offsetParent!==null);
+      if(f.length){const first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}
+    }
+  });
+  el('ge-profile-select').addEventListener('change',e=>{
+    if(!store.profiles.some(p=>p.id===e.target.value))return;
+    store.active=e.target.value;save();applyPreferences();renderProfiles();renderActivity();toast('Perfil local alterado.');
+  });
+  el('ge-add-profile').addEventListener('click',()=>{
+    const name=el('ge-new-profile').value.trim().replace(/\s+/g,' ').slice(0,36);
+    if(name.length<2){toast('Informe um nome de perfil com ao menos 2 caracteres.',true);return;}
+    if(store.profiles.length>=20){toast('O limite é de 20 perfis neste navegador.',true);return;}
+    const id='p'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+    store.profiles.push({id,name,prefs:defaults()});store.active=id;el('ge-new-profile').value='';save();renderProfiles();applyPreferences();renderActivity();toast('Perfil '+name+' criado neste navegador.');
+  });
+  for(const id of ['ge-accent','ge-density','ge-motion','ge-confirm-print','ge-remember-size'])el(id).addEventListener('change',syncPrefs);
+  el('tema').addEventListener('change',syncPrefs);
+  el('ge-zoom-range').addEventListener('input',syncPrefs);
+  el('papel').addEventListener('change',syncPrefs);
+  el('largura').addEventListener('change',syncPrefs);
+  el('altura').addEventListener('change',syncPrefs);
+  el('ge-export-settings').addEventListener('click',exportPrefs);
+  el('ge-import-settings').addEventListener('click',()=>el('ge-import-settings-file').click());
+  el('ge-import-settings-file').addEventListener('change',e=>{importPrefs(e.target.files[0]);e.target.value='';});
+  el('ge-clear-activity').addEventListener('click',()=>{
+    if(!confirm('Limpar apenas o histórico de contagens deste perfil local?'))return;
+    store.activity=store.activity.filter(x=>x.profile!==store.active);save();renderActivity();toast('Histórico local limpo.');
+  });
+  // Requer confirmação ANTES do evento de impressão original.
+  el('imprimir').addEventListener('click',e=>{
+    if(!prefs().confirmPrint)return;
+    const count=el('etiquetas').querySelectorAll('.label').length;
+    const size=el('largura').value+' × '+el('altura').value+' mm';
+    if(!confirm('Preparar '+count+' etiqueta(s) de '+size+' para impressão?\n\nA confirmação física ocorre na impressora, não no site.')){
+      e.preventDefault();e.stopImmediatePropagation();toast('Impressão cancelada.');
+    }
+  },true);
+  el('imprimir').addEventListener('click',()=>{
+    const count=el('etiquetas').querySelectorAll('.label').length;
+    if(!count)return;
+    recordPrintAttempt(count,el('largura').value+' × '+el('altura').value+' mm');
+  });
+  el('arquivo').addEventListener('change',e=>{if(e.target.files.length)observedFrom='CSV';});
+  let observerT=0;
+  const observer=new MutationObserver(()=>{clearTimeout(observerT);observerT=setTimeout(refreshStatus,70);});
+  observer.observe(el('etiquetas'),{childList:true,subtree:false});
+  const origStatus=el('mensagem');
+  const statusObserver=new MutationObserver(()=>{clearTimeout(observerT);observerT=setTimeout(refreshStatus,70);});
+  statusObserver.observe(origStatus,{childList:true,attributes:true,attributeFilter:['class','hidden']});
+  const sw=new MutationObserver(refreshStatus);sw.observe(el('imprimir'),{attributes:true,attributeFilter:['disabled']});
+  // Recarrega o estado salvo. O gerador original mantém controle exclusivo do lote e do QR Code.
+  renderProfiles();applyPreferences();renderActivity();refreshStatus();
+  if(!storageOK)toast('Este navegador bloqueou o armazenamento local; preferências podem não persistir.',true);
+})();
+
 </script>
 </body>
 </html>
