@@ -1,500 +1,222 @@
-
 <!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#075b55">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
-
-<title>Requisitar material | CKTR</title>
-
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<title>Ficha Digital | CKTR GESTÃO DE ETIQUETAS</title>
 <style>
-:root{
-  font-family:Inter,'Segoe UI',Arial,sans-serif;
-  color-scheme:light;
-  --green:#08766d;
-  --dark:#073d38;
-  --ink:#193b35;
-  --muted:#647b73
-}
-
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  min-height:100vh;
-  background:#f1f7f4;
-  color:var(--ink)
-}
-
-header{
-  background:linear-gradient(118deg,#06443e,#087d70);
-  padding:36px 18px 118px;
-  text-align:center;
-  color:#fff
-}
-
-.brand{
-  font-size:12px;
-  letter-spacing:.2em;
-  font-weight:900;
-  color:#b7f1d9
-}
-
-header h1{
-  font-size:clamp(27px,5vw,39px);
-  margin:17px 0 10px;
-  letter-spacing:-.04em
-}
-
-header p{
-  font-size:13px;
-  line-height:1.65;
-  color:#d1eee4;
-  margin:0
-}
-
-main{
-  max-width:620px;
-  margin:-77px auto 0;
-  padding:0 18px 40px;
-  position:relative
-}
-
-.card{
-  background:white;
-  border:1px solid #dbeae3;
-  border-radius:18px;
-  box-shadow:0 18px 38px #0d4d3c17;
-  padding:30px
-}
-
-.kicker{
-  font-size:11px;
-  letter-spacing:.15em;
-  font-weight:900;
-  color:#087d70
-}
-
-.icone{
-  display:grid;
-  place-items:center;
-  width:50px;
-  height:50px;
-  background:#e5f6ed;
-  color:#086b58;
-  border-radius:15px;
-  font-size:24px;
-  margin-bottom:20px
-}
-
-h2{
-  font-size:24px;
-  letter-spacing:-.03em;
-  margin:11px 0 18px
-}
-
-.planejadores{
-  display:grid;
-  gap:9px;
-  margin-bottom:22px
-}
-
-.nome{
-  border:1px solid #d8e9df;
-  background:#f6fbf8;
-  border-radius:11px;
-  padding:14px 16px;
-  font-size:16px;
-  font-weight:800;
-  overflow-wrap:anywhere
-}
-
-.nome.vazio{
-  color:#8b8270;
-  background:#fffbf1;
-  border-color:#efe2bf
-}
-
-.separador{
-  border:0;
-  border-top:1px solid #e0eae4;
-  margin:23px 0
-}
-
-.descricao{
-  font-size:13px;
-  color:var(--muted);
-  line-height:1.75;
-  margin:0 0 20px
-}
-
-.botao{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  text-decoration:none;
-  text-align:center;
-  background:linear-gradient(110deg,#075a52,#098a78);
-  color:white;
-  border-radius:12px;
-  padding:17px 14px;
-  font-size:14px;
-  font-weight:900;
-  box-shadow:0 7px 15px #087d7024
-}
-
-.botao:hover,
-.botao:focus-visible{
-  background:#064b44;
-  outline-offset:4px
-}
-
-.aviso{
-  font-size:11px;
-  line-height:1.6;
-  color:#71847b;
-  margin:15px 0 0;
-  text-align:center
-}
-
-footer{
-  text-align:center;
-  color:#83998e;
-  font-size:11px;
-  letter-spacing:.07em;
-  padding:8px 18px 30px
-}
-
-@media(max-width:520px){
-  header{padding-top:27px}
-  .card{padding:22px}
-  h2{font-size:22px}
-}
+:root{color-scheme:light;--teal:#08766d;--dark:#073d38;--text:#173a36;--muted:#647d77;--line:#dbe8e2;font-family:Inter,'Segoe UI',Arial,sans-serif}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#f2f7f4;color:var(--text)}
+header{background:linear-gradient(125deg,#063f3c,#08786a);color:white;text-align:center;padding:30px 15px 92px}
+.brand{font-size:13px;font-weight:900;letter-spacing:.16em;color:#c5f1e1}
+header h1{font-size:clamp(25px,5vw,34px);margin:12px 0 8px;letter-spacing:-.045em}
+header p{margin:0;color:#d0e9df;font-size:13px}
+main{max-width:880px;margin:-61px auto 0;padding:0 16px 26px;position:relative}
+.card{background:white;border:1px solid #deebe4;box-shadow:0 8px 26px #0d413010;border-radius:16px;padding:25px;margin-bottom:17px}
+.tag{display:inline-block;font-size:10px;font-weight:850;letter-spacing:.13em;color:#08766d;background:#e8f5ef;padding:7px 10px;border-radius:30px;margin-bottom:15px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:start}
+.kicker{font-size:11px;color:var(--muted);font-weight:800;letter-spacing:.055em;text-transform:uppercase;margin-bottom:6px}
+.codigo{font-size:clamp(23px,5vw,34px);font-weight:900;overflow-wrap:anywhere;color:#123e37}
+.id{font-size:17px;font-weight:850;color:#285e52;text-align:right}
+hr{border:0;border-top:1px solid var(--line);margin:20px 0}
+.descricao{font-size:15px;font-weight:650;line-height:1.65;overflow-wrap:anywhere}
+.local{border-top:1px solid var(--line);padding-top:15px;margin-top:17px}.local strong{font-size:15px}
+h2{font-size:20px;letter-spacing:-.025em;margin:0 0 13px}
+.saldo-meta{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:4px 0 15px}
+.saldo-count{font-size:12px;font-weight:850;color:#086b5e;background:#e6f5ed;border-radius:30px;padding:8px 12px}
+.saldo-hora{font-size:12px;color:var(--muted)}
+.saldo-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin:17px 0 20px}
+.metric{border:1px solid #dceae4;background:#f6faf8;padding:16px;border-radius:13px;display:grid;gap:6px}
+.metric span{font-size:11px;color:#53796d;font-weight:750}
+.metric strong{font-size:clamp(23px,5vw,31px);color:#075e51;font-weight:900;overflow-wrap:anywhere}
+.section{border-top:1px solid var(--line);padding-top:17px;margin-top:17px}
+.section h3{font-size:13px;letter-spacing:.02em;margin:0 0 10px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{display:inline-flex;align-items:center;border:1px solid #cde3d8;border-radius:9px;background:#f4faf7;color:#1d5b4d;padding:9px 12px;font-size:12px;font-weight:750;overflow-wrap:anywhere;max-width:100%}
+.pill.classif{background:#eaf3ff;border-color:#d5e5f8;color:#22517b}
+.plan-list{display:grid;gap:9px}
+.plan{border:1px solid #e0ebe5;border-radius:10px;padding:11px 13px;background:#fbfdfc;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.plan strong{font-size:13px}.plan small{color:#617a70;font-size:11px}
+.vazio{color:#7b8f85;font-size:12px;line-height:1.6}
+.info{font-size:12px;color:#647c70;line-height:1.65;margin:12px 0 0}
+.instrucao{font-size:14px;color:#4c675c;line-height:1.75}
+.passos{display:grid;gap:11px;margin-top:17px}.passo{display:flex;gap:12px;align-items:flex-start;color:#38594d;font-size:13px;line-height:1.5}
+.numero{width:25px;height:25px;border-radius:50%;display:grid;place-items:center;flex:none;background:#e2f3ea;color:#08766d;font-weight:900}
+.botao{display:block;text-decoration:none;text-align:center;background:#08766d;color:white;padding:15px;border-radius:10px;font-weight:800;margin-top:23px}
+.botao:hover,.botao:focus-visible{background:#07594f}
+.erro{color:#943d36;background:#fff0ee;border-color:#f3d5d0;line-height:1.7}
+footer{text-align:center;color:#81978c;font-size:11px;padding:10px 15px 30px;letter-spacing:.07em}
+@media(max-width:540px){header{padding-bottom:78px}.card{padding:18px}.grid{gap:10px}.id{font-size:12px}.saldo-grid{gap:8px}.metric{padding:13px}}
 </style>
 </head>
-
 <body>
-
-<header>
-  <div class="brand">CKTR SERVIÇOS · GMP</div>
-  <h1>Requisição de material</h1>
-  <p>
-    Consulte o planejador responsável e acesse
-    o aplicativo de requisição.
-  </p>
-</header>
-
+<header><div class="brand">CKTR SERVIÇOS</div><h1>Ficha Digital do Material</h1><p>Identificação e resumo consolidado de estoque</p></header>
 <main>
-  <section class="card" aria-label="Orientações para requisição">
-
-    <div class="icone" aria-hidden="true">▤</div>
-
-    <div class="kicker">
-      RESPONSÁVEL PELO PLANEJAMENTO
-    </div>
-
-    <h2>Planejador responsável</h2>
-
-    <div
-      class="planejadores"
-      id="planejadores"
-      aria-live="polite"
-    >
-      <div class="nome vazio">Carregando...</div>
-    </div>
-
-    <hr class="separador">
-
-    <p class="descricao">
-      Para consultar as informações atualizadas
-      e solicitar o material, abra o aplicativo GMP
-      com sua conta corporativa.
-    </p>
-
-    <a
-      class="botao"
-      id="abrirPowerApps"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      ABRIR POWER APPS
-      <span aria-hidden="true">↗</span>
-    </a>
-
-    <p class="aviso">
-      O acesso ao aplicativo depende das permissões
-      da sua conta. Este QR Code não exibe saldos,
-      códigos, OM, pedidos ou reservas.
-    </p>
-
+  <div class="card" id="carregamento" role="status" aria-live="polite">Carregando informações do material...</div>
+  <section id="conteudo" hidden>
+    <article class="card">
+      <span class="tag">MATERIAL IDENTIFICADO</span>
+      <div class="grid">
+        <div><div class="kicker" id="tipoCodigo">CÓDIGO SAP</div><div class="codigo" id="codigo">—</div></div>
+        <div><div class="kicker">ID</div><div class="id" id="idMaterial">—</div></div>
+      </div>
+      <hr>
+      <div class="kicker">DESCRIÇÃO DO MATERIAL</div><div class="descricao" id="descricao">—</div>
+      <div class="local" id="blocoLocal" hidden><div class="kicker">ENDEREÇO INFORMADO</div><strong id="localizacao"></strong></div>
+    </article>
+    <article class="card">
+      <span class="tag">ESTOQUE / GMP</span><h2>Saldo consolidado do material</h2>
+      <div class="saldo-meta"><span class="saldo-count" id="saldoContagem">—</span><span class="saldo-hora" id="saldoHorario"></span></div>
+      <div class="saldo-grid">
+        <div class="metric"><span>SALDO TOTAL</span><strong id="saldoTotal">—</strong></div>
+        <div class="metric"><span>REGISTROS DE SALDO</span><strong id="saldoRegistros">—</strong></div>
+      </div>
+      <div class="section"><h3>Classificação</h3><div id="classificacoes" class="pills"></div></div>
+      <div class="section"><h3>Códigos de requisição no GMP</h3><div id="requisicoes" class="pills"></div></div>
+      <div class="section"><h3>Planejadores responsáveis</h3><div id="planejadores" class="plan-list"></div></div>
+      <p class="info">Resumo capturado quando a etiqueta foi gerada no Power Apps. Os valores não são atualizados automaticamente após a impressão.</p>
+    </article>
+    <article class="card">
+      <span class="tag">ORIENTAÇÃO DE REQUISIÇÃO</span><h2>Como requisitar este material?</h2>
+      <div class="instrucao" id="orientacao"></div>
+      <div class="passos">
+        <div class="passo"><span class="numero">1</span><span>Entre no aplicativo interno GMP.</span></div>
+        <div class="passo"><span class="numero">2</span><span>Localize o material pelo código SAP ou identificador.</span></div>
+        <div class="passo"><span class="numero">3</span><span>Consulte o saldo atualizado e as requisições no GMP.</span></div>
+        <div class="passo"><span class="numero">4</span><span>Realize a requisição conforme o procedimento interno.</span></div>
+      </div>
+      <a class="botao" id="botaoGMP" target="_blank" rel="noopener noreferrer" hidden>Acessar sistema GMP</a>
+    </article>
   </section>
 </main>
-
-<footer>
-  CKTR SERVIÇOS · CENTRAL DE ETIQUETAS
-</footer>
-
+<footer>CKTR SERVIÇOS · CENTRAL DE ETIQUETAS</footer>
 <script>
 'use strict';
-
-// ==========================================
-// CKTR | LINK OFICIAL DO POWER APPS
-// ==========================================
-
-const POWERAPPS_URL =
-  'https://apps.powerapps.com/play/e/default-7893571b-6c2c-4cef-b4da-7d4b266a0626/a/b92c9e4c-d087-4eab-a810-0657857e19c5?tenantId=7893571b-6c2c-4cef-b4da-7d4b266a0626&hint=1c6c957c-f761-4cf1-8e24-521d4380711d&skipMobileRedirect=1&source=sharebutton&sourcetime=1794687950787';
-
-document.getElementById('abrirPowerApps').href =
-  POWERAPPS_URL;
-
-
-// ==========================================
-// CKTR | NORMALIZAR NOMES DOS PLANEJADORES
-// ==========================================
-
-function nomesDoPayload(v){
-
-  const nomes=[];
-
-  function add(x){
-
-    if(x===null || x===undefined){
-      return;
-    }
-
-    if(Array.isArray(x)){
-
-      for(const parte of x){
-
-        if(Array.isArray(parte)){
-          add(parte[0]);
-        }else{
-          add(parte);
-        }
-
-      }
-
-    }else if(typeof x==='object'){
-
-      add(
-        x.Nome ??
-        x.nome ??
-        x.Value ??
-        x.Título ??
-        x.PLANEJADOR
-      );
-
-    }else{
-
-      for(const nome of String(x).split(/\s*\|\s*/)){
-
-        if(nome.trim()){
-          nomes.push(nome.trim());
-        }
-
-      }
-
-    }
-
-  }
-
-  add(v);
-
-  const vistos=new Set();
-
-  return nomes.filter(n=>{
-
-    const k=n.toLocaleUpperCase('pt-BR');
-
-    if(vistos.has(k)){
-      return false;
-    }
-
-    vistos.add(k);
-    return true;
-
-  });
-
+const params=new URLSearchParams(location.search);
+const $=id=>document.getElementById(id);
+const GMP_URL='https://apps.powerapps.com/play/e/default-7893571b-6c2c-4cef-b4da-7d4b266a0626/a/b92c9e4c-d087-4eab-a810-0657857e19c5?tenantId=7893571b-6c2c-4cef-b4da-7d4b266a0626&hint=1c6c957c-f761-4cf1-8e24-521d4380711d&sourcetime=1695380334247&source=portal&skipMobileRedirect=1';
+const orientacaoPadrao='Para requisitar este item, acesse o sistema GMP, aplicativo interno de controle de materiais. Nele, você poderá consultar a quantidade individual e consolidada de cada item e, posteriormente, realizar a requisição do material desejado.';
+function texto(v,padrao='Não informado'){return v===null||v===undefined||!String(v).trim()?padrao:String(v).trim();}
+function numero(v){if(typeof v==='number')return Number.isFinite(v)?v:0;const t=String(v??'').trim();const n=Number(t.includes(',')?t.replace(/\./g,'').replace(',','.'):t);return Number.isFinite(n)?n:0;}
+function unico(a){const vistos=new Set();return a.map(x=>texto(x,'')).filter(x=>{const k=x.toLocaleUpperCase('pt-BR');if(!x||vistos.has(k))return false;vistos.add(k);return true;});}
+function classificar(v){
+  if(v==null)return '';
+  if(typeof v==='object')return classificar(v.Value??v.value??v.Valor??'');
+  const s=String(v).trim();
+  if((s.startsWith('{')&&s.endsWith('}'))||(s.startsWith('"')&&s.endsWith('"'))){try{return classificar(JSON.parse(s))}catch(e){}}
+  const norm=s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase();
+  if(norm.includes('INVESTIMENTO'))return 'INVESTIMENTO';
+  if(norm.includes('CUSTEIO'))return 'CUSTEIO';
+  return '';
 }
-
-
-// ==========================================
-// CKTR | EXTRAIR PLANEJADORES
-// ==========================================
-
-function extrairPlanejadores(obj){
-
-  if(!obj || typeof obj!=='object'){
-    return [];
+function resumirLegado(linhas){
+  if(!Array.isArray(linhas))return null;
+  let total=0;const req=[],plan=[],classes=[];
+  for(const l of linhas){
+    const v=Array.isArray(l)?l:[l.OM,l.PEDIDO,l.RESERVA,l.SALDO_ITEM??l.QUANTIDADE,l.PLANEJADOR,l.GERENCIA,l.NUM_DOC_E,l.CLASSIFICACAO];
+    total+=numero(v[3]);req.push(v[6]);if(texto(v[4],''))plan.push([texto(v[4]),texto(v[5],'')]);classes.push(v[7]);
   }
-
-  let dados =
-    obj.p ??
-    obj.Planejadores ??
-    obj.PLANEJADORES ??
-    obj.Planejador ??
-    obj.PLANEJADOR;
-
-  if(dados===undefined){
-
-    const r =
-      obj.r ??
-      obj.ResumoSaldo ??
-      obj.RESUMO_SALDO;
-
-    dados = Array.isArray(r)
-      ? r[3]
-      : (r?.Planejadores ?? r?.planejadores);
-
-  }
-
-  return nomesDoPayload(dados);
-
+  return [total,linhas.length,req,plan,classes];
 }
-
-
-// ==========================================
-// CKTR | COMPATIBILIDADE COM QR ANTIGO
-// ==========================================
-
+function normalizarResumo(r){
+  if(!r)return null;
+  if(Array.isArray(r)){
+    return {total:numero(r[0]),registros:Math.max(0,Number(r[1])||0),requisicoes:unico(Array.isArray(r[2])?r[2]:[]),planejadores:Array.isArray(r[3])?r[3]:[],classificacoes:unico((Array.isArray(r[4])?r[4]:[]).map(classificar)).filter(Boolean)};
+  }
+  const req=Array.isArray(r.Requisicoes)?r.Requisicoes.map(x=>x?.Codigo??x?.Value??x):[];
+  const plan=Array.isArray(r.Planejadores)?r.Planejadores.map(x=>[x?.Nome??'',x?.Gerencia??'']):[];
+  const cls=Array.isArray(r.Classificacoes)?r.Classificacoes.map(x=>classificar(x?.Valor??x?.Value??x)):[];
+  return {total:numero(r.SaldoTotal??r.Total),registros:Math.max(0,Number(r.QuantidadeRegistros??r.Registros)||0),requisicoes:unico(req),planejadores:plan,classificacoes:unico(cls).filter(Boolean)};
+}
+function vazio(container,mensagem){const p=document.createElement('span');p.className='vazio';p.textContent=mensagem;container.append(p)}
+function desenharResumo(obj){
+  const resumo=normalizarResumo(obj.r??obj.ResumoSaldo)??normalizarResumo(resumirLegado(obj.s??obj.Saldos));
+  const data=obj.a??obj.CapturadoEm;
+  let horario='';if(data){const dt=new Date(data);if(!Number.isNaN(dt.getTime()))horario='Capturado em '+new Intl.DateTimeFormat('pt-BR',{dateStyle:'short',timeStyle:'short'}).format(dt)}
+  $('saldoHorario').textContent=horario;
+  const req=$('requisicoes'),cls=$('classificacoes'),plan=$('planejadores');req.replaceChildren();cls.replaceChildren();plan.replaceChildren();
+  if(!resumo){
+    $('saldoContagem').textContent='Saldo não enviado';
+    $('saldoTotal').textContent='—';$('saldoRegistros').textContent='—';
+    vazio(req,'Nenhum saldo detalhado foi incluído neste pacote.');
+    vazio(cls,'Não informado');
+    const informados=texto(obj.p??obj.Planejador,'').split(' | ').map(x=>x.trim()).filter(Boolean);
+    if(informados.length){for(const nome of [...new Set(informados)]){
+      const el=document.createElement('div');el.className='plan';
+      const st=document.createElement('strong');st.textContent=nome;el.append(st);plan.append(el);
+    }}else vazio(plan,'Nenhum planejador informado.');
+    return;
+  }
+  $('saldoContagem').textContent=resumo.registros===0?'Sem saldo cadastrado':'Saldo identificado';
+  $('saldoTotal').textContent=new Intl.NumberFormat('pt-BR',{maximumFractionDigits:3}).format(resumo.total);
+  $('saldoRegistros').textContent=String(resumo.registros);
+  if(resumo.classificacoes.length){for(const v of resumo.classificacoes){const el=document.createElement('span');el.className='pill classif';el.textContent=v;cls.append(el)}}else vazio(cls,'Nenhuma classificação INVESTIMENTO/CUSTEIO informada.');
+  if(resumo.requisicoes.length){for(const v of resumo.requisicoes){const el=document.createElement('span');el.className='pill';el.textContent=v;req.append(el)}}else vazio(req,'Nenhum código de requisição informado.');
+  const vistos=new Set();let totalPlan=0;
+  for(const p of resumo.planejadores){
+    const nome=texto(Array.isArray(p)?p[0]:p?.Nome,'');const ger=texto(Array.isArray(p)?p[1]:p?.Gerencia,'');
+    const chave=(nome+'|'+ger).toLocaleUpperCase('pt-BR');if(!nome||vistos.has(chave))continue;vistos.add(chave);totalPlan++;
+    const el=document.createElement('div');el.className='plan';const strong=document.createElement('strong');strong.textContent=nome;el.append(strong);
+    if(ger){const small=document.createElement('small');small.textContent='Gerência: '+ger;el.append(small)}plan.append(el);
+  }
+  if(!totalPlan){
+    const informados=texto(obj.p??obj.Planejador,'').split(' | ').map(x=>x.trim()).filter(Boolean);
+    if(informados.length){for(const nome of [...new Set(informados)]){
+      const el=document.createElement('div');el.className='plan';
+      const st=document.createElement('strong');st.textContent=nome;el.append(st);plan.append(el);
+    }}else vazio(plan,'Nenhum planejador informado.');
+  }
+}
+function mostrarErro(mensagem){$('carregamento').className='card erro';$('carregamento').textContent=mensagem;$('carregamento').hidden=false;$('conteudo').hidden=true}
+function ficha(obj){
+  if(!obj||typeof obj!=='object'||Array.isArray(obj))throw Error('Dados do material inválidos.');
+  const id=obj.i??obj.ID??obj.id;
+  const codigo=obj.c??obj.CodigoSAP??obj.Codigo??obj.Titulo??obj['Título']??obj.Codigo_Fornecedor;
+  const tipo=texto(obj.t??obj.TipoCodigo,'SAP').toUpperCase();
+  const descricao=obj.d??obj.Descricao??obj.Descricao_Item;
+  const local=obj.l??obj.Localizacao;
+  $('idMaterial').textContent=texto(id);$('codigo').textContent=texto(codigo);
+  $('tipoCodigo').textContent=tipo==='PN'?'PART NUMBER':'CÓDIGO SAP';
+  $('descricao').textContent=texto(descricao);
+  $('blocoLocal').hidden=!texto(local,'');$('localizacao').textContent=texto(local,'');
+  desenharResumo(obj);
+  $('orientacao').textContent=texto(obj.Orientacao,orientacaoPadrao);
+  $('botaoGMP').href=GMP_URL;$('botaoGMP').hidden=false;
+  $('carregamento').hidden=true;$('conteudo').hidden=false;
+  document.title='Material '+texto(codigo,String(id||''))+' | CKTR';
+}
 function decodificarBase64Url(s){
-
-  if(!/^[A-Za-z0-9_-]+$/.test(s)){
-    throw Error('QR inválido');
-  }
-
-  const n=s
-    .replace(/-/g,'+')
-    .replace(/_/g,'/');
-
-  const b=atob(
-    n+'='.repeat((4-n.length%4)%4)
-  );
-
-  return Uint8Array.from(
-    b,
-    c=>c.charCodeAt(0)
-  );
-
+  if(!/^[A-Za-z0-9_-]+$/.test(s))throw Error('Código QR inválido.');
+  const normal=s.replace(/-/g,'+').replace(/_/g,'/');
+  const bin=atob(normal+'='.repeat((4-normal.length%4)%4));
+  return Uint8Array.from(bin,c=>c.charCodeAt(0));
 }
-
-
-async function carregarAntigo(z){
-
-  if(typeof DecompressionStream!=='function'){
-    return [];
-  }
-
-  const fluxo=new Blob([
-    decodificarBase64Url(z)
-  ])
-  .stream()
-  .pipeThrough(
-    new DecompressionStream('deflate')
-  );
-
-  const conteudo=await new Response(fluxo).text();
-
-  if(conteudo.length>30000){
-    throw Error('Ficha muito extensa');
-  }
-
-  return extrairPlanejadores(
-    JSON.parse(conteudo)
-  );
-
+async function lerCompactado(z){
+  if(typeof DecompressionStream!=='function')throw Error('Este navegador não suporta a leitura da ficha compactada. Atualize o navegador do celular.');
+  const bytes=decodificarBase64Url(z);
+  const fluxo=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('deflate'));
+  const json=await new Response(fluxo).text();
+  if(json.length>30000)throw Error('Dados da ficha muito extensos.');
+  return JSON.parse(json);
 }
-
-
-// ==========================================
-// CKTR | CARREGAR DADOS DO QR CODE
-// ==========================================
-
 async function iniciar(){
-
-  const hash=new URLSearchParams(
-    location.hash.replace(/^#/,'')
-  );
-
-  const query=new URLSearchParams(
-    location.search
-  );
-
-  let nomes=[];
-
   try{
-
-    // QR novo: nome(s) no fragmento da URL.
-    // Compatibilidade com QR antigo ?z= e ?dados=.
-
-    const p =
-      hash.get('p') ??
-      query.get('p');
-
-    if(p!==null){
-
-      nomes=nomesDoPayload(p);
-
-    }else if(query.has('z')){
-
-      nomes=await carregarAntigo(
-        query.get('z')
-      );
-
-    }else if(query.has('dados')){
-
-      nomes=extrairPlanejadores(
-        JSON.parse(query.get('dados'))
-      );
-
-    }
-
-  }catch(e){
-
-    nomes=[];
-
-  }
-
-  const destino=document.getElementById(
-    'planejadores'
-  );
-
-  destino.replaceChildren();
-
-  if(!nomes.length){
-
-    const el=document.createElement('div');
-
-    el.className='nome vazio';
-
-    el.textContent='Planejador não informado';
-
-    destino.append(el);
-
-  }else{
-
-    for(const nome of nomes){
-
-      const el=document.createElement('div');
-
-      el.className='nome';
-
-      el.textContent=nome;
-
-      destino.append(el);
-
-    }
-
-  }
-
+    let obj;
+    const z=params.get('z'),dados=params.get('dados'),id=params.get('id');
+    if(z)obj=await lerCompactado(z);
+    else if(dados)obj=JSON.parse(dados);
+    else if(id&&/^\d+$/.test(id)){
+      const resposta=await fetch('./materiais/'+id+'.json',{cache:'no-store'});
+      if(!resposta.ok)throw Error('A ficha deste material ainda não foi publicada.');
+      obj=await resposta.json();
+    }else throw Error('Nenhum material informado. Escaneie o QR Code de uma etiqueta válida.');
+    ficha(obj);
+  }catch(e){mostrarErro('Não foi possível abrir a ficha digital: '+(e.message||'Erro desconhecido.'))}
 }
-
 iniciar();
-
 </script>
-
 </body>
 </html>
