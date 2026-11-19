@@ -233,6 +233,71 @@ html[data-theme="dark"] .cktr-header{background:var(--cktr-card)!important}
 @media(max-width:740px){.cktr-wordmark{min-width:90px}.cktr-wordmark strong{font-size:29px}.cktr-wordmark small{font-size:8px}.cktr-brand{gap:9px}}
 @media print{.cktr-wordmark{display:none!important}}
 </style>
+<style id="cktr-manual-ui">
+.cktr-manual{background:linear-gradient(145deg,#0f2a22,#10221e);border:1px solid #31574a;border-radius:13px;padding:15px;margin:0 0 17px;color:#e5f8ef}
+.cktr-manual-heading{display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:12px}
+.cktr-manual-heading span{font-size:9px;letter-spacing:.07em;font-weight:800;color:#c9b2fa;background:#302940;padding:5px 7px;border-radius:6px}
+.cktr-manual p{font-size:11px;line-height:1.5;color:#a9c8be;margin:9px 0 12px}
+.cktr-manual-fields{display:grid;grid-template-columns:1fr;gap:9px}
+.cktr-manual-fields label{display:grid;gap:5px;font-size:10px;font-weight:800;color:#bad9ce}
+.cktr-manual-fields input,.cktr-manual-fields select,.cktr-manual-fields textarea{width:100%;border:1px solid #34584e;background:#081d18;color:#f2fbf6;padding:9px 10px;border-radius:8px;outline-offset:2px;resize:vertical;font-size:12px}
+.cktr-manual-buttons{display:flex;gap:7px;margin-top:13px;flex-wrap:wrap}
+.cktr-manual-buttons button{border:1px solid #568d7a;border-radius:8px;padding:10px 12px;background:#1b745e;color:white;font-size:11px;font-weight:800;flex:1;min-width:105px}
+.cktr-manual-buttons button+button{background:#17372d;border-color:#355748}
+.cktr-manual-buttons button:hover{filter:brightness(1.12)}
+.cktr-manual p.cktr-manual-note{font-size:10px;color:#97b7ab;margin-bottom:0}
+html[data-theme="light"] .cktr-manual{background:#e7f4ed;border-color:#b5d8ca;color:#16372c}
+html[data-theme="light"] .cktr-manual p,html[data-theme="light"] .cktr-manual-fields label{color:#315f4b}
+html[data-theme="light"] .cktr-manual-fields :is(input,textarea,select){background:white;color:#153e30;border-color:#a2cab9}
+@media print{.cktr-manual{display:none!important}}
+</style>
+<style id="cktr-preview-fixed-v42">
+/* Prévia permanece na tela durante a rolagem dos controles. A área impressa não é alterada. */
+@media screen {
+  .ge-production-grid {align-items:stretch!important;}
+  .ge-workspace {align-self:stretch!important;min-width:0;display:flex;flex-direction:column;}
+  .ge-preview-card {
+    position:sticky!important;top:96px;z-index:8;
+    display:flex;flex-direction:column;
+    height:min(690px,calc(100dvh - 112px));
+    min-height:320px!important;max-height:calc(100dvh - 112px);
+    overflow:hidden;
+    box-shadow:0 16px 44px rgba(0,0,0,.25);
+  }
+  .ge-preview-heading{flex:none;padding:16px 22px 12px!important;}
+  .ge-preview-heading h3{margin:4px 0!important;}
+  .ge-preview-toolbar{flex:none;padding:9px 20px!important;}
+  .ge-preview-stage{flex:1;min-height:0!important;overflow:hidden;padding:12px!important;}
+  .ge-preview.preview{flex:1;min-width:0;min-height:0!important;height:100%;max-height:none!important;overflow:auto!important;overscroll-behavior:contain;}
+  .ge-preview-footer{flex:none;padding:10px 20px!important;}
+  .ge-preview-stage .ge-empty{min-height:0!important;height:100%;width:100%;}
+  .ge-preview-ident{display:inline-flex;gap:6px;align-items:center;color:#bca5ec;font-size:9px;font-weight:850;letter-spacing:.11em;}
+  .ge-preview-heading .ge-count-chip{flex:none;}
+  .ge-preview-pin{color:var(--ge-primary);font-weight:800;font-size:9px;letter-spacing:.1em;white-space:nowrap;}
+  @media(max-width:770px){
+    .ge-production-grid{display:flex!important;flex-direction:column!important;align-items:stretch!important;}
+    .ge-workspace{position:sticky;top:76px;z-index:10;order:-1;align-self:auto!important;display:block;}
+    .ge-preview-card{position:static!important;height:clamp(220px,43dvh,430px);min-height:220px!important;max-height:43dvh;}
+    .ge-preview-heading{padding:10px 13px 7px!important;}
+    .ge-preview-heading h3{font-size:15px!important;}
+    .ge-preview-heading p{display:none;}
+    .ge-preview-toolbar{padding:7px 12px!important;}
+    .ge-preview-toolbar-left small{display:none!important;}
+    .ge-preview-stage{padding:7px!important;}
+    .ge-preview-footer,.ge-workspace .ge-detail-row{display:none!important;}
+  }
+  @media(max-width:470px){
+    .ge-workspace{top:68px;}
+    .ge-preview-card{height:39dvh;max-height:39dvh;min-height:190px!important;}
+    .ge-preview-toolbar-left{display:none!important;}
+    .ge-preview-toolbar{justify-content:flex-end;}
+  }
+}
+@media print {
+  .ge-workspace,.ge-preview-card{position:static!important;height:auto!important;max-height:none!important;min-height:0!important;overflow:visible!important;box-shadow:none!important;}
+  .ge-preview-stage,.ge-preview.preview{height:auto!important;max-height:none!important;overflow:visible!important;}
+}
+</style>
 <style id="page-size"></style>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%230b1727'/%3E%3Cpath d='M12 44 28 14h8l16 30h-9l-5-10H26l-5 10zm17-17h7l-4-8z' fill='%2355b5ff'/%3E%3C/svg%3E">
 
@@ -510,6 +575,53 @@ html[data-ge-density="compact"] .ge-main{padding-top:19px}html[data-ge-density="
 #mensagem.message.error{border-color:rgba(237,114,106,.4)!important;border-left-color:#e8736d!important;background:rgba(237,114,106,.10)!important}
 
 </style>
+
+<style id="cktr-modelos-v4">
+/* Editor de modelos: somente aparência, sem interferir no QR e na importação */
+.ge-design-panel{margin-top:18px;padding:16px;border:1px solid var(--ge-line);border-radius:14px;background:var(--ge-elevated)}
+.ge-design-heading{font-weight:850;color:var(--ge-text);font-size:13px;margin:0 0 5px}
+.ge-design-sub{color:var(--ge-muted);font-size:11px;line-height:1.5;margin:0 0 14px}
+.ge-design-switch{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:13px}
+.ge-design-switch button{background:var(--ge-panel);border:1px solid var(--ge-line);border-radius:9px;padding:10px 7px;color:var(--ge-muted);font-weight:800}
+.ge-design-switch button[aria-selected="true"],.ge-design-switch button[aria-pressed="true"]{background:rgba(174,145,235,.14);border-color:#bba0f2;color:#c7b1ff}
+.ge-design-field{display:grid;gap:6px;margin:10px 0;color:var(--ge-muted);font-size:11px;font-weight:750}
+.ge-design-field select,.ge-design-field input{width:100%;min-width:0;background:var(--ge-panel);border:1px solid var(--ge-line);border-radius:9px;color:var(--ge-text);padding:10px;outline-offset:2px}
+.ge-design-options{display:grid;gap:9px;margin-top:12px}
+.ge-design-option{display:flex;align-items:center;gap:9px;color:var(--ge-muted);font-size:11px}
+.ge-design-option input{accent-color:#bba0f2}
+.ge-design-note{font-size:10px;line-height:1.5;color:var(--ge-muted);margin:11px 0 0}
+.ge-design-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+.ge-design-actions button{border:1px solid var(--ge-line);background:var(--ge-panel);color:var(--ge-text);border-radius:9px;padding:9px;font-weight:750;font-size:11px}
+/* Os documentos físicos permanecem legíveis em preto e branco */
+.label{position:relative!important}
+.label .label-foot{gap:1mm!important;min-width:0;align-items:center!important}
+.label .label-foot .cktr-guid{font-family:Arial,sans-serif;font-size:calc(5.3pt * var(--label-font-scale));font-weight:650;color:#555!important;min-width:0;white-space:nowrap}
+.label .label-foot .cktr-credit{margin-left:auto;font-family:Arial,sans-serif;font-size:calc(5.8pt * var(--label-font-scale));font-weight:800;color:#111!important;white-space:nowrap}
+.label.model-classico .label-head{background:#171717!important;color:#fff!important}
+.label.model-minimalista .label-head{background:white!important;border-bottom:.3mm solid #222!important}
+.label.model-minimalista .label-head,.label.model-minimalista .label-head *{color:#111!important}
+.label.model-minimalista .label-codes{border-top:.3mm solid #111!important}
+.label.model-industrial{border:.5mm solid #111!important}
+.label.model-industrial .label-head{background:#111!important;letter-spacing:.06em!important}
+.label.model-industrial .material-details b{border-left:.9mm solid #111;padding-left:1.5mm}
+.label.model-tecnico .label-head{background:#222!important}
+.label.model-tecnico .material-details{border-left:.3mm solid #555;padding-left:2mm!important}
+.label.model-placa .label-head{background:#111!important;height:14%!important}
+.label.model-placa .label-head strong{font-size:calc(11pt * var(--label-font-scale))!important}
+.label.model-placa .material-details b{font-size:calc(15pt * var(--label-font-scale))!important}
+.label.model-placa .material-details strong{font-size:calc(11pt * var(--label-font-scale))!important}
+.label.model-placa .label-codes{border-top:.45mm solid #111!important}
+.label.model-placa-outline{border:.75mm double #111!important}
+.label.model-placa-outline .label-head{background:#fff!important;border-bottom:.45mm solid #111!important}
+.label.model-placa-outline .label-head *{color:#111!important}
+.label.model-placa-outline .material-details b{font-size:calc(16pt * var(--label-font-scale))!important}
+.label.model-personalizado{border:var(--custom-border,.35mm) solid #111!important}
+.label.model-personalizado .label-head{background:var(--custom-head,#111)!important}
+.label.model-personalizado .label-head *{color:var(--custom-text,#fff)!important}
+.label.hide-qr .qr-slot{display:none!important}
+.label.hide-qr .sap-slot{justify-content:center!important}
+@media print{.ge-design-panel{display:none!important}.label .label-foot .cktr-guid{color:#555!important}.label .label-foot .cktr-credit{color:#111!important}}
+</style>
 </head>
 <body class="ge-body">
 <svg class="ge-icons" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -575,6 +687,49 @@ html[data-ge-density="compact"] .ge-main{padding-top:19px}html[data-ge-density="
             <label class="ge-field"><span>Modelo de etiqueta</span><select id="papel"><option value="90x90">Etiqueta 90 × 90 mm — padrão</option><option value="70x70">Etiqueta 70 × 70 mm</option><option value="100x100">Etiqueta 100 × 100 mm</option><option value="a4p">A4 · Retrato (210 × 297 mm)</option><option value="a4l">A4 · Paisagem (297 × 210 mm)</option><option value="a3p">A3 · Retrato (297 × 420 mm)</option><option value="a3l">A3 · Paisagem (420 × 297 mm)</option><option value="custom">Personalizado</option></select></label>
             <div class="ge-size-fields"><label class="ge-field"><span>Largura <small>mm</small></span><input id="largura" type="number" value="90" min="30" max="420" step="0.1" inputmode="decimal"></label><label class="ge-field"><span>Altura <small>mm</small></span><input id="altura" type="number" value="90" min="30" max="420" step="0.1" inputmode="decimal"></label></div>
             <p id="paper-help" class="ge-help">Para etiquetas térmicas, configure o mesmo tamanho no driver da impressora.</p>
+
+            <section class="ge-design-panel" id="cktr-design" aria-label="Modelos e personalização de etiquetas e placas">
+              <h4 class="ge-design-heading">Modelos de etiquetas e placas</h4>
+              <p class="ge-design-sub">Escolha um modelo pronto ou personalize sua impressão. QR Code e dados do Power Apps são preservados.</p>
+              <section class="cktr-manual" aria-label="Criar placa sem Power Apps">
+                <div class="cktr-manual-heading"><strong>Criação independente</strong><span>SEM POWER APPS</span></div>
+                <p>Monte uma placa ou etiqueta do zero. Preencha os dados e gere a prévia diretamente neste navegador.</p>
+                <div class="cktr-manual-fields">
+                  <label>Tipo<select id="manual-tipo"><option value="placa">Placa</option><option value="etiqueta">Etiqueta</option></select></label>
+                  <label>Título da placa<input id="manual-titulo" maxlength="70" value="IDENTIFICAÇÃO DE MATERIAL" placeholder="Ex.: PLACA DE IDENTIFICAÇÃO"></label>
+                  <label>Código / identificação<input id="manual-codigo" maxlength="80" placeholder="Ex.: CKTR-001"></label>
+                  <label>Descrição / conteúdo<textarea id="manual-descricao" rows="3" maxlength="1000" placeholder="Digite aqui o conteúdo da placa"></textarea></label>
+                  <label>Local / endereço (opcional)<input id="manual-local" maxlength="180" placeholder="Ex.: Almoxarifado Central"></label>
+                  <label>Responsável / planejador (opcional)<input id="manual-planejador" maxlength="140" placeholder="Ex.: Antonio"></label>
+                  <label>Quantidade de unidades<input id="manual-qtd" type="number" min="1" max="100" value="1"></label>
+                </div>
+                <div class="cktr-manual-buttons"><button type="button" id="manual-gerar">Gerar placa / etiqueta</button><button type="button" id="manual-limpar">Limpar campos</button></div>
+                <p class="cktr-manual-note">Não requer conexão com SharePoint. O QR das criações manuais contém os dados básicos do item, sem apontar para uma ficha inexistente no Power Apps.</p>
+              </section>
+              <div class="ge-design-switch" role="group" aria-label="Tipo de impressão">
+                <button type="button" id="cktr-mode-label" aria-pressed="true">Etiqueta</button>
+                <button type="button" id="cktr-mode-plate" aria-pressed="false">Placa</button>
+              </div>
+              <div class="ge-design-switch" role="tablist" aria-label="Edição visual">
+                <button type="button" id="cktr-tab-modelos" role="tab" aria-selected="true">Modelos</button>
+                <button type="button" id="cktr-tab-personalizado" role="tab" aria-selected="false">Personalizado</button>
+              </div>
+              <label class="ge-design-field">Modelo visual
+                <select id="cktr-template"><option value="classico">Clássico CKTR</option><option value="minimalista">Minimalista</option><option value="industrial">Industrial</option><option value="tecnico">Técnico</option><option value="placa">Placa sinalização</option><option value="placa-outline">Placa técnica</option><option value="personalizado">Personalizado</option></select>
+              </label>
+              <div id="cktr-custom-fields" hidden>
+                <label class="ge-design-field">Título da placa / etiqueta<input id="cktr-title" type="text" value="CKTR | ALMOXARIFADO" maxlength="70"></label>
+                <label class="ge-design-field">Cor da faixa superior<select id="cktr-head-color"><option value="black">Preto profissional</option><option value="green">Verde escuro</option><option value="violet">Lilás escuro</option><option value="white">Branco técnico</option></select></label>
+                <label class="ge-design-field">Espessura da borda<select id="cktr-border"><option value="0.2">Fina</option><option value="0.35" selected>Normal</option><option value="0.65">Forte</option></select></label>
+              </div>
+              <div class="ge-design-options">
+                <label class="ge-design-option"><input id="cktr-show-qr" type="checkbox" checked> Mostrar QR Code</label>
+                <label class="ge-design-option"><input id="cktr-show-credit" type="checkbox" checked> Exibir Creator: Antonio</label>
+                <label class="ge-design-option"><input id="cktr-show-guid" type="checkbox" checked> Exibir ID único compacto</label>
+              </div>
+              <div class="ge-design-actions"><button id="cktr-reset-style" type="button">Restaurar modelo</button><button id="cktr-export-guid" type="button">Exportar IDs CSV</button></div>
+              <p class="ge-design-note">Cada etiqueta recebe um UUID v4 exclusivo. A etiqueta mostra somente os 8 primeiros caracteres; o UUID completo fica no arquivo CSV de rastreio.</p>
+            </section>
             <div class="ge-divider"></div>
             <button class="ge-btn ge-btn-print ge-btn-wide" type="button" id="imprimir" disabled><svg><use href="#i-printer"/></svg>Imprimir lote <svg class="ge-print-chevron"><use href="#i-arrow"/></svg></button>
             <p class="ge-print-footnote"><svg><use href="#i-info"/></svg> No diálogo de impressão, use escala 100%, margens zero e sem cabeçalhos/rodapés.</p>
@@ -584,15 +739,15 @@ html[data-ge-density="compact"] .ge-main{padding-top:19px}html[data-ge-density="
         <div class="ge-card ge-mini-card"><div class="ge-mini-icon"><svg><use href="#i-spark"/></svg></div><div><strong>Configurações pessoais</strong><p>Tema, densidade, tamanho padrão e perfis ficam salvos neste navegador.</p><button class="ge-text-button" type="button" id="ge-configure-button">Personalizar experiência <span>→</span></button></div></div>
       </aside>
       <section class="ge-workspace" id="ge-preview-block" aria-label="Pré-visualização de etiquetas">
-        <div class="ge-card ge-preview-card"><div class="ge-preview-heading"><div><div class="ge-overline">02 / CONFERÊNCIA VISUAL</div><h3>Prévia de etiquetas</h3><p>Confira os materiais enviados pelo Power Apps ou importados do CSV antes de imprimir.</p></div><span class="ge-count-chip" id="total">0 etiquetas</span></div>
-          <div class="ge-preview-toolbar"><div class="ge-preview-toolbar-left"><div class="ge-round-icon"><svg><use href="#i-shield"/></svg></div><div><strong>Área de conferência</strong><small>Dimensões proporcionais à configuração selecionada</small></div></div><div class="ge-zoom"><label for="ge-zoom-range">Zoom</label><input id="ge-zoom-range" type="range" min="60" max="130" step="10" value="100" aria-label="Zoom da prévia"><output id="ge-zoom-value">100%</output></div></div>
-          <div class="ge-preview-stage"><div id="vazio" class="ge-empty empty"><div class="ge-empty-mark"><svg><use href="#i-tag"/></svg></div><strong>Seu lote começa aqui</strong><p>Importe uma planilha CSV ou abra esta página pelo Power Apps para visualizar as etiquetas. Nenhuma configuração de impressão será alterada automaticamente.</p><div class="ge-empty-hint">PRONTO PARA RECEBER MATERIAIS</div></div><div id="previa" class="preview ge-preview" hidden><div class="labels" id="etiquetas"></div></div></div>
+        <div class="ge-card ge-preview-card"><div class="ge-preview-heading"><div><div class="ge-overline">02 / ALMOXARIFADO DIGITAL · PRÉVIA FIXA</div><h3>Estúdio de etiquetas &amp; placas</h3><p>Prévia sempre visível: personalize, confira e imprima em tempo real — mesmo sem Power Apps.</p></div><span class="ge-count-chip" id="total">0 etiquetas</span></div>
+          <div class="ge-preview-toolbar"><div class="ge-preview-toolbar-left"><div class="ge-round-icon"><svg><use href="#i-tag"/></svg></div><div><strong>Estação de identificação · Almoxarifado</strong><small>Etiquetas e placas com conferência visual contínua</small></div></div><div class="ge-zoom"><label for="ge-zoom-range">Zoom</label><input id="ge-zoom-range" type="range" min="60" max="130" step="10" value="100" aria-label="Zoom da prévia"><output id="ge-zoom-value">100%</output></div></div>
+          <div class="ge-preview-stage"><div id="vazio" class="ge-empty empty"><div class="ge-empty-mark"><svg><use href="#i-tag"/></svg></div><strong>Seu lote começa aqui</strong><p>Crie uma placa manualmente, importe CSV ou receba dados do Power Apps. Nenhuma configuração de impressão será alterada automaticamente.</p><div class="ge-empty-hint">PRONTO PARA RECEBER MATERIAIS</div></div><div id="previa" class="preview ge-preview" hidden><div class="labels" id="etiquetas"></div></div></div>
           <div class="ge-preview-footer"><div><svg><use href="#i-info"/></svg><span>O QR Code contém um link para a ficha digital e o planejador.</span></div><span>PRÉ-VISUALIZAÇÃO · NÃO É COMPROVANTE DE IMPRESSÃO</span></div>
         </div>
         <div class="ge-detail-row"><div class="ge-detail-card"><svg><use href="#i-shield"/></svg><div><strong>Proteção do arquivo original</strong><p>Impressão isolada, mantendo o tamanho físico e sem imprimir a interface.</p></div></div><div class="ge-detail-card"><svg><use href="#i-clock"/></svg><div><strong>Operação por etapas</strong><p>Receber → conferir → preparar impressão. O resultado físico depende da Zebra.</p></div></div></div>
       </section>
     </div>
-    <footer class="ge-footer"><div><b>CKTR SERVIÇOS</b> · GESTÃO DE ETIQUETAS <span>v3.0 Premium</span></div><div>Conceito e desenvolvimento · <b>Antonio</b></div></footer>
+    <footer class="ge-footer"><div><b>CKTR SERVIÇOS</b> · GESTÃO DE ETIQUETAS <span>v4.2 Premium</span></div><div>Conceito e desenvolvimento · <b>Antonio</b></div></footer>
   </main>
 </div>
 <div id="print-block" hidden>Abra um lote válido e confira a prévia antes de imprimir.</div>
@@ -2033,6 +2188,9 @@ function normalize(o){
 // O link do Power Apps fica FIXO em material.html; não é repetido em cada QR.
 const MATERIAL_PAGE='https://sys-ghost-dev.github.io/etiquetaCMP/material.html';
 async function linkFicha(item){
+  if(item.OrigemManual){
+    return {url:['CKTR | IDENTIFICAÇÃO MANUAL', 'Código: '+item.CodigoSAP, 'Descrição: '+item.Descricao, 'Local: '+item.Localizacao, 'Responsável: '+item.Planejadores].join('\n').slice(0,550),avisos:[]};
+  }
   const url=new URL(MATERIAL_PAGE);
   url.hash='p='+encodeURIComponent(item.Planejadores||'');
   return {url:url.href,avisos:[]};
@@ -2087,6 +2245,105 @@ function ajustarTodasDescricoes(){
   return cortes;
 }
 
+
+/* Modelos CKTR 4.0 — local, sem dependências externas */
+const cktrDesign={mode:'etiqueta',model:'classico'};
+const cktrTemplates=$('cktr-template');
+const cktrButtons={etiqueta:$('cktr-mode-label'),placa:$('cktr-mode-plate')};
+const cktrRandomUUID=()=>{
+  if(globalThis.crypto?.randomUUID)return globalThis.crypto.randomUUID();
+  const bytes=new Uint8Array(16);
+  if(!globalThis.crypto?.getRandomValues)throw Error('Este navegador não oferece geração criptograficamente segura de UUID. Abra o site via HTTPS.');
+  crypto.getRandomValues(bytes);bytes[6]=(bytes[6]&15)|64;bytes[8]=(bytes[8]&63)|128;
+  const hex=Array.from(bytes,b=>b.toString(16).padStart(2,'0')).join('');
+  return [hex.slice(0,8),hex.slice(8,12),hex.slice(12,16),hex.slice(16,20),hex.slice(20)].join('-');
+};
+function cktrDress(card,item){
+  const model=cktrDesign.model;
+  card.classList.add('model-'+model);
+  const heading=card.querySelector('.label-head strong');
+  if(heading){heading.textContent=item.OrigemManual?(item.TituloManual||'IDENTIFICAÇÃO DE MATERIAL'):(model==='personalizado'?($('cktr-title').value.trim()||'IDENTIFICAÇÃO DE MATERIAL'):(cktrDesign.mode==='placa'?'CKTR | PLACA DE IDENTIFICAÇÃO':'CKTR | ALMOXARIFADO'));}
+  if(model==='personalizado'){
+    const colors={black:['#111','#fff'],green:['#104333','#fff'],violet:['#51427e','#fff'],white:['#fff','#111']};
+    const pair=colors[$('cktr-head-color').value]||colors.black;
+    card.style.setProperty('--custom-head',pair[0]);card.style.setProperty('--custom-text',pair[1]);
+    card.style.setProperty('--custom-border',Number($('cktr-border').value||.35)+'mm');
+  }
+  const foot=card.querySelector('.label-foot');
+  if(foot){
+    if($('cktr-show-guid').checked){const id=document.createElement('span');id.className='cktr-guid';const uuid=cktrRandomUUID();card.dataset.labelUuid=uuid;id.textContent='UID '+uuid.slice(0,8).toUpperCase();id.title=uuid;foot.append(id);}
+    else card.dataset.labelUuid=cktrRandomUUID();
+    if($('cktr-show-credit').checked){const credit=document.createElement('span');credit.className='cktr-credit';credit.textContent='Creator: Antonio';foot.append(credit);}
+  }
+  if(!$('cktr-show-qr').checked)card.classList.add('hide-qr');
+  return card;
+}
+function cktrUpdateControls(){
+  for(const [mode,btn] of Object.entries(cktrButtons))btn.setAttribute('aria-pressed',String(cktrDesign.mode===mode));
+  $('cktr-custom-fields').hidden=cktrDesign.model!=='personalizado';
+  $('cktr-tab-modelos').setAttribute('aria-selected',String(cktrDesign.model!=='personalizado'));
+  $('cktr-tab-personalizado').setAttribute('aria-selected',String(cktrDesign.model==='personalizado'));
+}
+function cktrRefresh(){cktrUpdateControls();if(items.length)render();}
+for(const [mode,btn] of Object.entries(cktrButtons))btn.addEventListener('click',()=>{
+  cktrDesign.mode=mode;
+  if(mode==='placa'&&!['placa','placa-outline','personalizado'].includes(cktrDesign.model))cktrDesign.model='placa';
+  if(mode==='etiqueta'&&['placa','placa-outline'].includes(cktrDesign.model))cktrDesign.model='classico';
+  cktrTemplates.value=cktrDesign.model;
+  cktrRefresh();
+});
+cktrTemplates.addEventListener('change',()=>{cktrDesign.model=cktrTemplates.value;cktrRefresh()});
+$('cktr-tab-modelos').addEventListener('click',()=>{cktrDesign.model=cktrDesign.mode==='placa'?'placa':'classico';cktrTemplates.value=cktrDesign.model;cktrRefresh()});
+$('cktr-tab-personalizado').addEventListener('click',()=>{cktrDesign.model='personalizado';cktrTemplates.value='personalizado';cktrRefresh()});
+for(const id of ['cktr-title','cktr-head-color','cktr-border','cktr-show-qr','cktr-show-credit','cktr-show-guid'])$(id).addEventListener('change',cktrRefresh);
+$('cktr-title').addEventListener('input',()=>{for(const h of labels.querySelectorAll('.model-personalizado .label-head strong'))h.textContent=$('cktr-title').value||'IDENTIFICAÇÃO DE MATERIAL'});
+$('cktr-reset-style').addEventListener('click',()=>{
+  cktrDesign.mode='etiqueta';cktrDesign.model='classico';cktrTemplates.value='classico';
+  $('cktr-title').value='CKTR | ALMOXARIFADO';$('cktr-head-color').value='black';$('cktr-border').value='.35';
+  ['cktr-show-qr','cktr-show-credit','cktr-show-guid'].forEach(id=>$(id).checked=true);cktrRefresh();
+});
+$('cktr-export-guid').addEventListener('click',()=>{
+  const rows=[['GUID_COMPLETO','GUID_CURTO','ID_MATERIAL','CODIGO_SAP','MODELO','CREATOR']];
+  labels.querySelectorAll('.label').forEach(card=>{
+    const uid=card.dataset.labelUuid||'';
+    rows.push([uid,uid.slice(0,8),card.dataset.materialId||'',card.dataset.codigoSap||'',cktrDesign.model,'Antonio']);
+  });
+  if(rows.length===1){msg('Não existem etiquetas para exportar.',true);return;}
+  const safe=val=>'"'+String(val??'').replace(/"/g,'""')+'"';
+  download('CKTR-GUIDs-Etiquetas.csv','\uFEFF'+rows.map(r=>r.map(safe).join(';')).join('\r\n'),'text/csv;charset=utf-8');
+});
+cktrUpdateControls();
+
+// Criação independente: gera os mesmos cartões imprimíveis, sem Power Apps nem CSV.
+$('manual-gerar').addEventListener('click',async()=>{
+  const codigo=$('manual-codigo').value.trim();
+  const descricao=$('manual-descricao').value.trim();
+  if(!codigo||!descricao){msg('Preencha o código e a descrição para criar a placa.',true);return;}
+  const qtd=Number($('manual-qtd').value);
+  if(!Number.isInteger(qtd)||qtd<1||qtd>100){msg('Informe uma quantidade entre 1 e 100.',true);return;}
+  const tipo=$('manual-tipo').value;
+  const manual={
+    ID:'MAN-'+cktrRandomUUID().slice(0,8).toUpperCase(),
+    CodigoSAP:codigo,TipoCodigo:'SAP',Descricao:descricao,
+    Localizacao:$('manual-local').value.trim(),
+    Planejadores:$('manual-planejador').value.trim(),
+    ID_AREA:'',QuantidadeEtiquetas:qtd,OrigemManual:true,
+    TituloManual:$('manual-titulo').value.trim()||'IDENTIFICAÇÃO DE MATERIAL'
+  };
+  items=[manual];
+  cktrDesign.mode=tipo;
+  cktrDesign.model=tipo==='placa'?'placa':'classico';
+  cktrTemplates.value=cktrDesign.model;
+  cktrUpdateControls();
+  await render();
+  $('ge-preview-block').scrollIntoView({behavior:'smooth',block:'start'});
+});
+$('manual-limpar').addEventListener('click',()=>{
+  for(const id of ['manual-codigo','manual-descricao','manual-local','manual-planejador'])$(id).value='';
+  $('manual-titulo').value='IDENTIFICAÇÃO DE MATERIAL';
+  $('manual-qtd').value='1';
+});
+
 let renderId=0;
 async function render(){
   const atual=++renderId;
@@ -2105,7 +2362,11 @@ async function render(){
       const primeira=makeLabel(item,ficha.url);
       if(primeira.querySelector('.qr-slot svg')?.dataset.qrEcc==='L')avisos.push('ID '+item.ID+': QR no limite de capacidade, com menor tolerância a danos. Verifique a leitura na etiqueta impressa.');
       for(let n=0;n<item.QuantidadeEtiquetas;n++){
-        labels.append(n===0?primeira:primeira.cloneNode(true));
+        const card=n===0?primeira:primeira.cloneNode(true);
+        card.dataset.materialId=item.ID;
+        card.dataset.codigoSap=item.CodigoSAP;
+        cktrDress(card,item);
+        labels.append(card);
         count++;
       }
     }
@@ -2156,7 +2417,7 @@ function applyTheme(){
   const themeMeta=document.querySelector('meta[name="theme-color"]');
   if(themeMeta)themeMeta.setAttribute('content',dark?'#152729':'#ffffff');
 }
-let savedTheme='light';
+let savedTheme='dark';
 try{const stored=localStorage.getItem(THEME_STORAGE_KEY);if(['light','dark','system'].includes(stored))savedTheme=stored;}catch(e){}
 theme.value=savedTheme;
 applyTheme();
@@ -2221,8 +2482,11 @@ try{
     const data=Array.isArray(payload)?payload:(payload?.itens??payload?.Itens);
     if(!Array.isArray(data))throw Error('O lote não contém uma lista válida de materiais.');
     items=data.map(normalize).filter(x=>x.ID);
+    if(String(payload?.modo||'').toUpperCase()==='PLACA'){
+      cktrDesign.mode='placa';cktrDesign.model='placa';cktrTemplates.value='placa';cktrUpdateControls();
+    }
     render().catch(e=>msg(e.message,true));
-  }else msg('Importe um CSV ou abra este site pelo Power Apps.');
+  }else msg('Crie uma placa diretamente no formulário, importe CSV ou abra o site pelo Power Apps.');
 }catch(e){msg('Não foi possível receber os dados do Power Apps: '+e.message,true);}sizing();
 })();
 </script>
