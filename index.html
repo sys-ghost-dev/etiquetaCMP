@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; base-uri 'none'; form-action 'none'">
 <meta name="theme-color" content="#ffffff">
-<title>CKTR | Gestão de Etiquetas — Premium 3.0</title>
+<title>NEXO STUDIO ENTERPRISE 6.0 | Etiquetas &amp; Placas</title>
 <style>
 :root{color-scheme:light;--ink:#172a27;--muted:#506661;--line:#d4dfdb;--green:#19584d;--label-w:98.4mm;--label-h:48.4mm;--qr:22.5mm;font:16px system-ui,"Segoe UI",sans-serif}
 *{box-sizing:border-box}
@@ -299,7 +299,7 @@ html[data-theme="light"] .cktr-manual-fields :is(input,textarea,select){backgrou
 }
 </style>
 <style id="page-size"></style>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%230b1727'/%3E%3Cpath d='M12 44 28 14h8l16 30h-9l-5-10H26l-5 10zm17-17h7l-4-8z' fill='%2355b5ff'/%3E%3C/svg%3E">
+
 
 <style id="cktr-print-typography-v15">
 /* Proportional physical-size typography: 90x90 remains baseline; A4/A3 scale up. */
@@ -622,6 +622,144 @@ html[data-ge-density="compact"] .ge-main{padding-top:19px}html[data-ge-density="
 .label.hide-qr .sap-slot{justify-content:center!important}
 @media print{.ge-design-panel{display:none!important}.label .label-foot .cktr-guid{color:#555!important}.label .label-foot .cktr-credit{color:#111!important}}
 </style>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2215%22%20fill%3D%22%23102820%22%2F%3E%3Cpath%20d%3D%22M16%2014h24l9%209v25a5%205%200%200%201-5%205H19a5%205%200%200%201-5-5V19a5%205%200%200%201%205-5%22%20fill%3D%22%23ecfff7%22%2F%3E%3Cpath%20d%3D%22M40%2014v9h9%22%20fill%3D%22%23bba0f2%22%2F%3E%3Cpath%20d%3D%22M23%2030h16M23%2035h11%22%20stroke%3D%22%230d5946%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M23%2041v6m4-6v6m4-6v6m4-6v6m4-6v6%22%20stroke%3D%22%230d5946%22%20stroke-width%3D%222%22%2F%3E%3C%2Fsvg%3E">
+<meta name="application-name" content="NEXO — Estúdio de Identificação">
+
+<style id="nexo-v50">
+.nexo-brand-symbol{padding:0!important;background:transparent!important;box-shadow:none!important;overflow:hidden}
+.nexo-brand-symbol img{width:46px;height:46px;display:block;border-radius:12px}
+#nexo-experience-button{background:linear-gradient(120deg,rgba(165,132,224,.17),rgba(62,209,175,.08))!important;border-color:rgba(187,160,242,.28)!important;font-weight:750;font-size:11px}
+#nexo-experience-button svg{color:#c7afff}
+.nexo-label-editor{background:var(--ge-elevated);border:1px solid var(--ge-line);padding:13px;border-radius:12px;margin:13px 0}
+.nexo-mini-heading{font-size:9px;letter-spacing:.13em;color:var(--ge-primary);font-weight:850;margin-bottom:10px}
+.nexo-label-editor input[type=range]{width:100%;accent-color:var(--ge-primary)}
+.nexo-label-editor output{font-size:10px;color:var(--ge-muted)}
+body.ge-body .nexo-onboarding{position:fixed;inset:0;display:grid;place-items:center;z-index:2000;background:rgba(2,13,12,.83);backdrop-filter:blur(19px);padding:22px;overflow:auto}
+body.ge-body .nexo-onboarding[hidden]{display:none!important}
+.nexo-welcome{max-width:620px;width:100%;padding:clamp(22px,4vw,39px);border:1px solid rgba(187,160,242,.3);border-radius:26px;background:radial-gradient(ellipse at 100% 0%,rgba(160,129,221,.16),transparent 55%),linear-gradient(135deg,#102920,#081b17);box-shadow:0 25px 100px #000a;color:#edf8f2}
+.nexo-welcome-icon img{height:58px;width:58px;border-radius:14px;box-shadow:0 12px 30px #0006}
+.nexo-welcome-eyebrow{font-size:10px;letter-spacing:.16em;color:#bca0f2;font-weight:850;margin-top:22px}
+.nexo-welcome h2{font-size:clamp(32px,5vw,50px);line-height:1.05;letter-spacing:-.06em;margin:12px 0;color:#fff}.nexo-welcome h2 span{color:#bca0f2}
+.nexo-welcome p{font-size:13px;line-height:1.6;color:#acc8bc;max-width:490px;margin-bottom:23px}
+.nexo-settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.nexo-settings-grid label{background:#122e26;border:1px solid #35544a;padding:13px;border-radius:11px;display:flex;justify-content:space-between;align-items:center;gap:13px;color:#e5f8ef;font-size:12px;font-weight:650}
+.nexo-settings-grid select{background:#0a1d18;color:#fff;border:1px solid #476057;padding:8px;border-radius:7px;max-width:145px}
+.nexo-settings-grid input[type=color]{width:52px;height:34px;padding:2px;background:transparent;border:0;cursor:pointer}
+.nexo-settings-grid input[type=checkbox]{accent-color:#bca0f2;width:17px;height:17px;flex:none}
+.nexo-welcome-actions{display:flex;gap:9px;margin:23px 0 12px;flex-wrap:wrap}
+.nexo-welcome-actions button{border:1px solid #3b7765;background:linear-gradient(115deg,#7257bd,#267d70);color:#fff;border-radius:10px;font-weight:800;padding:13px 20px;min-height:44px}
+.nexo-welcome-actions button+button{background:transparent;color:#a8c9ba;border-color:#355448}
+.nexo-welcome small{font-size:10px;color:#789d90}
+html[data-nexo-glow=off] .ge-decor-orb,html[data-nexo-glow=off] .ge-hero:before{display:none!important}
+html[data-nexo-effects=off] .ge-hero-sticker,html[data-nexo-effects=off] .ge-pulse{animation:none!important}
+html[data-nexo-effects=off] *{scroll-behavior:auto!important;transition-duration:0ms!important}
+html[data-nexo-cursor=tag] body.ge-body,html[data-nexo-cursor=tag] body.ge-body button,html[data-nexo-cursor=tag] body.ge-body a,html[data-nexo-cursor=tag] body.ge-body select{cursor:var(--nexo-pointer,auto)!important}
+/* Escala preserva a proporcionalidade física dos modelos existentes */
+.label .material-details strong,.label.has-location .material-details strong{font-size:calc(var(--cktr-desc-size,9pt) * var(--nexo-label-scale,1))!important}
+.label.nexo-font-bold .material-details strong{font-weight:950!important}
+.label.nexo-font-compact .material-details strong{letter-spacing:-.02em!important;line-height:1.02!important}
+@media(max-width:630px){.nexo-settings-grid{grid-template-columns:1fr}.nexo-experience-text{display:none}}
+@media print{#nexo-experience-button,.nexo-onboarding{display:none!important}}
+</style>
+<style id="nexo-v6-css">
+/* NEXO Enterprise v6 — interface e componentes físicos totalmente offline */
+#v6-legacy[hidden],.v6-hidden[hidden]{display:none!important}
+.v6-tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:16px}
+.v6-tab{padding:10px 7px!important;background:var(--ge-elevated)!important;color:var(--ge-muted)!important;border:1px solid var(--ge-line)!important;border-radius:9px!important;font-size:10px!important;font-weight:800!important;text-align:center;line-height:1.4;cursor:pointer}
+.v6-tab:hover{color:var(--ge-text)!important;border-color:var(--ge-primary)!important}
+.v6-tab[aria-selected=true]{background:var(--ge-glow)!important;color:var(--ge-primary)!important;border-color:var(--ge-primary)!important}
+.v6-pane[hidden]{display:none!important}.v6-pane{min-width:0;display:grid;gap:12px;animation:v6-reveal .18s ease}
+@keyframes v6-reveal{from{opacity:.55;transform:translateY(4px)}to{opacity:1;transform:none}}
+.v6-card{background:var(--ge-elevated);border:1px solid var(--ge-line);padding:12px;border-radius:11px;min-width:0}
+.v6-card h4{margin:0 0 9px;font-size:12px;color:var(--ge-text)}
+.v6-caption{font-size:10px;color:var(--ge-muted);line-height:1.55;margin:5px 0}
+.v6-caption b{color:var(--ge-primary)}
+.v6-formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.v6-full{grid-column:1/-1}
+.v6-field{display:grid;gap:4px;min-width:0;font-size:10px;font-weight:750;color:var(--ge-muted)}
+.v6-field :is(input,select,textarea){display:block;width:100%;min-width:0;background:var(--ge-panel);color:var(--ge-text);border:1px solid var(--ge-line);border-radius:7px;padding:8px 9px;font:inherit;font-weight:600;min-height:36px}
+.v6-field textarea{resize:vertical;min-height:62px}
+.v6-field input[type=checkbox]{display:inline-block;width:auto;min-height:unset;accent-color:var(--ge-primary)}
+.v6-tick{display:flex;align-items:center;gap:8px;font-size:10px;color:var(--ge-text);font-weight:700}
+.v6-tick input{accent-color:var(--ge-primary)}
+.v6-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}.v6-actions button,.v6-minibtn{border-radius:8px!important;border:1px solid var(--ge-line)!important;background:var(--ge-panel)!important;color:var(--ge-text)!important;padding:9px 10px!important;cursor:pointer;font-size:11px!important;font-weight:750!important;line-height:1.3}
+.v6-actions button:hover,.v6-minibtn:hover{border-color:var(--ge-primary)!important}.v6-actions .v6-primary{background:linear-gradient(110deg,#6d57b9,#1a796b)!important;color:white!important;border-color:transparent!important}
+.v6-table-wrap{max-height:300px;overflow:auto;border:1px solid var(--ge-line);border-radius:9px}
+.v6-queue{width:100%;min-width:490px;border-collapse:collapse;font-size:10px}.v6-queue th,.v6-queue td{padding:7px 6px;border-bottom:1px solid var(--ge-line);text-align:left;vertical-align:middle}
+.v6-queue th{position:sticky;top:0;background:var(--ge-panel);color:var(--ge-muted);z-index:1}
+.v6-queue td strong{display:block;color:var(--ge-text);overflow-wrap:anywhere}.v6-queue td small{display:block;color:var(--ge-muted)}
+.v6-queue input,.v6-queue select{width:100%;min-width:45px;border:1px solid var(--ge-line);background:var(--ge-panel);color:var(--ge-text);border-radius:6px;padding:6px;font-size:10px}
+.v6-queue .v6-compact-btn{min-height:25px;border:1px solid var(--ge-line);border-radius:5px;color:var(--ge-text);background:var(--ge-elevated);cursor:pointer;margin:2px;padding:2px 6px;font-size:12px}
+.v6-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-bottom:8px}
+.v6-toolbar button{border:1px solid var(--ge-line);background:var(--ge-elevated);color:var(--ge-text);padding:8px 11px;font-size:10px;border-radius:8px;font-weight:750}
+.v6-toolbar button[aria-pressed=true]{border-color:var(--ge-primary);color:var(--ge-primary);background:var(--ge-glow)}
+.v6-sheet-scroll{height:100%;min-height:0;overflow:auto;overscroll-behavior:contain;padding:12px;display:flex;flex-direction:column;align-items:center;gap:18px}
+.v6-paper-shell{display:grid;gap:7px;justify-items:center;width:100%;flex:none}
+.v6-paper-name{font-size:11px;color:var(--ge-muted);font-weight:800}
+.v6-paper-scale{transform-origin:top left;position:relative;flex:none;max-width:none;box-shadow:0 16px 34px rgba(0,0,0,.36);background:#fff}
+.print-sheet{position:relative;background:#fff;color:#111;box-sizing:border-box;overflow:hidden;break-after:page;page-break-after:always}
+.print-sheet:last-child{break-after:auto;page-break-after:auto}
+.v6-place{position:absolute;box-sizing:border-box;overflow:visible}
+.v6-place>.v6-unit{position:absolute;top:0;left:0}
+.v6-place[data-rotated=true]>.v6-unit{transform-origin:0 0;transform:translateX(var(--v6-source-h)) rotate(90deg)}
+.v6-mark{position:absolute;display:block;background:#111;pointer-events:none}
+.v6-cut-guide{position:absolute;inset:0;border:.15mm dashed #777;pointer-events:none}
+.v6-page-number{position:absolute;bottom:1mm;right:2mm;font:7pt Arial;color:#555}
+.v6-sheet-warning{display:flex;gap:6px;align-items:start;padding:7px 9px;border-radius:8px;border:1px solid #976637;background:#4c361b;color:#fbd9a1;font-size:10px;line-height:1.4}
+.v6-summary{display:flex;gap:8px;flex-wrap:wrap;margin:5px 0}.v6-summary span{border:1px solid var(--ge-line);color:var(--ge-muted);background:var(--ge-elevated);border-radius:99px;font-size:10px;padding:5px 9px}
+.v6-summary strong{color:var(--ge-primary)}
+/* O componente físico é autocontido: a interface não altera sua métrica em milímetros. */
+.label.v6-unit{--v6-ink:#101b19;--v6-line:#182b26;--v6-band:#102e28;--v6-soft:#e6eeea;position:relative;display:block!important;box-sizing:border-box!important;min-width:0!important;min-height:0!important;max-width:none!important;max-height:none!important;width:var(--v6-w)!important;height:var(--v6-h)!important;flex:none!important;border:.24mm solid var(--v6-line)!important;border-radius:0!important;background:#fff!important;color:var(--v6-ink)!important;box-shadow:none!important;padding:0!important;margin:0!important;gap:0!important;overflow:hidden!important;font:var(--v6-font,9pt) Arial,Helvetica,sans-serif!important}
+.v6-unit *{box-sizing:border-box;color:inherit}
+.v6-unit .v6-face{width:100%;height:100%;padding:1.4mm;display:flex;flex-direction:column;gap:.9mm;min-height:0;background:#fff;color:#101b19}
+.v6-unit .v6-banner{background:var(--v6-band);color:#fff!important;padding:1.25mm 1.6mm;font-weight:900;font-size:1.07em;letter-spacing:.01em;min-height:0}
+.v6-unit .v6-banner *{color:#fff!important}
+.v6-unit .v6-kicker{font-size:.66em;font-weight:800;letter-spacing:.06em;color:#555}
+.v6-unit .v6-big{font-size:1.52em;font-weight:900;line-height:1.08;overflow-wrap:anywhere;min-width:0}
+.v6-unit .v6-desc{font-size:1em;font-weight:700;line-height:1.17;overflow-wrap:anywhere;min-height:0;flex:1}
+.v6-unit .v6-small{font-size:.65em;line-height:1.25;overflow-wrap:anywhere}
+.v6-unit .v6-end{margin-top:auto;display:flex;justify-content:space-between;gap:1mm;align-items:end}
+.v6-unit .v6-qr{flex:none;width:var(--v6-qr-mm,15mm);height:var(--v6-qr-mm,15mm);align-self:center;max-width:38%;max-height:100%}
+.v6-unit .v6-qr svg{width:100%!important;height:100%!important;display:block;fill:#111!important;stroke:none!important}
+.v6-unit .v6-logo{object-fit:contain;object-position:right center;max-width:30%;max-height:11mm}
+.v6-unit .v6-foot{display:flex;justify-content:space-between;gap:1mm;align-items:center;font-size:.54em;color:#333;border-top:.17mm solid #777;padding-top:.4mm;white-space:nowrap;flex:none}
+.v6-unit .v6-foot span{overflow:hidden;text-overflow:ellipsis}
+.v6-unit .v6-autofit{min-width:0;min-height:0;overflow-wrap:anywhere;hyphens:auto;line-height:1.08}
+.v6-unit .v6-main{display:flex;flex:1;min-height:0;gap:1.5mm}
+.v6-unit .v6-fields{flex:1;min-width:0;display:flex;flex-direction:column;gap:.5mm;min-height:0}
+.v6-unit .v6-shelf-grid{display:grid;grid-template-columns:4mm minmax(0,1fr) minmax(10mm,20%);grid-template-rows:1fr;gap:1mm;width:100%;flex:1;min-height:0}
+.v6-unit .v6-sector{writing-mode:vertical-rl;transform:rotate(180deg);background:var(--v6-band);color:#fff!important;font-size:.76em;letter-spacing:.08em;font-weight:900;display:grid;place-items:center}
+.v6-unit .v6-location-box{border:.3mm solid #111;background:#e9eeed;font-weight:950;font-size:1.24em;line-height:1.05;padding:1mm;overflow-wrap:anywhere;display:flex;align-items:center;justify-content:center;text-align:center}
+.v6-unit .v6-safety{border:.6mm double #111!important}.v6-unit .v6-safety .v6-face{padding:1mm;gap:.5mm}
+.v6-unit .v6-stripes{height:4mm;flex:none;background:repeating-linear-gradient(45deg,#111 0 2.5mm,#f9df5b 2.5mm 5mm)}
+.v6-unit .v6-warning-row{display:grid;grid-template-columns:22% 1fr;gap:1mm;align-items:center;flex:1;min-height:0}
+.v6-unit .v6-warning-row svg{width:100%;max-height:100%;height:auto;stroke:#111;fill:none;stroke-width:5}
+.v6-unit .v6-spec-grid{width:100%;border-collapse:collapse;table-layout:fixed;font-size:.78em;flex:1;min-height:0}
+.v6-unit .v6-spec-grid td{border:.2mm solid #222;padding:.5mm;overflow-wrap:anywhere;vertical-align:top}
+.v6-unit .v6-spec-grid td b{display:block;font-size:.81em;color:#444}
+.v6-unit .v6-asset-code{height:24%;width:100%;overflow:hidden}
+.v6-unit .v6-asset-code svg{width:100%;height:100%}
+.v6-unit .v6-status-bar{writing-mode:vertical-rl;transform:rotate(180deg);min-width:6.5mm;font-size:.77em;letter-spacing:.08em;color:#fff!important;font-weight:900;text-align:center;padding:1mm;background:repeating-linear-gradient(135deg,#111 0 2mm,#444 2mm 4mm)}
+.v6-unit[data-status="APROVADO"] .v6-status-bar{background:#173a2e}.v6-unit[data-status="URGENTE"] .v6-status-bar{background:repeating-linear-gradient(45deg,#111 0 1.2mm,#555 1.2mm 2.4mm)}
+.v6-unit .v6-address-grid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.6mm}
+.v6-unit .v6-address-grid div{display:flex;flex-direction:column;align-items:center;justify-content:center;border:.23mm solid #111;overflow:hidden}
+.v6-unit .v6-address-grid b{font-size:.65em}.v6-unit .v6-address-grid strong{font-size:2.3em;font-weight:950;line-height:1.05}
+.v6-unit .v6-direction{text-align:center;font-size:2.2em;line-height:1}
+.v6-unit .v6-free{display:grid;grid-template-rows:auto 1fr auto;gap:.8mm;height:100%;min-height:0}
+.v6-unit .v6-free-main{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1mm;min-height:0}
+.v6-unit .v6-free-box{min-width:0;display:flex;flex-direction:column;gap:.7mm;overflow:hidden}
+.v6-unit .v6-free-footer{display:flex;justify-content:space-between;align-items:center;gap:1mm}
+.v6-unit.v6-no-border{border:0!important}.v6-unit.v6-rounded{border-radius:2mm!important}
+.v6-unit.v6-no-qr .v6-qr{display:none!important}.v6-unit.v6-no-logo .v6-logo{display:none!important}
+.v6-unit.v6-no-credit .v6-credit{display:none!important}.v6-unit.v6-no-guid .v6-guid{display:none!important}
+.v6-unit.v6-mono{filter:grayscale(1) contrast(4)}
+#v6-sheet-view[hidden]{display:none!important}.ge-preview-stage:has(#v6-sheet-view:not([hidden])){display:flex;min-height:0}
+#v6-sheet-view{flex:1;min-height:0;max-height:100%;width:100%;overflow:hidden}
+#previa.v6-off{display:none!important}
+@media(max-width:980px){.v6-formgrid{grid-template-columns:1fr}.v6-tabs{grid-template-columns:1fr 1fr}}
+@media print{.v6-tabs,.v6-pane,.v6-toolbar,.v6-paper-name,.v6-summary{display:none!important}}
+
+</style>
 </head>
 <body class="ge-body">
 <svg class="ge-icons" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -647,11 +785,12 @@ html[data-ge-density="compact"] .ge-main{padding-top:19px}html[data-ge-density="
 <header class="ge-topbar">
   <div class="ge-topbar-inner">
     <div class="ge-identity">
-      <div class="ge-symbol" aria-hidden="true">C<span>K</span></div>
-      <div class="ge-identity-copy"><strong>CKTR <span>SERVIÇOS</span></strong><small>GESTÃO DE ETIQUETAS <b>•</b> CENTRAL OPERACIONAL</small></div>
+      <div class="ge-symbol nexo-brand-symbol" aria-hidden="true"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2215%22%20fill%3D%22%23102820%22%2F%3E%3Cpath%20d%3D%22M16%2014h24l9%209v25a5%205%200%200%201-5%205H19a5%205%200%200%201-5-5V19a5%205%200%200%201%205-5%22%20fill%3D%22%23ecfff7%22%2F%3E%3Cpath%20d%3D%22M40%2014v9h9%22%20fill%3D%22%23bba0f2%22%2F%3E%3Cpath%20d%3D%22M23%2030h16M23%2035h11%22%20stroke%3D%22%230d5946%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M23%2041v6m4-6v6m4-6v6m4-6v6m4-6v6%22%20stroke%3D%22%230d5946%22%20stroke-width%3D%222%22%2F%3E%3C%2Fsvg%3E" alt=""></div>
+      <div class="ge-identity-copy"><strong>NEXO <span>STUDIO</span></strong><small>ETIQUETAS &amp; PLACAS <b>•</b> CENTRAL CRIATIVA</small></div>
     </div>
     <div class="ge-top-actions">
-      <div class="ge-version"><span class="ge-pulse"></span><span>Sistema local <b>v3.0</b></span></div>
+      <div class="ge-version"><span class="ge-pulse"></span><span>Sistema local <b>v6.0 · Enterprise</b></span></div>
+      <button id="nexo-experience-button" class="ge-icon-button" type="button" aria-label="Personalizar experiência" title="Personalizar efeitos e cores"><svg><use href="#i-spark"/></svg><span class="nexo-experience-text">Experiência</span></button>
       <button id="ge-operator-button" class="ge-operator ge-icon-button" type="button" title="Alternar operador neste navegador"><svg><use href="#i-user"/></svg><span id="ge-operator-label">Operador local</span></button>
       <button id="ge-open-settings" class="ge-icon-button ge-top-settings" type="button" aria-label="Abrir preferências" title="Preferências (Alt + S)"><svg><use href="#i-settings"/></svg></button>
     </div>
@@ -665,7 +804,7 @@ html[data-ge-density="compact"] .ge-main{padding-top:19px}html[data-ge-density="
   <main class="ge-main" id="ge-production">
     <section class="ge-hero" aria-labelledby="ge-headline">
       <div class="ge-hero-left"><div class="ge-hero-overline"><span class="ge-overline-dash"></span> CENTRAL DE IDENTIFICAÇÃO DE MATERIAIS</div><h1 id="ge-headline">A sua operação,<br><em>mais inteligente.</em></h1><p>Prepare etiquetas com precisão, confira cada detalhe e envie seus lotes para impressão com uma experiência mais fluida e profissional.</p><div class="ge-hero-meta"><span><svg><use href="#i-check"/></svg> Importação CSV</span><span><svg><use href="#i-check"/></svg> Power Apps</span><span><svg><use href="#i-check"/></svg> QR Code local</span></div></div>
-      <div class="ge-hero-art" aria-hidden="true"><div class="ge-orbit ge-orbit-1"></div><div class="ge-orbit ge-orbit-2"></div><div class="ge-hero-sticker"><div class="ge-faux-qr"><span>◈</span><span>▦</span><span>◈</span><span>▥</span></div><div class="ge-sticker-lines"><i></i><i></i><i></i></div><b>CKTR / WMS</b></div><div class="ge-hero-art-caption">IDENTIFIQUE · CONFIRA · IMPRIMA</div></div>
+      <div class="ge-hero-art" aria-hidden="true"><div class="ge-orbit ge-orbit-1"></div><div class="ge-orbit ge-orbit-2"></div><div class="ge-hero-sticker"><div class="ge-faux-qr"><span>◈</span><span>▦</span><span>◈</span><span>▥</span></div><div class="ge-sticker-lines"><i></i><i></i><i></i></div><b>NEXO / STUDIO</b></div><div class="ge-hero-art-caption">IDENTIFIQUE · CONFIRA · IMPRIMA</div></div>
     </section>
     <div class="ge-section-heading"><div><div class="ge-overline">VISÃO GERAL · EM TEMPO REAL</div><h2>Visão da produção</h2></div><div class="ge-live"><span class="ge-pulse"></span> AMBIENTE PRONTO</div></div>
     <section class="ge-kpis" aria-label="Indicadores do lote">
@@ -715,12 +854,18 @@ html[data-ge-density="compact"] .ge-main{padding-top:19px}html[data-ge-density="
                 <button type="button" id="cktr-tab-personalizado" role="tab" aria-selected="false">Personalizado</button>
               </div>
               <label class="ge-design-field">Modelo visual
-                <select id="cktr-template"><option value="classico">Clássico CKTR</option><option value="minimalista">Minimalista</option><option value="industrial">Industrial</option><option value="tecnico">Técnico</option><option value="placa">Placa sinalização</option><option value="placa-outline">Placa técnica</option><option value="personalizado">Personalizado</option></select>
+                <select id="cktr-template"><option value="classico">Clássico Profissional</option><option value="minimalista">Minimalista</option><option value="industrial">Industrial</option><option value="tecnico">Técnico</option><option value="placa">Placa sinalização</option><option value="placa-outline">Placa técnica</option><option value="personalizado">Personalizado</option></select>
               </label>
               <div id="cktr-custom-fields" hidden>
-                <label class="ge-design-field">Título da placa / etiqueta<input id="cktr-title" type="text" value="CKTR | ALMOXARIFADO" maxlength="70"></label>
+                <label class="ge-design-field">Título da placa / etiqueta<input id="cktr-title" type="text" value="IDENTIFICAÇÃO DE MATERIAL" maxlength="70"></label>
                 <label class="ge-design-field">Cor da faixa superior<select id="cktr-head-color"><option value="black">Preto profissional</option><option value="green">Verde escuro</option><option value="violet">Lilás escuro</option><option value="white">Branco técnico</option></select></label>
                 <label class="ge-design-field">Espessura da borda<select id="cktr-border"><option value="0.2">Fina</option><option value="0.35" selected>Normal</option><option value="0.65">Forte</option></select></label>
+              </div>
+              <div class="nexo-label-editor">
+                <div class="nexo-mini-heading">ACABAMENTO DA ETIQUETA</div>
+                <label class="ge-design-field">Escala do texto da descrição <input id="nexo-label-font" type="range" min="75" max="125" value="100" step="5"><output id="nexo-label-font-out">100%</output></label>
+                <label class="ge-design-field">Estilo do texto <select id="nexo-label-typography"><option value="standard">Padrão legível</option><option value="bold">Maior contraste</option><option value="compact">Compacto</option></select></label>
+                <p class="ge-design-note">A prévia e a impressão usam as mesmas regras tipográficas. Verifique a legibilidade física antes de imprimir.</p>
               </div>
               <div class="ge-design-options">
                 <label class="ge-design-option"><input id="cktr-show-qr" type="checkbox" checked> Mostrar QR Code</label>
@@ -747,16 +892,35 @@ html[data-ge-density="compact"] .ge-main{padding-top:19px}html[data-ge-density="
         <div class="ge-detail-row"><div class="ge-detail-card"><svg><use href="#i-shield"/></svg><div><strong>Proteção do arquivo original</strong><p>Impressão isolada, mantendo o tamanho físico e sem imprimir a interface.</p></div></div><div class="ge-detail-card"><svg><use href="#i-clock"/></svg><div><strong>Operação por etapas</strong><p>Receber → conferir → preparar impressão. O resultado físico depende da Zebra.</p></div></div></div>
       </section>
     </div>
-    <footer class="ge-footer"><div><b>CKTR SERVIÇOS</b> · GESTÃO DE ETIQUETAS <span>v4.2 Premium</span></div><div>Conceito e desenvolvimento · <b>Antonio</b></div></footer>
+    <footer class="ge-footer"><div><b>NEXO STUDIO</b> · ETIQUETAS &amp; PLACAS <span>v6.0</span></div><div>Conceito e desenvolvimento · <b>Antonio</b></div></footer>
   </main>
 </div>
+
+<div id="nexo-onboarding" class="nexo-onboarding" hidden role="dialog" aria-modal="true" aria-labelledby="nexo-onboard-title">
+  <div class="nexo-welcome">
+    <div class="nexo-welcome-icon"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2215%22%20fill%3D%22%23102820%22%2F%3E%3Cpath%20d%3D%22M16%2014h24l9%209v25a5%205%200%200%201-5%205H19a5%205%200%200%201-5-5V19a5%205%200%200%201%205-5%22%20fill%3D%22%23ecfff7%22%2F%3E%3Cpath%20d%3D%22M40%2014v9h9%22%20fill%3D%22%23bba0f2%22%2F%3E%3Cpath%20d%3D%22M23%2030h16M23%2035h11%22%20stroke%3D%22%230d5946%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M23%2041v6m4-6v6m4-6v6m4-6v6m4-6v6%22%20stroke%3D%22%230d5946%22%20stroke-width%3D%222%22%2F%3E%3C%2Fsvg%3E" alt="Símbolo de etiqueta"></div>
+    <div class="nexo-welcome-eyebrow">BEM-VINDO AO SEU NOVO WORKSPACE</div>
+    <h2 id="nexo-onboard-title">Seu estúdio.<br><span>Do seu jeito.</span></h2>
+    <p>Escolha uma experiência visual para preparar suas etiquetas e placas. Tudo funciona localmente neste navegador.</p>
+    <div class="nexo-settings-grid">
+      <label>Cor de destaque <input id="nexo-color" type="color" value="#3ed1af" aria-label="Selecionar cor de destaque"></label>
+      <label>Tema <select id="nexo-theme"><option value="dark">Escuro premium</option><option value="light">Claro</option></select></label>
+      <label class="nexo-check"><input type="checkbox" id="nexo-effects" checked> Animações e efeitos suaves</label>
+      <label class="nexo-check"><input type="checkbox" id="nexo-cursor"> Ponteiro personalizado</label>
+      <label class="nexo-check"><input type="checkbox" id="nexo-glow" checked> Brilho ambiente discreto</label>
+    </div>
+    <div class="nexo-welcome-actions"><button type="button" id="nexo-save">Entrar no estúdio</button><button type="button" id="nexo-default">Usar aparência padrão</button></div>
+    <small>Você pode mudar estas opções depois no botão Experiência.</small>
+  </div>
+</div>
+
 <div id="print-block" hidden>Abra um lote válido e confira a prévia antes de imprimir.</div>
 <div class="ge-drawer-backdrop" id="ge-drawer-backdrop" hidden></div>
 <aside class="ge-drawer" id="ge-settings-drawer" role="dialog" aria-modal="true" aria-labelledby="ge-settings-title" hidden>
   <div class="ge-drawer-header"><div><div class="ge-overline">SEU ESPAÇO DE TRABALHO</div><h2 id="ge-settings-title">Preferências</h2><p>Personalize o sistema neste navegador.</p></div><button type="button" class="ge-icon-button ge-close-button" id="ge-settings-close" aria-label="Fechar preferências"><svg><use href="#i-close"/></svg></button></div>
   <div class="ge-drawer-scroll">
     <section class="ge-settings-section"><h3><svg><use href="#i-user"/></svg> Operador local</h3><p>Perfis são preferências deste navegador; não funcionam como autenticação de acesso.</p><label class="ge-field"><span>Perfil em uso</span><select id="ge-profile-select"></select></label><div class="ge-field-group"><input id="ge-new-profile" maxlength="36" placeholder="Nome do novo perfil" aria-label="Nome do novo perfil"><button type="button" class="ge-small-button" id="ge-add-profile">Criar perfil</button></div></section>
-    <section class="ge-settings-section"><h3><svg><use href="#i-spark"/></svg> Aparência do sistema</h3><label class="ge-field"><span>Tema de cores</span><select id="tema" aria-label="Aparência do site"><option value="dark">Escuro</option><option value="light">Claro</option><option value="system">Seguir sistema</option></select></label><label class="ge-field"><span>Cor de destaque</span><select id="ge-accent"><option value="emerald">Esmeralda CKTR</option><option value="blue">Azul corporativo</option><option value="violet">Violeta elegante</option></select></label><label class="ge-field"><span>Espaçamento da interface</span><select id="ge-density"><option value="comfortable">Confortável</option><option value="compact">Compacto</option></select></label><label class="ge-toggle-line"><span>Microanimações <small>Transições e efeitos sutis</small></span><input id="ge-motion" type="checkbox" checked></label></section>
+    <section class="ge-settings-section"><h3><svg><use href="#i-spark"/></svg> Aparência do sistema</h3><label class="ge-field"><span>Tema de cores</span><select id="tema" aria-label="Aparência do site"><option value="dark">Escuro</option><option value="light">Claro</option><option value="system">Seguir sistema</option></select></label><label class="ge-field"><span>Cor de destaque</span><select id="ge-accent"><option value="emerald">Esmeralda profissional</option><option value="blue">Azul corporativo</option><option value="violet">Violeta elegante</option></select></label><label class="ge-field"><span>Espaçamento da interface</span><select id="ge-density"><option value="comfortable">Confortável</option><option value="compact">Compacto</option></select></label><label class="ge-toggle-line"><span>Microanimações <small>Transições e efeitos sutis</small></span><input id="ge-motion" type="checkbox" checked></label></section>
     <section class="ge-settings-section"><h3><svg><use href="#i-printer"/></svg> Impressão e conferência</h3><label class="ge-toggle-line"><span>Confirmar antes de imprimir <small>Exibe quantidade e medidas do lote</small></span><input id="ge-confirm-print" type="checkbox"></label><label class="ge-toggle-line"><span>Lembrar dimensões <small>Salva o tamanho selecionado</small></span><input id="ge-remember-size" type="checkbox" checked></label><div class="ge-setting-note">O site não altera automaticamente a velocidade, a temperatura ou a seleção da impressora.</div></section>
     <section class="ge-settings-section"><h3><svg><use href="#i-clock"/></svg> Histórico de operações locais</h3><p id="ge-history-description">São salvos apenas data, quantidade e formato de tentativas de impressão — nunca códigos SAP, descrições ou nomes de planejadores.</p><div class="ge-activity" id="ge-activity"><div class="ge-activity-empty">Nenhuma atividade registrada neste navegador.</div></div><div class="ge-button-pair"><button type="button" id="ge-export-settings" class="ge-small-button">Exportar preferências</button><button type="button" id="ge-clear-activity" class="ge-small-button ge-danger-outline">Limpar histórico</button></div><input id="ge-import-settings-file" type="file" accept=".json,application/json" hidden><button type="button" id="ge-import-settings" class="ge-text-button">Importar preferências de outro navegador →</button></section>
     <section class="ge-settings-section"><h3><svg><use href="#i-info"/></svg> Atalhos rápidos</h3><div class="ge-shortcut"><span>Abrir preferências</span><kbd>Alt</kbd> + <kbd>S</kbd></div><div class="ge-shortcut"><span>Importar CSV</span><kbd>Alt</kbd> + <kbd>I</kbd></div><div class="ge-shortcut"><span>Ir à prévia</span><kbd>Alt</kbd> + <kbd>P</kbd></div></section>
@@ -2262,7 +2426,7 @@ function cktrDress(card,item){
   const model=cktrDesign.model;
   card.classList.add('model-'+model);
   const heading=card.querySelector('.label-head strong');
-  if(heading){heading.textContent=item.OrigemManual?(item.TituloManual||'IDENTIFICAÇÃO DE MATERIAL'):(model==='personalizado'?($('cktr-title').value.trim()||'IDENTIFICAÇÃO DE MATERIAL'):(cktrDesign.mode==='placa'?'CKTR | PLACA DE IDENTIFICAÇÃO':'CKTR | ALMOXARIFADO'));}
+  if(heading){heading.textContent=item.OrigemManual?(item.TituloManual||'IDENTIFICAÇÃO DE MATERIAL'):(model==='personalizado'?($('cktr-title').value.trim()||'IDENTIFICAÇÃO DE MATERIAL'):(cktrDesign.mode==='placa'?'PLACA DE IDENTIFICAÇÃO':'IDENTIFICAÇÃO DE MATERIAL'));}
   if(model==='personalizado'){
     const colors={black:['#111','#fff'],green:['#104333','#fff'],violet:['#51427e','#fff'],white:['#fff','#111']};
     const pair=colors[$('cktr-head-color').value]||colors.black;
@@ -2299,7 +2463,7 @@ for(const id of ['cktr-title','cktr-head-color','cktr-border','cktr-show-qr','ck
 $('cktr-title').addEventListener('input',()=>{for(const h of labels.querySelectorAll('.model-personalizado .label-head strong'))h.textContent=$('cktr-title').value||'IDENTIFICAÇÃO DE MATERIAL'});
 $('cktr-reset-style').addEventListener('click',()=>{
   cktrDesign.mode='etiqueta';cktrDesign.model='classico';cktrTemplates.value='classico';
-  $('cktr-title').value='CKTR | ALMOXARIFADO';$('cktr-head-color').value='black';$('cktr-border').value='.35';
+  $('cktr-title').value='IDENTIFICAÇÃO DE MATERIAL';$('cktr-head-color').value='black';$('cktr-border').value='.35';
   ['cktr-show-qr','cktr-show-credit','cktr-show-guid'].forEach(id=>$(id).checked=true);cktrRefresh();
 });
 $('cktr-export-guid').addEventListener('click',()=>{
@@ -2399,7 +2563,7 @@ function download(name,content,type){const blob=new Blob([content],{type}),url=U
 function csv(){const rows=[['ID','CODIGO_SAP','TIPO_CODIGO','DESCRICAO','ID_AREA','QUANTIDADE','LOCALIZACAO','PLANEJADORES'],...items.map(i=>[i.ID,i.CodigoSAP,i.TipoCodigo,i.Descricao,i.ID_AREA,i.QuantidadeEtiquetas,i.Localizacao,i.Planejadores])];return '\uFEFF'+rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\r\n');}
 function parseCsv(text){const out=[],rows=[];let row=[],cell='',quoted=false;for(let i=0;i<text.length;i++){const c=text[i];if(c==='"'){if(quoted&&text[i+1]==='"'){cell+='"';i++;}else quoted=!quoted;}else if(c===';'&&!quoted){row.push(cell);cell='';}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some(x=>x.trim()))rows.push(row);row=[];cell='';}else cell+=c;}row.push(cell);if(row.some(x=>x.trim()))rows.push(row);const headers=(rows.shift()||[]).map(x=>x.replace(/^\uFEFF/,'').trim().toUpperCase());for(const r of rows){const o={};headers.forEach((h,i)=>o[h]=r[i]||'');out.push(normalize(o));}return out;}
 $('exportar').textContent='Baixar planilha CSV';$('exportar').addEventListener('click',()=>download('Etiquetas-CKTR.csv',items.length?csv():'\uFEFFID;CODIGO_SAP;TIPO_CODIGO;DESCRICAO;ID_AREA;QUANTIDADE;LOCALIZACAO;PLANEJADORES\r\n','text/csv;charset=utf-8'));
-$('importar').textContent='Importar planilha CSV';input.setAttribute('accept','.csv,text/csv');$('importar').addEventListener('click',()=>input.click());input.addEventListener('change',async()=>{try{const file=input.files[0];if(!file)return;items=parseCsv(await file.text());if(!items.length)throw Error('Arquivo sem materiais.');await render();}catch(e){msg(e.message,true);}finally{input.value='';}});
+$('importar').textContent='Importar planilha CSV';input.setAttribute('accept','.csv,text/csv');$('importar').addEventListener('click',()=>input.click());input.addEventListener('change',async()=>{if(window.NexoV6)return;try{const file=input.files[0];if(!file)return;items=parseCsv(await file.text());if(!items.length)throw Error('Arquivo sem materiais.');await render();}catch(e){msg(e.message,true);}finally{input.value='';}});
 $('largura').value=90;$('altura').value=90;$('largura').min=30;$('altura').min=30;
 function sizing(){const w=Number($('largura').value),h=Number($('altura').value);if(!Number.isFinite(w)||!Number.isFinite(h)||w<30||w>420||h<30||h>420)return false;document.documentElement.style.setProperty('--label-w',w+'mm');document.documentElement.style.setProperty('--label-h',h+'mm');const scale=Math.max(.78,Math.min(3.1,Math.min(w/90,h/90)));document.documentElement.style.setProperty('--label-font-scale',scale.toFixed(3));document.documentElement.style.setProperty('--label-qr-size',Math.min(85,Math.max(20,Math.min(w,h)*.36)).toFixed(1)+'mm');ajustarQRs();$('page-size').textContent=`@page{size:${w}mm ${h}mm;margin:0}`;$('metric-size').textContent=`${w} × ${h}`;ajustarTodasDescricoes();return true;}
 const formats={'90x90':[90,90],'70x70':[70,70],'100x100':[100,100],a4p:[210,297],a4l:[297,210],a3p:[297,420],a3l:[420,297]};
@@ -2485,9 +2649,12 @@ try{
     if(String(payload?.modo||'').toUpperCase()==='PLACA'){
       cktrDesign.mode='placa';cktrDesign.model='placa';cktrTemplates.value='placa';cktrUpdateControls();
     }
-    render().catch(e=>msg(e.message,true));
+    // NEXO V6 fará o render após montar a fila; mantém os itens importados na memória.
   }else msg('Crie uma placa diretamente no formulário, importe CSV ou abra o site pelo Power Apps.');
 }catch(e){msg('Não foi possível receber os dados do Power Apps: '+e.message,true);}sizing();
+
+window.NexoLegacy={normalize,parseCsv,makeLabel,linkFicha,qrSvg,uuid:cktrRandomUUID,
+ getItems:()=>items.slice(),clearItems:()=>{items=[]},getMode:()=>cktrDesign.mode};
 })();
 </script>
 <script id="cktr-premium-controller">
@@ -2712,6 +2879,530 @@ try{
   renderProfiles();applyPreferences();renderActivity();refreshStatus();
   if(!storageOK)toast('Este navegador bloqueou o armazenamento local; preferências podem não persistir.',true);
 })();
+
+</script>
+
+<script id="nexo-v50-controller">
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id);
+const KEY='NEXO_STUDIO_EXPERIENCE_V5';
+const BASE={color:'#3ed1af',theme:'dark',effects:true,cursor:false,glow:true};
+let prefs={...BASE};
+try{const saved=JSON.parse(localStorage.getItem(KEY)||'null');if(saved&&typeof saved==='object')prefs={...BASE,...saved};}catch(e){}
+const safeColor=/^#[0-9a-f]{6}$/i;
+if(!safeColor.test(prefs.color))prefs.color=BASE.color;
+const pointerSvg=`<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M4 3l18 11-8 2-3 9z" fill="${prefs.color}" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/><circle cx="23" cy="23" r="4" fill="#bca0f2" stroke="white" stroke-width="1"/></svg>`;
+const pointer=(c)=>`url("data:image/svg+xml,${encodeURIComponent(pointerSvg.replace(prefs.color,c))}") 4 3, pointer`;
+function apply(){
+ const html=document.documentElement;
+ const c=prefs.color;html.style.setProperty('--ge-primary',c);
+ html.style.setProperty('--ge-primary-dark',c);
+ html.style.setProperty('--ge-glow',`color-mix(in srgb, ${c} 15%, transparent)`);
+ html.dataset.nexoGlow=prefs.glow?'on':'off';
+ html.dataset.nexoEffects=prefs.effects?'on':'off';
+ html.dataset.nexoCursor=prefs.cursor?'tag':'normal';
+ html.style.setProperty('--nexo-pointer',pointer(c));
+ if($('tema')&&$('tema').value!==prefs.theme){$('tema').value=prefs.theme;$('tema').dispatchEvent(new Event('change',{bubbles:true}));}
+}
+function fill(){ $('nexo-color').value=prefs.color;$('nexo-theme').value=prefs.theme;$('nexo-effects').checked=prefs.effects;$('nexo-cursor').checked=prefs.cursor;$('nexo-glow').checked=prefs.glow; }
+function show(){fill();$('nexo-onboarding').hidden=false;$('nexo-save').focus();}
+function hide(){ $('nexo-onboarding').hidden=true; }
+function save(){prefs={color:$('nexo-color').value,theme:$('nexo-theme').value,effects:$('nexo-effects').checked,cursor:$('nexo-cursor').checked,glow:$('nexo-glow').checked};try{localStorage.setItem(KEY,JSON.stringify(prefs));}catch(e){} apply();hide();}
+$('nexo-save').addEventListener('click',save);
+$('nexo-default').addEventListener('click',()=>{prefs={...BASE};fill();save();});
+$('nexo-experience-button').addEventListener('click',show);
+$('nexo-onboarding').addEventListener('keydown',e=>{if(e.key==='Escape'&&localStorage.getItem(KEY)){hide();}});
+// Realce aplicado à etiqueta e não ao ambiente da impressora.
+function updateLabels(){
+ const scale=Number($('nexo-label-font').value)||100;
+ document.documentElement.style.setProperty('--nexo-label-scale',String(scale/100));
+ $('nexo-label-font-out').textContent=scale+'%';
+ const mode=$('nexo-label-typography').value;
+ document.querySelectorAll('#etiquetas .label').forEach(el=>{el.classList.remove('nexo-font-bold','nexo-font-compact');if(mode!=='standard')el.classList.add('nexo-font-'+mode);});
+}
+$('nexo-label-font').addEventListener('input',updateLabels);
+$('nexo-label-typography').addEventListener('change',updateLabels);
+const target=$('etiquetas');if(target)new MutationObserver(updateLabels).observe(target,{childList:true});
+apply();updateLabels();
+// O primeiro acesso é configurado apenas neste navegador; sem conexão externa.
+let hasWelcome=false;try{hasWelcome=Boolean(localStorage.getItem(KEY));}catch(e){}
+if(!hasWelcome)show();
+})();
+</script>
+<script id="nexo-enterprise-v6-controller">
+(() => {
+'use strict';
+// NEXO Studio Enterprise 6.0. CktrQR e JSZip continuam embutidos no HTML original.
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const nums=(v,d=0)=>Number.isFinite(+v)?+v:d;
+const mm=v=>Number(v.toFixed(3))+'mm';
+const $root=document.querySelector('.ge-control-card .ge-card-body');
+const legacy=document.createElement('div'); legacy.id='v6-legacy';legacy.hidden=true;
+while($root.firstChild)legacy.append($root.firstChild);
+$root.append(legacy);
+const ui=document.createElement('div');ui.innerHTML="<section class=\"v6-enterprise\" aria-label=\"Cockpit Industrial NEXO\">\n<div class=\"v6-tabs\" role=\"tablist\" aria-label=\"Módulos do estúdio\">\n<button class=\"v6-tab\" type=\"button\" role=\"tab\" data-v6-tab=\"queue\" aria-selected=\"true\">01 · Dados &amp; Fila</button>\n<button class=\"v6-tab\" type=\"button\" role=\"tab\" data-v6-tab=\"models\" aria-selected=\"false\">02 · Modelos</button>\n<button class=\"v6-tab\" type=\"button\" role=\"tab\" data-v6-tab=\"paper\" aria-selected=\"false\">03 · Papel &amp; Imposição</button>\n<button class=\"v6-tab\" type=\"button\" role=\"tab\" data-v6-tab=\"station\" aria-selected=\"false\">04 · Estação &amp; Auditoria</button>\n</div>\n<div class=\"v6-pane\" data-v6-pane=\"queue\">\n<div class=\"v6-card\"><h4>Criar etiqueta ou placa</h4><div class=\"v6-formgrid\">\n<label class=\"v6-field\">Código SAP / PN<input id=\"v6-code\" maxlength=\"120\" placeholder=\"Ex.: 13121750\"></label>\n<label class=\"v6-field\">Tipo<select id=\"v6-kind\"><option value=\"etiqueta\">Etiqueta</option><option value=\"placa\">Placa</option></select></label>\n<label class=\"v6-field v6-full\">Descrição<input id=\"v6-desc\" maxlength=\"800\" placeholder=\"Identificação do material\"></label>\n<label class=\"v6-field\">Endereço / Local<input id=\"v6-local\" maxlength=\"120\" placeholder=\"RUA A / MÓDULO 01\"></label>\n<label class=\"v6-field\">Planejador<input id=\"v6-planner\" maxlength=\"100\" placeholder=\"Responsável\"></label>\n<label class=\"v6-field\">Quantidade de cópias<input id=\"v6-qty\" type=\"number\" min=\"1\" max=\"500\" value=\"1\"></label>\n<label class=\"v6-field\">Modelo<select id=\"v6-new-model\"></select></label>\n</div><div class=\"v6-actions\"><button class=\"v6-primary\" type=\"button\" id=\"v6-add\">+ Adicionar à fila</button><button type=\"button\" id=\"v6-import-csv\">Importar CSV(s)</button><button type=\"button\" id=\"v6-project-open\">Abrir projeto JSON</button></div>\n<input type=\"file\" id=\"v6-files\" accept=\".csv,text/csv\" multiple hidden><input type=\"file\" id=\"v6-project-file\" accept=\".json,application/json\" hidden>\n<p class=\"v6-caption\">Cada arquivo importado acrescenta registros à fila. O material enviado via <b>#dados=</b> também entra aqui, sem substituir os anteriores.</p></div>\n<div class=\"v6-card\"><h4>Sequenciador industrial</h4><div class=\"v6-formgrid\">\n<label class=\"v6-field\">Prefixo<input id=\"v6-series-prefix\" value=\"PRAT-\" maxlength=\"30\"></label>\n<label class=\"v6-field\">Preenchimento (dígitos)<input id=\"v6-series-digits\" type=\"number\" min=\"1\" max=\"10\" value=\"3\"></label>\n<label class=\"v6-field\">De<input id=\"v6-series-start\" type=\"number\" value=\"1\"></label>\n<label class=\"v6-field\">Até<input id=\"v6-series-end\" type=\"number\" value=\"50\"></label>\n<label class=\"v6-field\">Passo<input id=\"v6-series-step\" type=\"number\" min=\"1\" value=\"1\"></label>\n<label class=\"v6-field\">Descrição<input id=\"v6-series-desc\" maxlength=\"150\" value=\"ENDEREÇAMENTO DE ESTOQUE\"></label>\n</div><div class=\"v6-actions\"><button type=\"button\" id=\"v6-sequence\">Gerar sequência</button></div></div>\n<div class=\"v6-card\"><h4>Fila de produção <span id=\"v6-count\" style=\"color:var(--ge-primary)\">0</span></h4><div class=\"v6-table-wrap\"><table class=\"v6-queue\"><thead><tr><th>Material</th><th>Modelo</th><th>Cópias</th><th>Medidas mm</th><th>Ações</th></tr></thead><tbody id=\"v6-queue-body\"><tr><td colspan=\"5\">Fila vazia.</td></tr></tbody></table></div><div class=\"v6-actions\"><button type=\"button\" id=\"v6-clear\">Limpar fila</button><button type=\"button\" id=\"v6-zip\">Exportar ZIP</button><button type=\"button\" id=\"v6-audit-csv\">CSV de auditoria</button></div></div>\n</div>\n<div class=\"v6-pane\" data-v6-pane=\"models\" hidden>\n<div class=\"v6-card\"><h4>8 arquiteturas físicas</h4><label class=\"v6-field\">Modelo padrão para novos materiais<select id=\"v6-default-model\"></select></label><p class=\"v6-caption\">Cada item da fila pode usar modelo e dimensão próprios. Modelos com campos estruturais diferentes, não apenas cores.</p></div>\n<div class=\"v6-card\"><h4>Custom Blueprint · Blocos</h4><div class=\"v6-formgrid\" id=\"v6-blueprint\">\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"header\" checked> Cabeçalho</label>\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"logo\" checked> Logo CKTR</label>\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"qr\" checked> QR Code</label>\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"barcode\" checked> Code-128</label>\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"address\" checked> Endereço</label>\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"planner\" checked> Planejador</label>\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"datetime\" checked> Data / hora</label>\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"border\" checked> Borda</label>\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"rounded\"> Cantos arredondados</label>\n</div><label class=\"v6-field\" style=\"margin-top:9px\">Setor / Status<select id=\"v6-status\"><option>APROVADO</option><option>INSPEÇÃO</option><option>DEVOLUÇÃO / FDM</option><option>URGENTE</option></select></label>\n<label class=\"v6-field\" style=\"margin-top:9px\">Direção do endereço<select id=\"v6-direction\"><option value=\"↑\">↑ Para cima</option><option value=\"↓\">↓ Para baixo</option><option value=\"←\">← Esquerda</option><option value=\"→\">→ Direita</option></select></label></div>\n<div class=\"v6-card\"><h4>Tipografia e legibilidade</h4><label class=\"v6-tick\"><input type=\"checkbox\" id=\"v6-autofit\" checked> Auto-fit de texto por busca binária</label><p class=\"v6-caption\">O sistema alerta quando não é possível acomodar todo o texto com tamanho minimamente legível. Descrições extensas podem exigir etiqueta maior.</p></div>\n</div>\n<div class=\"v6-pane\" data-v6-pane=\"paper\" hidden>\n<div class=\"v6-card\"><h4>Destino físico de impressão</h4><label class=\"v6-field\">Motor<select id=\"v6-output\"><option value=\"sheet\">Lexmark · Folha cortada</option><option value=\"roll\">Zebra ZT230 · Rolo térmico</option></select></label><label class=\"v6-field\" style=\"margin-top:9px\">Papel<select id=\"v6-paper\"><option value=\"a4p\">A4 · Retrato — 210 × 297 mm</option><option value=\"a4l\">A4 · Paisagem — 297 × 210 mm</option><option value=\"a3p\">A3 · Retrato — 297 × 420 mm</option><option value=\"a3l\">A3 · Paisagem — 420 × 297 mm</option><option value=\"letterp\">Carta · Retrato — 215,9 × 279,4 mm</option><option value=\"letterl\">Carta · Paisagem — 279,4 × 215,9 mm</option></select></label>\n<div class=\"v6-formgrid\" style=\"margin-top:9px\"><label class=\"v6-field\">Margem (mm)<input id=\"v6-margin\" type=\"number\" value=\"5\" min=\"0\" max=\"30\" step=\"0.5\"></label><label class=\"v6-field\">Gap / Sangria (mm)<input id=\"v6-gap\" type=\"number\" value=\"2\" min=\"0\" max=\"15\" step=\"0.5\"></label></div>\n<div style=\"display:grid;gap:8px;margin-top:12px\"><label class=\"v6-tick\"><input id=\"v6-rotate\" type=\"checkbox\" checked> Rotação automática de 90°</label><label class=\"v6-tick\"><input id=\"v6-crop\" type=\"checkbox\" checked> Marcas de corte</label><label class=\"v6-tick\"><input id=\"v6-guillotine\" type=\"checkbox\"> Guias de guilhotina pontilhadas</label><label class=\"v6-tick\"><input id=\"v6-page-numbers\" type=\"checkbox\"> Número de página impresso</label></div>\n</div><div class=\"v6-card\"><h4>Simulador de saída</h4><div class=\"v6-actions\"><button type=\"button\" id=\"v6-to-grid\">Grade</button><button type=\"button\" id=\"v6-to-sheet\">Folha real</button><button type=\"button\" id=\"v6-mono\">Simular P&amp;B / Térmica</button></div><p class=\"v6-caption\">No modo rolo, todos os itens devem ter as mesmas dimensões físicas para compartilhar um único trabalho de impressão.</p></div>\n</div>\n<div class=\"v6-pane\" data-v6-pane=\"station\" hidden>\n<div class=\"v6-card\"><h4>Estação de trabalho</h4><div class=\"v6-formgrid\">\n<label class=\"v6-field v6-full\">Nome da máquina / posto<input id=\"v6-machine\" maxlength=\"70\" placeholder=\"PC-ALMOX-01\"></label>\n<label class=\"v6-field v6-full\">Operador / Nome completo<input id=\"v6-operator\" maxlength=\"100\" placeholder=\"Antonio\"></label>\n<label class=\"v6-field v6-full\">Matrícula opcional<input id=\"v6-matricula\" maxlength=\"40\"></label></div>\n<div class=\"v6-actions\"><button type=\"button\" id=\"v6-station-save\" class=\"v6-primary\">Vincular estação</button><button type=\"button\" id=\"v6-station-export\">Exportar estação</button></div>\n<div id=\"v6-station-info\" class=\"v6-caption\" style=\"margin-top:10px;overflow-wrap:anywhere\"></div><p class=\"v6-caption\">A identificação é local deste navegador e não comprova a identidade do PC ou do operador. Nenhum dado é enviado externamente.</p></div>\n<div class=\"v6-card\"><h4>Auditoria impressa</h4><label class=\"v6-tick\"><input type=\"checkbox\" id=\"v6-audit-stamp\"> Incluir carimbo discreto na etiqueta</label><label class=\"v6-tick\" style=\"margin-top:10px\"><input id=\"v6-show-guid\" type=\"checkbox\" checked> Mostrar GUID abreviado</label><label class=\"v6-tick\" style=\"margin-top:10px\"><input id=\"v6-credit\" type=\"checkbox\" checked> Creator: Antonio</label></div>\n</div>\n<div id=\"v6-notice\" class=\"v6-caption\" role=\"status\" aria-live=\"polite\">Sistema offline pronto para produção.</div>\n<div class=\"v6-actions\"><button type=\"button\" class=\"v6-primary\" id=\"v6-print\" style=\"width:100%;padding:14px!important\">Imprimir fila · Abrir diálogo seguro</button></div>\n</section>\n";
+$root.append(...Array.from(ui.childNodes));
+const original=NexoLegacy;
+const MODEL={
+ classic:['Logístico CKTR · Clássico',90,90],shelf:['Gôndola · Prateleira',100,35],
+ safety:['Sinalização Industrial',150,100],asset:['Patrimônio · Code-128',70,35],
+ spec:['Ficha Técnica · Engenharia',100,100],status:['Rastreabilidade · Status',80,60],
+ address:['Rua / Porta-Paletes',150,60],blueprint:['Custom Blueprint',90,90]
+};
+for(const name of ['v6-new-model','v6-default-model'])for(const [key,entry] of Object.entries(MODEL))$(name).add(new Option(entry[0],key));
+const PAPERS={a4p:[210,297],a4l:[297,210],a3p:[297,420],a3l:[420,297],letterp:[215.9,279.4],letterl:[279.4,215.9]};
+const LIMIT_ROWS=500,LIMIT_COPIES=500;
+const KEY='NEXO_ENTERPRISE_STATION_V6';
+const storage={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}};
+const newUid=original.uuid;
+let queue=[],units=[],pages=[],errors=[],warnings=[],revision=0,view='grid',mono=false,renderBusy=false;
+const settings={output:'sheet',paper:'a4p',margin:5,gap:2,rotate:true,crop:true,guillotine:false,numbers:false,autoFit:true,audit:false,guid:true,credit:true,status:'APROVADO',direction:'↑'};
+const blueprint={header:true,logo:true,qr:true,barcode:true,address:true,planner:true,datetime:true,border:true,rounded:false};
+const statusElem=$('v6-notice');
+const notify=(txt,warn=false)=>{statusElem.textContent=txt;statusElem.style.color=warn?'#e6b47c':'var(--ge-muted)';};
+function platformInfo(){
+ const ua=navigator.userAgent||'',uad=navigator.userAgentData;
+ const platform=uad?.platform||navigator.platform||'Desconhecido';
+ const os=/Windows/i.test(platform+' '+ua)?'WIN':/Mac/i.test(platform+' '+ua)?'MAC':/Android/i.test(platform+' '+ua)?'ANDROID':/Linux/i.test(platform+' '+ua)?'LINUX':'WEB';
+ const browser=/Edg\//.test(ua)?'Edge':/Brave\//.test(ua)?'Brave':/Chrome\//.test(ua)?'Chromium':/Firefox\//.test(ua)?'Firefox':/Safari\//.test(ua)?'Safari':'Navegador';
+ return {os,platform,browser,cpu:navigator.hardwareConcurrency||'não informado',ram:navigator.deviceMemory||'não informada',resolution:`${screen.width}×${screen.height}`,timezone:Intl.DateTimeFormat().resolvedOptions().timeZone||'local'};
+}
+const detected=platformInfo();
+function hash(s){let v=2166136261;for(let i=0;i<s.length;i++){v^=s.charCodeAt(i);v=Math.imul(v,16777619)}return (v>>>0).toString(16).toUpperCase().padStart(8,'0')}
+let station={machine:'',operator:'',matricula:'',id:''};
+try{const saved=JSON.parse(storage.get(KEY)||'null');if(saved&&typeof saved==='object')station={...station,...saved}}catch(e){}
+if(!station.id)station.id='EST-'+detected.os+'-'+hash([detected.platform,detected.cpu,detected.ram,detected.resolution,detected.timezone,newUid()].join('|')).slice(0,6);
+function loadStationFromUrl(){
+ const search=new URLSearchParams(location.search),frag=new URLSearchParams(location.hash.replace(/^#/,''));
+ const maquina=search.get('maquina')||search.get('estacao')||frag.get('estacao')||frag.get('maquina');
+ const operador=search.get('operador')||frag.get('operador');
+ if(maquina)station.machine=maquina.slice(0,70);
+ if(operador)station.operator=operador.slice(0,100);
+ storage.set(KEY,JSON.stringify(station));
+}
+loadStationFromUrl();
+function stationLabel(){return station.machine||station.id}
+function stationUi(){
+ $('v6-machine').value=station.machine;$('v6-operator').value=station.operator;$('v6-matricula').value=station.matricula;
+ $('v6-station-info').textContent=`ID local: ${station.id} · Posto: ${stationLabel()} · ${detected.platform} / ${detected.browser} · CPU: ${detected.cpu} · RAM (aprox.): ${detected.ram} · ${detected.resolution} · ${detected.timezone} · Offline-Ready`;
+ let badge=$('v6-telemetry');if(!badge){badge=document.createElement('button');badge.id='v6-telemetry';badge.type='button';badge.className='ge-icon-button';badge.style.cssText='font-size:10px;max-width:195px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:0 1 195px';document.querySelector('.ge-top-actions').prepend(badge);badge.addEventListener('click',()=>setTab('station'));}
+ badge.textContent=`● ${stationLabel()} · ${station.operator||'Operador'} · OFFLINE`;
+ badge.title=`Estação: ${stationLabel()} | Operador: ${station.operator||'não vinculado'} | ${detected.os}/${detected.browser} | Offline-Ready`;
+}
+$('v6-station-save').addEventListener('click',()=>{station.machine=$('v6-machine').value.trim().slice(0,70);station.operator=$('v6-operator').value.trim().slice(0,100);station.matricula=$('v6-matricula').value.trim().slice(0,40);storage.set(KEY,JSON.stringify(station));stationUi();refresh();notify('Estação e operador vinculados neste navegador.');});
+$('v6-station-export').addEventListener('click',()=>download('NEXO-Estacao.json',JSON.stringify({schema:'NEXO-STATION-v1',...station,detected},null,2),'application/json'));
+stationUi();
+function setTab(name){
+ document.querySelectorAll('[data-v6-tab]').forEach(el=>el.setAttribute('aria-selected',String(el.dataset.v6Tab===name)));
+ document.querySelectorAll('[data-v6-pane]').forEach(el=>el.hidden=el.dataset.v6Pane!==name);
+}
+document.querySelectorAll('[data-v6-tab]').forEach(el=>el.addEventListener('click',()=>setTab(el.dataset.v6Tab)));
+function makeRow(i,model='classic',kind='etiqueta'){
+ const k=MODEL[model]?model:'classic';return {rowId:newUid(),ID:String(i.ID||('MAN-'+newUid().slice(0,8))),CodigoSAP:String(i.CodigoSAP||''),TipoCodigo:String(i.TipoCodigo||'SAP'),Descricao:String(i.Descricao||''),Localizacao:String(i.Localizacao||''),Planejadores:String(i.Planejadores||''),ID_AREA:String(i.ID_AREA||''),OrigemManual:!!i.OrigemManual,TituloManual:String(i.TituloManual||'IDENTIFICAÇÃO DE MATERIAL'),model:k,kind,copies:Math.max(1,Math.min(LIMIT_COPIES,Math.trunc(nums(i.QuantidadeEtiquetas,1)))),w:MODEL[k][1],h:MODEL[k][2],copyIds:[],createdAt:new Date().toISOString()};
+}
+function fillUUIDs(row){row.copyIds=Array.isArray(row.copyIds)?row.copyIds:[];while(row.copyIds.length<row.copies)row.copyIds.push(newUid());row.copyIds.length=row.copies;}
+function totalCopies(){return queue.reduce((n,r)=>n+r.copies,0)}
+function appendRows(rows){
+ if(queue.length+rows.length>LIMIT_ROWS)throw Error(`Máximo ${LIMIT_ROWS} registros na fila.`);
+ const total=rows.reduce((n,r)=>n+r.copies,totalCopies());if(total>LIMIT_COPIES)throw Error(`Máximo ${LIMIT_COPIES} unidades por lote.`);
+ rows.forEach(fillUUIDs);queue.push(...rows);updateQueue();refresh();
+}
+function queueOptions(current){return Object.entries(MODEL).map(([k,v])=>`<option value="${k}" ${k===current?'selected':''}>${esc(v[0])}</option>`).join('')}
+function updateQueue(){
+ $('v6-count').textContent=`${queue.length} registros / ${totalCopies()} unidades`;
+ const body=$('v6-queue-body');body.replaceChildren();
+ if(!queue.length){const tr=document.createElement('tr');tr.innerHTML='<td colspan="5">Fila vazia. Crie um item, importe CSV ou receba do Power Apps.</td>';body.append(tr);}
+ for(const row of queue){
+  const tr=document.createElement('tr');tr.dataset.rowId=row.rowId;
+  tr.innerHTML=`<td><strong title="${esc(row.Descricao)}">${esc(row.CodigoSAP)}</strong><small>${esc(row.Descricao.slice(0,40))}</small></td><td><select data-edit="model" aria-label="Modelo do item">${queueOptions(row.model)}</select></td><td><input type="number" min="1" max="500" data-edit="copies" value="${row.copies}" aria-label="Cópias"></td><td><input data-edit="w" type="number" min="20" max="420" step="0.1" value="${row.w}" aria-label="Largura"> × <input data-edit="h" type="number" min="20" max="420" step="0.1" value="${row.h}" aria-label="Altura"></td><td><button type="button" class="v6-compact-btn" data-action="duplicate" title="Duplicar registro">⧉</button><button type="button" class="v6-compact-btn" data-action="remove" title="Remover">×</button></td>`;
+  body.append(tr);
+ }
+}
+$('v6-queue-body').addEventListener('change',e=>{
+ const el=e.target,tr=el.closest('tr[data-row-id]');if(!tr)return;const row=queue.find(r=>r.rowId===tr.dataset.rowId);if(!row)return;
+ const key=el.dataset.edit;
+ if(key==='model'){row.model=el.value;row.w=MODEL[row.model][1];row.h=MODEL[row.model][2];}
+ else if(key==='copies'){const n=Math.floor(nums(el.value,0));if(n<1||n>LIMIT_COPIES||totalCopies()-row.copies+n>LIMIT_COPIES){notify('Quantidade inválida ou limite total de 500 unidades.',true);updateQueue();return;}row.copies=n;fillUUIDs(row);}
+ else if(key==='w'||key==='h'){const n=nums(el.value,0);if(n<20||n>420){notify('Dimensões permitidas: 20 a 420 mm. Para 30 × 20 mm, confira o alerta de legibilidade.',true);updateQueue();return;}row[key]=n;}
+ updateQueue();refresh();
+});
+$('v6-queue-body').addEventListener('click',e=>{
+ const btn=e.target.closest('[data-action]'),tr=btn?.closest('tr[data-row-id]');if(!tr)return;
+ const idx=queue.findIndex(r=>r.rowId===tr.dataset.rowId);if(idx<0)return;
+ if(btn.dataset.action==='remove')queue.splice(idx,1);
+ else if(btn.dataset.action==='duplicate'){
+  if(queue.length>=LIMIT_ROWS||totalCopies()+queue[idx].copies>LIMIT_COPIES){notify('Limite máximo de registros ou cópias atingido.',true);return;}
+  const clone={...queue[idx],rowId:newUid(),copyIds:[],createdAt:new Date().toISOString()};fillUUIDs(clone);queue.splice(idx+1,0,clone);
+ }
+ updateQueue();refresh();
+});
+$('v6-add').addEventListener('click',()=>{
+ try{const code=$('v6-code').value.trim(),desc=$('v6-desc').value.trim(),copies=Math.floor(nums($('v6-qty').value,0));
+  if(!code||!desc)throw Error('Informe código e descrição.');if(copies<1||copies>LIMIT_COPIES)throw Error('Cópias entre 1 e 500.');
+  const model=$('v6-new-model').value;
+  const row=makeRow({CodigoSAP:code,Descricao:desc,Localizacao:$('v6-local').value.trim(),Planejadores:$('v6-planner').value.trim(),QuantidadeEtiquetas:copies,OrigemManual:true},model,$('v6-kind').value);
+  appendRows([row]);notify(`Item ${code} adicionado à fila.`);
+ }catch(e){notify(e.message,true)}
+});
+$('v6-sequence').addEventListener('click',()=>{
+ try{const a=Math.trunc(nums($('v6-series-start').value,NaN)),b=Math.trunc(nums($('v6-series-end').value,NaN)),step=Math.trunc(nums($('v6-series-step').value,NaN)),digits=Math.trunc(nums($('v6-series-digits').value,3));
+ if(!Number.isFinite(a)||!Number.isFinite(b)||!Number.isInteger(step)||step<1||b<a||digits<1||digits>10)throw Error('Intervalo do sequenciador inválido.');
+ const count=Math.floor((b-a)/step)+1;if(count>LIMIT_ROWS-queue.length||count>LIMIT_COPIES-totalCopies())throw Error('A sequência ultrapassa o limite de 500 unidades.');
+ const rows=[];for(let i=a;i<=b;i+=step){const code=$('v6-series-prefix').value+i.toString().padStart(digits,'0');rows.push(makeRow({CodigoSAP:code,Descricao:$('v6-series-desc').value,QuantidadeEtiquetas:1,OrigemManual:true},'address','placa'));}
+ appendRows(rows);notify(`${rows.length} endereços sequenciais adicionados.`);
+ }catch(e){notify(e.message,true)}
+});
+$('v6-clear').addEventListener('click',()=>{if(!queue.length||confirm('Limpar todos os registros da fila atual?')){queue=[];updateQueue();refresh();}});
+$('v6-import-csv').addEventListener('click',()=>$('v6-files').click());
+$('v6-files').addEventListener('change',async e=>{
+ try{const fileList=Array.from(e.target.files);const rows=[];for(const file of fileList){if(file.size>8e6)throw Error('CSV muito grande: '+file.name);const parsed=original.parseCsv(await file.text());rows.push(...parsed.filter(i=>i.ID||i.CodigoSAP).map(i=>makeRow(i,$('v6-default-model').value,'etiqueta')));}
+ if(!rows.length)throw Error('Nenhuma linha válida nos CSVs.');appendRows(rows);notify(`${rows.length} materiais de ${fileList.length} arquivo(s) adicionados.`);
+ }catch(error){notify('Erro CSV: '+error.message,true)}finally{e.target.value='';}
+});
+function project(){return {schema:'NEXO-STUDIO-ENTERPRISE-V6',version:6,exportedAt:new Date().toISOString(),queue,settings,blueprint,station}}
+$('v6-project-open').addEventListener('click',()=>$('v6-project-file').click());
+$('v6-project-file').addEventListener('change',async e=>{
+ try{const file=e.target.files[0];if(!file)return;if(file.size>8e6)throw Error('Projeto muito grande.');const p=JSON.parse(await file.text());if(p.schema!=='NEXO-STUDIO-ENTERPRISE-V6'||!Array.isArray(p.queue))throw Error('Projeto NEXO v6 inválido.');if(!confirm('Adicionar os registros do projeto à fila atual?'))return;
+  const rows=p.queue.map(raw=>{const row=makeRow(raw,raw.model,raw.kind);row.w=Math.max(20,Math.min(420,nums(raw.w,row.w)));row.h=Math.max(20,Math.min(420,nums(raw.h,row.h)));row.rowId=newUid();row.copies=Math.max(1,Math.min(500,nums(raw.copies,1)));row.copyIds=Array.isArray(raw.copyIds)?raw.copyIds.filter(u=>/^[0-9a-f-]{36}$/i.test(u)).slice(0,row.copies):[];fillUUIDs(row);row.createdAt=String(raw.createdAt||new Date().toISOString());return row;});appendRows(rows);notify('Projeto importado sem substituir a fila atual.');
+ }catch(err){notify(err.message,true)}finally{e.target.value='';}
+});
+function download(name,content,type){const url=URL.createObjectURL(new Blob([content],{type})),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000)}
+function auditRows(){const hdr=['GUID','CODIGO','DESCRICAO','MODELO','LARGURA_MM','ALTURA_MM','ESTACAO','OPERADOR','GERADO_EM','TIPO'];const rows=[hdr];for(const row of queue)for(const uid of row.copyIds)rows.push([uid,row.CodigoSAP,row.Descricao,row.model,row.w,row.h,stationLabel(),station.operator,row.createdAt,row.kind]);return rows;}
+function csvRows(rows){return '\uFEFF'+rows.map(r=>r.map(s=>'"'+String(s??'').replace(/"/g,'""')+'"').join(';')).join('\r\n')}
+$('v6-audit-csv').addEventListener('click',()=>download('NEXO-auditoria-GUIDs.csv',csvRows(auditRows()),'text/csv;charset=utf-8'));
+$('v6-zip').addEventListener('click',async()=>{
+ try{if(!queue.length)throw Error('Fila vazia.');if(typeof JSZip!=='function')throw Error('JSZip embutido indisponível.');const zip=new JSZip();zip.file('auditoria.csv',csvRows(auditRows()));zip.file('projeto-nexo-v6.json',JSON.stringify(project(),null,2));
+ const report=`<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Relatório NEXO Studio</title><style>body{font-family:Arial;margin:30px}th,td{border:1px solid #aaa;padding:6px}table{border-collapse:collapse;width:100%}</style><h1>Relatório de produção</h1><p>Gerado ${esc(new Date().toLocaleString('pt-BR'))} · ${queue.length} registros · ${totalCopies()} unidades · ${esc(stationLabel())}</p><table><thead><tr><th>Código</th><th>Modelo</th><th>Cópias</th><th>Dimensões</th></tr></thead><tbody>${queue.map(r=>`<tr><td>${esc(r.CodigoSAP)}</td><td>${esc(MODEL[r.model][0])}</td><td>${r.copies}</td><td>${r.w}×${r.h} mm</td></tr>`).join('')}</tbody></table><p>Creator: Antonio</p></html>`;
+ zip.file('relatorio.html',report);
+ const blob=await zip.generateAsync({type:'blob',compression:'DEFLATE'});download('NEXO-Enterprise-Lote.zip',blob,'application/zip');notify('ZIP offline preparado com CSV, JSON e relatório HTML.');
+ }catch(err){notify(err.message,true)}
+});
+for(const [id,key] of [['v6-default-model','model'],['v6-status','status'],['v6-direction','direction']])$(id).addEventListener('change',()=>{if(key==='status'||key==='direction')settings[key]=$(id).value;refresh()});
+for(const el of document.querySelectorAll('#v6-blueprint [data-block]'))el.addEventListener('change',()=>{blueprint[el.dataset.block]=el.checked;refresh()});
+function paperSettings(){settings.output=$('v6-output').value;settings.paper=$('v6-paper').value;settings.margin=nums($('v6-margin').value,5);settings.gap=nums($('v6-gap').value,2);settings.rotate=$('v6-rotate').checked;settings.crop=$('v6-crop').checked;settings.guillotine=$('v6-guillotine').checked;settings.numbers=$('v6-page-numbers').checked;settings.autoFit=$('v6-autofit').checked;settings.audit=$('v6-audit-stamp').checked;settings.guid=$('v6-show-guid').checked;settings.credit=$('v6-credit').checked;}
+for(const id of ['v6-output','v6-paper','v6-margin','v6-gap','v6-rotate','v6-crop','v6-guillotine','v6-page-numbers','v6-autofit','v6-audit-stamp','v6-show-guid','v6-credit'])$(id).addEventListener('change',()=>{paperSettings();refresh()});
+paperSettings();
+const CODE128="212222|222122|222221|121223|121322|131222|122213|122312|132212|221213|221312|231212|112232|122132|122231|113222|123122|123221|223211|221132|221231|213212|223112|312131|311222|321122|321221|312212|322112|322211|212123|212321|232121|111323|131123|131321|112313|132113|132311|211313|231113|231311|112133|112331|132131|113123|113321|133121|313121|211331|231131|213113|213311|213131|311123|311321|331121|312113|312311|332111|314111|221411|431111|111224|111422|121124|121421|141122|141221|112214|112412|122114|122411|142112|142211|241211|221114|413111|241112|134111|111242|121142|121241|114212|124112|124211|411212|421112|421211|212141|214121|412121|111143|111341|131141|114113|114311|411113|411311|113141|114131|311141|411131|211412|211214|211232|2331112".split('|');
+function barcode128(value){
+ const source=String(value??'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^\x20-\x7e]/g,'?').slice(0,90);
+ const codes=[104];for(const ch of source)codes.push(ch.charCodeAt(0)-32);
+ let checksum=104;for(let i=1;i<codes.length;i++)checksum+=codes[i]*i;
+ codes.push(checksum%103,106);
+ let x=10,rects='';for(const index of codes){const chars=CODE128[index];for(let j=0;j<chars.length;j++){const width=Number(chars[j]);if(j%2===0)rects+=`<rect x="${x}" y="0" width="${width}" height="35" fill="#111"/>`;x+=width;}}
+ return {svg:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${x+10} 35" preserveAspectRatio="none" role="img" aria-label="Código 128 de ${esc(source)}">${rects}</svg>`,modules:x+10};
+}
+let base64Logo='';try{base64Logo=original.makeLabel({ID:'0',CodigoSAP:'1',Descricao:'teste',TipoCodigo:'SAP',Localizacao:''},'X').querySelector('.sap-slot img')?.src||'';}catch(e){}
+const warningSvg='<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 6 96 88H4Z"/><path d="M50 31V58M50 74V78" stroke-width="8" stroke-linecap="round"/></svg>';
+const directionSvg=d=>({ '↑':'M12 3v18M4 11l8-8 8 8','↓':'M12 3v18M4 13l8 8 8-8','←':'M3 12h18M11 4l-8 8 8 8','→':'M3 12h18M13 4l8 8-8 8'}[d]||'M12 3v18M4 11l8-8 8 8');
+const logo=()=>`<img class="v6-logo" src="${base64Logo}" alt="Logo CKTR">`;
+function commonFooter(u){
+ const audit=settings.audit?`<span class="v6-audit" title="Auditoria local">Emitido por: ${esc(station.operator||'OPERADOR LOCAL')} · Estação: ${esc(stationLabel())} · ${esc(new Date(u.createdAt).toLocaleString('pt-BR'))}</span>`:'';
+ const guid=settings.guid?`<span class="v6-guid" title="${esc(u.uid)}">UID ${esc(u.uid.slice(0,8).toUpperCase())}</span>`:'';
+ const credit=settings.credit?'<span class="v6-credit">Creator: Antonio</span>':'';
+ return `<div class="v6-foot">${audit||guid||'<span>IDENTIFICAÇÃO</span>'}${audit&&guid?guid:''}${credit}</div>`;
+}
+function contentFor(u,qr,barcode){
+ const code=esc(u.CodigoSAP||'SEM CÓDIGO'),desc=esc(u.Descricao||'SEM DESCRIÇÃO'),place=esc(u.Localizacao||'NÃO INFORMADO'),planner=esc(u.Planejadores||'NÃO INFORMADO'),title=esc(u.TituloManual||'IDENTIFICAÇÃO DE MATERIAL');
+ const q=`<div class="v6-qr" data-modules="${u.qrModules}">${qr}</div>`;
+ const key=`<div class="v6-big v6-autofit" data-max-pt="28" data-min-pt="4">${code}</div>`;
+ const d=`<div class="v6-desc v6-autofit" data-max-pt="18" data-min-pt="4">${desc}</div>`;
+ const band=t=>`<div class="v6-banner">${t}</div>`;
+ const loc=`<div class="v6-small"><b>ENDEREÇO:</b> ${place}</div>`;
+ const owner=`<div class="v6-small"><b>PLANEJADOR:</b> ${planner}</div>`;
+ const date=`<div class="v6-small">${new Date(u.createdAt).toLocaleString('pt-BR')}</div>`;
+ switch(u.model){
+ case 'classic':return `<div class="v6-face">${band('IDENTIFICAÇÃO LOGÍSTICA · CKTR')}<div class="v6-kicker">${esc(u.TipoCodigo)} · ID ${esc(u.ID)}</div><div class="v6-main"><div class="v6-fields">${key}${d}${loc}</div>${q}</div><div class="v6-end">${owner}${logo()}</div>${commonFooter(u)}</div>`;
+ case 'shelf':return `<div class="v6-face"><div class="v6-shelf-grid"><div class="v6-sector">GÔNDOLA</div><div class="v6-fields">${key}<div class="v6-location-box v6-autofit" data-max-pt="20" data-min-pt="4">${place}</div><div class="v6-small">${desc}</div></div>${q}</div>${commonFooter(u)}</div>`;
+ case 'safety':return `<div class="v6-face"><div class="v6-stripes"></div>${band('ATENÇÃO · SINALIZAÇÃO INDUSTRIAL')}<div class="v6-warning-row">${warningSvg}<div class="v6-fields">${key}<div class="v6-desc v6-autofit" data-max-pt="32" data-min-pt="5">${desc}</div>${loc}</div></div>${commonFooter(u)}</div>`;
+ case 'asset':return `<div class="v6-face">${band('PATRIMÔNIO · PROPRIEDADE CKTR')}<div class="v6-main"><div class="v6-fields">${key}<div class="v6-small">NÚMERO DE SÉRIE / ATIVO</div><div class="v6-asset-code">${barcode.svg}</div></div>${q}</div>${commonFooter(u)}</div>`;
+ case 'spec':return `<div class="v6-face">${band('FICHA TÉCNICA · ENGENHARIA')}<table class="v6-spec-grid"><tbody><tr><td><b>SAP / PN</b><span class="v6-autofit" data-max-pt="16" data-min-pt="4">${code}</span></td><td><b>ÁREA</b>${esc(u.ID_AREA||'—')}</td></tr><tr><td><b>DESCRIÇÃO</b><span class="v6-autofit" data-max-pt="11" data-min-pt="4">${desc}</span></td><td><b>PLANEJADOR</b>${planner}</td></tr><tr><td><b>LOCAL</b>${place}</td><td><b>EMISSÃO</b>${new Date(u.createdAt).toLocaleString('pt-BR')}<br><b>LOTE</b>${esc(u.ID)}</td></tr></tbody></table><div class="v6-end">${q}${logo()}</div>${commonFooter(u)}</div>`;
+ case 'status':return `<div class="v6-face"><div class="v6-main"><div class="v6-status-bar">${esc(settings.status)}</div><div class="v6-fields">${band('RASTREABILIDADE / QUARENTENA')}${key}${d}${loc}<div class="v6-end">${q}${logo()}</div></div></div>${commonFooter(u)}</div>`;
+ case 'address':{
+  const parts=(u.Localizacao||u.CodigoSAP).split(/[\s/;,-]+/).filter(Boolean);
+  const vals=[parts[0]||'R01',parts[1]||'M01',parts[2]||'N01',parts[3]||'V01'];
+  return `<div class="v6-face">${band(`ENDEREÇAMENTO DE ESTOQUE · ${esc(settings.direction)}`)}<div class="v6-address-grid">${vals.map((p,i)=>`<div><b>${['RUA','MÓDULO','NÍVEL','VÃO'][i]}</b><strong class="v6-autofit" data-max-pt="40" data-min-pt="5">${esc(p)}</strong></div>`).join('')}</div><div class="v6-end"><div class="v6-direction"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2.5"><path d="${directionSvg(settings.direction)}"/></svg></div>${q}<div class="v6-small">${desc}</div></div>${commonFooter(u)}</div>`;}
+ case 'blueprint':return `<div class="v6-face v6-free">${blueprint.header?band(title):'<div></div>'}<div class="v6-free-main"><div class="v6-free-box">${key}${d}${blueprint.address?loc:''}${blueprint.planner?owner:''}${blueprint.datetime?date:''}${blueprint.barcode?`<div class="v6-asset-code">${barcode.svg}</div>`:''}</div>${blueprint.qr?q:''}</div><div>${blueprint.logo?`<div class="v6-free-footer">${logo()}<span class="v6-small">${esc(u.ID)}</span></div>`:''}${commonFooter(u)}</div></div>`;
+ default:return `<div class="v6-face">${band(title)}${key}${d}${commonFooter(u)}</div>`;
+ }
+}
+async function createUnit(u,link){
+ let qr='',modules=0;
+ try{const svg=original.qrSvg(link);modules=nums(svg.dataset.qrModules,0);qr=svg.outerHTML;}catch(e){warnings.push(`QR não gerado para ${u.CodigoSAP}: ${e.message}`);}
+ const barcode=barcode128(u.CodigoSAP);u.qrModules=modules;u.barModules=barcode.modules;
+ const unit=document.createElement('article');unit.className='label v6-unit';
+ unit.dataset.uuid=u.uid;unit.dataset.materialId=u.ID;unit.dataset.codigoSap=u.CodigoSAP;unit.dataset.qrModules=modules;
+ unit.dataset.status=settings.status;unit.style.cssText=`--v6-w:${mm(u.w)};--v6-h:${mm(u.h)};--v6-source-h:${mm(u.h)};--v6-font:${Math.max(4,Math.min(15,Math.min(u.w/11,u.h/8))).toFixed(2)}pt;--v6-qr-mm:${mm(Math.min(28,Math.max(5.5,Math.min(u.w*.24,u.h*.34))))};`;
+ if(u.model==='safety')unit.classList.add('v6-safety');
+ if(u.model==='blueprint'&&!blueprint.border)unit.classList.add('v6-no-border');
+ if(u.model==='blueprint'&&blueprint.rounded)unit.classList.add('v6-rounded');
+ if(u.model==='blueprint'&&!blueprint.qr)unit.classList.add('v6-no-qr');
+ if(u.model==='blueprint'&&!blueprint.logo)unit.classList.add('v6-no-logo');
+ if(!settings.credit)unit.classList.add('v6-no-credit');if(!settings.guid)unit.classList.add('v6-no-guid');
+ unit.innerHTML=contentFor(u,qr,barcode);
+ const qrMm=Math.min(28,Math.max(5.5,Math.min(u.w*.24,u.h*.34)));
+ if(modules&&qrMm/modules<.33)warnings.push(`${u.CodigoSAP}: QR com módulo ${(qrMm/modules).toFixed(2)} mm (mínimo recomendado 0,33 mm / 203 dpi).`);
+ if((u.model==='asset'||u.model==='blueprint'&&blueprint.barcode)&&u.w*.70/barcode.modules<.25)warnings.push(`${u.CodigoSAP}: Code-128 estreito; confira leitura (barra mínima < 0,25 mm).`);
+ return unit;
+}
+function rectIntersects(a,b){return a.x<b.x+b.w-1e-6&&a.x+a.w>b.x+1e-6&&a.y<b.y+b.h-1e-6&&a.y+a.h>b.y+1e-6}
+function inRect(a,b){return a.x>=b.x-1e-5&&a.y>=b.y-1e-5&&a.x+a.w<=b.x+b.w+1e-5&&a.y+a.h<=b.y+b.h+1e-5}
+// MaxRects com cisões ortogonais e eliminação de retângulos contidos;
+// melhor encaixe por lado curto, com escolha de orientação 0°/90°.
+function packSheetsMaxRects(list,W,H,margin,gap,rotate){
+ const printableW=W-2*margin,printableH=H-2*margin;
+ if(printableW<=0||printableH<=0)throw Error('Margens maiores do que a área disponível no papel.');
+ const pending=[...list].sort((a,b)=>b.w*b.h-a.w*a.h);
+ const result=[];
+ for(const u of pending){
+  let pick=null;
+  const orientations=rotate&&Math.abs(u.w-u.h)>.00001?[[u.w,u.h,false],[u.h,u.w,true]]:[[u.w,u.h,false]];
+  for(let p=0;p<=result.length;p++){
+   const page=result[p]||{free:[{x:margin,y:margin,w:printableW+gap,h:printableH+gap}],items:[],W,H,used:0};
+   for(const free of page.free)for(const [w,h,rotated] of orientations){const rw=w+gap,rh=h+gap;
+    if(rw<=free.w+1e-6&&rh<=free.h+1e-6){
+     const score=[p,Math.min(free.w-rw,free.h-rh),free.w*free.h-rw*rh];
+     if(!pick||score[0]<pick.score[0]||score[0]===pick.score[0]&&(score[1]<pick.score[1]-1e-6||Math.abs(score[1]-pick.score[1])<1e-6&&score[2]<pick.score[2]))pick={p,page,x:free.x,y:free.y,w,h,rotated,score,rw,rh};
+    }
+   }
+   if(p<result.length&&pick)break;
+  }
+  if(!pick)throw Error(`O item ${u.CodigoSAP} (${u.w}×${u.h} mm) não cabe na folha ${W}×${H} mm com margens de ${margin} mm. Escolha um papel maior ou reduza a placa.`);
+  if(pick.p===result.length)result.push(pick.page);
+  const p=pick.page,placed={x:pick.x,y:pick.y,w:pick.rw,h:pick.rh},newFree=[];
+  for(const free of p.free){if(!rectIntersects(free,placed)){newFree.push(free);continue;}
+   if(placed.x>free.x+1e-6)newFree.push({x:free.x,y:free.y,w:placed.x-free.x,h:free.h});
+   if(placed.x+placed.w<free.x+free.w-1e-6)newFree.push({x:placed.x+placed.w,y:free.y,w:free.x+free.w-placed.x-placed.w,h:free.h});
+   if(placed.y>free.y+1e-6)newFree.push({x:free.x,y:free.y,w:free.w,h:placed.y-free.y});
+   if(placed.y+placed.h<free.y+free.h-1e-6)newFree.push({x:free.x,y:placed.y+placed.h,w:free.w,h:free.y+free.h-placed.y-placed.h});
+  }
+  p.free=newFree.filter((a,i,all)=>a.w>1e-6&&a.h>1e-6&&!all.some((b,j)=>i!==j&&inRect(a,b)&&(!inRect(b,a)||i>j)));
+  p.items.push({u,x:pick.x,y:pick.y,w:pick.w,h:pick.h,rotated:pick.rotated});p.used+=u.w*u.h;
+ }
+ return result;
+}
+function computePages(){
+ const list=units;if(!list.length)return [];
+ if(settings.output==='roll'){
+  const first=list[0];if(list.some(u=>Math.abs(u.w-first.w)>.01||Math.abs(u.h-first.h)>.01))throw Error('No rolo Zebra, etiquetas de medidas diferentes exigem trabalhos de impressão separados. Para misturar tamanhos, use o modo Folha Cortada.');
+  return list.map(u=>({W:u.w,H:u.h,used:u.w*u.h,items:[{u,x:0,y:0,w:u.w,h:u.h,rotated:false}]}));
+ }
+ const [W,H]=PAPERS[settings.paper];if(!W)throw Error('Formato de papel inválido.');
+ if(settings.margin<0||settings.margin>=Math.min(W,H)/2||settings.gap<0||settings.gap>15)throw Error('Margem/gap incompatíveis com a folha.');
+ return packSheets(list,W,H,settings.margin,settings.gap,settings.rotate);
+}
+// Segundo empacotador: corte de guilhotina por partições sem sobreposição.
+// O motor compara o resultado do MaxRects com o do Guillotine e retém o menor lote de folhas.
+function packSheetsGuillotine(list,W,H,margin,gap,rotate){
+ const pw=W-2*margin,ph=H-2*margin;
+ if(pw<=0||ph<=0)throw Error('Margem excessiva para o papel.');
+ const sorted=[...list].sort((a,b)=>b.w*b.h-a.w*a.h),sheets=[];
+ for(const u of sorted){
+  let best=null;
+  for(let pi=0;pi<=sheets.length;pi++){
+   const sheet=sheets[pi]||{W,H,used:0,items:[],free:[{x:margin,y:margin,w:pw+gap,h:ph+gap}]};
+   for(let fi=0;fi<sheet.free.length;fi++){
+    const f=sheet.free[fi];
+    for(const rot of rotate&&u.w!==u.h?[false,true]:[false]){
+     const w=rot?u.h:u.w,h=rot?u.w:u.h,rw=w+gap,rh=h+gap;
+     if(rw>f.w+1e-6||rh>f.h+1e-6)continue;
+     const score=[pi,f.w*f.h-rw*rh,Math.min(f.w-rw,f.h-rh)];
+     if(!best||score[0]<best.score[0]||score[0]===best.score[0]&&(score[1]<best.score[1]-1e-6||score[1]===best.score[1]&&score[2]<best.score[2]))best={pi,sheet,fi,f,w,h,rw,rh,rot,score};
+    }
+   }
+   if(best)break;
+  }
+  if(!best)throw Error(`O item ${u.CodigoSAP} (${u.w}×${u.h} mm) não cabe no papel escolhido.`);
+  if(best.pi===sheets.length)sheets.push(best.sheet);
+  const {sheet,f,fi,rw,rh,w,h,rot}=best;
+  sheet.free.splice(fi,1);
+  const right=f.w-rw,bottom=f.h-rh;
+  // Escolhe o maior lado livre como partição de comprimento integral.
+  if(right>bottom){
+   if(right>1e-5)sheet.free.push({x:f.x+rw,y:f.y,w:right,h:f.h});
+   if(bottom>1e-5)sheet.free.push({x:f.x,y:f.y+rh,w:rw,h:bottom});
+  }else{
+   if(bottom>1e-5)sheet.free.push({x:f.x,y:f.y+rh,w:f.w,h:bottom});
+   if(right>1e-5)sheet.free.push({x:f.x+rw,y:f.y,w:right,h:rh});
+  }
+  sheet.items.push({u,x:f.x,y:f.y,w,h,rotated:rot});sheet.used+=u.w*u.h;
+ }
+ return sheets;
+}
+function packSheets(list,W,H,margin,gap,rotate){
+ let a=null,b=null,err=null;
+ try{a=packSheetsMaxRects(list,W,H,margin,gap,rotate)}catch(e){err=e}
+ try{b=packSheetsGuillotine(list,W,H,margin,gap,rotate)}catch(e){if(!err)err=e}
+ if(!a&&!b)throw err||Error('Não foi possível calcular a imposição.');
+ if(!a)return b;if(!b)return a;
+ return b.length<a.length?b:a;
+}
+function cutMarks(container,w,h){
+ if(!settings.crop||settings.output==='roll')return;
+ const marks=[[-2,0,1.8,.17], [0,-2,.17,1.8],[w+.2,0,1.8,.17],[w-.15,-2,.17,1.8],[-2,h-.17,1.8,.17],[0,h+.2,.17,1.8],[w+.2,h-.17,1.8,.17],[w-.15,h+.2,.17,1.8]];
+ for(const [x,y,mw,mh] of marks){const m=document.createElement('span');m.className='v6-mark';m.style.cssText=`left:${mm(x)};top:${mm(y)};width:${mm(mw)};height:${mm(mh)}`;container.append(m);}
+}
+function physicalPage(page,index,total,printing=false){
+ const sheet=document.createElement('section');sheet.className='print-sheet'+(settings.output==='roll'?' v6-roll':' v6-laser');sheet.style.width=mm(page.W);sheet.style.height=mm(page.H);sheet.dataset.page=String(index+1);
+ for(const entry of page.items){const place=document.createElement('div');place.className='v6-place';place.dataset.rotated=String(!!entry.rotated);place.style.cssText=`left:${mm(entry.x)};top:${mm(entry.y)};width:${mm(entry.w)};height:${mm(entry.h)};`;
+  place.append(entry.u.el.cloneNode(true));
+  if(settings.guillotine&&settings.output==='sheet'){const dashed=document.createElement('div');dashed.className='v6-cut-guide';place.append(dashed);}
+  cutMarks(place,entry.w,entry.h);sheet.append(place);
+ }
+ if(settings.numbers&&settings.output==='sheet'){const number=document.createElement('div');number.className='v6-page-number';number.textContent=`Folha ${index+1} de ${total}`;sheet.append(number);}
+ return sheet;
+}
+let stage=$('v6-sheet-view');
+if(!stage){stage=document.createElement('div');stage.id='v6-sheet-view';stage.hidden=true;document.querySelector('.ge-preview-stage').append(stage);}
+const toolbar=document.createElement('div');toolbar.className='v6-toolbar';toolbar.style.cssText='padding:8px 14px 0;margin:0';toolbar.innerHTML='<button type="button" id="v6-preview-grid" aria-pressed="true">▦ Grade</button><button type="button" id="v6-preview-sheet" aria-pressed="false">▤ Folha real</button><button type="button" id="v6-preview-mono" aria-pressed="false">◐ Simular P&B</button><span id="v6-sheet-info" style="font-size:10px;color:var(--ge-muted);margin-left:auto">FILA OFFLINE</span>';
+document.querySelector('.ge-preview-stage').before(toolbar);
+function viewUi(){
+ $('v6-preview-grid').setAttribute('aria-pressed',String(view==='grid'));
+ $('v6-preview-sheet').setAttribute('aria-pressed',String(view==='sheet'));
+ $('v6-preview-mono').setAttribute('aria-pressed',String(mono));
+ $('v6-sheet-view').hidden=view!=='sheet'||!pages.length;
+ $('previa').classList.toggle('v6-off',view==='sheet');
+ $('v6-sheet-view').classList.toggle('v6-mono',mono);
+ $('etiquetas').classList.toggle('v6-mono',mono);
+ document.querySelectorAll('#etiquetas .v6-unit').forEach(el=>el.classList.toggle('v6-mono',mono));
+ if(view==='sheet')showSheets();
+}
+$('v6-preview-grid').addEventListener('click',()=>{view='grid';viewUi()});
+$('v6-preview-sheet').addEventListener('click',()=>{view='sheet';viewUi()});
+$('v6-preview-mono').addEventListener('click',()=>{mono=!mono;viewUi()});
+$('v6-to-grid').addEventListener('click',()=>{view='grid';viewUi()});
+$('v6-to-sheet').addEventListener('click',()=>{view='sheet';viewUi()});
+$('v6-mono').addEventListener('click',()=>{mono=!mono;viewUi()});
+function showSheets(){
+ stage.replaceChildren();if(!pages.length)return;
+ const scroller=document.createElement('div');scroller.className='v6-sheet-scroll';stage.append(scroller);
+ // O modo folha real mantém a escala uniforme entre largura e altura, sem distorcer as dimensões.
+ const width=Math.max(190,stage.clientWidth-35);const height=Math.max(230,stage.clientHeight-48);
+ for(let i=0;i<Math.min(pages.length,60);i++){
+  const p=pages[i],scale=Math.max(.16,Math.min(1.15,width/(p.W*96/25.4),height/(p.H*96/25.4)));
+  const wrap=document.createElement('div');wrap.className='v6-paper-shell';wrap.style.width='100%';
+  const name=document.createElement('div');name.className='v6-paper-name';name.textContent=`${settings.output==='roll'?'Etiqueta':'Folha'} ${i+1} de ${pages.length} · ${p.W} × ${p.H} mm · ${Math.min(100,100*p.used/(p.W*p.H)).toFixed(1)}% da área`;
+  const holder=document.createElement('div');holder.className='v6-paper-scale';holder.style.width=(p.W*96/25.4*scale)+'px';holder.style.height=(p.H*96/25.4*scale)+'px';
+  const inner=physicalPage(p,i,pages.length);inner.style.transformOrigin='top left';inner.style.transform=`scale(${scale})`;holder.append(inner);wrap.append(name,holder);scroller.append(wrap);
+ }
+ if(pages.length>60){const more=document.createElement('p');more.className='v6-caption';more.textContent='Prévia limitada às primeiras 60 folhas para preservar o desempenho. Todas as páginas serão incluídas na impressão.';scroller.append(more);}
+ if(mono)scroller.style.filter='grayscale(1) contrast(3)';
+}
+function fitBinary(card){
+ if(!settings.autoFit)return 0;
+ let failures=0;
+ for(const field of card.querySelectorAll('.v6-autofit')){
+  if(!field.clientWidth||!field.clientHeight)continue;
+  const ceiling=nums(field.dataset.maxPt,18),minimum=nums(field.dataset.minPt,4);
+  let low=minimum,high=ceiling,best=minimum;
+  for(let i=0;i<11;i++){
+   const mid=(low+high)/2;field.style.fontSize=mid.toFixed(3)+'pt';
+   const face=card.querySelector('.v6-face');
+   const fits=field.scrollWidth<=field.clientWidth+1 && field.scrollHeight<=field.clientHeight+1 &&
+       (!face || face.scrollHeight<=face.clientHeight+1);
+   if(fits){best=mid;low=mid;}else high=mid;
+  }
+  field.style.fontSize=best.toFixed(3)+'pt';
+  if(field.scrollWidth>field.clientWidth+1||field.scrollHeight>field.clientHeight+1)failures++;
+ }
+ const face=card.querySelector('.v6-face');if(face&&face.scrollHeight>face.clientHeight+2)failures++;
+ return failures;
+}
+function allUnits(){const a=[];for(const row of queue){fillUUIDs(row);for(const uid of row.copyIds)a.push({...row,uid})}return a}
+async function render(){
+ const local=++revision;renderBusy=true;errors=[];warnings=[];
+ const list=allUnits();units=[];
+ const root=$('etiquetas');root.replaceChildren();
+ $('imprimir').disabled=true;$('v6-print').disabled=true;
+ if(!list.length){$('vazio').hidden=false;$('previa').hidden=true;pages=[];stage.replaceChildren();$('metric-total').textContent='00';$('metric-items').textContent='00';$('v6-sheet-info').textContent='Fila vazia';notify('Fila vazia. Adicione um item para iniciar.');renderBusy=false;return;}
+ try{
+  const qrCache=new Map();
+  for(const u of list){if(local!==revision)return;
+   let link=qrCache.get(u.rowId);if(!link){const result=await original.linkFicha(u);link=result.url;qrCache.set(u.rowId,link)}
+   const el=await createUnit(u,link);u.el=el;units.push(u);root.append(el);
+  }
+  if(local!==revision)return;
+  try{pages=computePages()}catch(err){pages=[];errors.push(err.message)}
+  $('vazio').hidden=true;$('previa').hidden=false;document.body.classList.add('ready');
+  $('total').textContent=`${units.length} unidade(s)`;$('metric-total').textContent=String(units.length).padStart(2,'0');$('metric-items').textContent=String(queue.length).padStart(2,'0');
+  $('v6-sheet-info').textContent=pages.length?`${pages.length} ${settings.output==='roll'?'avanços':'folhas'} · ${units.length} unidades`:'Formato físico inválido';
+  $('v6-print').disabled=!!errors.length;
+  // O botão original mantém os KPIs da versão 5 atualizados, mas é capturado pelo motor v6.
+  $('imprimir').disabled=!!errors.length;
+  requestAnimationFrame(()=>{if(local!==revision)return;let n=0;for(const el of root.querySelectorAll('.v6-unit'))n+=fitBinary(el);
+   if(n)warnings.push(`${n} campo(s) sem espaço físico suficiente. Aumente a etiqueta ou reduza o texto.`);
+   const util=pages.length?pages.reduce((a,p)=>a+p.used,0)/pages.reduce((a,p)=>a+p.W*p.H,0)*100:0;
+   notify(errors.length?errors.join(' | '):`Fila pronta · ${units.length} unidades · ${pages.length} ${settings.output==='roll'?'avanços':'folhas'} · ${util.toFixed(1)}% aproveitamento${warnings.length?' · '+warnings.length+' alerta(s)':''}`,!!(warnings.length||errors.length));
+   const summary=$('v6-sheet-info');summary.title=warnings.slice(0,12).join('\n');if(view==='sheet')showSheets();
+  });
+  viewUi();
+ }catch(err){if(local!==revision)return;errors.push(err.message);pages=[];notify('Erro ao gerar prévia: '+err.message,true);$('v6-print').disabled=true;}
+ finally{if(local===revision)renderBusy=false;}
+}
+let refreshTimer=0;
+function refresh(){clearTimeout(refreshTimer);refreshTimer=setTimeout(()=>{render().catch(e=>notify(e.message,true))},45)}
+function makePrintDocument(){
+ if(renderBusy)throw Error('A prévia ainda está sendo preparada.');
+ if(!pages.length||errors.length)throw Error(errors.join(' | ')||'Não há páginas válidas para imprimir.');
+ if(warnings.length&&!confirm(`ATENÇÃO: ${warnings.length} aviso(s) de leitura/legibilidade.\n\n${warnings.slice(0,5).join('\n')}\n\nRecomenda-se teste físico. Continuar?`))return;
+ const [w,h]=settings.output==='sheet'?PAPERS[settings.paper]:[pages[0].W,pages[0].H];
+ const iframe=document.createElement('iframe');iframe.title='NEXO | Impressão industrial';iframe.style.cssText='position:fixed;width:0;height:0;right:0;bottom:0;border:0;opacity:0;pointer-events:none';document.body.append(iframe);
+ const doc=iframe.contentDocument;
+ const core=$('nexo-v6-css')?.textContent||'';
+ const extra=`@page{size:${mm(w)} ${mm(h)};margin:0}html,body{margin:0!important;padding:0!important;background:#fff!important;color:#111!important}body{font-family:Arial!important} .print-sheet{display:block!important;width:var(--print-w)!important;height:var(--print-h)!important;position:relative!important;overflow:hidden!important;break-after:page!important;page-break-after:always!important;box-shadow:none!important} .print-sheet:last-child{break-after:auto!important;page-break-after:auto!important}.print-sheet .label.v6-unit{margin:0!important;box-shadow:none!important} .v6-paper-name{display:none!important} .v6-roll .v6-unit{filter:grayscale(1) contrast(4)}*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}`;
+ doc.open();doc.write(`<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>NEXO Enterprise · Impressão</title><style>${core}</style><style>${extra}</style></head><body></body></html>`);doc.close();
+ for(let i=0;i<pages.length;i++){const node=physicalPage(pages[i],i,pages.length,true);node.style.setProperty('--print-w',mm(pages[i].W));node.style.setProperty('--print-h',mm(pages[i].H));doc.body.append(node);}
+ // Auto-fit nas medidas reais, dentro do iframe (sem o zoom da prévia).
+ for(const unit of doc.querySelectorAll('.v6-unit'))fitBinary(unit);
+ const release=()=>setTimeout(()=>iframe.remove(),2500);
+ iframe.contentWindow.addEventListener('afterprint',release,{once:true});
+ let started=false;const run=()=>{if(started)return;started=true;try{iframe.contentWindow.focus();iframe.contentWindow.print()}catch(e){release();notify('Falha ao abrir impressão: '+e.message,true)}};
+ Promise.all(Array.from(doc.images).map(img=>img.complete?Promise.resolve():new Promise(done=>{img.onload=done;img.onerror=done}))).then(()=>setTimeout(run,250));
+ notify(`Imposição preparada: ${pages.length} página(s) · ${units.length} unidades. Selecione a impressora e escala 100%, sem margens adicionais.`);
+}
+$('v6-print').addEventListener('click',()=>{try{makePrintDocument()}catch(e){notify(e.message,true)}});
+// Substitui a impressão antiga, sem retirar a biblioteca ou o parser originais.
+$('imprimir').addEventListener('click',e=>{e.preventDefault();e.stopImmediatePropagation();try{makePrintDocument()}catch(err){notify(err.message,true)}},true);
+document.addEventListener('keydown',e=>{
+ if(e.ctrlKey&&!e.shiftKey&&!e.altKey&&!e.metaKey&&e.key.toLowerCase()==='p'){e.preventDefault();try{makePrintDocument()}catch(err){notify(err.message,true)}}
+ if(e.ctrlKey&&e.key==='Enter'){e.preventDefault();$('v6-add').click()}
+},true);
+// Roteamento herdado: CSV (ponto de entrada anterior) e material via #dados=.
+function receivePowerApps(){
+ try{const raw=new URLSearchParams(location.hash.replace(/^#/,'')).get('dados')??new URLSearchParams(location.search).get('dados');if(!raw||raw===lastHashData)return;const p=JSON.parse(raw),values=Array.isArray(p)?p:(p?.itens??p?.Itens);
+ if(!Array.isArray(values))throw Error('Payload sem lista itens.');
+ const model=String(p?.modo||'').toUpperCase()==='PLACA'?'safety':$('v6-default-model').value;
+ const rows=values.map(original.normalize).filter(i=>i.ID||i.CodigoSAP).map(i=>makeRow(i,model,model==='safety'?'placa':'etiqueta'));
+ appendRows(rows);lastHashData=raw;notify(`${rows.length} item(ns) do Power Apps adicionados à fila.`);
+ }catch(e){notify('Power Apps: '+e.message,true)}
+}
+let lastHashData='';
+// O parser original da versão 5 recebe a URL na inicialização; transferimos seus itens antes de esvaziá-lo.
+const initial=original.getItems();
+if(initial?.length){try{const fromPowerApps=new URLSearchParams(location.hash.replace(/^#/,'')).has('dados')||new URLSearchParams(location.search).has('dados');
+  const rows=initial.map(i=>makeRow(i,fromPowerApps&&original.getMode()==='placa'?'safety':'classic',original.getMode()));appendRows(rows);
+  lastHashData=new URLSearchParams(location.hash.replace(/^#/,'')).get('dados')??new URLSearchParams(location.search).get('dados')??'';
+ }catch(e){notify('Não foi possível receber o lote inicial: '+e.message,true)}
+ original.clearItems();
+}
+window.addEventListener('hashchange',receivePowerApps);
+// Permite importar a partir do antigo botão CSV, sem substituir a fila.
+$('arquivo').addEventListener('change',async e=>{
+ const file=e.target.files[0];if(!file)return;
+ try{const values=original.parseCsv(await file.text());appendRows(values.map(i=>makeRow(i,$('v6-default-model').value)));notify(`${values.length} itens importados da planilha.`)}catch(err){notify(err.message,true)}finally{e.target.value=''}
+},true);
+// Adapta os antigos controles para a mesma fila, preservando dados e GUIDs.
+$('manual-gerar').addEventListener('click',e=>{
+ e.stopImmediatePropagation();const code=$('manual-codigo').value.trim(),desc=$('manual-descricao').value.trim();if(!code||!desc){notify('Informe código e descrição.',true);return;}
+ try{appendRows([makeRow({CodigoSAP:code,Descricao:desc,Localizacao:$('manual-local').value,Planejadores:$('manual-planejador').value,QuantidadeEtiquetas:nums($('manual-qtd').value,1),OrigemManual:true,TituloManual:$('manual-titulo').value},$('manual-tipo').value==='placa'?'safety':'classic',$('manual-tipo').value)])}catch(err){notify(err.message,true)}
+},true);
+// Exportação antiga continua disponível; no Enterprise, ela é redirecionada para auditoria.
+$('exportar').addEventListener('click',e=>{e.stopImmediatePropagation();$('v6-audit-csv').click()},true);
+// Só a fila v6 controla a impressão; alterações nos controles antigos não apagam os itens acumulados.
+window.NexoV6={version:'6.0',getQueue:()=>queue.map(r=>({...r,copyIds:[...r.copyIds]})),getPages:()=>pages.map(p=>({width:p.W,height:p.H,used:p.used,count:p.items.length})),refresh,packSheets};
+updateQueue();if(!initial?.length)refresh();
+})()
 
 </script>
 </body>
