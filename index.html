@@ -1,11 +1,12 @@
-<!doctype html>
-<html lang="pt-BR" data-theme="dark">
+<!DOCTYPE html>
+
+<html data-theme="dark" lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; base-uri 'none'; form-action 'none'">
-<meta name="theme-color" content="#ffffff">
-<title>NEXO STUDIO ENTERPRISE 6.1 | Etiquetas &amp; Placas</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; base-uri 'none'; form-action 'none'" http-equiv="Content-Security-Policy"/>
+<meta content="#081c17" name="theme-color"/>
+<title>NEXO Studio | Etiquetas, Placas e Impressão</title>
 <style>
 :root{color-scheme:light;--ink:#172a27;--muted:#506661;--line:#d4dfdb;--green:#19584d;--label-w:98.4mm;--label-h:48.4mm;--qr:22.5mm;font:16px system-ui,"Segoe UI",sans-serif}
 *{box-sizing:border-box}
@@ -299,8 +300,6 @@ html[data-theme="light"] .cktr-manual-fields :is(input,textarea,select){backgrou
 }
 </style>
 <style id="page-size"></style>
-
-
 <style id="cktr-print-typography-v15">
 /* Proportional physical-size typography: 90x90 remains baseline; A4/A3 scale up. */
 :root{--label-font-scale:1;--label-qr-size:21mm}
@@ -333,7 +332,6 @@ html[data-theme="light"] .cktr-manual-fields :is(input,textarea,select){backgrou
  .label .material-details strong{overflow-wrap:anywhere!important}
 }
 </style>
-
 <style id="cktr-logo-proportional-v16">
 /* The embedded CKTR PNG is only 151px wide; give it an explicit physical size. */
 .label .label-codes .sap-slot {
@@ -348,7 +346,6 @@ html[data-theme="light"] .cktr-manual-fields :is(input,textarea,select){backgrou
   margin-left:auto!important; margin-right:0!important;
 }
 </style>
-
 <style id="cktr-etiqueta-compacta-v18">
 /* A ficha impressa prioriza a descrição. O QR permanece grande o bastante para leitura. */
 .label .label-head{height:calc(7.1mm * var(--label-font-scale))!important;padding-inline:calc(1.6mm * var(--label-font-scale))!important}
@@ -363,7 +360,6 @@ html[data-theme="light"] .cktr-manual-fields :is(input,textarea,select){backgrou
 .label .label-codes,.label.has-location .label-codes{height:39%!important;padding-top:calc(.6mm * var(--label-font-scale))!important}
 .label .label-foot{font-size:calc(6pt * var(--label-font-scale))!important;height:calc(3mm * var(--label-font-scale))!important}
 </style>
-
 <style id="cktr-qr-adaptativo-v21">
 /* QR compacto de requisição: somente nome do planejador e acesso ao Power Apps. */
 .label.qr-dense .label-codes,.label.qr-dense.has-location .label-codes{
@@ -575,7 +571,6 @@ html[data-ge-density="compact"] .ge-main{padding-top:19px}html[data-ge-density="
 #mensagem.message.error{border-color:rgba(237,114,106,.4)!important;border-left-color:#e8736d!important;background:rgba(237,114,106,.10)!important}
 
 </style>
-
 <style id="cktr-modelos-v4">
 /* Editor de modelos: somente aparência, sem interferir no QR e na importação */
 .ge-design-panel{margin-top:18px;padding:16px;border:1px solid var(--ge-line);border-radius:14px;background:var(--ge-elevated)}
@@ -622,9 +617,8 @@ html[data-ge-density="compact"] .ge-main{padding-top:19px}html[data-ge-density="
 .label.hide-qr .sap-slot{justify-content:center!important}
 @media print{.ge-design-panel{display:none!important}.label .label-foot .cktr-guid{color:#555!important}.label .label-foot .cktr-credit{color:#111!important}}
 </style>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2215%22%20fill%3D%22%23102820%22%2F%3E%3Cpath%20d%3D%22M16%2014h24l9%209v25a5%205%200%200%201-5%205H19a5%205%200%200%201-5-5V19a5%205%200%200%201%205-5%22%20fill%3D%22%23ecfff7%22%2F%3E%3Cpath%20d%3D%22M40%2014v9h9%22%20fill%3D%22%23bba0f2%22%2F%3E%3Cpath%20d%3D%22M23%2030h16M23%2035h11%22%20stroke%3D%22%230d5946%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M23%2041v6m4-6v6m4-6v6m4-6v6m4-6v6%22%20stroke%3D%22%230d5946%22%20stroke-width%3D%222%22%2F%3E%3C%2Fsvg%3E">
-<meta name="application-name" content="NEXO — Estúdio de Identificação">
-
+<link href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2215%22%20fill%3D%22%23102820%22%2F%3E%3Cpath%20d%3D%22M16%2014h24l9%209v25a5%205%200%200%201-5%205H19a5%205%200%200%201-5-5V19a5%205%200%200%201%205-5%22%20fill%3D%22%23ecfff7%22%2F%3E%3Cpath%20d%3D%22M40%2014v9h9%22%20fill%3D%22%23bba0f2%22%2F%3E%3Cpath%20d%3D%22M23%2030h16M23%2035h11%22%20stroke%3D%22%230d5946%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M23%2041v6m4-6v6m4-6v6m4-6v6m4-6v6%22%20stroke%3D%22%230d5946%22%20stroke-width%3D%222%22%2F%3E%3C%2Fsvg%3E" rel="icon" type="image/svg+xml"/>
+<meta content="NEXO — Estúdio de Identificação" name="application-name"/>
 <style id="nexo-v50">
 .nexo-brand-symbol{padding:0!important;background:transparent!important;box-shadow:none!important;overflow:hidden}
 .nexo-brand-symbol img{width:46px;height:46px;display:block;border-radius:12px}
@@ -760,7 +754,6 @@ html[data-nexo-cursor=tag] body.ge-body,html[data-nexo-cursor=tag] body.ge-body 
 @media print{.v6-tabs,.v6-pane,.v6-toolbar,.v6-paper-name,.v6-summary{display:none!important}}
 
 </style>
-
 <style id="nexo-v61-clean-ui">
 /* NEXO 6.1 — clean industrial workflow. Printed dimensions remain in mm. */
 .v6-tabs{grid-template-columns:1fr!important;gap:6px!important;margin-bottom:9px!important}
@@ -814,174 +807,308 @@ html[data-nexo-cursor=tag] body.ge-body,html[data-nexo-cursor=tag] body.ge-body 
 @media(max-width:490px){.v61-help-launch{flex-wrap:wrap}.v61-help-launch small{width:100%;text-align:left}}
 @media print{.v61-help-launch,.v61-tutorial-overlay{display:none!important}}
 </style>
+<style id="nexo-final-usability">/* NEXO Enterprise · Edição Final — cockpit operacional limpo */
+@media screen {
+  .ge-hero,.ge-section-heading,.ge-kpis,.ge-rail{display:none!important}
+  .ge-app{display:block!important;max-width:1580px!important;margin:auto!important}
+  .ge-main{padding:18px clamp(16px,2vw,32px) 30px!important}
+  .ge-production-grid{grid-template-columns:minmax(350px,430px) minmax(0,1fr)!important;gap:16px!important}
+  .ge-preview-card{top:91px!important;height:calc(100dvh - 110px)!important;max-height:calc(100dvh - 110px)!important;min-height:380px!important}
+  .ge-card-head{padding:17px 18px 14px!important}
+  .ge-card-head h3{font-size:19px!important}
+  .ge-card-head p{font-size:11px!important}
+  .ge-control-card .ge-card-body{padding:16px!important}
+  .ge-rail{padding-top:22px!important}
+  .ge-preview-stage{padding:12px!important}
+  #etiquetas{gap:12px!important}
+  .v6-enterprise{display:grid;gap:0;min-width:0}
+  .v6-tabs{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:5px!important;margin:0 0 14px!important}
+  .v6-tab{justify-content:center!important;text-align:center!important;padding:9px 4px!important;min-height:42px!important;font-size:10.5px!important;border-radius:9px!important;letter-spacing:-.02em}
+  .v6-tab[aria-selected=true]{box-shadow:inset 0 -3px 0 var(--ge-primary)!important}
+  #v61-tutorial-open{display:none!important}
+  .v6-pane{gap:10px!important}
+  .v6-card{padding:14px!important}
+  .v6-card h4{font-size:13px!important;line-height:1.3}
+  .v6-field{font-size:11px!important}
+  .v6-field :is(input,select,textarea){font-size:12px!important;min-height:40px!important}
+  .v61-hint,.v6-caption{font-size:11px!important;line-height:1.5!important}
+  .v6-actions{gap:7px!important}
+  .v6-actions button{min-height:36px!important;padding:9px 11px!important;flex:1 1 auto}
+  #v6-add{flex:1 1 100%!important;font-size:12px!important;min-height:44px!important}
+  #v6-import-csv.vfinal-dragover{border:2px dashed var(--ge-primary)!important;background:var(--ge-glow)!important}
+  #vfinal-save-project{color:var(--ge-primary)!important}
+  .v6-table-wrap{max-height:360px!important;overflow-x:hidden!important;overflow-y:auto!important;background:transparent;border:0!important}
+  .v6-queue{display:block!important;width:100%!important;min-width:0!important;border:0!important}
+  .v6-queue thead{display:none!important}
+  .v6-queue tbody{display:grid;gap:9px}
+  .v6-queue tbody tr[data-row-id]{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;align-items:end;padding:11px;background:var(--ge-panel);border:1px solid var(--ge-line);border-radius:11px}
+  .v6-queue tbody tr:not([data-row-id]){display:block;color:var(--ge-muted);font-size:11px;padding:12px 4px}
+  .v6-queue td{display:block;min-width:0!important;border:0!important;padding:0!important;font-size:11px!important}
+  .v6-queue td[data-col="material"],.v6-queue td[data-col="model"],.v6-queue td[data-col="actions"]{grid-column:1/-1}
+  .v6-queue td[data-col="material"]{padding-bottom:8px!important;border-bottom:1px solid var(--ge-line)!important}
+  .v6-queue td[data-col="material"] strong{font-size:13px!important;letter-spacing:.01em}
+  .v6-queue td[data-col="material"] small{font-size:10px!important;margin-top:2px;line-height:1.4}
+  .vfinal-queue-label{display:block;margin-bottom:4px;font-size:10px;color:var(--ge-muted);font-weight:750}
+  .v6-queue :is(input,select){min-width:0!important;min-height:34px!important;width:100%!important;padding:7px!important;font-size:11px!important;border-radius:7px!important}
+  .vfinal-sizes{display:flex;align-items:center;gap:5px}
+  .vfinal-sizes input{flex:1;width:10px!important}
+  .v6-queue td[data-col="actions"]{display:flex;gap:7px;justify-content:flex-end}
+  .v6-queue td[data-col="actions"] button{margin:0!important;min-width:75px;font-size:10px!important;min-height:32px!important}
+  .v6-queue td[data-col="actions"] .vfinal-delete{color:#edb2aa!important;border-color:rgba(222,130,125,.32)!important}
+  .v6-queue td[data-col="actions"] button:hover{border-color:var(--ge-primary)!important}
+  .v6-toolbar{margin:0!important;padding:9px 13px 0!important}
+  .v6-toolbar button{font-size:11px!important}
+  .v6-sheet-scroll{padding:11px!important}
+  .ge-preview-toolbar{padding:9px 15px!important}
+  .ge-preview-heading{padding:16px 18px!important}
+  #v6-notice{font-size:11px!important;line-height:1.5!important;overflow-wrap:anywhere}
+  #v6-station-info{font-size:10.5px!important}
+  .ge-rail-note{display:none!important}
+  .ge-main .ge-section-heading+.ge-kpis{display:none!important}
+  .ge-topbar-inner{height:70px!important}
+  .ge-app{min-height:calc(100vh - 70px)!important}
+  .ge-identity-copy small{font-size:9px!important}
+}
+@media screen and (max-width:1180px){
+ .ge-app{display:block!important}
+ .ge-rail{padding:22px 9px 20px!important}
+ .ge-main{padding-left:14px!important;padding-right:14px!important}
+ .ge-production-grid{grid-template-columns:minmax(320px,400px) minmax(0,1fr)!important}
+ #v6-telemetry{display:none!important}
+}
+@media screen and (max-width:960px){
+ .ge-app{display:block!important}
+ .ge-rail{display:none!important}
+ .ge-production-grid{display:grid!important;grid-template-columns:minmax(310px,40%) minmax(0,1fr)!important}
+ .ge-main{padding:12px!important}
+}
+@media screen and (max-width:740px){
+ .ge-main{padding:10px!important}
+ .ge-production-grid{display:flex!important;flex-direction:column!important}
+ .ge-workspace{order:-1!important;position:sticky!important;top:69px!important;z-index:10!important}
+ .ge-preview-card{position:static!important;height:clamp(245px,42dvh,390px)!important;min-height:245px!important;max-height:42dvh!important}
+ .ge-control-card .ge-card-body{padding:13px!important}
+ .v6-tabs{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+ .v6-tab{font-size:9px!important;padding:7px 3px!important}
+ .ge-topbar-inner{height:auto!important;min-height:62px!important;gap:6px!important;padding:8px 10px!important}
+ .ge-identity-copy small{display:none!important}
+ #v61-tutorial-top{font-size:10px!important;padding:7px!important}
+ .ge-top-actions{gap:5px!important}
+ .ge-version,.ge-operator{display:none!important}
+}
+@media screen and (max-width:410px){.ge-top-actions #nexo-experience-button{display:none!important}.v6-tab{font-size:8.4px!important}}
+@media print{.v6-enterprise,.v61-tutorial-overlay{display:none!important}}
+
+@media screen{.ge-control-card,.ge-preview-card{scroll-margin-top:85px}.ge-control-card .ge-card-head h3{font-size:20px!important}.ge-preview-card .ge-card-head h3{font-size:20px!important}.v6-queue tr:focus-within{border-color:var(--ge-primary)!important}.v6-tab:focus-visible{outline:2px solid var(--ge-primary)!important;outline-offset:2px}}
+</style><style id="nexo-v63-css">
+/* NEXO STUDIO 6.3 · Impressora primeiro / Etiqueta Logística como único QR */
+.v63-target-strip{display:flex;align-items:center;gap:11px;padding:12px 13px;margin:0 0 11px;background:linear-gradient(115deg,rgba(54,197,160,.09),rgba(187,160,242,.07));border:1px solid var(--ge-line);border-radius:12px;color:var(--ge-text)}
+.v63-target-strip .v63-target-dot{font-size:22px;line-height:1;color:var(--ge-primary)}
+.v63-target-strip div{flex:1;min-width:0;display:grid;gap:3px}
+.v63-target-strip b{font-size:12px}.v63-target-strip small{font-size:10px;color:var(--ge-muted)}
+.v63-target-strip button{border:1px solid var(--ge-line);border-radius:8px;background:var(--ge-elevated);color:var(--ge-primary);padding:9px;font-size:11px;font-weight:800;cursor:pointer}
+.v63-printer-overlay{position:fixed;inset:0;z-index:3000000;background:rgba(2,12,10,.87);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:center;overflow-y:auto;padding:20px}
+.v63-printer-overlay[hidden]{display:none!important}.v63-choosing-printer{overflow:hidden}
+.v63-printer-dialog{max-width:690px;width:100%;padding:clamp(19px,3.2vw,32px);border:1px solid #446358;border-radius:22px;background:radial-gradient(ellipse at 100% 0,rgba(187,160,242,.13),transparent 54%),linear-gradient(135deg,#112820,#081a16);box-shadow:0 30px 105px #000b;color:#effaf5}
+.v63-first-step{letter-spacing:.13em;font-size:10px;font-weight:900;color:#bca6f4;margin-bottom:19px}
+.v63-dialog-header{display:flex;align-items:flex-start;gap:15px;margin-bottom:23px}
+.v63-dialog-header .v63-printer-icon{width:53px;height:53px;display:grid;place-items:center;border:1px solid #34715e;background:#173d31;color:#9de8c9;border-radius:14px;flex:none;font-size:29px}
+.v63-dialog-header h2{font-size:clamp(23px,4vw,31px);line-height:1.16;letter-spacing:-.04em;color:white;margin:0 0 7px}
+.v63-dialog-header p{font-size:12px;line-height:1.6;color:#a7c7b9;margin:0}
+.v63-printer-options{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.v63-printer-option{display:grid;text-align:left;align-content:start;gap:10px;min-height:159px;border:1px solid #39574c;border-radius:14px;padding:19px 17px;background:#102820;color:#f6fff9;cursor:pointer;transition:background .18s,border-color .18s,transform .18s}
+.v63-printer-option strong{font-size:17px}.v63-printer-option span{font-size:12px;font-weight:750;color:#addbcb}.v63-printer-option small{font-size:10px;color:#9fb6a9;line-height:1.5}
+.v63-printer-option:hover{border-color:#8e7bcc;background:#17362c;transform:translateY(-2px)}
+.v63-printer-option[aria-pressed=true]{border-color:#bba0f2;box-shadow:inset 0 0 0 1px #bba0f2;background:linear-gradient(140deg,#21312d,#142720)}
+.v63-printer-option[aria-pressed=true] strong::after{content:' ✓';color:#9bedd0}
+.v63-paper-prompt{display:grid;gap:9px;color:#d8f1e4;font-size:12px;font-weight:800;margin-top:17px;padding:14px;border:1px solid #416054;background:#122820;border-radius:11px}
+.v63-paper-prompt[hidden]{display:none!important}
+.v63-paper-prompt select{padding:10px 12px;background:#071b16;color:white;border:1px solid #547465;border-radius:9px;width:100%;min-height:43px}
+.v63-dialog-actions{margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.v63-dialog-actions span{font-size:10px;color:#99b8aa;line-height:1.6;max-width:260px}
+.v63-dialog-actions button{background:linear-gradient(110deg,#7d61be,#1c9473);border:1px solid #a78cf0;color:white;padding:13px 19px;border-radius:10px;font-size:12px;font-weight:850;cursor:pointer;min-height:46px}
+.v63-dialog-actions button:disabled{opacity:.38;cursor:not-allowed}
+.v6-field[hidden],.v6-formgrid[hidden],#v6-blueprint label[hidden],.v6-card div[hidden]{display:none!important}
+/* Impressão: o QR aparece apenas no canto inferior direito do layout Logístico. */
+.v6-unit .v63-logistic{gap:1mm!important}
+.v6-unit .v63-classic-bottom{display:flex!important;justify-content:space-between!important;align-items:flex-end!important;gap:2mm!important;min-height:13mm!important;max-height:36mm!important;flex:none!important}
+.v6-unit .v63-logistic-extra{flex:1;min-width:0;display:flex;flex-direction:column;align-items:start;gap:.5mm;padding-bottom:.5mm}
+.v6-unit .v63-logistic-hint{font-size:.54em;letter-spacing:.04em;font-weight:800;color:#555}
+.v6-unit .v63-classic-bottom .v63-logistic-qr{margin:0 0 0 auto!important;align-self:flex-end!important;flex:none!important;width:var(--v6-qr-mm,18mm)!important;height:var(--v6-qr-mm,18mm)!important;max-height:35mm!important;max-width:43%!important}
+.v6-unit .v63-simple-body{display:flex;flex-direction:column;flex:1;min-height:0;gap:1.5mm;overflow:hidden;padding:1mm}
+.v6-unit .v63-simple-body .v6-big{font-size:1.7em}.v6-unit .v63-simple-body .v6-desc{font-size:1.05em;line-height:1.2}
+.v6-unit .v63-shelf{grid-template-columns:4mm minmax(0,1fr)!important}
+.v6-unit .v63-blueprint-full{display:flex!important;flex:1!important}
+.v6-unit .v63-blueprint-full .v6-free-box{flex:1!important}
+/* Model selectors and status info are intentionally neutral, aligned to site identity. */
+#v63-model-note{color:var(--ge-primary);font-size:10px;line-height:1.4;margin:2px 0 0}
+@media screen and (max-width:620px){.v63-printer-options{grid-template-columns:1fr}.v63-printer-option{min-height:115px;padding:14px}.v63-dialog-actions{flex-direction:column;align-items:stretch}.v63-dialog-actions span{max-width:none}.v63-dialog-actions button{width:100%}.v63-printer-dialog{padding:17px}}
+@media print{.v63-printer-overlay,.v63-target-strip,#v63-model-note{display:none!important}}
+</style>
 </head>
 <body class="ge-body">
-<svg class="ge-icons" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
-  <symbol id="i-printer" viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v5a2 2 0 0 1-2 2h-2"/><path d="M6 15h12v7H6zM18 12h.01"/></symbol>
-  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V3m0 0L7 8m5-5 5 5M4 16v5h16v-5"/></symbol>
-  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v13m0 0 5-5m-5 5-5-5M4 16v5h16v-5"/></symbol>
-  <symbol id="i-settings" viewBox="0 0 24 24"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.89l.06.06-2 2-.06-.06a1.7 1.7 0 0 0-1.89-.34 1.7 1.7 0 0 0-1.04 1.58V21h-2.8v-.09a1.7 1.7 0 0 0-1.04-1.58 1.7 1.7 0 0 0-1.89.34l-.06.06-2-2 .06-.06A1.7 1.7 0 0 0 7.42 15a1.7 1.7 0 0 0-1.58-1.04H5v-2.8h.09a1.7 1.7 0 0 0 1.58-1.04 1.7 1.7 0 0 0-.34-1.89l-.06-.06 2-2 .06.06a1.7 1.7 0 0 0 1.89.34 1.7 1.7 0 0 0 1.04-1.58V5h2.8v.09a1.7 1.7 0 0 0 1.04 1.58 1.7 1.7 0 0 0 1.89-.34l.06-.06 2 2-.06.06a1.7 1.7 0 0 0-.34 1.89 1.7 1.7 0 0 0 1.58 1.04H21v2.8h-.09A1.7 1.7 0 0 0 19.4 15Z"/></symbol>
-  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h9m4 0h3M4 17h3m4 0h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
-  <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 2 9 4v6c0 5-4 8.5-9 10-5-1.5-9-5-9-10V6l9-4Z"/><path d="m9 12 2 2 4-4"/></symbol>
-  <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 2 7 7 2-7 2-2 7-2-7-7-2 7-2 2-7Z"/></symbol>
-  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M20 13 11 22 2 13V2h11l7 7v4Z"/><circle cx="7" cy="7" r="1.5"/></symbol>
-  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
-  <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
-  <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5 19 19M19 5 5 19"/></symbol>
-  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-7-7 7 7-7 7"/></symbol>
-  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v.1"/></symbol>
-  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 3-8 8-8s8 3 8 8"/></symbol>
-  <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H3v5m0-5 6 6m7-6h5v5m0-5-6 6M3 16v5h5m-5 0 6-6m12 1v5h-5m5 0-6-6"/></symbol>
+<svg aria-hidden="true" class="ge-icons" xmlns="http://www.w3.org/2000/svg">
+<symbol id="i-grid" viewbox="0 0 24 24"><rect height="7" rx="1.5" width="7" x="3" y="3"></rect><rect height="7" rx="1.5" width="7" x="14" y="3"></rect><rect height="7" rx="1.5" width="7" x="3" y="14"></rect><rect height="7" rx="1.5" width="7" x="14" y="14"></rect></symbol>
+<symbol id="i-printer" viewbox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v5a2 2 0 0 1-2 2h-2"></path><path d="M6 15h12v7H6zM18 12h.01"></path></symbol>
+<symbol id="i-upload" viewbox="0 0 24 24"><path d="M12 16V3m0 0L7 8m5-5 5 5M4 16v5h16v-5"></path></symbol>
+<symbol id="i-download" viewbox="0 0 24 24"><path d="M12 3v13m0 0 5-5m-5 5-5-5M4 16v5h16v-5"></path></symbol>
+<symbol id="i-settings" viewbox="0 0 24 24"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.89l.06.06-2 2-.06-.06a1.7 1.7 0 0 0-1.89-.34 1.7 1.7 0 0 0-1.04 1.58V21h-2.8v-.09a1.7 1.7 0 0 0-1.04-1.58 1.7 1.7 0 0 0-1.89.34l-.06.06-2-2 .06-.06A1.7 1.7 0 0 0 7.42 15a1.7 1.7 0 0 0-1.58-1.04H5v-2.8h.09a1.7 1.7 0 0 0 1.58-1.04 1.7 1.7 0 0 0-.34-1.89l-.06-.06 2-2 .06.06a1.7 1.7 0 0 0 1.89.34 1.7 1.7 0 0 0 1.04-1.58V5h2.8v.09a1.7 1.7 0 0 0 1.04 1.58 1.7 1.7 0 0 0 1.89-.34l.06-.06 2 2-.06.06a1.7 1.7 0 0 0-.34 1.89 1.7 1.7 0 0 0 1.58 1.04H21v2.8h-.09A1.7 1.7 0 0 0 19.4 15Z"></path></symbol>
+<symbol id="i-sliders" viewbox="0 0 24 24"><path d="M4 7h9m4 0h3M4 17h3m4 0h9"></path><circle cx="15" cy="7" r="2"></circle><circle cx="9" cy="17" r="2"></circle></symbol>
+<symbol id="i-shield" viewbox="0 0 24 24"><path d="m12 2 9 4v6c0 5-4 8.5-9 10-5-1.5-9-5-9-10V6l9-4Z"></path><path d="m9 12 2 2 4-4"></path></symbol>
+<symbol id="i-spark" viewbox="0 0 24 24"><path d="m12 3 2 7 7 2-7 2-2 7-2-7-7-2 7-2 2-7Z"></path></symbol>
+<symbol id="i-tag" viewbox="0 0 24 24"><path d="M20 13 11 22 2 13V2h11l7 7v4Z"></path><circle cx="7" cy="7" r="1.5"></circle></symbol>
+<symbol id="i-clock" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></symbol>
+<symbol id="i-check" viewbox="0 0 24 24"><path d="m4 12 5 5L20 6"></path></symbol>
+<symbol id="i-close" viewbox="0 0 24 24"><path d="M5 5 19 19M19 5 5 19"></path></symbol>
+<symbol id="i-arrow" viewbox="0 0 24 24"><path d="M4 12h16m-7-7 7 7-7 7"></path></symbol>
+<symbol id="i-info" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6m0-10v.1"></path></symbol>
+<symbol id="i-user" viewbox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-5 3-8 8-8s8 3 8 8"></path></symbol>
+<symbol id="i-expand" viewbox="0 0 24 24"><path d="M8 3H3v5m0-5 6 6m7-6h5v5m0-5-6 6M3 16v5h5m-5 0 6-6m12 1v5h-5m5 0-6-6"></path></symbol>
 </svg>
-<div class="ge-decor-orb ge-decor-one" aria-hidden="true"></div>
-<div class="ge-decor-orb ge-decor-two" aria-hidden="true"></div>
+<div aria-hidden="true" class="ge-decor-orb ge-decor-one"></div>
+<div aria-hidden="true" class="ge-decor-orb ge-decor-two"></div>
 <header class="ge-topbar">
-  <div class="ge-topbar-inner">
-    <div class="ge-identity">
-      <div class="ge-symbol nexo-brand-symbol" aria-hidden="true"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2215%22%20fill%3D%22%23102820%22%2F%3E%3Cpath%20d%3D%22M16%2014h24l9%209v25a5%205%200%200%201-5%205H19a5%205%200%200%201-5-5V19a5%205%200%200%201%205-5%22%20fill%3D%22%23ecfff7%22%2F%3E%3Cpath%20d%3D%22M40%2014v9h9%22%20fill%3D%22%23bba0f2%22%2F%3E%3Cpath%20d%3D%22M23%2030h16M23%2035h11%22%20stroke%3D%22%230d5946%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M23%2041v6m4-6v6m4-6v6m4-6v6m4-6v6%22%20stroke%3D%22%230d5946%22%20stroke-width%3D%222%22%2F%3E%3C%2Fsvg%3E" alt=""></div>
-      <div class="ge-identity-copy"><strong>NEXO <span>STUDIO</span></strong><small>ETIQUETAS &amp; PLACAS <b>•</b> CENTRAL CRIATIVA</small></div>
-    </div>
-    <div class="ge-top-actions">
-      <div class="ge-version"><span class="ge-pulse"></span><span>Sistema local <b>v6.1 · Enterprise</b></span></div>
-      <button id="nexo-experience-button" class="ge-icon-button" type="button" aria-label="Personalizar experiência" title="Personalizar efeitos e cores"><svg><use href="#i-spark"/></svg><span class="nexo-experience-text">Experiência</span></button>
-      <button id="ge-operator-button" class="ge-operator ge-icon-button" type="button" title="Alternar operador neste navegador"><svg><use href="#i-user"/></svg><span id="ge-operator-label">Operador local</span></button>
-      <button id="ge-open-settings" class="ge-icon-button ge-top-settings" type="button" aria-label="Abrir preferências" title="Preferências (Alt + S)"><svg><use href="#i-settings"/></svg></button>
-    </div>
-  </div>
+<div class="ge-topbar-inner">
+<div class="ge-identity">
+<div aria-hidden="true" class="ge-symbol nexo-brand-symbol"><img alt="" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2215%22%20fill%3D%22%23102820%22%2F%3E%3Cpath%20d%3D%22M16%2014h24l9%209v25a5%205%200%200%201-5%205H19a5%205%200%200%201-5-5V19a5%205%200%200%201%205-5%22%20fill%3D%22%23ecfff7%22%2F%3E%3Cpath%20d%3D%22M40%2014v9h9%22%20fill%3D%22%23bba0f2%22%2F%3E%3Cpath%20d%3D%22M23%2030h16M23%2035h11%22%20stroke%3D%22%230d5946%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M23%2041v6m4-6v6m4-6v6m4-6v6m4-6v6%22%20stroke%3D%22%230d5946%22%20stroke-width%3D%222%22%2F%3E%3C%2Fsvg%3E"/></div>
+<div class="ge-identity-copy"><strong>NEXO <span>STUDIO</span></strong><small>ETIQUETAS &amp; PLACAS <b>•</b> CENTRAL CRIATIVA</small></div>
+</div>
+<div class="ge-top-actions">
+<div class="ge-version"><span class="ge-pulse"></span><span>Sistema local <b>v6.3 · Enterprise</b></span></div>
+<button aria-label="Personalizar experiência" class="ge-icon-button" id="nexo-experience-button" title="Personalizar efeitos e cores" type="button"><svg><use href="#i-spark"></use></svg><span class="nexo-experience-text">Experiência</span></button>
+<button class="ge-operator ge-icon-button" id="ge-operator-button" title="Alternar operador neste navegador" type="button"><svg><use href="#i-user"></use></svg><span id="ge-operator-label">Operador local</span></button>
+<button aria-label="Abrir preferências" class="ge-icon-button ge-top-settings" id="ge-open-settings" title="Preferências (Alt + S)" type="button"><svg><use href="#i-settings"></use></svg></button>
+</div>
+</div>
 </header>
 <div class="ge-app">
-  <aside class="ge-rail" aria-label="Navegação e contexto">
-    <div class="ge-rail-top"><div class="ge-rail-label">WORKSPACE / PRODUÇÃO</div><a class="ge-rail-link active" href="#ge-production"><svg><use href="#i-grid"/></svg><span>Visão de produção</span><span class="ge-rail-link-arrow">›</span></a><a class="ge-rail-link" href="#ge-tools"><svg><use href="#i-sliders"/></svg><span>Preparar lote</span><span class="ge-rail-link-arrow">›</span></a><a class="ge-rail-link" href="#ge-preview-block"><svg><use href="#i-tag"/></svg><span>Prévia de impressão</span><span class="ge-rail-link-arrow">›</span></a></div>
-    <div class="ge-rail-bottom"><div class="ge-rail-note"><svg><use href="#i-shield"/></svg><strong>Processamento local</strong><span>Os dados do lote são preparados no navegador. Nenhum banco externo é necessário para este painel.</span></div><div class="ge-rail-credit">CONCEITO & DESENVOLVIMENTO<br><b>Antonio</b></div></div>
-  </aside>
-  <main class="ge-main" id="ge-production">
-    <section class="ge-hero" aria-labelledby="ge-headline">
-      <div class="ge-hero-left"><div class="ge-hero-overline"><span class="ge-overline-dash"></span> CENTRAL DE IDENTIFICAÇÃO DE MATERIAIS</div><h1 id="ge-headline">A sua operação,<br><em>mais inteligente.</em></h1><p>Prepare etiquetas com precisão, confira cada detalhe e envie seus lotes para impressão com uma experiência mais fluida e profissional.</p><div class="ge-hero-meta"><span><svg><use href="#i-check"/></svg> Importação CSV</span><span><svg><use href="#i-check"/></svg> Power Apps</span><span><svg><use href="#i-check"/></svg> QR Code local</span></div></div>
-      <div class="ge-hero-art" aria-hidden="true"><div class="ge-orbit ge-orbit-1"></div><div class="ge-orbit ge-orbit-2"></div><div class="ge-hero-sticker"><div class="ge-faux-qr"><span>◈</span><span>▦</span><span>◈</span><span>▥</span></div><div class="ge-sticker-lines"><i></i><i></i><i></i></div><b>NEXO / STUDIO</b></div><div class="ge-hero-art-caption">IDENTIFIQUE · CONFIRA · IMPRIMA</div></div>
-    </section>
-    <div class="ge-section-heading"><div><div class="ge-overline">VISÃO GERAL · EM TEMPO REAL</div><h2>Visão da produção</h2></div><div class="ge-live"><span class="ge-pulse"></span> AMBIENTE PRONTO</div></div>
-    <section class="ge-kpis" aria-label="Indicadores do lote">
-      <article class="ge-kpi"><div class="ge-kpi-icon green"><svg><use href="#i-tag"/></svg></div><div class="ge-kpi-label">ETIQUETAS</div><div class="ge-kpi-number" id="metric-total">00</div><div class="ge-kpi-sub">unidades no lote</div></article>
-      <article class="ge-kpi"><div class="ge-kpi-icon blue"><svg><use href="#i-grid"/></svg></div><div class="ge-kpi-label">MATERIAIS</div><div class="ge-kpi-number" id="metric-items">00</div><div class="ge-kpi-sub">registros recebidos</div></article>
-      <article class="ge-kpi"><div class="ge-kpi-icon amber"><svg><use href="#i-expand"/></svg></div><div class="ge-kpi-label">DIMENSÕES</div><div class="ge-kpi-number ge-kpi-size" id="metric-size">90 × 90</div><div class="ge-kpi-sub">milímetros</div></article>
-      <article class="ge-kpi"><div class="ge-kpi-icon neutral"><svg><use href="#i-shield"/></svg></div><div class="ge-kpi-label">STATUS DO LOTE</div><div class="ge-kpi-status" id="ge-readiness">Aguardando dados</div><div class="ge-kpi-sub" id="ge-source">Origem: não definida</div></article>
-    </section>
-    <div class="ge-production-grid">
-      <aside class="ge-controls" id="ge-tools">
-        <div class="ge-card ge-control-card"><div class="ge-card-head"><div><div class="ge-overline">01 / PREPARAÇÃO</div><h3>Central de controle</h3><p>Dados, layout e impressão em um só lugar.</p></div><div class="ge-card-head-icon"><svg><use href="#i-sliders"/></svg></div></div>
-          <div class="ge-card-body">
-            <div class="ge-input-label">GERENCIAMENTO DO LOTE</div>
-            <button class="ge-btn ge-btn-primary ge-btn-wide" type="button" id="importar"><svg><use href="#i-upload"/></svg>Importar planilha CSV <span class="ge-btn-end">↗</span></button>
-            <button class="ge-btn ge-btn-outline ge-btn-wide" type="button" id="exportar"><svg><use href="#i-download"/></svg>Baixar modelo CSV</button>
-            <input type="file" id="arquivo" accept=".csv,text/csv" hidden>
-            <div class="ge-divider"></div>
-            <div class="ge-input-label">FORMATO DA IMPRESSÃO</div>
-            <label class="ge-field"><span>Modelo de etiqueta</span><select id="papel"><option value="90x90">Etiqueta 90 × 90 mm — padrão</option><option value="70x70">Etiqueta 70 × 70 mm</option><option value="100x100">Etiqueta 100 × 100 mm</option><option value="a4p">A4 · Retrato (210 × 297 mm)</option><option value="a4l">A4 · Paisagem (297 × 210 mm)</option><option value="a3p">A3 · Retrato (297 × 420 mm)</option><option value="a3l">A3 · Paisagem (420 × 297 mm)</option><option value="custom">Personalizado</option></select></label>
-            <div class="ge-size-fields"><label class="ge-field"><span>Largura <small>mm</small></span><input id="largura" type="number" value="90" min="30" max="420" step="0.1" inputmode="decimal"></label><label class="ge-field"><span>Altura <small>mm</small></span><input id="altura" type="number" value="90" min="30" max="420" step="0.1" inputmode="decimal"></label></div>
-            <p id="paper-help" class="ge-help">Para etiquetas térmicas, configure o mesmo tamanho no driver da impressora.</p>
-
-            <section class="ge-design-panel" id="cktr-design" aria-label="Modelos e personalização de etiquetas e placas">
-              <h4 class="ge-design-heading">Modelos de etiquetas e placas</h4>
-              <p class="ge-design-sub">Escolha um modelo pronto ou personalize sua impressão. QR Code e dados do Power Apps são preservados.</p>
-              <section class="cktr-manual" aria-label="Criar placa sem Power Apps">
-                <div class="cktr-manual-heading"><strong>Criação independente</strong><span>SEM POWER APPS</span></div>
-                <p>Monte uma placa ou etiqueta do zero. Preencha os dados e gere a prévia diretamente neste navegador.</p>
-                <div class="cktr-manual-fields">
-                  <label>Tipo<select id="manual-tipo"><option value="placa">Placa</option><option value="etiqueta">Etiqueta</option></select></label>
-                  <label>Título da placa<input id="manual-titulo" maxlength="70" value="IDENTIFICAÇÃO DE MATERIAL" placeholder="Ex.: PLACA DE IDENTIFICAÇÃO"></label>
-                  <label>Código / identificação<input id="manual-codigo" maxlength="80" placeholder="Ex.: CKTR-001"></label>
-                  <label>Descrição / conteúdo<textarea id="manual-descricao" rows="3" maxlength="1000" placeholder="Digite aqui o conteúdo da placa"></textarea></label>
-                  <label>Local / endereço (opcional)<input id="manual-local" maxlength="180" placeholder="Ex.: Almoxarifado Central"></label>
-                  <label>Responsável / planejador (opcional)<input id="manual-planejador" maxlength="140" placeholder="Ex.: Antonio"></label>
-                  <label>Quantidade de unidades<input id="manual-qtd" type="number" min="1" max="100" value="1"></label>
-                </div>
-                <div class="cktr-manual-buttons"><button type="button" id="manual-gerar">Gerar placa / etiqueta</button><button type="button" id="manual-limpar">Limpar campos</button></div>
-                <p class="cktr-manual-note">Não requer conexão com SharePoint. O QR das criações manuais contém os dados básicos do item, sem apontar para uma ficha inexistente no Power Apps.</p>
-              </section>
-              <div class="ge-design-switch" role="group" aria-label="Tipo de impressão">
-                <button type="button" id="cktr-mode-label" aria-pressed="true">Etiqueta</button>
-                <button type="button" id="cktr-mode-plate" aria-pressed="false">Placa</button>
-              </div>
-              <div class="ge-design-switch" role="tablist" aria-label="Edição visual">
-                <button type="button" id="cktr-tab-modelos" role="tab" aria-selected="true">Modelos</button>
-                <button type="button" id="cktr-tab-personalizado" role="tab" aria-selected="false">Personalizado</button>
-              </div>
-              <label class="ge-design-field">Modelo visual
-                <select id="cktr-template"><option value="classico">Clássico Profissional</option><option value="minimalista">Minimalista</option><option value="industrial">Industrial</option><option value="tecnico">Técnico</option><option value="placa">Placa sinalização</option><option value="placa-outline">Placa técnica</option><option value="personalizado">Personalizado</option></select>
-              </label>
-              <div id="cktr-custom-fields" hidden>
-                <label class="ge-design-field">Título da placa / etiqueta<input id="cktr-title" type="text" value="IDENTIFICAÇÃO DE MATERIAL" maxlength="70"></label>
-                <label class="ge-design-field">Cor da faixa superior<select id="cktr-head-color"><option value="black">Preto profissional</option><option value="green">Verde escuro</option><option value="violet">Lilás escuro</option><option value="white">Branco técnico</option></select></label>
-                <label class="ge-design-field">Espessura da borda<select id="cktr-border"><option value="0.2">Fina</option><option value="0.35" selected>Normal</option><option value="0.65">Forte</option></select></label>
-              </div>
-              <div class="nexo-label-editor">
-                <div class="nexo-mini-heading">ACABAMENTO DA ETIQUETA</div>
-                <label class="ge-design-field">Escala do texto da descrição <input id="nexo-label-font" type="range" min="75" max="125" value="100" step="5"><output id="nexo-label-font-out">100%</output></label>
-                <label class="ge-design-field">Estilo do texto <select id="nexo-label-typography"><option value="standard">Padrão legível</option><option value="bold">Maior contraste</option><option value="compact">Compacto</option></select></label>
-                <p class="ge-design-note">A prévia e a impressão usam as mesmas regras tipográficas. Verifique a legibilidade física antes de imprimir.</p>
-              </div>
-              <div class="ge-design-options">
-                <label class="ge-design-option"><input id="cktr-show-qr" type="checkbox" checked> Mostrar QR Code</label>
-                <label class="ge-design-option"><input id="cktr-show-credit" type="checkbox" checked> Exibir Creator: Antonio</label>
-                <label class="ge-design-option"><input id="cktr-show-guid" type="checkbox" checked> Exibir ID único compacto</label>
-              </div>
-              <div class="ge-design-actions"><button id="cktr-reset-style" type="button">Restaurar modelo</button><button id="cktr-export-guid" type="button">Exportar IDs CSV</button></div>
-              <p class="ge-design-note">Cada etiqueta recebe um UUID v4 exclusivo. A etiqueta mostra somente os 8 primeiros caracteres; o UUID completo fica no arquivo CSV de rastreio.</p>
-            </section>
-            <div class="ge-divider"></div>
-            <button class="ge-btn ge-btn-print ge-btn-wide" type="button" id="imprimir" disabled><svg><use href="#i-printer"/></svg>Imprimir lote <svg class="ge-print-chevron"><use href="#i-arrow"/></svg></button>
-            <p class="ge-print-footnote"><svg><use href="#i-info"/></svg> No diálogo de impressão, use escala 100%, margens zero e sem cabeçalhos/rodapés.</p>
-            <div id="mensagem" class="ge-status-message message" role="status" aria-live="polite" hidden></div>
-          </div>
-        </div>
-        <div class="ge-card ge-mini-card"><div class="ge-mini-icon"><svg><use href="#i-spark"/></svg></div><div><strong>Configurações pessoais</strong><p>Tema, densidade, tamanho padrão e perfis ficam salvos neste navegador.</p><button class="ge-text-button" type="button" id="ge-configure-button">Personalizar experiência <span>→</span></button></div></div>
-      </aside>
-      <section class="ge-workspace" id="ge-preview-block" aria-label="Pré-visualização de etiquetas">
-        <div class="ge-card ge-preview-card"><div class="ge-preview-heading"><div><div class="ge-overline">02 / ALMOXARIFADO DIGITAL · PRÉVIA FIXA</div><h3>Estúdio de etiquetas &amp; placas</h3><p>Prévia sempre visível: personalize, confira e imprima em tempo real — mesmo sem Power Apps.</p></div><span class="ge-count-chip" id="total">0 etiquetas</span></div>
-          <div class="ge-preview-toolbar"><div class="ge-preview-toolbar-left"><div class="ge-round-icon"><svg><use href="#i-tag"/></svg></div><div><strong>Estação de identificação · Almoxarifado</strong><small>Etiquetas e placas com conferência visual contínua</small></div></div><div class="ge-zoom"><label for="ge-zoom-range">Zoom</label><input id="ge-zoom-range" type="range" min="60" max="130" step="10" value="100" aria-label="Zoom da prévia"><output id="ge-zoom-value">100%</output></div></div>
-          <div class="ge-preview-stage"><div id="vazio" class="ge-empty empty"><div class="ge-empty-mark"><svg><use href="#i-tag"/></svg></div><strong>Seu lote começa aqui</strong><p>Crie uma placa manualmente, importe CSV ou receba dados do Power Apps. Nenhuma configuração de impressão será alterada automaticamente.</p><div class="ge-empty-hint">PRONTO PARA RECEBER MATERIAIS</div></div><div id="previa" class="preview ge-preview" hidden><div class="labels" id="etiquetas"></div></div></div>
-          <div class="ge-preview-footer"><div><svg><use href="#i-info"/></svg><span>O QR Code contém um link para a ficha digital e o planejador.</span></div><span>PRÉ-VISUALIZAÇÃO · NÃO É COMPROVANTE DE IMPRESSÃO</span></div>
-        </div>
-        <div class="ge-detail-row"><div class="ge-detail-card"><svg><use href="#i-shield"/></svg><div><strong>Proteção do arquivo original</strong><p>Impressão isolada, mantendo o tamanho físico e sem imprimir a interface.</p></div></div><div class="ge-detail-card"><svg><use href="#i-clock"/></svg><div><strong>Operação por etapas</strong><p>Receber → conferir → preparar impressão. O resultado físico depende da Zebra.</p></div></div></div>
-      </section>
-    </div>
-    <footer class="ge-footer"><div><b>NEXO STUDIO</b> · ETIQUETAS &amp; PLACAS <span>v6.1</span></div><div>Conceito e desenvolvimento · <b>Antonio</b></div></footer>
-  </main>
-</div>
-
-<div id="nexo-onboarding" class="nexo-onboarding" hidden role="dialog" aria-modal="true" aria-labelledby="nexo-onboard-title">
-  <div class="nexo-welcome">
-    <div class="nexo-welcome-icon"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2215%22%20fill%3D%22%23102820%22%2F%3E%3Cpath%20d%3D%22M16%2014h24l9%209v25a5%205%200%200%201-5%205H19a5%205%200%200%201-5-5V19a5%205%200%200%201%205-5%22%20fill%3D%22%23ecfff7%22%2F%3E%3Cpath%20d%3D%22M40%2014v9h9%22%20fill%3D%22%23bba0f2%22%2F%3E%3Cpath%20d%3D%22M23%2030h16M23%2035h11%22%20stroke%3D%22%230d5946%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M23%2041v6m4-6v6m4-6v6m4-6v6m4-6v6%22%20stroke%3D%22%230d5946%22%20stroke-width%3D%222%22%2F%3E%3C%2Fsvg%3E" alt="Símbolo de etiqueta"></div>
-    <div class="nexo-welcome-eyebrow">BEM-VINDO AO SEU NOVO WORKSPACE</div>
-    <h2 id="nexo-onboard-title">Seu estúdio.<br><span>Do seu jeito.</span></h2>
-    <p>Escolha uma experiência visual para preparar suas etiquetas e placas. Tudo funciona localmente neste navegador.</p>
-    <div class="nexo-settings-grid">
-      <label>Cor de destaque <input id="nexo-color" type="color" value="#3ed1af" aria-label="Selecionar cor de destaque"></label>
-      <label>Tema <select id="nexo-theme"><option value="dark">Escuro premium</option><option value="light">Claro</option></select></label>
-      <label class="nexo-check"><input type="checkbox" id="nexo-effects" checked> Animações e efeitos suaves</label>
-      <label class="nexo-check"><input type="checkbox" id="nexo-cursor"> Ponteiro personalizado</label>
-      <label class="nexo-check"><input type="checkbox" id="nexo-glow" checked> Brilho ambiente discreto</label>
-    </div>
-    <div class="nexo-welcome-actions"><button type="button" id="nexo-save">Entrar no estúdio</button><button type="button" id="nexo-default">Usar aparência padrão</button></div>
-    <small>Você pode mudar estas opções depois no botão Experiência.</small>
-  </div>
-</div>
-
-<div id="print-block" hidden>Abra um lote válido e confira a prévia antes de imprimir.</div>
-<div class="ge-drawer-backdrop" id="ge-drawer-backdrop" hidden></div>
-<aside class="ge-drawer" id="ge-settings-drawer" role="dialog" aria-modal="true" aria-labelledby="ge-settings-title" hidden>
-  <div class="ge-drawer-header"><div><div class="ge-overline">SEU ESPAÇO DE TRABALHO</div><h2 id="ge-settings-title">Preferências</h2><p>Personalize o sistema neste navegador.</p></div><button type="button" class="ge-icon-button ge-close-button" id="ge-settings-close" aria-label="Fechar preferências"><svg><use href="#i-close"/></svg></button></div>
-  <div class="ge-drawer-scroll">
-    <section class="ge-settings-section"><h3><svg><use href="#i-user"/></svg> Operador local</h3><p>Perfis são preferências deste navegador; não funcionam como autenticação de acesso.</p><label class="ge-field"><span>Perfil em uso</span><select id="ge-profile-select"></select></label><div class="ge-field-group"><input id="ge-new-profile" maxlength="36" placeholder="Nome do novo perfil" aria-label="Nome do novo perfil"><button type="button" class="ge-small-button" id="ge-add-profile">Criar perfil</button></div></section>
-    <section class="ge-settings-section"><h3><svg><use href="#i-spark"/></svg> Aparência do sistema</h3><label class="ge-field"><span>Tema de cores</span><select id="tema" aria-label="Aparência do site"><option value="dark">Escuro</option><option value="light">Claro</option><option value="system">Seguir sistema</option></select></label><label class="ge-field"><span>Cor de destaque</span><select id="ge-accent"><option value="emerald">Esmeralda profissional</option><option value="blue">Azul corporativo</option><option value="violet">Violeta elegante</option></select></label><label class="ge-field"><span>Espaçamento da interface</span><select id="ge-density"><option value="comfortable">Confortável</option><option value="compact">Compacto</option></select></label><label class="ge-toggle-line"><span>Microanimações <small>Transições e efeitos sutis</small></span><input id="ge-motion" type="checkbox" checked></label></section>
-    <section class="ge-settings-section"><h3><svg><use href="#i-printer"/></svg> Impressão e conferência</h3><label class="ge-toggle-line"><span>Confirmar antes de imprimir <small>Exibe quantidade e medidas do lote</small></span><input id="ge-confirm-print" type="checkbox"></label><label class="ge-toggle-line"><span>Lembrar dimensões <small>Salva o tamanho selecionado</small></span><input id="ge-remember-size" type="checkbox" checked></label><div class="ge-setting-note">O site não altera automaticamente a velocidade, a temperatura ou a seleção da impressora.</div></section>
-    <section class="ge-settings-section"><h3><svg><use href="#i-clock"/></svg> Histórico de operações locais</h3><p id="ge-history-description">São salvos apenas data, quantidade e formato de tentativas de impressão — nunca códigos SAP, descrições ou nomes de planejadores.</p><div class="ge-activity" id="ge-activity"><div class="ge-activity-empty">Nenhuma atividade registrada neste navegador.</div></div><div class="ge-button-pair"><button type="button" id="ge-export-settings" class="ge-small-button">Exportar preferências</button><button type="button" id="ge-clear-activity" class="ge-small-button ge-danger-outline">Limpar histórico</button></div><input id="ge-import-settings-file" type="file" accept=".json,application/json" hidden><button type="button" id="ge-import-settings" class="ge-text-button">Importar preferências de outro navegador →</button></section>
-    <section class="ge-settings-section"><h3><svg><use href="#i-info"/></svg> Atalhos rápidos</h3><div class="ge-shortcut"><span>Abrir preferências</span><kbd>Alt</kbd> + <kbd>S</kbd></div><div class="ge-shortcut"><span>Importar CSV</span><kbd>Alt</kbd> + <kbd>I</kbd></div><div class="ge-shortcut"><span>Ir à prévia</span><kbd>Alt</kbd> + <kbd>P</kbd></div></section>
-  </div><div class="ge-drawer-bottom"><span id="ge-saved-state">Preferências locais</span><button class="ge-btn ge-btn-primary" type="button" id="ge-settings-done">Concluir <svg><use href="#i-check"/></svg></button></div>
+<aside aria-label="Navegação e contexto" class="ge-rail">
+<div class="ge-rail-top"><div class="ge-rail-label">WORKSPACE / PRODUÇÃO</div><a class="ge-rail-link active" href="#ge-production"><svg><use href="#i-grid"></use></svg><span>Visão de produção</span><span class="ge-rail-link-arrow">›</span></a><a class="ge-rail-link" href="#ge-tools"><svg><use href="#i-sliders"></use></svg><span>Preparar lote</span><span class="ge-rail-link-arrow">›</span></a><a class="ge-rail-link" href="#ge-preview-block"><svg><use href="#i-tag"></use></svg><span>Prévia de impressão</span><span class="ge-rail-link-arrow">›</span></a></div>
+<div class="ge-rail-bottom"><div class="ge-rail-note"><svg><use href="#i-shield"></use></svg><strong>Processamento local</strong><span>Os dados do lote são preparados no navegador. Nenhum banco externo é necessário para este painel.</span></div><div class="ge-rail-credit">CONCEITO &amp; DESENVOLVIMENTO<br/><b>Antonio</b></div></div>
 </aside>
-<div class="ge-toast-stack" id="ge-toast-stack" aria-live="polite" aria-relevant="additions"></div>
-
+<main class="ge-main" id="ge-production">
+<section aria-labelledby="ge-headline" class="ge-hero">
+<div class="ge-hero-left"><div class="ge-hero-overline"><span class="ge-overline-dash"></span> CENTRAL DE IDENTIFICAÇÃO DE MATERIAIS</div><h1 id="ge-headline">A sua operação,<br/><em>mais inteligente.</em></h1><p>Prepare etiquetas com precisão, confira cada detalhe e envie seus lotes para impressão com uma experiência mais fluida e profissional.</p><div class="ge-hero-meta"><span><svg><use href="#i-check"></use></svg> Importação CSV</span><span><svg><use href="#i-check"></use></svg> Power Apps</span><span><svg><use href="#i-check"></use></svg> QR Code local</span></div></div>
+<div aria-hidden="true" class="ge-hero-art"><div class="ge-orbit ge-orbit-1"></div><div class="ge-orbit ge-orbit-2"></div><div class="ge-hero-sticker"><div class="ge-faux-qr"><span>◈</span><span>▦</span><span>◈</span><span>▥</span></div><div class="ge-sticker-lines"><i></i><i></i><i></i></div><b>NEXO / STUDIO</b></div><div class="ge-hero-art-caption">IDENTIFIQUE · CONFIRA · IMPRIMA</div></div>
+</section>
+<div class="ge-section-heading"><div><div class="ge-overline">VISÃO GERAL · EM TEMPO REAL</div><h2>Visão da produção</h2></div><div class="ge-live"><span class="ge-pulse"></span> AMBIENTE PRONTO</div></div>
+<section aria-label="Indicadores do lote" class="ge-kpis">
+<article class="ge-kpi"><div class="ge-kpi-icon green"><svg><use href="#i-tag"></use></svg></div><div class="ge-kpi-label">ETIQUETAS</div><div class="ge-kpi-number" id="metric-total">00</div><div class="ge-kpi-sub">unidades no lote</div></article>
+<article class="ge-kpi"><div class="ge-kpi-icon blue"><svg><use href="#i-grid"></use></svg></div><div class="ge-kpi-label">MATERIAIS</div><div class="ge-kpi-number" id="metric-items">00</div><div class="ge-kpi-sub">registros recebidos</div></article>
+<article class="ge-kpi"><div class="ge-kpi-icon amber"><svg><use href="#i-expand"></use></svg></div><div class="ge-kpi-label">DIMENSÕES</div><div class="ge-kpi-number ge-kpi-size" id="metric-size">90 × 90</div><div class="ge-kpi-sub">milímetros</div></article>
+<article class="ge-kpi"><div class="ge-kpi-icon neutral"><svg><use href="#i-shield"></use></svg></div><div class="ge-kpi-label">STATUS DO LOTE</div><div class="ge-kpi-status" id="ge-readiness">Aguardando dados</div><div class="ge-kpi-sub" id="ge-source">Origem: não definida</div></article>
+</section>
+<div class="ge-production-grid">
+<aside class="ge-controls" id="ge-tools">
+<div class="ge-card ge-control-card"><div class="ge-card-head"><div><div class="ge-overline">01 / PREPARAÇÃO</div><h3>Central de controle</h3><p>Dados, layout e impressão em um só lugar.</p></div><div class="ge-card-head-icon"><svg><use href="#i-sliders"></use></svg></div></div>
+<div class="ge-card-body">
+<div class="ge-input-label">GERENCIAMENTO DO LOTE</div>
+<button class="ge-btn ge-btn-primary ge-btn-wide" id="importar" type="button"><svg><use href="#i-upload"></use></svg>Importar planilha CSV <span class="ge-btn-end">↗</span></button>
+<button class="ge-btn ge-btn-outline ge-btn-wide" id="exportar" type="button"><svg><use href="#i-download"></use></svg>Baixar modelo CSV</button>
+<input accept=".csv,text/csv" hidden="" id="arquivo" type="file"/>
+<div class="ge-divider"></div>
+<div class="ge-input-label">FORMATO DA IMPRESSÃO</div>
+<label class="ge-field"><span>Modelo de etiqueta</span><select id="papel"><option value="90x90">Etiqueta 90 × 90 mm — padrão</option><option value="70x70">Etiqueta 70 × 70 mm</option><option value="100x100">Etiqueta 100 × 100 mm</option><option value="a4p">A4 · Retrato (210 × 297 mm)</option><option value="a4l">A4 · Paisagem (297 × 210 mm)</option><option value="a3p">A3 · Retrato (297 × 420 mm)</option><option value="a3l">A3 · Paisagem (420 × 297 mm)</option><option value="custom">Personalizado</option></select></label>
+<div class="ge-size-fields"><label class="ge-field"><span>Largura <small>mm</small></span><input id="largura" inputmode="decimal" max="420" min="30" step="0.1" type="number" value="90"/></label><label class="ge-field"><span>Altura <small>mm</small></span><input id="altura" inputmode="decimal" max="420" min="30" step="0.1" type="number" value="90"/></label></div>
+<p class="ge-help" id="paper-help">Para etiquetas térmicas, configure o mesmo tamanho no driver da impressora.</p>
+<section aria-label="Modelos e personalização de etiquetas e placas" class="ge-design-panel" id="cktr-design">
+<h4 class="ge-design-heading">Modelos de etiquetas e placas</h4>
+<p class="ge-design-sub">Escolha um modelo pronto ou personalize sua impressão. QR Code e dados do Power Apps são preservados.</p>
+<section aria-label="Criar placa sem Power Apps" class="cktr-manual">
+<div class="cktr-manual-heading"><strong>Criação independente</strong><span>SEM POWER APPS</span></div>
+<p>Monte uma placa ou etiqueta do zero. Preencha os dados e gere a prévia diretamente neste navegador.</p>
+<div class="cktr-manual-fields">
+<label>Tipo<select id="manual-tipo"><option value="placa">Placa</option><option value="etiqueta">Etiqueta</option></select></label>
+<label>Título da placa<input id="manual-titulo" maxlength="70" placeholder="Ex.: PLACA DE IDENTIFICAÇÃO" value="IDENTIFICAÇÃO DE MATERIAL"/></label>
+<label>Código / identificação<input id="manual-codigo" maxlength="80" placeholder="Ex.: CKTR-001"/></label>
+<label>Descrição / conteúdo<textarea id="manual-descricao" maxlength="1000" placeholder="Digite aqui o conteúdo da placa" rows="3"></textarea></label>
+<label>Local / endereço (opcional)<input id="manual-local" maxlength="180" placeholder="Ex.: Almoxarifado Central"/></label>
+<label>Responsável / planejador (opcional)<input id="manual-planejador" maxlength="140" placeholder="Ex.: Antonio"/></label>
+<label>Quantidade de unidades<input id="manual-qtd" max="100" min="1" type="number" value="1"/></label>
+</div>
+<div class="cktr-manual-buttons"><button id="manual-gerar" type="button">Gerar placa / etiqueta</button><button id="manual-limpar" type="button">Limpar campos</button></div>
+<p class="cktr-manual-note">Não requer conexão com SharePoint. O QR das criações manuais contém os dados básicos do item, sem apontar para uma ficha inexistente no Power Apps.</p>
+</section>
+<div aria-label="Tipo de impressão" class="ge-design-switch" role="group">
+<button aria-pressed="true" id="cktr-mode-label" type="button">Etiqueta</button>
+<button aria-pressed="false" id="cktr-mode-plate" type="button">Placa</button>
+</div>
+<div aria-label="Edição visual" class="ge-design-switch" role="tablist">
+<button aria-selected="true" id="cktr-tab-modelos" role="tab" type="button">Modelos</button>
+<button aria-selected="false" id="cktr-tab-personalizado" role="tab" type="button">Personalizado</button>
+</div>
+<label class="ge-design-field">Modelo visual
+                <select id="cktr-template"><option value="classico">Clássico Profissional</option><option value="minimalista">Minimalista</option><option value="industrial">Industrial</option><option value="tecnico">Técnico</option><option value="placa">Placa sinalização</option><option value="placa-outline">Placa técnica</option><option value="personalizado">Personalizado</option></select>
+</label>
+<div hidden="" id="cktr-custom-fields">
+<label class="ge-design-field">Título da placa / etiqueta<input id="cktr-title" maxlength="70" type="text" value="IDENTIFICAÇÃO DE MATERIAL"/></label>
+<label class="ge-design-field">Cor da faixa superior<select id="cktr-head-color"><option value="black">Preto profissional</option><option value="green">Verde escuro</option><option value="violet">Lilás escuro</option><option value="white">Branco técnico</option></select></label>
+<label class="ge-design-field">Espessura da borda<select id="cktr-border"><option value="0.2">Fina</option><option selected="" value="0.35">Normal</option><option value="0.65">Forte</option></select></label>
+</div>
+<div class="nexo-label-editor">
+<div class="nexo-mini-heading">ACABAMENTO DA ETIQUETA</div>
+<label class="ge-design-field">Escala do texto da descrição <input id="nexo-label-font" max="125" min="75" step="5" type="range" value="100"/><output id="nexo-label-font-out">100%</output></label>
+<label class="ge-design-field">Estilo do texto <select id="nexo-label-typography"><option value="standard">Padrão legível</option><option value="bold">Maior contraste</option><option value="compact">Compacto</option></select></label>
+<p class="ge-design-note">A prévia e a impressão usam as mesmas regras tipográficas. Verifique a legibilidade física antes de imprimir.</p>
+</div>
+<div class="ge-design-options">
+<label class="ge-design-option"><input checked="" id="cktr-show-qr" type="checkbox"/> Mostrar QR Code</label>
+<label class="ge-design-option"><input checked="" id="cktr-show-credit" type="checkbox"/> Exibir Creator: Antonio</label>
+<label class="ge-design-option"><input checked="" id="cktr-show-guid" type="checkbox"/> Exibir ID único compacto</label>
+</div>
+<div class="ge-design-actions"><button id="cktr-reset-style" type="button">Restaurar modelo</button><button id="cktr-export-guid" type="button">Exportar IDs CSV</button></div>
+<p class="ge-design-note">Cada etiqueta recebe um UUID v4 exclusivo. A etiqueta mostra somente os 8 primeiros caracteres; o UUID completo fica no arquivo CSV de rastreio.</p>
+</section>
+<div class="ge-divider"></div>
+<button class="ge-btn ge-btn-print ge-btn-wide" disabled="" id="imprimir" type="button"><svg><use href="#i-printer"></use></svg>Imprimir lote <svg class="ge-print-chevron"><use href="#i-arrow"></use></svg></button>
+<p class="ge-print-footnote"><svg><use href="#i-info"></use></svg> No diálogo de impressão, use escala 100%, margens zero e sem cabeçalhos/rodapés.</p>
+<div aria-live="polite" class="ge-status-message message" hidden="" id="mensagem" role="status"></div>
+</div>
+</div>
+<div class="ge-card ge-mini-card"><div class="ge-mini-icon"><svg><use href="#i-spark"></use></svg></div><div><strong>Configurações pessoais</strong><p>Tema, densidade, tamanho padrão e perfis ficam salvos neste navegador.</p><button class="ge-text-button" id="ge-configure-button" type="button">Personalizar experiência <span>→</span></button></div></div>
+</aside>
+<section aria-label="Pré-visualização de etiquetas" class="ge-workspace" id="ge-preview-block">
+<div class="ge-card ge-preview-card"><div class="ge-preview-heading"><div><div class="ge-overline">02 / ALMOXARIFADO DIGITAL · PRÉVIA FIXA</div><h3>Estúdio de etiquetas &amp; placas</h3><p>Prévia sempre visível: personalize, confira e imprima em tempo real — mesmo sem Power Apps.</p></div><span class="ge-count-chip" id="total">0 etiquetas</span></div>
+<div class="ge-preview-toolbar"><div class="ge-preview-toolbar-left"><div class="ge-round-icon"><svg><use href="#i-tag"></use></svg></div><div><strong>Estação de identificação · Almoxarifado</strong><small>Etiquetas e placas com conferência visual contínua</small></div></div><div class="ge-zoom"><label for="ge-zoom-range">Zoom</label><input aria-label="Zoom da prévia" id="ge-zoom-range" max="130" min="60" step="10" type="range" value="100"/><output id="ge-zoom-value">100%</output></div></div>
+<div class="ge-preview-stage"><div class="ge-empty empty" id="vazio"><div class="ge-empty-mark"><svg><use href="#i-tag"></use></svg></div><strong>Seu lote começa aqui</strong><p>Crie uma placa manualmente, importe CSV ou receba dados do Power Apps. Nenhuma configuração de impressão será alterada automaticamente.</p><div class="ge-empty-hint">PRONTO PARA RECEBER MATERIAIS</div></div><div class="preview ge-preview" hidden="" id="previa"><div class="labels" id="etiquetas"></div></div></div>
+<div class="ge-preview-footer"><div><svg><use href="#i-info"></use></svg><span>QR Code disponível somente na Etiqueta Logística; inclui a referência digital e o planejador.</span></div><span>PRÉ-VISUALIZAÇÃO · NÃO É COMPROVANTE DE IMPRESSÃO</span></div>
+</div>
+<div class="ge-detail-row"><div class="ge-detail-card"><svg><use href="#i-shield"></use></svg><div><strong>Proteção do arquivo original</strong><p>Impressão isolada, mantendo o tamanho físico e sem imprimir a interface.</p></div></div><div class="ge-detail-card"><svg><use href="#i-clock"></use></svg><div><strong>Operação por etapas</strong><p>Receber → conferir → preparar impressão. O resultado físico depende da Zebra.</p></div></div></div>
+</section>
+</div>
+<footer class="ge-footer"><div><b>NEXO STUDIO</b> · ETIQUETAS &amp; PLACAS <span>v6.3</span></div><div>Conceito e desenvolvimento · <b>Antonio</b></div></footer>
+</main>
+</div>
+<div aria-labelledby="nexo-onboard-title" aria-modal="true" class="nexo-onboarding" hidden="" id="nexo-onboarding" role="dialog">
+<div class="nexo-welcome">
+<div class="nexo-welcome-icon"><img alt="Símbolo de etiqueta" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2215%22%20fill%3D%22%23102820%22%2F%3E%3Cpath%20d%3D%22M16%2014h24l9%209v25a5%205%200%200%201-5%205H19a5%205%200%200%201-5-5V19a5%205%200%200%201%205-5%22%20fill%3D%22%23ecfff7%22%2F%3E%3Cpath%20d%3D%22M40%2014v9h9%22%20fill%3D%22%23bba0f2%22%2F%3E%3Cpath%20d%3D%22M23%2030h16M23%2035h11%22%20stroke%3D%22%230d5946%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M23%2041v6m4-6v6m4-6v6m4-6v6m4-6v6%22%20stroke%3D%22%230d5946%22%20stroke-width%3D%222%22%2F%3E%3C%2Fsvg%3E"/></div>
+<div class="nexo-welcome-eyebrow">BEM-VINDO AO SEU NOVO WORKSPACE</div>
+<h2 id="nexo-onboard-title">Seu estúdio.<br/><span>Do seu jeito.</span></h2>
+<p>Escolha uma experiência visual para preparar suas etiquetas e placas. Tudo funciona localmente neste navegador.</p>
+<div class="nexo-settings-grid">
+<label>Cor de destaque <input aria-label="Selecionar cor de destaque" id="nexo-color" type="color" value="#3ed1af"/></label>
+<label>Tema <select id="nexo-theme"><option value="dark">Escuro premium</option><option value="light">Claro</option></select></label>
+<label class="nexo-check"><input checked="" id="nexo-effects" type="checkbox"/> Animações e efeitos suaves</label>
+<label class="nexo-check"><input id="nexo-cursor" type="checkbox"/> Ponteiro personalizado</label>
+<label class="nexo-check"><input checked="" id="nexo-glow" type="checkbox"/> Brilho ambiente discreto</label>
+</div>
+<div class="nexo-welcome-actions"><button id="nexo-save" type="button">Entrar no estúdio</button><button id="nexo-default" type="button">Usar aparência padrão</button></div>
+<small>Você pode mudar estas opções depois no botão Experiência.</small>
+</div>
+</div>
+<div hidden="" id="print-block">Abra um lote válido e confira a prévia antes de imprimir.</div>
+<div class="ge-drawer-backdrop" hidden="" id="ge-drawer-backdrop"></div>
+<aside aria-labelledby="ge-settings-title" aria-modal="true" class="ge-drawer" hidden="" id="ge-settings-drawer" role="dialog">
+<div class="ge-drawer-header"><div><div class="ge-overline">SEU ESPAÇO DE TRABALHO</div><h2 id="ge-settings-title">Preferências</h2><p>Personalize o sistema neste navegador.</p></div><button aria-label="Fechar preferências" class="ge-icon-button ge-close-button" id="ge-settings-close" type="button"><svg><use href="#i-close"></use></svg></button></div>
+<div class="ge-drawer-scroll">
+<section class="ge-settings-section"><h3><svg><use href="#i-user"></use></svg> Operador local</h3><p>Perfis são preferências deste navegador; não funcionam como autenticação de acesso.</p><label class="ge-field"><span>Perfil em uso</span><select id="ge-profile-select"></select></label><div class="ge-field-group"><input aria-label="Nome do novo perfil" id="ge-new-profile" maxlength="36" placeholder="Nome do novo perfil"/><button class="ge-small-button" id="ge-add-profile" type="button">Criar perfil</button></div></section>
+<section class="ge-settings-section"><h3><svg><use href="#i-spark"></use></svg> Aparência do sistema</h3><label class="ge-field"><span>Tema de cores</span><select aria-label="Aparência do site" id="tema"><option value="dark">Escuro</option><option value="light">Claro</option><option value="system">Seguir sistema</option></select></label><label class="ge-field"><span>Cor de destaque</span><select id="ge-accent"><option value="emerald">Esmeralda profissional</option><option value="blue">Azul corporativo</option><option value="violet">Violeta elegante</option></select></label><label class="ge-field"><span>Espaçamento da interface</span><select id="ge-density"><option value="comfortable">Confortável</option><option value="compact">Compacto</option></select></label><label class="ge-toggle-line"><span>Microanimações <small>Transições e efeitos sutis</small></span><input checked="" id="ge-motion" type="checkbox"/></label></section>
+<section class="ge-settings-section"><h3><svg><use href="#i-printer"></use></svg> Impressão e conferência</h3><label class="ge-toggle-line"><span>Confirmar antes de imprimir <small>Exibe quantidade e medidas do lote</small></span><input id="ge-confirm-print" type="checkbox"/></label><label class="ge-toggle-line"><span>Lembrar dimensões <small>Salva o tamanho selecionado</small></span><input checked="" id="ge-remember-size" type="checkbox"/></label><div class="ge-setting-note">O site não altera automaticamente a velocidade, a temperatura ou a seleção da impressora.</div></section>
+<section class="ge-settings-section"><h3><svg><use href="#i-clock"></use></svg> Histórico de operações locais</h3><p id="ge-history-description">São salvos apenas data, quantidade e formato de tentativas de impressão — nunca códigos SAP, descrições ou nomes de planejadores.</p><div class="ge-activity" id="ge-activity"><div class="ge-activity-empty">Nenhuma atividade registrada neste navegador.</div></div><div class="ge-button-pair"><button class="ge-small-button" id="ge-export-settings" type="button">Exportar preferências</button><button class="ge-small-button ge-danger-outline" id="ge-clear-activity" type="button">Limpar histórico</button></div><input accept=".json,application/json" hidden="" id="ge-import-settings-file" type="file"/><button class="ge-text-button" id="ge-import-settings" type="button">Importar preferências de outro navegador →</button></section>
+<section class="ge-settings-section"><h3><svg><use href="#i-info"></use></svg> Atalhos rápidos</h3><div class="ge-shortcut"><span>Abrir preferências</span><kbd>Alt</kbd> + <kbd>S</kbd></div><div class="ge-shortcut"><span>Importar CSV</span><kbd>Alt</kbd> + <kbd>I</kbd></div><div class="ge-shortcut"><span>Ir à prévia</span><kbd>Alt</kbd> + <kbd>P</kbd></div></section>
+</div><div class="ge-drawer-bottom"><span id="ge-saved-state">Preferências locais</span><button class="ge-btn ge-btn-primary" id="ge-settings-done" type="button">Concluir <svg><use href="#i-check"></use></svg></button></div>
+</aside>
+<div aria-live="polite" aria-relevant="additions" class="ge-toast-stack" id="ge-toast-stack"></div>
 <script>
 /*!
 
@@ -2935,7 +3062,6 @@ window.NexoLegacy={normalize,parseCsv,makeLabel,linkFicha,qrSvg,uuid:cktrRandomU
 })();
 
 </script>
-
 <script id="nexo-v50-controller">
 (()=>{
 'use strict';
@@ -2981,7 +3107,8 @@ const target=$('etiquetas');if(target)new MutationObserver(updateLabels).observe
 apply();updateLabels();
 // O primeiro acesso é configurado apenas neste navegador; sem conexão externa.
 let hasWelcome=false;try{hasWelcome=Boolean(localStorage.getItem(KEY));}catch(e){}
-if(!hasWelcome)show();
+// O assistente visual é opcional. A seleção de impressora vem em primeiro lugar.
+// if(!hasWelcome)show();
 })();
 </script>
 <script id="nexo-enterprise-v6-controller">
@@ -2996,16 +3123,51 @@ const $root=document.querySelector('.ge-control-card .ge-card-body');
 const legacy=document.createElement('div'); legacy.id='v6-legacy';legacy.hidden=true;
 while($root.firstChild)legacy.append($root.firstChild);
 $root.append(legacy);
-const ui=document.createElement('div');ui.innerHTML="<section class=\"v6-enterprise\" aria-label=\"Cockpit Industrial NEXO\">\n<div class=\"v6-tabs\" role=\"tablist\" aria-label=\"Módulos do estúdio\">\n<button class=\"v6-tab\" type=\"button\" role=\"tab\" data-v6-tab=\"queue\" aria-selected=\"true\">01 · Materiais e fila</button>\n<button class=\"v6-tab\" type=\"button\" role=\"tab\" data-v6-tab=\"models\" aria-selected=\"false\">02 · Modelos e layouts</button>\n<button class=\"v6-tab\" type=\"button\" role=\"tab\" data-v6-tab=\"paper\" aria-selected=\"false\">03 · Papel e impressão</button>\n<button class=\"v6-tab\" type=\"button\" role=\"tab\" data-v6-tab=\"station\" aria-selected=\"false\">04 · Operador e auditoria</button>\n</div>\n<button type=\"button\" id=\"v61-tutorial-open\" class=\"v61-help-launch\" aria-haspopup=\"dialog\">◉ Tutorial de uso <small>Aprenda a criar, conferir e imprimir</small></button>\n<div class=\"v6-pane\" data-v6-pane=\"queue\">\n<div class=\"v6-card\"><h4>Adicionar material</h4><p class=\"v61-hint\">Preencha código e descrição. Os demais campos são opcionais.</p><div class=\"v6-formgrid\">\n<label class=\"v6-field\">Código SAP / PN<input id=\"v6-code\" maxlength=\"120\" placeholder=\"Ex.: 13121750\"></label>\n<label class=\"v6-field\">Tipo<select id=\"v6-kind\"><option value=\"etiqueta\">Etiqueta</option><option value=\"placa\">Placa</option></select></label>\n<label class=\"v6-field v6-full\">Descrição<input id=\"v6-desc\" maxlength=\"800\" placeholder=\"Identificação do material\"></label>\n\n\n<label class=\"v6-field\">Quantidade de cópias<input id=\"v6-qty\" type=\"number\" min=\"1\" max=\"500\" value=\"1\"></label>\n<label class=\"v6-field\">Modelo de impressão<select id=\"v6-new-model\"></select></label><details class=\"v61-optional v6-full\"><summary>+ Informações adicionais (opcional)</summary><div class=\"v61-extra-grid\"><label class=\"v6-field\">Endereço / Local<input id=\"v6-local\" maxlength=\"120\" placeholder=\"Somente se informado\"></label><label class=\"v6-field\">Planejador / Responsável<input id=\"v6-planner\" maxlength=\"100\" placeholder=\"Informação interna do QR\"></label></div><p class=\"v61-hint\">O endereço só aparece na placa quando preenchido. O planejador fica exclusivamente nos dados do QR Code.</p></details>\n</div><div class=\"v6-actions\"><button class=\"v6-primary\" type=\"button\" id=\"v6-add\">+ Adicionar à fila</button><button type=\"button\" id=\"v6-import-csv\">Importar CSV(s)</button><button type=\"button\" id=\"v6-project-open\">Abrir projeto JSON</button></div>\n<input type=\"file\" id=\"v6-files\" accept=\".csv,text/csv\" multiple hidden><input type=\"file\" id=\"v6-project-file\" accept=\".json,application/json\" hidden>\n<p class=\"v6-caption\">Cada arquivo importado acrescenta registros à fila. O material enviado via <b>#dados=</b> também entra aqui, sem substituir os anteriores.</p></div>\n<details class=\"v6-card v61-accordion\"><summary>Gerar códigos em sequência <span>opcional</span></summary><div class=\"v6-formgrid\">\n<label class=\"v6-field\">Prefixo<input id=\"v6-series-prefix\" value=\"PRAT-\" maxlength=\"30\"></label>\n<label class=\"v6-field\">Preenchimento (dígitos)<input id=\"v6-series-digits\" type=\"number\" min=\"1\" max=\"10\" value=\"3\"></label>\n<label class=\"v6-field\">De<input id=\"v6-series-start\" type=\"number\" value=\"1\"></label>\n<label class=\"v6-field\">Até<input id=\"v6-series-end\" type=\"number\" value=\"50\"></label>\n<label class=\"v6-field\">Passo<input id=\"v6-series-step\" type=\"number\" min=\"1\" value=\"1\"></label>\n<label class=\"v6-field\">Descrição<input id=\"v6-series-desc\" maxlength=\"150\" value=\"ENDEREÇAMENTO DE ESTOQUE\"></label>\n</div><div class=\"v6-actions\"><button type=\"button\" id=\"v6-sequence\">Gerar sequência</button></div></details>\n<div class=\"v6-card\"><h4>Fila de produção <span id=\"v6-count\" style=\"color:var(--ge-primary)\">0</span></h4><div class=\"v6-table-wrap\"><table class=\"v6-queue\"><thead><tr><th>Material</th><th>Modelo</th><th>Cópias</th><th>Medidas mm</th><th>Ações</th></tr></thead><tbody id=\"v6-queue-body\"><tr><td colspan=\"5\">Fila vazia.</td></tr></tbody></table></div><div class=\"v6-actions\"><button type=\"button\" id=\"v6-clear\">Limpar fila</button><button type=\"button\" id=\"v6-zip\">Exportar ZIP</button><button type=\"button\" id=\"v6-audit-csv\">CSV de auditoria</button></div></div>\n</div>\n<div class=\"v6-pane\" data-v6-pane=\"models\" hidden>\n<div class=\"v6-card\"><h4>8 arquiteturas físicas</h4><label class=\"v6-field\">Modelo padrão para novos materiais<select id=\"v6-default-model\"></select></label><p class=\"v6-caption\">Escolha um modelo e altere os tamanhos de cada item na fila. O responsável nunca aparece impresso: somente no QR.</p></div>\n<div class=\"v6-card\"><h4>Custom Blueprint · Blocos</h4><div class=\"v6-formgrid\" id=\"v6-blueprint\">\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"header\" checked> Cabeçalho</label>\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"logo\" checked> Logo CKTR</label>\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"qr\" checked> QR Code</label>\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"barcode\" checked> Code-128</label>\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"address\" checked> Endereço</label>\n\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"datetime\" checked> Data / hora</label>\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"border\" checked> Borda</label>\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"rounded\"> Cantos arredondados</label>\n</div><label class=\"v6-field\" style=\"margin-top:9px\">Setor / Status<select id=\"v6-status\"><option>APROVADO</option><option>INSPEÇÃO</option><option>DEVOLUÇÃO / FDM</option><option>URGENTE</option></select></label>\n<label class=\"v6-field\" style=\"margin-top:9px\">Direção do endereço<select id=\"v6-direction\"><option value=\"↑\">↑ Para cima</option><option value=\"↓\">↓ Para baixo</option><option value=\"←\">← Esquerda</option><option value=\"→\">→ Direita</option></select></label></div>\n<div class=\"v6-card\"><h4>Tipografia e legibilidade</h4><label class=\"v6-tick\"><input type=\"checkbox\" id=\"v6-autofit\" checked> Auto-fit de texto por busca binária</label><p class=\"v6-caption\">O sistema alerta quando não é possível acomodar todo o texto com tamanho minimamente legível. Descrições extensas podem exigir etiqueta maior.</p></div>\n</div>\n<div class=\"v6-pane\" data-v6-pane=\"paper\" hidden>\n<div class=\"v6-card\"><h4>Destino físico de impressão</h4><label class=\"v6-field\">Motor<select id=\"v6-output\"><option value=\"sheet\">Lexmark · Folha cortada</option><option value=\"roll\">Zebra ZT230 · Rolo térmico</option></select></label><label class=\"v6-field\" style=\"margin-top:9px\">Papel<select id=\"v6-paper\"><option value=\"a4p\">A4 · Retrato — 210 × 297 mm</option><option value=\"a4l\">A4 · Paisagem — 297 × 210 mm</option><option value=\"a3p\">A3 · Retrato — 297 × 420 mm</option><option value=\"a3l\">A3 · Paisagem — 420 × 297 mm</option><option value=\"letterp\">Carta · Retrato — 215,9 × 279,4 mm</option><option value=\"letterl\">Carta · Paisagem — 279,4 × 215,9 mm</option></select></label>\n<div class=\"v6-formgrid\" style=\"margin-top:9px\"><label class=\"v6-field\">Margem (mm)<input id=\"v6-margin\" type=\"number\" value=\"5\" min=\"0\" max=\"30\" step=\"0.5\"></label><label class=\"v6-field\">Gap / Sangria (mm)<input id=\"v6-gap\" type=\"number\" value=\"2\" min=\"0\" max=\"15\" step=\"0.5\"></label></div>\n<div style=\"display:grid;gap:8px;margin-top:12px\"><label class=\"v6-tick\"><input id=\"v6-rotate\" type=\"checkbox\" checked> Rotação automática de 90°</label><label class=\"v6-tick\"><input id=\"v6-crop\" type=\"checkbox\" checked> Marcas de corte</label><label class=\"v6-tick\"><input id=\"v6-guillotine\" type=\"checkbox\"> Guias de guilhotina pontilhadas</label><label class=\"v6-tick\"><input id=\"v6-page-numbers\" type=\"checkbox\"> Número de página impresso</label></div>\n</div><div class=\"v6-card\"><h4>Simulador de saída</h4><div class=\"v6-actions\"><button type=\"button\" id=\"v6-to-grid\">Grade</button><button type=\"button\" id=\"v6-to-sheet\">Folha real</button><button type=\"button\" id=\"v6-mono\">Simular P&amp;B / Térmica</button></div><p class=\"v6-caption\">No modo rolo, todos os itens devem ter as mesmas dimensões físicas para compartilhar um único trabalho de impressão.</p></div>\n</div>\n<div class=\"v6-pane\" data-v6-pane=\"station\" hidden>\n<div class=\"v6-card\"><h4>Estação de trabalho</h4><div class=\"v6-formgrid\">\n<label class=\"v6-field v6-full\">Nome da máquina / posto<input id=\"v6-machine\" maxlength=\"70\" placeholder=\"PC-ALMOX-01\"></label>\n<label class=\"v6-field v6-full\">Operador / Nome completo<input id=\"v6-operator\" maxlength=\"100\" placeholder=\"Antonio\"></label>\n<label class=\"v6-field v6-full\">Matrícula opcional<input id=\"v6-matricula\" maxlength=\"40\"></label></div>\n<div class=\"v6-actions\"><button type=\"button\" id=\"v6-station-save\" class=\"v6-primary\">Vincular estação</button><button type=\"button\" id=\"v6-station-export\">Exportar estação</button></div>\n<div id=\"v6-station-info\" class=\"v6-caption\" style=\"margin-top:10px;overflow-wrap:anywhere\"></div><p class=\"v6-caption\">A identificação é local deste navegador e não comprova a identidade do PC ou do operador. Nenhum dado é enviado externamente.</p></div>\n<div class=\"v6-card\"><h4>Auditoria impressa</h4><label class=\"v6-tick\"><input type=\"checkbox\" id=\"v6-audit-stamp\"> Incluir carimbo discreto na etiqueta</label><label class=\"v6-tick\" style=\"margin-top:10px\"><input id=\"v6-show-guid\" type=\"checkbox\" checked> Mostrar GUID abreviado</label><label class=\"v6-tick\" style=\"margin-top:10px\"><input id=\"v6-credit\" type=\"checkbox\" checked> Creator: Antonio</label></div>\n</div>\n<div id=\"v6-notice\" class=\"v6-caption\" role=\"status\" aria-live=\"polite\">Sistema offline pronto para produção.</div>\n<div class=\"v6-actions\"><button type=\"button\" class=\"v6-primary\" id=\"v6-print\" style=\"width:100%;padding:14px!important\">Imprimir fila · Abrir diálogo seguro</button></div>\n</section>\n";
+const ui=document.createElement('div');ui.innerHTML="<section class=\"v6-enterprise\" aria-label=\"Cockpit Industrial NEXO\">\n<div class=\"v6-tabs\" role=\"tablist\" aria-label=\"Módulos do estúdio\">\n<button class=\"v6-tab\" type=\"button\" role=\"tab\" data-v6-tab=\"queue\" aria-selected=\"true\">2. Materiais</button>\n<button class=\"v6-tab\" type=\"button\" role=\"tab\" data-v6-tab=\"models\" aria-selected=\"false\">3. Modelos</button>\n<button class=\"v6-tab\" type=\"button\" role=\"tab\" data-v6-tab=\"paper\" aria-selected=\"false\">1. Impressora</button>\n<button class=\"v6-tab\" type=\"button\" role=\"tab\" data-v6-tab=\"station\" aria-selected=\"false\">4. Operador</button>\n</div>\n<button type=\"button\" id=\"v61-tutorial-open\" class=\"v61-help-launch\" aria-haspopup=\"dialog\">◉ Tutorial de uso <small>Aprenda a criar, conferir e imprimir</small></button>\n<div class=\"v6-pane\" data-v6-pane=\"queue\">\n<div class=\"v6-card\"><h4>Criar etiqueta ou placa</h4><p class=\"v61-hint\">Primeiro escolha a impressora. Depois crie seu material, selecione um modelo e confira a prévia.</p><div class=\"v6-formgrid\">\n<label class=\"v6-field\">Código SAP / PN<input id=\"v6-code\" maxlength=\"120\" placeholder=\"Ex.: 13121750\"></label>\n<label class=\"v6-field\">Formato<select id=\"v6-kind\"><option value=\"etiqueta\">Etiqueta logística · com QR</option><option value=\"simples\">Etiqueta simples · sem QR</option><option value=\"placa\">Placa · sem QR</option></select></label>\n<label class=\"v6-field v6-full\">Descrição<input id=\"v6-desc\" maxlength=\"800\" placeholder=\"Identificação do material\"></label>\n\n\n<label class=\"v6-field\">Quantas unidades?<input id=\"v6-qty\" type=\"number\" min=\"1\" max=\"500\" value=\"1\"></label>\n<label class=\"v6-field\">Modelo de etiqueta / placa<select id=\"v6-new-model\"></select></label><details class=\"v61-optional v6-full\"><summary>+ Informações adicionais (opcional)</summary><div class=\"v61-extra-grid\"><label class=\"v6-field\">Endereço / Local<input id=\"v6-local\" maxlength=\"120\" placeholder=\"Somente se informado\"></label><label class=\"v6-field\">Planejador / Responsável<input id=\"v6-planner\" maxlength=\"100\" placeholder=\"Informação interna do QR\"></label><label class=\"v6-field\">Tipo de código<select id=\"v6-code-type\"><option value=\"SAP\">Código SAP</option><option value=\"PN\">Part Number (PN)</option></select></label></div><p class=\"v61-hint\">Endereço só é impresso quando informado. O planejador é incluído somente no QR da Etiqueta Logística.</p></details>\n</div><div class=\"v6-actions\"><button class=\"v6-primary\" type=\"button\" id=\"v6-add\">+ Adicionar à fila</button><button type=\"button\" id=\"v6-import-csv\">Importar CSV(s)</button><button type=\"button\" id=\"v6-project-open\">Abrir projeto JSON</button></div>\n<input type=\"file\" id=\"v6-files\" accept=\".csv,text/csv\" multiple hidden><input type=\"file\" id=\"v6-project-file\" accept=\".json,application/json\" hidden>\n<p class=\"v6-caption\">Cada arquivo importado acrescenta registros à fila. O material enviado via <b>#dados=</b> também entra aqui, sem substituir os anteriores.</p></div>\n<details class=\"v6-card v61-accordion\"><summary>Gerar códigos em sequência <span>opcional</span></summary><div class=\"v6-formgrid\">\n<label class=\"v6-field\">Prefixo<input id=\"v6-series-prefix\" value=\"PRAT-\" maxlength=\"30\"></label>\n<label class=\"v6-field\">Preenchimento (dígitos)<input id=\"v6-series-digits\" type=\"number\" min=\"1\" max=\"10\" value=\"3\"></label>\n<label class=\"v6-field\">De<input id=\"v6-series-start\" type=\"number\" value=\"1\"></label>\n<label class=\"v6-field\">Até<input id=\"v6-series-end\" type=\"number\" value=\"50\"></label>\n<label class=\"v6-field\">Passo<input id=\"v6-series-step\" type=\"number\" min=\"1\" value=\"1\"></label>\n<label class=\"v6-field\">Descrição<input id=\"v6-series-desc\" maxlength=\"150\" value=\"ENDEREÇAMENTO DE ESTOQUE\"></label>\n</div><div class=\"v6-actions\"><button type=\"button\" id=\"v6-sequence\">Adicionar sequência à fila</button></div></details>\n<div class=\"v6-card\"><h4>Materiais na fila <span id=\"v6-count\" style=\"color:var(--ge-primary)\">0</span></h4><div class=\"v6-table-wrap\"><table class=\"v6-queue\"><thead><tr><th>Material</th><th>Modelo</th><th>Quantidade</th><th>Tamanho</th><th>Ações</th></tr></thead><tbody id=\"v6-queue-body\"><tr><td colspan=\"5\">Fila vazia.</td></tr></tbody></table></div><div class=\"v6-actions\"><button type=\"button\" id=\"v6-clear\">Esvaziar fila</button><button type=\"button\" id=\"v6-zip\">Salvar lote (.ZIP)</button><button type=\"button\" id=\"v6-audit-csv\">Lista de códigos (.CSV)</button></div></div>\n</div>\n<div class=\"v6-pane\" data-v6-pane=\"models\" hidden>\n<div class=\"v6-card\"><h4>Modelos físicos · QR exclusivo da Etiqueta Logística</h4><label class=\"v6-field\">Modelo padrão para novos materiais<select id=\"v6-default-model\"></select></label><p class=\"v6-caption\">Escolha um modelo e altere os tamanhos de cada item na fila. Somente a Etiqueta Logística possui QR. O planejador nunca aparece impresso.</p></div>\n<div class=\"v6-card\"><h4>Modelo livre · Mostrar ou ocultar elementos</h4><div class=\"v6-formgrid\" id=\"v6-blueprint\">\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"header\" checked> Cabeçalho</label>\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"logo\" checked> Logo institucional (opcional)</label>\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"qr\"> QR Code (exclusivo Logística)</label>\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"barcode\" checked> Code-128</label>\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"address\" checked> Endereço</label>\n\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"datetime\" checked> Data / hora</label>\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"border\" checked> Borda</label>\n<label class=\"v6-tick\"><input type=\"checkbox\" data-block=\"rounded\"> Cantos arredondados</label>\n</div><label class=\"v6-field\" style=\"margin-top:9px\">Setor / Status<select id=\"v6-status\"><option>APROVADO</option><option>INSPEÇÃO</option><option>DEVOLUÇÃO / FDM</option><option>URGENTE</option></select></label>\n<label class=\"v6-field\" style=\"margin-top:9px\">Direção do endereço<select id=\"v6-direction\"><option value=\"↑\">↑ Para cima</option><option value=\"↓\">↓ Para baixo</option><option value=\"←\">← Esquerda</option><option value=\"→\">→ Direita</option></select></label></div>\n<div class=\"v6-card\"><h4>Tipografia e legibilidade</h4><label class=\"v6-tick\"><input type=\"checkbox\" id=\"v6-autofit\" checked> Auto-fit de texto por busca binária</label><p class=\"v6-caption\">O sistema alerta quando não é possível acomodar todo o texto com tamanho minimamente legível. Descrições extensas podem exigir etiqueta maior.</p></div>\n</div>\n<div class=\"v6-pane\" data-v6-pane=\"paper\" hidden>\n<div class=\"v6-card\"><h4>Impressora e papel</h4><label class=\"v6-field\">Impressora<select id=\"v6-output\"><option value=\"sheet\">Lexmark / Laser · A4, A3 ou Carta</option><option value=\"roll\">Zebra ZT230 · Rolo de etiquetas</option></select></label><label class=\"v6-field\" style=\"margin-top:9px\">Papel<select id=\"v6-paper\"><option value=\"a4p\">A4 · Retrato — 210 × 297 mm</option><option value=\"a4l\">A4 · Paisagem — 297 × 210 mm</option><option value=\"a3p\">A3 · Retrato — 297 × 420 mm</option><option value=\"a3l\">A3 · Paisagem — 420 × 297 mm</option><option value=\"letterp\">Carta · Retrato — 215,9 × 279,4 mm</option><option value=\"letterl\">Carta · Paisagem — 279,4 × 215,9 mm</option></select></label>\n<div class=\"v6-formgrid\" style=\"margin-top:9px\"><label class=\"v6-field\">Margem (mm)<input id=\"v6-margin\" type=\"number\" value=\"5\" min=\"0\" max=\"30\" step=\"0.5\"></label><label class=\"v6-field\">Gap / Sangria (mm)<input id=\"v6-gap\" type=\"number\" value=\"2\" min=\"0\" max=\"15\" step=\"0.5\"></label></div>\n<div style=\"display:grid;gap:8px;margin-top:12px\"><label class=\"v6-tick\"><input id=\"v6-rotate\" type=\"checkbox\" checked> Rotação automática de 90°</label><label class=\"v6-tick\"><input id=\"v6-crop\" type=\"checkbox\" checked> Marcas de corte</label><label class=\"v6-tick\"><input id=\"v6-guillotine\" type=\"checkbox\"> Guias de guilhotina pontilhadas</label><label class=\"v6-tick\"><input id=\"v6-page-numbers\" type=\"checkbox\"> Número de página impresso</label></div>\n</div><div class=\"v6-card\"><h4>Como ficará a impressão</h4><div class=\"v6-actions\"><button type=\"button\" id=\"v6-to-grid\">Grade</button><button type=\"button\" id=\"v6-to-sheet\">Ver folha A4/A3</button><button type=\"button\" id=\"v6-mono\">Simular P&amp;B / Térmica</button></div><p class=\"v6-caption\">Zebra: impressão individual por avanço do rolo. Lexmark: várias etiquetas por folha com recorte. Se houver tamanhos diferentes no rolo, separe os trabalhos.</p></div>\n</div>\n<div class=\"v6-pane\" data-v6-pane=\"station\" hidden>\n<div class=\"v6-card\"><h4>Identificação deste computador</h4><div class=\"v6-formgrid\">\n<label class=\"v6-field v6-full\">Nome da máquina / posto<input id=\"v6-machine\" maxlength=\"70\" placeholder=\"PC-ALMOX-01\"></label>\n<label class=\"v6-field v6-full\">Operador / Nome completo<input id=\"v6-operator\" maxlength=\"100\" placeholder=\"Antonio\"></label>\n<label class=\"v6-field v6-full\">Matrícula opcional<input id=\"v6-matricula\" maxlength=\"40\"></label></div>\n<div class=\"v6-actions\"><button type=\"button\" id=\"v6-station-save\" class=\"v6-primary\">Vincular estação</button><button type=\"button\" id=\"v6-station-export\">Exportar estação</button></div>\n<div id=\"v6-station-info\" class=\"v6-caption\" style=\"margin-top:10px;overflow-wrap:anywhere\"></div><p class=\"v6-caption\">A identificação é local deste navegador e não comprova a identidade do PC ou do operador. Nenhum dado é enviado externamente.</p></div>\n<div class=\"v6-card\"><h4>Auditoria impressa</h4><label class=\"v6-tick\"><input type=\"checkbox\" id=\"v6-audit-stamp\"> Incluir carimbo discreto na etiqueta</label><label class=\"v6-tick\" style=\"margin-top:10px\"><input id=\"v6-show-guid\" type=\"checkbox\" checked> Mostrar GUID abreviado</label><label class=\"v6-tick\" style=\"margin-top:10px\"><input id=\"v6-credit\" type=\"checkbox\" checked> Creator: Antonio</label></div>\n</div>\n<div id=\"v6-notice\" class=\"v6-caption\" role=\"status\" aria-live=\"polite\">Sistema offline pronto para produção.</div>\n<div class=\"v6-actions\"><button type=\"button\" class=\"v6-primary\" id=\"v6-print\" style=\"width:100%;padding:14px!important\">Imprimir fila · Abrir diálogo seguro</button></div>\n</section>\n";
 $root.append(...Array.from(ui.childNodes));
+// 6.3 · Fluxo guiado: impressora antes dos materiais.
+const v63Tabs=document.querySelector('.v6-tabs');
+const v63PaperTab=v63Tabs.querySelector('[data-v6-tab="paper"]');
+v63Tabs.prepend(v63PaperTab);
+const v63Head=document.createElement('div');
+v63Head.className='v63-target-strip';
+v63Head.innerHTML='<span class="v63-target-dot">●</span><div><b id="v63-target-name">Escolha a impressora</b><small id="v63-target-desc">A impressão será configurada antes de criar o lote.</small></div><button id="v63-change-printer" type="button">Trocar</button>';
+document.querySelector('.v6-enterprise').prepend(v63Head);
+// QR e logotipo CKTR não fazem parte dos modelos manuais/placas.
+const qrBlueprint=document.querySelector('#v6-blueprint input[data-block="qr"]');
+if(qrBlueprint){qrBlueprint.checked=false;qrBlueprint.closest('label').hidden=true;}
+const logoBlueprint=document.querySelector('#v6-blueprint input[data-block="logo"]');
+if(logoBlueprint){logoBlueprint.checked=false;logoBlueprint.closest('label').hidden=true;}
+const printerNotice=document.createElement('p');printerNotice.id='v63-model-note';printerNotice.className='v6-caption';
+document.querySelector('#v6-new-model').parentElement.after(printerNotice);
+const v63Wizard=document.createElement('div');v63Wizard.id='v63-printer-overlay';v63Wizard.className='v63-printer-overlay';v63Wizard.hidden=true;
+v63Wizard.innerHTML=`<section class="v63-printer-dialog" role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="v63-printer-title">
+ <div class="v63-first-step">ETAPA 01 / 04 · CONFIGURAÇÃO DO AMBIENTE</div>
+ <div class="v63-dialog-header"><div class="v63-printer-icon" aria-hidden="true">▣</div><div><h2 id="v63-printer-title">Onde você vai imprimir?</h2><p>Escolha primeiro a impressora. O sistema mostra somente as configurações que você realmente precisa.</p></div></div>
+ <div class="v63-printer-options" role="group" aria-label="Tipo de impressora">
+ <button type="button" class="v63-printer-option" data-choice="roll" aria-pressed="false"><strong>▤ Zebra ZT230</strong><span>Rolo térmico · uma etiqueta por avanço</span><small>Não precisa informar A4, margem ou marcas de corte.</small></button>
+ <button type="button" class="v63-printer-option" data-choice="sheet" aria-pressed="false"><strong>▦ Lexmark / Laser</strong><span>Folhas A4, A3 ou Carta · várias etiquetas por folha</span><small>Com margens, aproveitamento e guias de recorte.</small></button>
+ </div>
+ <label id="v63-paper-prompt" class="v63-paper-prompt" hidden>Qual papel você vai usar?
+ <select id="v63-start-paper"><option value="a4p">A4 · Retrato</option><option value="a4l">A4 · Paisagem</option><option value="a3p">A3 · Retrato</option><option value="a3l">A3 · Paisagem</option><option value="letterp">Carta · Retrato</option><option value="letterl">Carta · Paisagem</option></select></label>
+ <div class="v63-dialog-actions"><span>Depois, você poderá trocar a impressora pelo botão no painel.</span><button type="button" id="v63-confirm-printer" disabled>Continuar para materiais →</button></div>
+ </section>`;
+document.body.append(v63Wizard);
+
 const original=NexoLegacy;
 const MODEL={
- classic:['Logístico CKTR · Clássico',90,90],shelf:['Gôndola · Prateleira',100,35],
- safety:['Sinalização Industrial',150,100],asset:['Patrimônio · Code-128',70,35],
+ classic:['Etiqueta Logística · QR Code',90,90],simple:['Etiqueta Simples · Sem QR',90,60],shelf:['Gôndola · Prateleira',100,35],
+ safety:['Sinalização Industrial',150,100],asset:['Patrimônio · Código 128',70,35],
  spec:['Ficha Técnica · Engenharia',100,100],status:['Rastreabilidade · Status',80,60],
- address:['Rua / Porta-Paletes',150,60],blueprint:['Custom Blueprint',90,90]
+ address:['Rua / Porta-Paletes',150,60],blueprint:['Modelo Livre · Sem QR',90,90]
 };
 for(const name of ['v6-new-model','v6-default-model'])for(const [key,entry] of Object.entries(MODEL))$(name).add(new Option(entry[0],key));
+function syncModelHelp(){
+ const m=$('v6-new-model').value, logistic=m==='classic';
+ const txt=$('v63-model-note');if(txt)txt.textContent=logistic?'Etiqueta Logística: QR Code no rodapé, com dados do material e do planejador.':'Este modelo não imprime QR Code. Ideal para placas, patrimônio e identificação simples.';
+ const planner=$('v6-planner');if(planner){const label=planner.closest('label');if(label){label.hidden=!logistic;planner.disabled=!logistic;}}
+}
+
 const PAPERS={a4p:[210,297],a4l:[297,210],a3p:[297,420],a3l:[420,297],letterp:[215.9,279.4],letterl:[279.4,215.9]};
 const LIMIT_ROWS=500,LIMIT_COPIES=500;
 const KEY='NEXO_ENTERPRISE_STATION_V6';
@@ -3013,8 +3175,9 @@ const storage={get(k){try{return localStorage.getItem(k)}catch(e){return null}},
 const newUid=original.uuid;
 let queue=[],units=[],pages=[],errors=[],warnings=[],revision=0,view='grid',mono=false,renderBusy=false;
 const settings={output:'sheet',paper:'a4p',margin:5,gap:2,rotate:true,crop:true,guillotine:false,numbers:false,autoFit:true,audit:false,guid:true,credit:true,status:'APROVADO',direction:'↑'};
-const blueprint={header:true,logo:true,qr:true,barcode:true,address:true,planner:false,datetime:true,border:true,rounded:false};
+const blueprint={header:true,logo:false,qr:false,barcode:true,address:true,planner:false,datetime:true,border:true,rounded:false};
 const statusElem=$('v6-notice');
+statusElem.setAttribute('role','status');statusElem.setAttribute('aria-live','polite');
 const notify=(txt,warn=false)=>{statusElem.textContent=txt;statusElem.style.color=warn?'#e6b47c':'var(--ge-muted)';};
 function platformInfo(){
  const ua=navigator.userAgent||'',uad=navigator.userAgentData;
@@ -3050,9 +3213,12 @@ $('v6-station-export').addEventListener('click',()=>download('NEXO-Estacao.json'
 stationUi();
 function setTab(name){
  document.querySelectorAll('[data-v6-tab]').forEach(el=>el.setAttribute('aria-selected',String(el.dataset.v6Tab===name)));
- document.querySelectorAll('[data-v6-pane]').forEach(el=>el.hidden=el.dataset.v6Pane!==name);
+ document.querySelectorAll('[data-v6-pane]').forEach(el=>el.hidden=el.dataset.v6Pane!==name);document.querySelectorAll('[data-v6-tab]').forEach(el=>el.tabIndex=el.dataset.v6Tab===name?0:-1);
 }
-document.querySelectorAll('[data-v6-tab]').forEach(el=>el.addEventListener('click',()=>setTab(el.dataset.v6Tab)));
+document.querySelectorAll('[data-v6-tab]').forEach((el,index,all)=>{
+ el.addEventListener('click',()=>setTab(el.dataset.v6Tab));
+ el.addEventListener('keydown',e=>{if(!['ArrowDown','ArrowUp','ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;e.preventDefault();const next=e.key==='Home'?0:e.key==='End'?all.length-1:(index+(e.key==='ArrowDown'||e.key==='ArrowRight'?1:-1)+all.length)%all.length;all[next].focus();setTab(all[next].dataset.v6Tab);});
+});
 // Tutorial integrado: ajuda offline com navegação real entre os quatro módulos.
 const guide=document.createElement('div');guide.id='v61-tutorial-overlay';guide.className='v61-tutorial-overlay';guide.hidden=true;
 guide.innerHTML=`<section class="v61-tutorial" role="dialog" aria-modal="true" aria-labelledby="v61-tutorial-title"><div class="v61-tutorial-head"><div><div class="v61-kicker">NEXO STUDIO ENTERPRISE 6.1 · GUIA RÁPIDO</div><h2 id="v61-tutorial-title">Como usar o estúdio</h2><p>Siga a ordem abaixo. Toda a produção funciona offline, inclusive a criação de placas sem Power Apps.</p></div><button type="button" id="v61-tutorial-close" class="v61-tutorial-close" aria-label="Fechar tutorial">×</button></div><div class="v61-steps"><div class="v61-step"><span class="v61-step-number">01</span><div><strong>Materiais & fila</strong><p>Digite código e descrição, selecione modelo e quantidade. Use “Informações adicionais” apenas se necessário. CSV e Power Apps também alimentam a fila.</p><button class="v61-go" type="button" data-go="queue">Abrir materiais</button></div></div><div class="v61-step"><span class="v61-step-number">02</span><div><strong>Modelos e layouts</strong><p>Escolha entre os oito modelos. Na fila, você pode trocar o modelo e as dimensões de cada material individualmente.</p><button class="v61-go" type="button" data-go="models">Abrir modelos</button></div></div><div class="v61-step"><span class="v61-step-number">03</span><div><strong>Papel e impressão</strong><p>Selecione Zebra para rolo ou Lexmark para folha A4/A3. Configure margens e cortes; use “Folha real” na prévia antes de imprimir.</p><button class="v61-go" type="button" data-go="paper">Abrir impressão</button></div></div><div class="v61-step"><span class="v61-step-number">04</span><div><strong>Operador e auditoria</strong><p>Vincule o posto e o operador, ative os créditos/UID e exporte o lote em ZIP quando quiser guardar o projeto.</p><button class="v61-go" type="button" data-go="station">Abrir auditoria</button></div></div></div><div class="v61-tutorial-notes"><b>Sobre os campos:</b> o planejador não aparece no papel; fica apenas no QR Code. O endereço só aparece quando foi efetivamente informado. Para imprimir, use Ctrl+P e escala 100% no diálogo da impressora.</div></section>`;
@@ -3074,18 +3240,21 @@ function totalCopies(){return queue.reduce((n,r)=>n+r.copies,0)}
 function appendRows(rows){
  if(queue.length+rows.length>LIMIT_ROWS)throw Error(`Máximo ${LIMIT_ROWS} registros na fila.`);
  const total=rows.reduce((n,r)=>n+r.copies,totalCopies());if(total>LIMIT_COPIES)throw Error(`Máximo ${LIMIT_COPIES} unidades por lote.`);
- rows.forEach(fillUUIDs);queue.push(...rows);updateQueue();refresh();
+ const seen=new Set(queue.flatMap(r=>r.copyIds));for(const r of rows){fillUUIDs(r);r.copyIds=r.copyIds.map(old=>{let id=old;while(seen.has(id))id=newUid();seen.add(id);return id;});}queue.push(...rows);updateQueue();refresh();
 }
 function queueOptions(current){return Object.entries(MODEL).map(([k,v])=>`<option value="${k}" ${k===current?'selected':''}>${esc(v[0])}</option>`).join('')}
+let vfinalUpdatingQueue=false;
 function updateQueue(){
+ if(vfinalUpdatingQueue)return;vfinalUpdatingQueue=true;
  $('v6-count').textContent=`${queue.length} registros / ${totalCopies()} unidades`;
  const body=$('v6-queue-body');body.replaceChildren();
  if(!queue.length){const tr=document.createElement('tr');tr.innerHTML='<td colspan="5">Fila vazia. Crie um item, importe CSV ou receba do Power Apps.</td>';body.append(tr);}
  for(const row of queue){
   const tr=document.createElement('tr');tr.dataset.rowId=row.rowId;
-  tr.innerHTML=`<td><strong title="${esc(row.Descricao)}">${esc(row.CodigoSAP)}</strong><small>${esc(row.Descricao.slice(0,40))}</small></td><td><select data-edit="model" aria-label="Modelo do item">${queueOptions(row.model)}</select></td><td><input type="number" min="1" max="500" data-edit="copies" value="${row.copies}" aria-label="Cópias"></td><td><input data-edit="w" type="number" min="20" max="420" step="0.1" value="${row.w}" aria-label="Largura"> × <input data-edit="h" type="number" min="20" max="420" step="0.1" value="${row.h}" aria-label="Altura"></td><td><button type="button" class="v6-compact-btn" data-action="duplicate" title="Duplicar registro">⧉</button><button type="button" class="v6-compact-btn" data-action="remove" title="Remover">×</button></td>`;
+  tr.innerHTML=`<td data-col="material"><strong title="${esc(row.Descricao)}">${esc(row.CodigoSAP)}</strong><small>${esc(row.Descricao.slice(0,90))}</small></td><td data-col="model"><label class="vfinal-queue-label">Modelo</label><select data-edit="model" aria-label="Modelo de ${esc(row.CodigoSAP)}">${queueOptions(row.model)}</select></td><td data-col="copies"><label class="vfinal-queue-label">Unidades</label><input type="number" min="1" max="500" data-edit="copies" value="${row.copies}" aria-label="Número de cópias"></td><td data-col="size"><label class="vfinal-queue-label">Tamanho (L × A) mm</label><div class="vfinal-sizes"><input data-edit="w" type="number" min="20" max="420" step="0.1" value="${row.w}" aria-label="Largura em milímetros"><span>×</span><input data-edit="h" type="number" min="20" max="420" step="0.1" value="${row.h}" aria-label="Altura em milímetros"></div></td><td data-col="actions"><button type="button" class="v6-compact-btn" data-action="duplicate" title="Criar cópia deste material">Duplicar</button><button type="button" class="v6-compact-btn vfinal-delete" data-action="remove" title="Excluir este material">Excluir</button></td>`;
   body.append(tr);
  }
+ vfinalUpdatingQueue=false;
 }
 $('v6-queue-body').addEventListener('change',e=>{
  const el=e.target,tr=el.closest('tr[data-row-id]');if(!tr)return;const row=queue.find(r=>r.rowId===tr.dataset.rowId);if(!row)return;
@@ -3105,24 +3274,32 @@ $('v6-queue-body').addEventListener('click',e=>{
  }
  updateQueue();refresh();
 });
+// Formato e modelo permanecem sincronizados por padrão (podem ser alterados individualmente).
+$('v6-kind').addEventListener('change',()=>{const kind=$('v6-kind').value;$('v6-new-model').value=kind==='placa'?'safety':kind==='simples'?'simple':'classic';syncModelHelp();});
+$('v6-new-model').addEventListener('change',syncModelHelp);
+$('v6-default-model').addEventListener('change',()=>{$('v6-new-model').value=$('v6-default-model').value;syncModelHelp();});
 $('v6-add').addEventListener('click',()=>{
  try{const code=$('v6-code').value.trim(),desc=$('v6-desc').value.trim(),copies=Math.floor(nums($('v6-qty').value,0));
   if(!code||!desc)throw Error('Informe código e descrição.');if(copies<1||copies>LIMIT_COPIES)throw Error('Cópias entre 1 e 500.');
   const model=$('v6-new-model').value;
-  const row=makeRow({CodigoSAP:code,Descricao:desc,Localizacao:$('v6-local').value.trim(),Planejadores:$('v6-planner').value.trim(),QuantidadeEtiquetas:copies,OrigemManual:true},model,$('v6-kind').value);
-  appendRows([row]);notify(`Item ${code} adicionado à fila.`);
+  const row=makeRow({CodigoSAP:code,TipoCodigo:$('v6-code-type').value,Descricao:desc,Localizacao:$('v6-local').value.trim(),Planejadores:$('v6-planner').value.trim(),QuantidadeEtiquetas:copies,OrigemManual:true},model,$('v6-kind').value);
+  appendRows([row]);notify(`Material ${code} adicionado. Confira na prévia à direita.`);$('v6-code').value='';$('v6-desc').value='';$('v6-code').focus();
  }catch(e){notify(e.message,true)}
 });
 $('v6-sequence').addEventListener('click',()=>{
  try{const a=Math.trunc(nums($('v6-series-start').value,NaN)),b=Math.trunc(nums($('v6-series-end').value,NaN)),step=Math.trunc(nums($('v6-series-step').value,NaN)),digits=Math.trunc(nums($('v6-series-digits').value,3));
  if(!Number.isFinite(a)||!Number.isFinite(b)||!Number.isInteger(step)||step<1||b<a||digits<1||digits>10)throw Error('Intervalo do sequenciador inválido.');
  const count=Math.floor((b-a)/step)+1;if(count>LIMIT_ROWS-queue.length||count>LIMIT_COPIES-totalCopies())throw Error('A sequência ultrapassa o limite de 500 unidades.');
- const rows=[];for(let i=a;i<=b;i+=step){const code=$('v6-series-prefix').value+i.toString().padStart(digits,'0');rows.push(makeRow({CodigoSAP:code,Descricao:$('v6-series-desc').value,QuantidadeEtiquetas:1,OrigemManual:true},'address','placa'));}
+ const rows=[];for(let i=a;i<=b;i+=step){const code=$('v6-series-prefix').value+i.toString().padStart(digits,'0');rows.push(makeRow({CodigoSAP:code,Descricao:$('v6-series-desc').value,QuantidadeEtiquetas:1,OrigemManual:true},$('v6-new-model').value,$('v6-kind').value));}
  appendRows(rows);notify(`${rows.length} endereços sequenciais adicionados.`);
  }catch(e){notify(e.message,true)}
 });
 $('v6-clear').addEventListener('click',()=>{if(!queue.length||confirm('Limpar todos os registros da fila atual?')){queue=[];updateQueue();refresh();}});
 $('v6-import-csv').addEventListener('click',()=>$('v6-files').click());
+const dropzone=$('v6-import-csv');dropzone.title='Importe um ou mais arquivos CSV separados por ponto e vírgula; também aceita arrastar arquivos';
+dropzone.addEventListener('dragover',e=>{e.preventDefault();dropzone.classList.add('vfinal-dragover')});
+dropzone.addEventListener('dragleave',()=>dropzone.classList.remove('vfinal-dragover'));
+dropzone.addEventListener('drop',async e=>{e.preventDefault();dropzone.classList.remove('vfinal-dragover');try{const files=[...e.dataTransfer.files].filter(f=>/\.csv$/i.test(f.name));if(!files.length)throw Error('Solte um arquivo .csv.');const rows=[];for(const file of files){if(file.size>8e6)throw Error('CSV muito grande: '+file.name);const vals=original.parseCsv(await file.text());rows.push(...vals.filter(i=>i.ID||i.CodigoSAP).map(i=>makeRow(i,$('v6-default-model').value,'etiqueta')));}appendRows(rows);notify(`${rows.length} itens importados.`);}catch(err){notify('Falha na importação: '+err.message,true);}});
 $('v6-files').addEventListener('change',async e=>{
  try{const fileList=Array.from(e.target.files);const rows=[];for(const file of fileList){if(file.size>8e6)throw Error('CSV muito grande: '+file.name);const parsed=original.parseCsv(await file.text());rows.push(...parsed.filter(i=>i.ID||i.CodigoSAP).map(i=>makeRow(i,$('v6-default-model').value,'etiqueta')));}
  if(!rows.length)throw Error('Nenhuma linha válida nos CSVs.');appendRows(rows);notify(`${rows.length} materiais de ${fileList.length} arquivo(s) adicionados.`);
@@ -3130,13 +3307,16 @@ $('v6-files').addEventListener('change',async e=>{
 });
 function project(){return {schema:'NEXO-STUDIO-ENTERPRISE-V6',version:6,exportedAt:new Date().toISOString(),queue,settings,blueprint,station}}
 $('v6-project-open').addEventListener('click',()=>$('v6-project-file').click());
+const saveProjectBtn=document.createElement('button');saveProjectBtn.id='vfinal-save-project';saveProjectBtn.type='button';saveProjectBtn.textContent='Salvar projeto';saveProjectBtn.title='Salva o lote editável em JSON para abrir depois, sem conexão';
+$('v6-project-open').after(saveProjectBtn);
+saveProjectBtn.addEventListener('click',()=>{if(!queue.length){notify('Adicione algum material antes de salvar.',true);return;}download('NEXO-Projeto.json',JSON.stringify(project(),null,2),'application/json;charset=utf-8');notify('Projeto salvo. Para continuar depois, use Abrir projeto JSON.');});
 $('v6-project-file').addEventListener('change',async e=>{
  try{const file=e.target.files[0];if(!file)return;if(file.size>8e6)throw Error('Projeto muito grande.');const p=JSON.parse(await file.text());if(p.schema!=='NEXO-STUDIO-ENTERPRISE-V6'||!Array.isArray(p.queue))throw Error('Projeto NEXO v6 inválido.');if(!confirm('Adicionar os registros do projeto à fila atual?'))return;
-  const rows=p.queue.map(raw=>{const row=makeRow(raw,raw.model,raw.kind);row.w=Math.max(20,Math.min(420,nums(raw.w,row.w)));row.h=Math.max(20,Math.min(420,nums(raw.h,row.h)));row.rowId=newUid();row.copies=Math.max(1,Math.min(500,nums(raw.copies,1)));row.copyIds=Array.isArray(raw.copyIds)?raw.copyIds.filter(u=>/^[0-9a-f-]{36}$/i.test(u)).slice(0,row.copies):[];fillUUIDs(row);row.createdAt=String(raw.createdAt||new Date().toISOString());return row;});appendRows(rows);notify('Projeto importado sem substituir a fila atual.');
+  const rows=p.queue.map(raw=>{const row=makeRow(raw,raw.model,raw.kind);row.w=Math.max(20,Math.min(420,nums(raw.w,row.w)));row.h=Math.max(20,Math.min(420,nums(raw.h,row.h)));row.rowId=newUid();row.copies=Math.max(1,Math.min(500,nums(raw.copies,1)));row.copyIds=Array.isArray(raw.copyIds)?[...new Set(raw.copyIds.filter(u=>/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(u)))].slice(0,row.copies):[];fillUUIDs(row);row.createdAt=String(raw.createdAt||new Date().toISOString());return row;});appendRows(rows);notify('Projeto importado sem substituir a fila atual.');
  }catch(err){notify(err.message,true)}finally{e.target.value='';}
 });
 function download(name,content,type){const url=URL.createObjectURL(new Blob([content],{type})),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000)}
-function auditRows(){const hdr=['GUID','CODIGO','DESCRICAO','MODELO','LARGURA_MM','ALTURA_MM','ESTACAO','OPERADOR','GERADO_EM','TIPO'];const rows=[hdr];for(const row of queue)for(const uid of row.copyIds)rows.push([uid,row.CodigoSAP,row.Descricao,row.model,row.w,row.h,stationLabel(),station.operator,row.createdAt,row.kind]);return rows;}
+function auditRows(){queue.forEach(fillUUIDs);const hdr=['GUID','CODIGO','DESCRICAO','MODELO','LARGURA_MM','ALTURA_MM','ESTACAO','OPERADOR','GERADO_EM','TIPO'];const rows=[hdr];for(const row of queue)for(const uid of row.copyIds)rows.push([uid,row.CodigoSAP,row.Descricao,row.model,row.w,row.h,stationLabel(),station.operator,row.createdAt,row.kind]);return rows;}
 function csvRows(rows){return '\uFEFF'+rows.map(r=>r.map(s=>'"'+String(s??'').replace(/"/g,'""')+'"').join(';')).join('\r\n')}
 $('v6-audit-csv').addEventListener('click',()=>download('NEXO-auditoria-GUIDs.csv',csvRows(auditRows()),'text/csv;charset=utf-8'));
 $('v6-zip').addEventListener('click',async()=>{
@@ -3175,35 +3355,37 @@ function contentFor(u,qr,barcode){
  const localText=String(u.Localizacao??'').trim();
  const hasLocation=!!localText&&!/^(?:n[ãa]o informado|sem endere[cç]o|n\/?a|indefinido|null|undefined|[-—])$/i.test(localText);
  const place=hasLocation?esc(localText):'';
- const q=`<div class="v6-qr" data-modules="${u.qrModules}">${qr}</div>`;
+ const q=u.model==='classic'&&qr?`<div class="v6-qr v63-logistic-qr" aria-label="QR Code de consulta logística" data-modules="${u.qrModules}">${qr}</div>`:'';
  const key=`<div class="v6-big v6-autofit" data-max-pt="20" data-min-pt="5">${code}</div>`;
- const d=`<div class="v6-desc v6-autofit" data-max-pt="11" data-min-pt="4.5">${desc}</div>`;
+ const d=`<div class="v6-desc v6-autofit" data-max-pt="${u.model==='classic'?19:u.model==='simple'?17:11}" data-min-pt="4.5">${desc}</div>`;
  const band=t=>`<div class="v6-banner">${t}</div>`;
  const loc=hasLocation?`<div class="v6-small v61-location"><b>ENDEREÇO:</b> ${place}</div>`:'';
  const date=`<div class="v6-small">${new Date(u.createdAt).toLocaleString('pt-BR')}</div>`;
  switch(u.model){
- case 'classic':return `<div class="v6-face v61-classic">${band('IDENTIFICAÇÃO LOGÍSTICA · CKTR')}<div class="v6-kicker">${esc(u.TipoCodigo)} · ID ${esc(u.ID)}</div><div class="v61-classic-core">${key}${d}</div><div class="v61-classic-bottom">${loc}${q}${logo()}</div>${commonFooter(u)}</div>`;
- case 'shelf':return `<div class="v6-face"><div class="v6-shelf-grid"><div class="v6-sector">GÔNDOLA</div><div class="v6-fields">${key}${hasLocation?`<div class="v6-location-box v6-autofit" data-max-pt="20" data-min-pt="4">${place}</div>`:''}<div class="v6-small">${desc}</div></div>${q}</div>${commonFooter(u)}</div>`;
+ case 'classic':return `<div class="v6-face v61-classic v63-logistic">${band('ETIQUETA LOGÍSTICA')}<div class="v6-kicker">${esc(u.TipoCodigo)} · ID ${esc(u.ID)}</div><div class="v61-classic-core">${key}${d}</div><div class="v61-classic-bottom v63-classic-bottom"><div class="v63-logistic-extra">${loc}<span class="v63-logistic-hint">CONSULTA DE MATERIAL</span></div>${q}</div>${commonFooter(u)}</div>`;
+ case 'simple':return `<div class="v6-face v63-simple">${band('IDENTIFICAÇÃO DE MATERIAL')}<div class="v63-simple-body">${key}${d}${loc}</div>${commonFooter(u)}</div>`;
+ case 'shelf':return `<div class="v6-face"><div class="v6-shelf-grid v63-shelf"><div class="v6-sector">GÔNDOLA</div><div class="v6-fields">${key}${hasLocation?`<div class="v6-location-box v6-autofit" data-max-pt="20" data-min-pt="4">${place}</div>`:''}<div class="v6-small">${desc}</div></div></div>${commonFooter(u)}</div>`;
  case 'safety':return `<div class="v6-face"><div class="v6-stripes"></div>${band('ATENÇÃO · SINALIZAÇÃO INDUSTRIAL')}<div class="v6-warning-row">${warningSvg}<div class="v6-fields">${key}<div class="v6-desc v6-autofit" data-max-pt="32" data-min-pt="5">${desc}</div>${loc}</div></div>${commonFooter(u)}</div>`;
- case 'asset':return `<div class="v6-face">${band('PATRIMÔNIO · PROPRIEDADE CKTR')}<div class="v6-main"><div class="v6-fields">${key}<div class="v6-small">NÚMERO DE SÉRIE / ATIVO</div><div class="v6-asset-code">${barcode.svg}</div></div>${q}</div>${commonFooter(u)}</div>`;
- case 'spec':return `<div class="v6-face">${band('FICHA TÉCNICA · ENGENHARIA')}<table class="v6-spec-grid"><tbody><tr><td><b>SAP / PN</b><span class="v6-autofit" data-max-pt="15" data-min-pt="5">${code}</span></td><td><b>EMISSÃO</b>${new Date(u.createdAt).toLocaleDateString('pt-BR')}</td></tr><tr><td colspan="2"><b>DESCRIÇÃO</b><span class="v6-autofit" data-max-pt="10" data-min-pt="4.5">${desc}</span></td></tr>${u.ID_AREA?`<tr><td><b>ÁREA</b>${esc(u.ID_AREA)}</td><td><b>ID MATERIAL</b>${esc(u.ID)}</td></tr>`:''}${hasLocation?`<tr><td colspan="2"><b>ENDEREÇO</b>${place}</td></tr>`:''}</tbody></table><div class="v6-end">${q}${logo()}</div>${commonFooter(u)}</div>`;
- case 'status':return `<div class="v6-face"><div class="v6-main"><div class="v6-status-bar">${esc(settings.status)}</div><div class="v6-fields">${band('RASTREABILIDADE / QUARENTENA')}${key}${d}${loc}<div class="v6-end">${q}${logo()}</div></div></div>${commonFooter(u)}</div>`;
+ case 'asset':return `<div class="v6-face">${band('PATRIMÔNIO · ATIVO FIXO')}<div class="v6-main"><div class="v6-fields">${key}<div class="v6-small">NÚMERO DE SÉRIE / ATIVO</div><div class="v6-asset-code">${barcode.svg}</div></div></div>${commonFooter(u)}</div>`;
+ case 'spec':return `<div class="v6-face">${band('FICHA TÉCNICA · ENGENHARIA')}<table class="v6-spec-grid"><tbody><tr><td><b>SAP / PN</b><span class="v6-autofit" data-max-pt="15" data-min-pt="5">${code}</span></td><td><b>EMISSÃO</b>${new Date(u.createdAt).toLocaleDateString('pt-BR')}</td></tr><tr><td colspan="2"><b>DESCRIÇÃO</b><span class="v6-autofit" data-max-pt="10" data-min-pt="4.5">${desc}</span></td></tr>${u.ID_AREA?`<tr><td><b>ÁREA</b>${esc(u.ID_AREA)}</td><td><b>ID MATERIAL</b>${esc(u.ID)}</td></tr>`:''}${hasLocation?`<tr><td colspan="2"><b>ENDEREÇO</b>${place}</td></tr>`:''}</tbody></table>${commonFooter(u)}</div>`;
+ case 'status':return `<div class="v6-face"><div class="v6-main"><div class="v6-status-bar">${esc(settings.status)}</div><div class="v6-fields">${band('RASTREABILIDADE / QUARENTENA')}${key}${d}${loc}</div></div>${commonFooter(u)}</div>`;
  case 'address':{
-  if(!hasLocation)return `<div class="v6-face">${band('IDENTIFICAÇÃO DE ESTOQUE')}${key}${d}<div class="v6-end">${q}${logo()}</div>${commonFooter(u)}</div>`;
+  if(!hasLocation)return `<div class="v6-face">${band('IDENTIFICAÇÃO DE ESTOQUE')}${key}${d}${commonFooter(u)}</div>`;
   const parts=localText.split(/[\s/;,-]+/).filter(Boolean);
   const vals=[parts[0]||'',parts[1]||'',parts[2]||'',parts[3]||''];
-  return `<div class="v6-face">${band(`ENDEREÇAMENTO DE ESTOQUE · ${esc(settings.direction)}`)}<div class="v6-address-grid">${vals.map((p,i)=>`<div><b>${['RUA','MÓDULO','NÍVEL','VÃO'][i]}</b><strong class="v6-autofit" data-max-pt="40" data-min-pt="5">${esc(p)}</strong></div>`).join('')}</div><div class="v6-end"><div class="v6-direction"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2.5"><path d="${directionSvg(settings.direction)}"/></svg></div>${q}<div class="v6-small">${desc}</div></div>${commonFooter(u)}</div>`;}
- case 'blueprint':return `<div class="v6-face v6-free">${blueprint.header?band(title):'<div></div>'}<div class="v6-free-main"><div class="v6-free-box">${key}${d}${blueprint.address?loc:''}${blueprint.datetime?date:''}${blueprint.barcode?`<div class="v6-asset-code">${barcode.svg}</div>`:''}</div>${blueprint.qr?q:''}</div><div>${blueprint.logo?`<div class="v6-free-footer">${logo()}<span class="v6-small">${esc(u.ID)}</span></div>`:''}${commonFooter(u)}</div></div>`;
+  return `<div class="v6-face">${band(`ENDEREÇAMENTO DE ESTOQUE · ${esc(settings.direction)}`)}<div class="v6-address-grid">${vals.map((p,i)=>`<div><b>${['RUA','MÓDULO','NÍVEL','VÃO'][i]}</b><strong class="v6-autofit" data-max-pt="40" data-min-pt="5">${esc(p)}</strong></div>`).join('')}</div><div class="v6-end"><div class="v6-direction"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2.5"><path d="${directionSvg(settings.direction)}"/></svg></div><div class="v6-small">${desc}</div></div>${commonFooter(u)}</div>`;}
+ case 'blueprint':return `<div class="v6-face v6-free">${blueprint.header?band(title):'<div></div>'}<div class="v6-free-main v63-blueprint-full"><div class="v6-free-box">${key}${d}${blueprint.address?loc:''}${blueprint.datetime?date:''}${blueprint.barcode?`<div class="v6-asset-code">${barcode.svg}</div>`:''}</div></div>${commonFooter(u)}</div>`;
  default:return `<div class="v6-face">${band(title)}${key}${d}${commonFooter(u)}</div>`;
  }
 }
 async function createUnit(u,link){
  let qr='',modules=0;
- try{const svg=original.qrSvg(link);modules=nums(svg.dataset.qrModules,0);qr=svg.outerHTML;}catch(e){warnings.push(`QR não gerado para ${u.CodigoSAP}: ${e.message}`);}
+ if(u.model==='classic'){try{const svg=original.qrSvg(link);modules=nums(svg.dataset.qrModules,0);qr=svg.outerHTML;}catch(e){warnings.push(`QR não gerado para ${u.CodigoSAP}: ${e.message}`);}}
  const barcode=barcode128(u.CodigoSAP);u.qrModules=modules;u.barModules=barcode.modules;
+ const qrMm=u.model==='classic'?Math.min(35,u.w*.43,u.h*.43,Math.max(18,modules*.34)):0;
  const unit=document.createElement('article');unit.className='label v6-unit';
  unit.dataset.uuid=u.uid;unit.dataset.materialId=u.ID;unit.dataset.codigoSap=u.CodigoSAP;unit.dataset.qrModules=modules;
- unit.dataset.status=settings.status;unit.style.cssText=`--v6-w:${mm(u.w)};--v6-h:${mm(u.h)};--v6-source-h:${mm(u.h)};--v6-font:${Math.max(4,Math.min(15,Math.min(u.w/11,u.h/8))).toFixed(2)}pt;--v6-qr-mm:${mm(Math.min(28,Math.max(5.5,Math.min(u.w*.24,u.h*.34))))};`;
+ unit.dataset.status=settings.status;unit.style.cssText=`--v6-w:${mm(u.w)};--v6-h:${mm(u.h)};--v6-source-h:${mm(u.h)};--v6-font:${Math.max(4,Math.min(15,Math.min(u.w/11,u.h/8))).toFixed(2)}pt;--v6-qr-mm:${mm(qrMm)};`;
  if(u.model==='safety')unit.classList.add('v6-safety');
  if(u.model==='blueprint'&&!blueprint.border)unit.classList.add('v6-no-border');
  if(u.model==='blueprint'&&blueprint.rounded)unit.classList.add('v6-rounded');
@@ -3211,8 +3393,8 @@ async function createUnit(u,link){
  if(u.model==='blueprint'&&!blueprint.logo)unit.classList.add('v6-no-logo');
  if(!settings.credit)unit.classList.add('v6-no-credit');if(!settings.guid)unit.classList.add('v6-no-guid');
  unit.innerHTML=contentFor(u,qr,barcode);
- const qrMm=Math.min(28,Math.max(5.5,Math.min(u.w*.24,u.h*.34)));
- if(modules&&qrMm/modules<.33)warnings.push(`${u.CodigoSAP}: QR com módulo ${(qrMm/modules).toFixed(2)} mm (mínimo recomendado 0,33 mm / 203 dpi).`);
+ 
+ if(u.model==='classic'&&modules&&qrMm/modules<.33)warnings.push(`${u.CodigoSAP}: QR com módulo ${(qrMm/modules).toFixed(2)} mm (mínimo recomendado 0,33 mm / 203 dpi).`);
  if((u.model==='asset'||u.model==='blueprint'&&blueprint.barcode)&&u.w*.70/barcode.modules<.25)warnings.push(`${u.CodigoSAP}: Code-128 estreito; confira leitura (barra mínima < 0,25 mm).`);
  return unit;
 }
@@ -3320,7 +3502,7 @@ function physicalPage(page,index,total,printing=false){
   if(settings.guillotine&&settings.output==='sheet'){const dashed=document.createElement('div');dashed.className='v6-cut-guide';place.append(dashed);}
   cutMarks(place,entry.w,entry.h);sheet.append(place);
  }
- if(settings.numbers&&settings.output==='sheet'){const number=document.createElement('div');number.className='v6-page-number';number.textContent=`Folha ${index+1} de ${total}`;sheet.append(number);}
+ if(settings.numbers&&settings.output==='sheet'){const number=document.createElement('div');number.className='v6-page-number';number.style.bottom=mm(Math.max(2,settings.margin));number.style.right=mm(Math.max(2,settings.margin));number.textContent=`Folha ${index+1} de ${total}`;sheet.append(number);}
  return sheet;
 }
 let stage=$('v6-sheet-view');
@@ -3385,18 +3567,18 @@ async function render(){
  const list=allUnits();units=[];
  const root=$('etiquetas');root.replaceChildren();
  $('imprimir').disabled=true;$('v6-print').disabled=true;
- if(!list.length){$('vazio').hidden=false;$('previa').hidden=true;pages=[];stage.replaceChildren();$('metric-total').textContent='00';$('metric-items').textContent='00';$('v6-sheet-info').textContent='Fila vazia';notify('Fila vazia. Adicione um item para iniciar.');renderBusy=false;return;}
+ if(!list.length){$('vazio').hidden=false;$('previa').hidden=true;document.body.classList.remove('ready');pages=[];stage.replaceChildren();$('metric-total').textContent='00';$('metric-items').textContent='00';$('total').textContent='0 unidades';$('v6-sheet-info').textContent='Fila vazia';notify('Pronto para começar. Preencha código e descrição e clique em Adicionar à fila.');renderBusy=false;return;}
  try{
   const qrCache=new Map();
   for(const u of list){if(local!==revision)return;
-   let link=qrCache.get(u.rowId);if(!link){const result=await original.linkFicha(u);link=result.url;qrCache.set(u.rowId,link)}
+   let link='';if(u.model==='classic'){link=qrCache.get(u.rowId);if(!link){const result=await original.linkFicha(u);link=result.url;qrCache.set(u.rowId,link)}}
    const el=await createUnit(u,link);u.el=el;units.push(u);root.append(el);
   }
   if(local!==revision)return;
   try{pages=computePages()}catch(err){pages=[];errors.push(err.message)}
   $('vazio').hidden=true;$('previa').hidden=false;document.body.classList.add('ready');
   $('total').textContent=`${units.length} unidade(s)`;$('metric-total').textContent=String(units.length).padStart(2,'0');$('metric-items').textContent=String(queue.length).padStart(2,'0');
-  $('v6-sheet-info').textContent=pages.length?`${pages.length} ${settings.output==='roll'?'avanços':'folhas'} · ${units.length} unidades`:'Formato físico inválido';
+  $('v6-sheet-info').textContent=pages.length?`${pages.length} ${settings.output==='roll'?'avanços':'folhas'} · ${units.length} unidades`:'Formato físico inválido';$('v6-print').title=errors.length?errors.join(' | '):'Imprimir todo o lote na impressora selecionada';
   $('v6-print').disabled=!!errors.length;
   // O botão original mantém os KPIs da versão 5 atualizados, mas é capturado pelo motor v6.
   $('imprimir').disabled=!!errors.length;
@@ -3419,7 +3601,7 @@ function makePrintDocument(){
  const [w,h]=settings.output==='sheet'?PAPERS[settings.paper]:[pages[0].W,pages[0].H];
  const iframe=document.createElement('iframe');iframe.title='NEXO | Impressão industrial';iframe.style.cssText='position:fixed;width:0;height:0;right:0;bottom:0;border:0;opacity:0;pointer-events:none';document.body.append(iframe);
  const doc=iframe.contentDocument;
- const core=($('nexo-v6-css')?.textContent||'')+(($('nexo-v61-clean-ui')?.textContent)||'');
+ const core=($('nexo-v6-css')?.textContent||'')+(($('nexo-v61-clean-ui')?.textContent)||'')+(($('nexo-v63-css')?.textContent)||'');
  const extra=`@page{size:${mm(w)} ${mm(h)};margin:0}html,body{margin:0!important;padding:0!important;background:#fff!important;color:#111!important}body{font-family:Arial!important} .print-sheet{display:block!important;width:var(--print-w)!important;height:var(--print-h)!important;position:relative!important;overflow:hidden!important;break-after:page!important;page-break-after:always!important;box-shadow:none!important} .print-sheet:last-child{break-after:auto!important;page-break-after:auto!important}.print-sheet .label.v6-unit{margin:0!important;box-shadow:none!important} .v6-paper-name{display:none!important} .v6-roll .v6-unit{filter:grayscale(1) contrast(4)}*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}`;
  doc.open();doc.write(`<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>NEXO Enterprise · Impressão</title><style>${core}</style><style>${extra}</style></head><body></body></html>`);doc.close();
  for(let i=0;i<pages.length;i++){const node=physicalPage(pages[i],i,pages.length,true);node.style.setProperty('--print-w',mm(pages[i].W));node.style.setProperty('--print-h',mm(pages[i].H));doc.body.append(node);}
@@ -3470,8 +3652,62 @@ $('manual-gerar').addEventListener('click',e=>{
 // Exportação antiga continua disponível; no Enterprise, ela é redirecionada para auditoria.
 $('exportar').addEventListener('click',e=>{e.stopImmediatePropagation();$('v6-audit-csv').click()},true);
 // Só a fila v6 controla a impressão; alterações nos controles antigos não apagam os itens acumulados.
-window.NexoV6={version:'6.1',getQueue:()=>queue.map(r=>({...r,copyIds:[...r.copyIds]})),getPages:()=>pages.map(p=>({width:p.W,height:p.H,used:p.used,count:p.items.length})),refresh,packSheets};
-updateQueue();if(!initial?.length)refresh();
+window.NexoV6={version:'6.3 IMPRESSORA PRIMEIRO',getQueue:()=>queue.map(r=>({...r,copyIds:[...r.copyIds]})),getPages:()=>pages.map(p=>({width:p.W,height:p.H,used:p.used,count:p.items.length})),refresh,packSheets};
+// Impressora: primeira decisão, persistida como preferência local, mas confirmada a cada abertura.
+function syncModelHelpSafe(){syncModelHelp()}
+function syncPrinterUi(){
+ const sheet=$('v6-output').value==='sheet';
+ const paper=$('v6-paper'),paperLabel=paper.closest('label');
+ paperLabel.hidden=!sheet;
+ const form=paperLabel.nextElementSibling;if(form?.classList.contains('v6-formgrid'))form.hidden=!sheet;
+ const checks=$('v6-rotate').closest('div');if(checks)checks.hidden=!sheet;
+ const desc=document.getElementById('v63-target-desc'),name=document.getElementById('v63-target-name');
+ name.textContent=sheet?'Lexmark / Laser · Folha':'Zebra ZT230 · Rolo';
+ desc.textContent=sheet?`${paper.options[paper.selectedIndex].text} · várias peças por folha`:'Etiqueta individual · sem papel A4 ou marcas de corte';
+ const sheetView=$('v6-to-sheet');if(sheetView)sheetView.textContent=sheet?'Ver folha real':'Ver avanços do rolo';
+ if(!sheet){settings.crop=false;settings.guillotine=false;settings.numbers=false;settings.rotate=false;}
+ else{settings.crop=$('v6-crop').checked;settings.guillotine=$('v6-guillotine').checked;settings.numbers=$('v6-page-numbers').checked;settings.rotate=$('v6-rotate').checked;}
+}
+function applyPrinterChoice(choice,paper){
+ $('v6-output').value=choice;$('v6-paper').value=paper||'a4p';
+ paperSettings();syncPrinterUi();refresh();
+ try{storage.set('NEXO_PRINTER_LAST_V63',JSON.stringify({choice,paper:$('v6-paper').value}));}catch(e){}
+}
+function openPrinterWizard(){
+ let recent={choice:'',paper:'a4p'};
+ try{recent=JSON.parse(storage.get('NEXO_PRINTER_LAST_V63')||'null')||recent}catch(e){}
+ $('v63-start-paper').value=PAPERS[recent.paper]?recent.paper:'a4p';
+ choosePrinter(recent.choice==='roll'||recent.choice==='sheet'?recent.choice:null);
+ v63Wizard.hidden=false;
+ document.body.classList.add('v63-choosing-printer');
+ document.querySelector('#v63-printer-overlay .v63-printer-dialog').focus();
+}
+let pendingPrinter=null;
+function choosePrinter(choice){
+ pendingPrinter=choice;
+ v63Wizard.querySelectorAll('[data-choice]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.choice===choice)));
+ $('v63-paper-prompt').hidden=choice!=='sheet';
+ $('v63-confirm-printer').disabled=!choice;
+}
+v63Wizard.querySelectorAll('[data-choice]').forEach(b=>b.addEventListener('click',()=>choosePrinter(b.dataset.choice)));
+$('v63-confirm-printer').addEventListener('click',()=>{
+ if(!pendingPrinter)return;
+ applyPrinterChoice(pendingPrinter,$('v63-start-paper').value);
+ v63Wizard.hidden=true;document.body.classList.remove('v63-choosing-printer');
+ setTab('queue');$('v6-code').focus();notify(`Impressora definida: ${pendingPrinter==='roll'?'Zebra ZT230':'Lexmark / Laser'}. Crie seus materiais e confira a prévia.`);
+});
+$('v63-change-printer').addEventListener('click',openPrinterWizard);
+$('v6-output').addEventListener('change',()=>{paperSettings();syncPrinterUi();refresh()});
+$('v6-paper').addEventListener('change',()=>{paperSettings();syncPrinterUi();refresh()});
+const prevTutorial=document.querySelector('#v61-tutorial-overlay .v61-tutorial-notes');
+if(prevTutorial)prevTutorial.innerHTML='<b>Comece pela impressora:</b> Zebra imprime um avanço por etiqueta; Lexmark distribui etiquetas e placas em folhas A4/A3. Somente a <b>Etiqueta Logística</b> possui QR Code com dados digitais e planejador. Outros modelos não usam QR.';
+const step1=document.querySelector('.v61-steps .v61-step:first-child p');
+if(step1)step1.textContent='Primeiro escolha Zebra ou Lexmark. As configurações que não se aplicam à impressora escolhida serão ocultadas.';
+const tip=document.querySelector('[data-go="paper"]');if(tip)tip.textContent='Abrir impressora';
+const recent=JSON.parse(storage.get('NEXO_PRINTER_LAST_V63')||'null');
+if(recent?.choice==='sheet'||recent?.choice==='roll')applyPrinterChoice(recent.choice,PAPERS[recent.paper]?recent.paper:'a4p');
+syncPrinterUi();syncModelHelpSafe();setTab('paper');
+updateQueue();if(!initial?.length)refresh();openPrinterWizard();
 })()
 
 </script>
