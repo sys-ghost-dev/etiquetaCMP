@@ -992,6 +992,23 @@ html[data-nexo-cursor=tag] body.ge-body,html[data-nexo-cursor=tag] body.ge-body 
 .v6-unit .v64-code-value{display:block!important;flex:1 1 0!important;min-width:0!important;white-space:nowrap!important;overflow-wrap:normal!important;word-break:keep-all!important;text-align:center!important;align-content:center!important;font-family:Arial,'Arial Narrow',sans-serif!important;font-weight:900!important;letter-spacing:-.055em!important;line-height:.99!important;overflow:hidden!important;padding:0!important}
 @media print{.v6-unit .v64-code-value{white-space:nowrap!important;word-break:keep-all!important}}
 </style>
+<style id="nexo-v66-part-number-fit">
+/* Layout em milímetros, sem quebras de SAP/PN, inclusive no documento de impressão. */
+.v6-unit .v64-code-zone{min-width:0!important;overflow:hidden!important}
+.v6-unit .v64-code-value{
+ box-sizing:border-box!important;display:block!important;width:100%!important;
+ flex:1 1 0!important;min-width:0!important;min-height:0!important;
+ white-space:pre!important;word-break:normal!important;overflow-wrap:normal!important;
+ text-overflow:clip!important;overflow:hidden!important;
+ font-family:Arial,Helvetica,sans-serif!important;font-weight:900!important;
+ font-kerning:normal!important;letter-spacing:0!important;
+ line-height:1!important;text-align:center!important;
+ padding:0 .5mm!important;
+}
+/* Espaço reservado ao código; campos adicionais ficam fora da faixa inferior. */
+.v6-unit .v64-code-caption{flex:none!important}
+@media print{.v6-unit .v64-code-value{white-space:pre!important}}
+</style>
 </head>
 <body class="ge-body">
 <svg aria-hidden="true" class="ge-icons" xmlns="http://www.w3.org/2000/svg">
@@ -3414,7 +3431,7 @@ function contentFor(u,qr,barcode){
   const compactDesc=`<div class="v64-description v6-autofit" data-max-pt="10.5" data-min-pt="7">${desc}</div>`;
   const addressBlock=hasLocation?`<div class="v64-address"><b>ENDEREÇO</b><span>${place}</span></div>`:'';
   const qrTop=q?`<div class="v64-qr-wrap">${q}</div>`:'';
-  return `<div class="v6-face v64-logistic-face">${band('ETIQUETA LOGÍSTICA')}<div class="v64-info-line">MATERIAL · ${codeType} <span>ID ${esc(u.ID)}</span></div><div class="v64-upper"><div class="v64-description-wrap">${compactDesc}</div>${qrTop}</div>${addressBlock}<div class="v64-metadata">${commonFooter(u)}</div><div class="v64-code-zone"><div class="v64-code-caption">${codeType}</div><div class="v64-code-value v6-autofit" data-max-pt="70" data-min-pt="12">${code}</div></div></div>`;
+  return `<div class="v6-face v64-logistic-face">${band('ETIQUETA LOGÍSTICA')}<div class="v64-info-line">MATERIAL · ${codeType} <span>ID ${esc(u.ID)}</span></div><div class="v64-upper"><div class="v64-description-wrap">${compactDesc}</div>${qrTop}</div>${addressBlock}<div class="v64-metadata">${commonFooter(u)}</div><div class="v64-code-zone"><div class="v64-code-caption">${codeType}</div><div class="v64-code-value v6-autofit" data-max-pt="85" data-min-pt="5">${code}</div></div></div>`;
  }
  case 'simple':return `<div class="v6-face v63-simple">${band('IDENTIFICAÇÃO DE MATERIAL')}<div class="v63-simple-body">${key}${d}${loc}</div>${commonFooter(u)}</div>`;
  case 'shelf':return `<div class="v6-face"><div class="v6-shelf-grid v63-shelf"><div class="v6-sector">GÔNDOLA</div><div class="v6-fields">${key}${hasLocation?`<div class="v6-location-box v6-autofit" data-max-pt="20" data-min-pt="4">${place}</div>`:''}<div class="v6-small">${desc}</div></div></div>${commonFooter(u)}</div>`;
@@ -3600,36 +3617,38 @@ function fitBinary(card){
  for(const field of card.querySelectorAll('.v6-autofit')){
   if(!field.clientWidth||!field.clientHeight)continue;
   const ceiling=nums(field.dataset.maxPt,18),minimum=nums(field.dataset.minPt,4);
-  // Código na aba da prateleira: ajustar pelo comprimento real da linha,
-  // não pela quebra automática do navegador. A unidade usa milímetros físicos.
+  // SAP/PN: busca binária usando a largura real do texto sem quebra.
+  // Um PN longo reduz a fonte apenas o necessário; nenhum caractere é removido.
   if(field.classList.contains('v64-code-value')){
    const label=String(field.textContent||'').trim();
-   const width=Math.max(1,field.clientWidth-5);
-   const height=Math.max(1,field.clientHeight-3);
+   if(!label)continue;
+   const css=getComputedStyle(field);
+   const space=Math.max(1,field.clientWidth-(parseFloat(css.paddingLeft)||0)-(parseFloat(css.paddingRight)||0)-5);
+   const tall=Math.max(1,field.clientHeight-3);
    const canvas=fitBinary._canvas||(fitBinary._canvas=document.createElement('canvas'));
    const ctx=canvas.getContext('2d');
-   let low=3,high=Math.min(ceiling,height*72/96*.94),best=low;
-   if(ctx){
-    for(let k=0;k<17;k++){
-     const pt=(low+high)/2;
-     ctx.font=`900 ${pt*96/72}px Arial`;
-     const raw=ctx.measureText(label).width;
-     // Negative tracking is not used in the fit calculation: safety margin for print drivers.
-     if(raw<=width*.96){best=pt;low=pt;}else high=pt;
-    }
+   let low=2.8,high=Math.max(low,Math.min(ceiling,tall*72/96*.84)),best=low;
+   const family='Arial, Helvetica, sans-serif';
+   function measured(pt){
+    if(!ctx)return Infinity;
+    ctx.font=`900 ${pt*96/72}px ${family}`;
+    return ctx.measureText(label).width;
    }
-   field.style.fontSize=Math.max(3,best).toFixed(3)+'pt';
-   field.style.whiteSpace='nowrap';
-   field.style.wordBreak='keep-all';
-   field.style.overflowWrap='normal';
-   // For very long part numbers, reduce further rather than allow a broken digit.
-   if(field.scrollWidth>field.clientWidth+1){
-    let pt=Math.max(3,best);
-    for(let k=0;k<16&&field.scrollWidth>field.clientWidth+1;k++){
-     pt*=.94;field.style.fontSize=pt.toFixed(3)+'pt';
-    }
+   for(let k=0;k<23;k++){
+    const mid=(low+high)/2;
+    if(measured(mid)<=space*.97){best=mid;low=mid;}else high=mid;
    }
-   if(field.scrollWidth>field.clientWidth+1)failures++;
+   // O canvas é usado para prever, mas o DOM é a validação final.
+   // Há folga adicional para diferenças entre drivers e renderização do Chromium.
+   let pt=Math.min(best,high);
+   field.style.fontSize=pt.toFixed(3)+'pt';
+   for(let k=0;k<28&&(field.scrollWidth>field.clientWidth+1||field.scrollHeight>field.clientHeight+1);k++){
+    pt*=.95;
+    field.style.fontSize=pt.toFixed(3)+'pt';
+   }
+   field.dataset.fitPt=pt.toFixed(2);
+   // Um código que exige letra muito pequena cabe, mas merece aviso de leitura física.
+   if(pt<Math.min(minimum,7)||field.scrollWidth>field.clientWidth+1||field.scrollHeight>field.clientHeight+1)failures++;
    continue;
   }
   let low=minimum,high=ceiling,best=minimum;
@@ -3684,18 +3703,18 @@ function makePrintDocument(){
  if(!pages.length||errors.length)throw Error(errors.join(' | ')||'Não há páginas válidas para imprimir.');
  if(warnings.length&&!confirm(`ATENÇÃO: ${warnings.length} aviso(s) de leitura/legibilidade.\n\n${warnings.slice(0,5).join('\n')}\n\nRecomenda-se teste físico. Continuar?`))return;
  const [w,h]=settings.output==='sheet'?PAPERS[settings.paper]:[pages[0].W,pages[0].H];
- const iframe=document.createElement('iframe');iframe.title='NEXO | Impressão industrial';iframe.style.cssText='position:fixed;width:0;height:0;right:0;bottom:0;border:0;opacity:0;pointer-events:none';document.body.append(iframe);
+ const iframe=document.createElement('iframe');iframe.title='NEXO | Impressão industrial';iframe.style.cssText=`position:fixed;width:${Math.max(800,Math.ceil(w*96/25.4))}px;height:${Math.max(800,Math.ceil(h*96/25.4))}px;left:-100000px;top:0;border:0;opacity:0;pointer-events:none`;document.body.append(iframe);
  const doc=iframe.contentDocument;
- const core=($('nexo-v6-css')?.textContent||'')+(($('nexo-v61-clean-ui')?.textContent)||'')+(($('nexo-v63-css')?.textContent)||'');
+ const core=['nexo-v6-css','nexo-v61-clean-ui','nexo-v63-css','nexo-v64-shelf-logistic','nexo-v65-logistica-legibilidade','nexo-v66-part-number-fit'].map(id=>$(id)?.textContent||'').join('\n');
  const extra=`@page{size:${mm(w)} ${mm(h)};margin:0}html,body{margin:0!important;padding:0!important;background:#fff!important;color:#111!important}body{font-family:Arial!important} .print-sheet{display:block!important;width:var(--print-w)!important;height:var(--print-h)!important;position:relative!important;overflow:hidden!important;break-after:page!important;page-break-after:always!important;box-shadow:none!important} .print-sheet:last-child{break-after:auto!important;page-break-after:auto!important}.print-sheet .label.v6-unit{margin:0!important;box-shadow:none!important} .v6-paper-name{display:none!important} .v6-roll .v6-unit{filter:grayscale(1) contrast(4)}*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}`;
  doc.open();doc.write(`<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>NEXO Enterprise · Impressão</title><style>${core}</style><style>${extra}</style></head><body></body></html>`);doc.close();
  for(let i=0;i<pages.length;i++){const node=physicalPage(pages[i],i,pages.length,true);node.style.setProperty('--print-w',mm(pages[i].W));node.style.setProperty('--print-h',mm(pages[i].H));doc.body.append(node);}
- // Auto-fit nas medidas reais, dentro do iframe (sem o zoom da prévia).
- for(const unit of doc.querySelectorAll('.v6-unit'))fitBinary(unit);
+ // Os tamanhos medidos na prévia são clonados; no iframe completo em mm, validar novamente antes de imprimir.
+ const validatePrintFit=()=>{let failures=0;for(const unit of doc.querySelectorAll('.v6-unit'))failures+=fitBinary(unit);if(failures)notify(`${failures} código(s)/campo(s) exigem revisão de legibilidade no papel.`,true);};
  const release=()=>setTimeout(()=>iframe.remove(),2500);
  iframe.contentWindow.addEventListener('afterprint',release,{once:true});
  let started=false;const run=()=>{if(started)return;started=true;try{iframe.contentWindow.focus();iframe.contentWindow.print()}catch(e){release();notify('Falha ao abrir impressão: '+e.message,true)}};
- Promise.all(Array.from(doc.images).map(img=>img.complete?Promise.resolve():new Promise(done=>{img.onload=done;img.onerror=done}))).then(()=>setTimeout(run,250));
+ Promise.all(Array.from(doc.images).map(img=>img.complete?Promise.resolve():new Promise(done=>{img.onload=done;img.onerror=done}))).then(()=>{requestAnimationFrame(()=>{validatePrintFit();setTimeout(run,250);});});
  notify(`Imposição preparada: ${pages.length} página(s) · ${units.length} unidades. Selecione a impressora e escala 100%, sem margens adicionais.`);
 }
 $('v6-print').addEventListener('click',()=>{try{makePrintDocument()}catch(e){notify(e.message,true)}});
