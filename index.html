@@ -1009,6 +1009,77 @@ html[data-nexo-cursor=tag] body.ge-body,html[data-nexo-cursor=tag] body.ge-body 
 .v6-unit .v64-code-caption{flex:none!important}
 @media print{.v6-unit .v64-code-value{white-space:pre!important}}
 </style>
+<style id="nexo-v67-layout-organizado">
+/* 6.7 — Distribuição física previsível (inclusive no iframe de impressão). */
+.v6-unit .v64-logistic-face{
+ display:grid!important;
+ grid-template-columns:minmax(0,1fr)!important;
+ grid-template-rows:auto auto minmax(0,1fr) auto auto minmax(0,40%)!important;
+ align-content:stretch!important;
+ gap:.8mm!important;
+ padding:1.5mm!important;
+ height:100%!important;min-height:0!important;overflow:hidden!important;
+}
+.v6-unit .v64-logistic-face>.v6-banner{
+ margin:0!important;padding:1.15mm 1.6mm!important;
+ font:900 9pt/1.05 Arial,sans-serif!important;letter-spacing:.025em!important;
+}
+.v6-unit .v64-info-line{
+ margin:0!important;padding:.4mm 0 .35mm!important;
+ border-bottom:.16mm solid #d0d3d1!important;
+ font:700 6.5pt/1.1 Arial,sans-serif!important;
+}
+.v6-unit .v64-upper{
+ display:flex!important;flex:none!important;min-height:0!important;overflow:hidden!important;
+ align-items:stretch!important;gap:1.7mm!important;
+}
+.v6-unit .v64-description-wrap{display:flex!important;min-height:0!important;min-width:0!important;align-items:flex-start!important;overflow:hidden!important}
+.v6-unit .v64-description{
+ display:block!important;height:100%!important;flex:1!important;min-height:0!important;
+ padding:.3mm 0!important;font-family:Arial,sans-serif!important;font-weight:700!important;font-size:10pt;line-height:1.19!important;
+ text-align:left!important;white-space:normal!important;word-break:normal!important;
+ overflow-wrap:break-word!important;hyphens:none!important;overflow:hidden!important;
+}
+.v6-unit .v64-qr-wrap{flex:0 0 var(--v6-qr-mm,18mm)!important;width:var(--v6-qr-mm,18mm)!important;align-items:flex-start!important}
+.v6-unit .v64-address{
+ min-height:0!important;max-height:7mm!important;padding:.6mm 1mm!important;
+ font-size:7pt!important;line-height:1.12!important;
+ background:#f2f3f3!important;
+}
+.v6-unit .v64-metadata{min-height:0!important;overflow:hidden!important}
+.v6-unit .v64-metadata .v6-foot{
+ padding:.4mm 0!important;border-top:.16mm solid #c9cecb!important;
+ font:400 5pt/1.05 Arial,sans-serif!important;
+ white-space:nowrap!important;overflow:hidden!important;
+}
+.v6-unit .v64-metadata .v6-audit{min-width:0!important;overflow:hidden!important;text-overflow:ellipsis!important}
+.v6-unit .v64-code-zone{
+ box-sizing:border-box!important;display:grid!important;
+ grid-template-rows:auto minmax(0,1fr)!important;
+ flex:none!important;max-height:none!important;min-height:0!important;height:100%!important;
+ gap:.75mm!important;padding:1.0mm .6mm .6mm!important;
+ border-top:.65mm solid #111!important;overflow:hidden!important;
+}
+.v6-unit .v64-code-caption{
+ justify-self:start!important;align-self:start!important;
+ margin:0!important;padding:.65mm 2mm!important;
+ font:900 8pt/1.1 Arial,sans-serif!important;
+}
+.v6-unit .v64-code-value{
+ box-sizing:border-box!important;display:grid!important;
+ place-items:center!important;align-content:center!important;
+ width:100%!important;height:100%!important;min-height:0!important;min-width:0!important;
+ margin:0!important;padding:0 .7mm!important;
+ flex:none!important;white-space:nowrap!important;word-break:normal!important;
+ overflow-wrap:normal!important;overflow:hidden!important;
+ text-align:center!important;font-family:Arial,Helvetica,sans-serif!important;
+ font-weight:900!important;font-variant-numeric:tabular-nums!important;letter-spacing:0!important;
+ line-height:1!important;
+}
+/* Em formatos inferiores a 55 mm, permite-se uma proporção maior para o código. */
+.v6-unit[style*="--v6-h:30mm"] .v64-logistic-face{grid-template-rows:auto auto minmax(0,1fr) auto auto minmax(0,43%)!important}
+@media print{.v6-unit .v64-code-value{white-space:nowrap!important}}
+</style>
 </head>
 <body class="ge-body">
 <svg aria-hidden="true" class="ge-icons" xmlns="http://www.w3.org/2000/svg">
@@ -3705,7 +3776,7 @@ function makePrintDocument(){
  const [w,h]=settings.output==='sheet'?PAPERS[settings.paper]:[pages[0].W,pages[0].H];
  const iframe=document.createElement('iframe');iframe.title='NEXO | Impressão industrial';iframe.style.cssText=`position:fixed;width:${Math.max(800,Math.ceil(w*96/25.4))}px;height:${Math.max(800,Math.ceil(h*96/25.4))}px;left:-100000px;top:0;border:0;opacity:0;pointer-events:none`;document.body.append(iframe);
  const doc=iframe.contentDocument;
- const core=['nexo-v6-css','nexo-v61-clean-ui','nexo-v63-css','nexo-v64-shelf-logistic','nexo-v65-logistica-legibilidade','nexo-v66-part-number-fit'].map(id=>$(id)?.textContent||'').join('\n');
+ const core=['nexo-v6-css','nexo-v61-clean-ui','nexo-v63-css','nexo-v64-shelf-logistic','nexo-v65-logistica-legibilidade','nexo-v66-part-number-fit','nexo-v67-layout-organizado'].map(id=>$(id)?.textContent||'').join('\n');
  const extra=`@page{size:${mm(w)} ${mm(h)};margin:0}html,body{margin:0!important;padding:0!important;background:#fff!important;color:#111!important}body{font-family:Arial!important} .print-sheet{display:block!important;width:var(--print-w)!important;height:var(--print-h)!important;position:relative!important;overflow:hidden!important;break-after:page!important;page-break-after:always!important;box-shadow:none!important} .print-sheet:last-child{break-after:auto!important;page-break-after:auto!important}.print-sheet .label.v6-unit{margin:0!important;box-shadow:none!important} .v6-paper-name{display:none!important} .v6-roll .v6-unit{filter:grayscale(1) contrast(4)}*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}`;
  doc.open();doc.write(`<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>NEXO Enterprise · Impressão</title><style>${core}</style><style>${extra}</style></head><body></body></html>`);doc.close();
  for(let i=0;i<pages.length;i++){const node=physicalPage(pages[i],i,pages.length,true);node.style.setProperty('--print-w',mm(pages[i].W));node.style.setProperty('--print-h',mm(pages[i].H));doc.body.append(node);}
