@@ -5,106 +5,147 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#075b55">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
-<title>Requisitar material | CKTR</title>
+<title>Consulta de Material | NEXO</title>
 <style>
-:root{font-family:Inter,'Segoe UI',Arial,sans-serif;color-scheme:light;--green:#08766d;--dark:#073d38;--ink:#193b35;--muted:#647b73}
+:root{font-family:Inter,'Segoe UI',Arial,sans-serif;color-scheme:light;--green:#08766d;--dark:#073d38;--ink:#193b35;--muted:#647b73;--line:#dbeae3;--paper:#fff}
 *{box-sizing:border-box}body{margin:0;min-height:100vh;background:#f1f7f4;color:var(--ink)}
-header{background:linear-gradient(118deg,#06443e,#087d70);padding:36px 18px 118px;text-align:center;color:#fff}
-.brand{font-size:12px;letter-spacing:.2em;font-weight:900;color:#b7f1d9}
-header h1{font-size:clamp(27px,5vw,39px);margin:17px 0 10px;letter-spacing:-.04em}
-header p{font-size:13px;line-height:1.65;color:#d1eee4;margin:0}
-main{max-width:620px;margin:-77px auto 0;padding:0 18px 40px;position:relative}
-.card{background:white;border:1px solid #dbeae3;border-radius:18px;box-shadow:0 18px 38px #0d4d3c17;padding:30px}
-.kicker{font-size:11px;letter-spacing:.15em;font-weight:900;color:#087d70}
-.icone{display:grid;place-items:center;width:50px;height:50px;background:#e5f6ed;color:#086b58;border-radius:15px;font-size:24px;margin-bottom:20px}
-h2{font-size:24px;letter-spacing:-.03em;margin:11px 0 18px}
-.planejadores{display:grid;gap:9px;margin-bottom:22px}
-.nome{border:1px solid #d8e9df;background:#f6fbf8;border-radius:11px;padding:14px 16px;font-size:16px;font-weight:800;overflow-wrap:anywhere}
+header{background:linear-gradient(118deg,#102a26,#075b55);padding:30px 18px 105px;text-align:center;color:#fff}
+.brand{font-size:11px;letter-spacing:.19em;font-weight:900;color:#b7e7d8;text-transform:uppercase}
+header h1{font-size:clamp(25px,5vw,36px);margin:14px 0 8px;letter-spacing:-.04em}
+header p{font-size:13px;line-height:1.6;color:#d1eee4;margin:0}
+main{max-width:760px;margin:-68px auto 0;padding:0 16px 35px;position:relative}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:17px;box-shadow:0 18px 38px #0d4d3c17;padding:clamp(20px,4vw,30px)}
+.kicker{font-size:10px;letter-spacing:.14em;font-weight:900;color:var(--green);text-transform:uppercase}
+.icon{display:grid;place-items:center;width:46px;height:46px;background:#e5f6ed;color:#086b58;border-radius:13px;font-size:22px;margin-bottom:17px}
+h2{font-size:23px;letter-spacing:-.03em;margin:9px 0 16px}
+.muted{font-size:13px;color:var(--muted);line-height:1.7}
+.planejadores{display:grid;gap:9px;margin:16px 0 20px}
+.nome{border:1px solid #d8e9df;background:#f6fbf8;border-radius:10px;padding:13px 15px;font-size:15px;font-weight:800;overflow-wrap:anywhere}
 .nome.vazio{color:#8b8270;background:#fffbf1;border-color:#efe2bf}
-.separador{border:0;border-top:1px solid #e0eae4;margin:23px 0}
-.descricao{font-size:13px;color:var(--muted);line-height:1.75;margin:0 0 20px}
-.botao{display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;text-align:center;background:linear-gradient(110deg,#075a52,#098a78);color:white;border-radius:12px;padding:17px 14px;font-size:14px;font-weight:900;box-shadow:0 7px 15px #087d7024}
+.separador{border:0;border-top:1px solid #e0eae4;margin:22px 0}
+.botao{display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;text-align:center;background:linear-gradient(110deg,#075a52,#098a78);color:white;border-radius:11px;padding:15px 14px;font-size:13px;font-weight:900;box-shadow:0 7px 15px #087d7024}
 .botao:hover,.botao:focus-visible{background:#064b44;outline-offset:4px}
-.aviso{font-size:11px;line-height:1.6;color:#71847b;margin:15px 0 0;text-align:center}
-footer{text-align:center;color:#83998e;font-size:11px;letter-spacing:.07em;padding:8px 18px 30px}
-@media(max-width:520px){header{padding-top:27px}.card{padding:22px}h2{font-size:22px}}
+.aviso{font-size:11px;line-height:1.6;color:#71847b;margin:14px 0 0;text-align:center}
+footer{text-align:center;color:#83998e;font-size:10px;letter-spacing:.07em;padding:8px 18px 28px}
+/* Consulta de caixa */
+.meta{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px}
+.pill{display:inline-flex;align-items:center;background:#eaf5ef;border:1px solid #d4e8dc;color:#145b4d;border-radius:999px;padding:6px 10px;font-size:10px;font-weight:900;letter-spacing:.04em}
+.note{font-size:12px;color:var(--muted);line-height:1.55;margin:0 0 14px}
+.table-wrap{overflow-x:auto;border:1px solid #dce9e2;border-radius:10px}
+.table{width:100%;border-collapse:collapse;font-size:12px;background:#fff}
+.table th,.table td{padding:10px 11px;border-bottom:1px solid #e5eee9;text-align:left;vertical-align:top}
+.table th{background:#f1f7f4;color:#49665d;font-size:9px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.table tr:last-child td{border-bottom:0}.table .code{font-weight:900;white-space:nowrap;color:#142c27}.table .qty{text-align:center;font-weight:900;width:54px}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+.primary,.secondary{border:0;border-radius:10px;padding:13px 16px;font:inherit;font-size:12px;font-weight:900;cursor:pointer}
+.primary{background:linear-gradient(110deg,#075a52,#098a78);color:#fff}.secondary{background:#eef5f1;color:#23483e;border:1px solid #d8e7df}
+.error{background:#fff8ed;border:1px solid #f0dfbf;color:#795a25;border-radius:10px;padding:13px;font-size:13px;line-height:1.6}
+.box-sheet{background:#fff;color:#14251f;border:1.4px solid #243a33;border-radius:2mm;padding:6mm;width:100%;margin:0 auto}
+.box-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8mm;border-bottom:1.2mm solid #14251f;padding-bottom:3mm;margin-bottom:3mm}
+.box-brand{font-size:8pt;letter-spacing:.12em;font-weight:900;color:#315c4e}.box-title{font-size:16pt;line-height:1.05;font-weight:950;letter-spacing:-.03em;margin-top:1.5mm}.box-id{font-size:12pt;font-weight:950;text-align:right;overflow-wrap:anywhere}
+.box-location{font-size:9pt;font-weight:800;margin:2mm 0 3mm}.box-note{font-size:8pt;color:#46574f;margin:0 0 2mm}
+.box-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:8pt}.box-table th{font-size:6.5pt;text-transform:uppercase;letter-spacing:.07em;text-align:left;border-bottom:.5mm solid #14251f;padding:1.8mm 1.5mm}.box-table td{border-bottom:.25mm solid #b9c7c0;padding:1.7mm 1.5mm;vertical-align:top;overflow-wrap:anywhere}.box-table .box-code{font-weight:950;width:25%}.box-table .box-qty{font-weight:950;text-align:center;width:10%}.box-foot{display:flex;justify-content:space-between;gap:4mm;margin-top:3mm;padding-top:2mm;border-top:.25mm solid #8b9b92;font-size:6.5pt;color:#53665d}
+@page boxpage{size:150mm 100mm;margin:0}
+.box-sheet{page:boxpage}
+@media(max-width:520px){header{padding-top:25px}.table{font-size:11px}.table th,.table td{padding:8px}}
+@media print{
+ body{background:#fff!important;color:#111!important}
+ body.box-mode header,body.box-mode footer,body.box-mode .screen-only{display:none!important}
+ body.box-mode main{max-width:none;margin:0;padding:0}
+ body.box-mode .card{border:0;border-radius:0;box-shadow:none;padding:0}
+ body.box-mode .box-sheet{border:1px solid #111;border-radius:0;width:150mm;min-height:100mm;margin:0;padding:6mm;break-inside:avoid}
+ body.box-mode .actions,body.box-mode .note.screen-only{display:none!important}
+ body.planner-mode header,body.planner-mode footer{display:none!important}
+ body.planner-mode main{margin:0;padding:0;max-width:none}
+ body.planner-mode .card{box-shadow:none;border:0}
+}
 </style>
 </head>
 <body>
 <header>
-  <div class="brand">CKTR SERVIÇOS · GMP</div>
-  <h1>Requisição de material</h1>
-  <p>Consulte o planejador responsável e acesse o aplicativo de requisição.</p>
+  <div class="brand">NEXO STUDIO · IDENTIFICAÇÃO</div>
+  <h1 id="pageTitle">Consulta de material</h1>
+  <p id="pageSubtitle">Informações vinculadas ao QR Code.</p>
 </header>
 <main>
-  <section class="card" aria-label="Orientações para requisição">
-    <div class="icone" aria-hidden="true">▤</div>
-    <div class="kicker">RESPONSÁVEL PELO PLANEJAMENTO</div>
-    <h2>Planejador responsável</h2>
-    <div class="planejadores" id="planejadores" aria-live="polite"><div class="nome vazio">Carregando...</div></div>
-    <hr class="separador">
-    <p class="descricao">Para consultar as informações atualizadas e solicitar o material, abra o aplicativo GMP com sua conta corporativa.</p>
-    <a class="botao" id="abrirPowerApps" target="_blank" rel="noopener noreferrer">ABRIR POWER APPS <span aria-hidden="true">↗</span></a>
-    <p class="aviso">O acesso ao aplicativo depende das permissões da sua conta. Este QR Code não exibe saldos, códigos, OM, pedidos ou reservas.</p>
+  <section class="card" id="content" aria-live="polite">
+    <div class="icon" aria-hidden="true">▤</div>
+    <div class="kicker">Consulta</div>
+    <h2>Carregando informações</h2>
+    <p class="muted">Aguarde enquanto os dados do QR Code são interpretados.</p>
   </section>
 </main>
-<footer>CKTR SERVIÇOS · CENTRAL DE ETIQUETAS</footer>
+<footer>NEXO STUDIO · CONSULTA DE MATERIAL</footer>
 <script>
 'use strict';
 const POWERAPPS_URL='https://apps.powerapps.com/play/e/default-7893571b-6c2c-4cef-b4da-7d4b266a0626/a/b92c9e4c-d087-4eab-a810-0657857e19c5?tenantId=7893571b-6c2c-4cef-b4da-7d4b266a0626&hint=1c6c957c-f761-4cf1-8e24-521d4380711d&skipMobileRedirect=1&source=sharebutton&sourcetime=1794687950787';
-document.getElementById('abrirPowerApps').href=POWERAPPS_URL;
+const $=id=>document.getElementById(id);
+const root=$('content');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function nomesDoPayload(v){
-  const nomes=[];
-  function add(x){
-    if(x===null||x===undefined)return;
-    if(Array.isArray(x)){
-      for(const parte of x){if(Array.isArray(parte))add(parte[0]);else add(parte)}
-    }else if(typeof x==='object')add(x.Nome??x.nome??x.Value??x.Título??x.PLANEJADOR);
-    else for(const nome of String(x).split(/\s*\|\s*/))if(nome.trim())nomes.push(nome.trim());
-  }
-  add(v);
-  const vistos=new Set();
-  return nomes.filter(n=>{const k=n.toLocaleUpperCase('pt-BR');if(vistos.has(k))return false;vistos.add(k);return true});
+ const nomes=[];
+ function add(x){
+  if(x===null||x===undefined)return;
+  if(Array.isArray(x)){for(const parte of x){if(Array.isArray(parte))add(parte[0]);else add(parte)};return;}
+  if(typeof x==='object'){add(x.Nome??x.nome??x.Value??x.Título??x.PLANEJADOR);return;}
+  for(const nome of String(x).split(/\s*\|\s*/))if(nome.trim())nomes.push(nome.trim());
+ }
+ add(v);const vistos=new Set();
+ return nomes.filter(n=>{const k=n.toLocaleUpperCase('pt-BR');if(vistos.has(k))return false;vistos.add(k);return true});
 }
 function extrairPlanejadores(obj){
-  if(!obj||typeof obj!=='object')return [];
-  let dados=obj.p??obj.Planejadores??obj.PLANEJADORES??obj.Planejador??obj.PLANEJADOR;
-  if(dados===undefined){
-    const r=obj.r??obj.ResumoSaldo??obj.RESUMO_SALDO;
-    dados=Array.isArray(r)?r[3]:(r?.Planejadores??r?.planejadores);
-  }
-  return nomesDoPayload(dados);
+ if(!obj||typeof obj!=='object')return [];
+ let dados=obj.p??obj.Planejadores??obj.PLANEJADORES??obj.Planejador??obj.PLANEJADOR;
+ if(dados===undefined){const r=obj.r??obj.ResumoSaldo??obj.RESUMO_SALDO;dados=Array.isArray(r)?r[3]:(r?.Planejadores??r?.planejadores);}
+ return nomesDoPayload(dados);
 }
 function decodificarBase64Url(s){
-  if(!/^[A-Za-z0-9_-]+$/.test(s))throw Error('QR inválido');
-  const n=s.replace(/-/g,'+').replace(/_/g,'/');
-  const b=atob(n+'='.repeat((4-n.length%4)%4));
-  return Uint8Array.from(b,c=>c.charCodeAt(0));
+ if(!/^[A-Za-z0-9_-]+$/.test(s))throw Error('QR inválido');
+ const n=s.replace(/-/g,'+').replace(/_/g,'/');const b=atob(n+'='.repeat((4-n.length%4)%4));
+ return Uint8Array.from(b,c=>c.charCodeAt(0));
 }
 async function carregarAntigo(z){
-  if(typeof DecompressionStream!=='function')return [];
-  const fluxo=new Blob([decodificarBase64Url(z)]).stream().pipeThrough(new DecompressionStream('deflate'));
-  const conteudo=await new Response(fluxo).text();
-  if(conteudo.length>30000)throw Error('Ficha muito extensa');
-  return extrairPlanejadores(JSON.parse(conteudo));
+ if(typeof DecompressionStream!=='function')return [];
+ const fluxo=new Blob([decodificarBase64Url(z)]).stream().pipeThrough(new DecompressionStream('deflate'));
+ const conteudo=await new Response(fluxo).text();if(conteudo.length>30000)throw Error('Ficha muito extensa');
+ return extrairPlanejadores(JSON.parse(conteudo));
+}
+function mostrarErro(msg){root.innerHTML='<p class="error">'+esc(msg)+'</p>';}
+function renderCaixa(data){
+ if(!data||data.v!==1||!data.id||!Array.isArray(data.items)||!data.items.length)throw Error('Os dados desta caixa estão inválidos ou incompletos.');
+ if(data.items.length>25)throw Error('Esta caixa ultrapassa o limite de 25 materiais por QR Code.');
+ const itens=data.items.map((it,i)=>({c:String(it?.c??'').slice(0,45),d:String(it?.d??'').slice(0,100),q:Math.max(1,Math.min(99999,Number(it?.q)||1))}));
+ if(itens.some(x=>!x.c||!x.d))throw Error('Há material sem código ou descrição no QR Code.');
+ document.body.classList.add('box-mode');
+ $('pageTitle').textContent='Caixa '+String(data.id).slice(0,50);
+ $('pageSubtitle').textContent='Relação de materiais armazenados nesta caixa.';
+ const rows=itens.map((it,i)=>`<tr><td>${i+1}</td><td class="box-code">${esc(it.c)}</td><td>${esc(it.d)}</td><td class="box-qty">${it.q}</td></tr>`).join('');
+ root.innerHTML=`<div class="box-sheet"><div class="box-head"><div><div class="box-brand">IDENTIFICAÇÃO DE CAIXA · NEXO STUDIO</div><div class="box-title">CONTEÚDO DA CAIXA</div></div><div class="box-id">${esc(data.id)}</div></div>${data.l?`<div class="box-location">LOCALIZAÇÃO: ${esc(data.l)}</div>`:''}${data.n?`<p class="box-note">${esc(data.n)}</p>`:''}<table class="box-table"><thead><tr><th style="width:7%">Nº</th><th style="width:25%">CÓDIGO SAP / PN</th><th>DESCRIÇÃO DO MATERIAL</th><th style="width:10%;text-align:center">QTD.</th></tr></thead><tbody>${rows}</tbody></table><div class="box-foot"><span>${itens.length} tipo(s) de material</span><span>Consulta por QR Code · NEXO Studio</span></div></div><div class="actions screen-only"><button class="primary" id="pdf">Gerar placa em PDF</button><button class="secondary" id="print">Imprimir consulta</button></div><p class="note screen-only" style="margin-top:12px">Ao clicar em <b>Gerar placa em PDF</b>, escolha <b>Salvar como PDF</b> na janela de impressão. Formato da placa: 150 × 100 mm.</p>`;
+ const imprimir=()=>window.print();$('pdf').addEventListener('click',imprimir);$('print').addEventListener('click',imprimir);
+}
+function renderPlanejadores(nomes){
+ document.body.classList.add('planner-mode');
+ $('pageTitle').textContent='Requisição de material';
+ $('pageSubtitle').textContent='Consulte o planejador responsável e acesse o aplicativo de requisição.';
+ const cards=nomes.length?nomes.map(n=>`<div class="nome">${esc(n)}</div>`).join(''):'<div class="nome vazio">Planejador não informado</div>';
+ root.innerHTML=`<div class="icon" aria-hidden="true">▤</div><div class="kicker">RESPONSÁVEL PELO PLANEJAMENTO</div><h2>Planejador responsável</h2><div class="planejadores">${cards}</div><hr class="separador"><p class="muted">Para consultar as informações atualizadas e solicitar o material, abra o aplicativo GMP com sua conta corporativa.</p><a class="botao" id="abrirPowerApps" href="${POWERAPPS_URL}" target="_blank" rel="noopener noreferrer">ABRIR POWER APPS <span aria-hidden="true">↗</span></a><p class="aviso">O acesso ao aplicativo depende das permissões da sua conta. Este QR Code não exibe saldos, códigos, OM, pedidos ou reservas.</p>`;
 }
 async function iniciar(){
-  const hash=new URLSearchParams(location.hash.replace(/^#/,''));
-  const query=new URLSearchParams(location.search);
-  let nomes=[];
-  try{
-    // v4: QR compacto com nome(s) no fragmento. Compatibilidade com QR antigo ?z= e ?dados=.
-    const p=hash.get('p')??query.get('p');
-    if(p!==null)nomes=nomesDoPayload(p);
-    else if(query.has('z'))nomes=await carregarAntigo(query.get('z'));
-    else if(query.has('dados'))nomes=extrairPlanejadores(JSON.parse(query.get('dados')));
-  }catch(e){nomes=[];}
-  const destino=document.getElementById('planejadores');destino.replaceChildren();
-  if(!nomes.length){
-    const el=document.createElement('div');el.className='nome vazio';el.textContent='Planejador não informado';destino.append(el);
-  }else{
-    for(const nome of nomes){const el=document.createElement('div');el.className='nome';el.textContent=nome;destino.append(el)}
+ const hash=new URLSearchParams(location.hash.replace(/^#/,''));
+ const query=new URLSearchParams(location.search);
+ try{
+  // Fluxo 1: QR de caixa. Os dados viajam no fragmento e não são enviados ao servidor.
+  const caixa=hash.get('caixa')??query.get('caixa');
+  if(caixa!==null){if(caixa.length>18000)throw Error('QR de caixa muito extenso.');renderCaixa(JSON.parse(caixa));return;}
+  // Fluxo 2: QR de etiqueta normal, que informa o(s) planejador(es).
+  let nomes=[];const p=hash.get('p')??query.get('p');
+  if(p!==null)nomes=nomesDoPayload(p);
+  else if(query.has('z'))nomes=await carregarAntigo(query.get('z'));
+  else if(hash.has('dados')||query.has('dados')){
+   const raw=hash.get('dados')??query.get('dados');if(raw.length>30000)throw Error('Ficha muito extensa.');nomes=extrairPlanejadores(JSON.parse(raw));
   }
+  renderPlanejadores(nomes);
+ }catch(e){mostrarErro(e?.message||'Não foi possível interpretar os dados do QR Code.');}
 }
 iniciar();
 </script>
