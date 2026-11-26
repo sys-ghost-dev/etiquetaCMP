@@ -3955,104 +3955,23 @@ updateQueue();if(!initial?.length)refresh();openPrinterWizard();
 
 </script>
 
-<style id="nexo-v69-box-module">
-.v69-tab{border:1px solid var(--ge-line)!important;background:var(--ge-panel)!important;color:var(--ge-muted)!important;border-radius:12px!important;padding:10px 13px!important;font-weight:850!important}
-.v69-tab[aria-selected="true"]{background:linear-gradient(120deg,rgba(31,145,190,.2),rgba(32,173,133,.17))!important;border-color:var(--ge-primary)!important;color:var(--ge-text)!important}
-.v69-panel{margin-top:14px;border:1px solid var(--ge-line);border-radius:16px;background:var(--ge-card,var(--ge-elevated));padding:clamp(14px,2vw,22px);color:var(--ge-text)}
-.v69-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(220px,.65fr);gap:16px}
-.v69-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.v69-fields label{display:grid;gap:5px;font-size:11px;font-weight:800;color:var(--ge-muted)}
-.v69-fields input,.v69-fields textarea,.v69-fields select{width:100%;min-width:0;border:1px solid var(--ge-line);border-radius:9px;background:var(--ge-panel);color:var(--ge-text);padding:10px;font:inherit}
-.v69-fields textarea{min-height:170px;resize:vertical;line-height:1.5}
-.v69-full{grid-column:1/-1}
-.v69-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.v69-actions button{border:1px solid var(--ge-line);border-radius:9px;padding:10px 13px;background:var(--ge-panel);color:var(--ge-text);font-weight:850;cursor:pointer}
-.v69-actions .primary{background:linear-gradient(110deg,#147fbd,#128b75);color:white;border:0}
-.v69-qr-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border:1px dashed var(--ge-line);border-radius:13px;padding:16px;min-height:260px;text-align:center}
-.v69-qr-card svg{width:min(100%,220px);height:auto;background:white;padding:9px;shape-rendering:crispEdges}
-.v69-qr-card p{font-size:11px;color:var(--ge-muted);line-height:1.5;margin:0}
-.v69-help{font-size:11px;color:var(--ge-muted);line-height:1.6}
-.v69-table{width:100%;border-collapse:collapse;font-size:11px;margin-top:12px}
-.v69-table th,.v69-table td{padding:8px;border-bottom:1px solid var(--ge-line);text-align:left}
-.v69-table th{color:var(--ge-muted);font-size:10px;text-transform:uppercase}
-@media(max-width:720px){.v69-grid{grid-template-columns:1fr}.v69-fields{grid-template-columns:1fr}.v69-full{grid-column:auto}}
+<style id="nexo-v69-box-launch">
+.v69-tab{display:inline-flex!important;align-items:center;justify-content:center;gap:8px;text-decoration:none!important;border:1px solid var(--ge-line)!important;background:var(--ge-panel)!important;color:var(--ge-muted)!important;border-radius:12px!important;padding:10px 13px!important;font-weight:850!important;cursor:pointer}
+.v69-tab:hover,.v69-tab:focus-visible{background:linear-gradient(120deg,rgba(31,145,190,.2),rgba(32,173,133,.17))!important;border-color:var(--ge-primary)!important;color:var(--ge-text)!important;outline-offset:3px}
+.v69-tab .v69-launch-mark{font-size:13px;opacity:.8}
 </style>
-<script id="nexo-v69-box-module">
-(()=> {
- const $=id=>document.getElementById(id);
+<script id="nexo-v69-box-launch">
+(()=>{
  const tabs=document.querySelector('.v6-tabs');
- const panes=document.querySelector('.v6-enterprise');
- if(!tabs||!panes||!window.NexoV6)return;
- const tab=document.createElement('button');
- tab.type='button';tab.className='v6-tab v69-tab';tab.dataset.v6Tab='boxes';tab.setAttribute('role','tab');tab.setAttribute('aria-selected','false');tab.textContent='5. Caixas & QR';
- tabs.append(tab);
- const pane=document.createElement('div');pane.className='v6-pane';pane.dataset.v6Pane='boxes';pane.hidden=true;
- pane.innerHTML=`
- <section class="v69-panel">
-  <div class="ge-overline">RASTREABILIDADE DE CAIXAS</div>
-  <h2 style="margin:6px 0 5px;font-size:clamp(20px,3vw,27px)">Monte uma caixa e gere seu QR Code</h2>
-  <p class="v69-help">Cadastre os materiais que estão dentro da caixa. O QR abrirá a página <b>material.html</b> com a lista de conteúdo e a opção de gerar uma placa em PDF.</p>
-  <div class="v69-grid">
-   <div>
-    <div class="v69-fields">
-     <label>Identificação da caixa<input id="v69-box-id" maxlength="50" placeholder="Ex.: CX-ALMOX-001"></label>
-     <label>Local / endereço<input id="v69-box-location" maxlength="100" placeholder="Ex.: Rua A · Módulo 02"></label>
-     <label class="v69-full">Descrição da caixa (opcional)<input id="v69-box-note" maxlength="160" placeholder="Ex.: Componentes elétricos de reposição"></label>
-     <label class="v69-full">Materiais dentro da caixa
-      <textarea id="v69-box-items" placeholder="Um material por linha, no formato:&#10;Código SAP | Descrição | Quantidade&#10;13121750 | Isolador elétrico 34kV | 4&#10;15457300 | Chave seccionadora | 2"></textarea>
-     </label>
-    </div>
-    <div class="v69-actions"><button class="primary" id="v69-generate">Gerar QR da caixa</button><button id="v69-clear">Limpar</button></div>
-    <p class="v69-help">Limite recomendado: até 25 itens por caixa e descrições objetivas. Os dados são incorporados ao link do QR; não há banco de dados remoto. Se o conteúdo mudar, gere e cole uma nova etiqueta QR na caixa.</p>
-   </div>
-   <div class="v69-qr-card" id="v69-qr-card"><div style="font-size:36px">▦</div><strong>Seu QR aparecerá aqui</strong><p>Preencha a caixa e os materiais para criar o código de consulta.</p></div>
-  </div>
-  <div id="v69-result" hidden></div>
- </section>`;
- panes.append(pane);
- function selectTab(name){
-  document.querySelectorAll('[data-v6-tab]').forEach(x=>x.setAttribute('aria-selected',String(x.dataset.v6Tab===name)));
-  document.querySelectorAll('[data-v6-pane]').forEach(x=>x.hidden=x.dataset.v6Pane!==name);
- }
- tab.addEventListener('click',()=>selectTab('boxes'));
- document.querySelectorAll('[data-v6-tab]').forEach(x=>{if(x!==tab)x.addEventListener('click',()=>selectTab(x.dataset.v6Tab));});
- $('v69-clear').addEventListener('click',()=>{
-  ['v69-box-id','v69-box-location','v69-box-note','v69-box-items'].forEach(id=>$(id).value='');
-  $('v69-qr-card').innerHTML='<div style="font-size:36px">▦</div><strong>Seu QR aparecerá aqui</strong><p>Preencha a caixa e os materiais para criar o código de consulta.</p>';
-  $('v69-result').hidden=true;
- });
- $('v69-generate').addEventListener('click',()=>{
-  try{
-   const boxId=$('v69-box-id').value.trim(),loc=$('v69-box-location').value.trim(),note=$('v69-box-note').value.trim();
-   if(!boxId)throw Error('Informe a identificação da caixa.');
-   const lines=$('v69-box-items').value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
-   if(!lines.length)throw Error('Informe pelo menos um material.');
-   if(lines.length>25)throw Error('Para manter o QR legível, limite a caixa a 25 materiais.');
-   const items=lines.map((line,i)=>{
-    const parts=line.split('|').map(x=>x.trim());
-    if(parts.length<2||!parts[0]||!parts[1])throw Error(`Linha ${i+1}: use Código SAP | Descrição | Quantidade.`);
-    const qty=parts[2]||'1';if(!/^\d{1,5}$/.test(qty))throw Error(`Linha ${i+1}: quantidade inválida.`);
-    return {c:parts[0].slice(0,45),d:parts[1].slice(0,100),q:Number(qty)};
-   });
-   const payload={v:1,id:boxId.slice(0,50),l:loc.slice(0,100),n:note.slice(0,160),items};
-   const base=location.href.split('#')[0].replace(/index\.html?$/i,'');
-   const url=base+'material.html#caixa='+encodeURIComponent(JSON.stringify(payload));
-   const svg=window.NexoV6.createQR(url);
-   const qrCard=$('v69-qr-card');qrCard.innerHTML=svg;
-   const q=qrCard.querySelector('svg');q.setAttribute('role','img');q.setAttribute('aria-label','QR Code de consulta da caixa '+boxId);
-   const caption=document.createElement('strong');caption.textContent=boxId;
-   const desc=document.createElement('p');desc.textContent=`${items.length} materiais · ${loc||'Local não informado'}`;
-   const link=document.createElement('textarea');link.readOnly=true;link.value=url;link.style.cssText='width:100%;min-height:54px;font-size:9px;overflow-wrap:anywhere;background:var(--ge-panel);color:var(--ge-text);border:1px solid var(--ge-line);border-radius:7px;padding:7px';
-   qrCard.append(caption,desc,link);
-   const result=$('v69-result');result.hidden=false;result.innerHTML='<div class="v69-actions"><button class="primary" id="v69-open">Abrir material.html</button><button id="v69-copy">Copiar link do QR</button><button id="v69-download">Baixar QR em SVG</button></div>';
-   $('v69-open').addEventListener('click',()=>window.open(url,'_blank','noopener'));
-   $('v69-copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(url);alert('Link copiado.')}catch(e){link.select();document.execCommand('copy');alert('Link copiado.')}});
-   $('v69-download').addEventListener('click',()=>{
-    const blob=new Blob([svg],{type:'image/svg+xml;charset=utf-8'}),a=document.createElement('a'),u=URL.createObjectURL(blob);
-    a.href=u;a.download='QR_'+boxId.replace(/[^a-z0-9_-]/gi,'_')+'.svg';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);
-   });
-  }catch(e){alert(e.message||'Não foi possível gerar o QR Code.')}
- });
+ if(!tabs||!window.NexoV6)return;
+ const link=document.createElement('a');
+ link.className='v6-tab v69-tab';
+ link.href=new URL('caixa.html',location.href).href;
+ link.target='_blank';
+ link.rel='noopener';
+ link.setAttribute('aria-label','Abrir formulário de cadastro de caixa e geração de QR Code em uma nova janela');
+ link.innerHTML='Caixa QR Code <span class="v69-launch-mark" aria-hidden="true">↗</span>';
+ tabs.append(link);
 })();
 </script>
 
